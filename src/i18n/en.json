@@ -9,10 +9,8 @@
     "nav_contribute": "Contribute",
     "home_aria": "The Dharma Commons, home",
     "theme_toggle": "Switch light and dark",
-
     "hero_title": "Teachings, kept in common.",
     "hero_lead": "Recorded Buddhist teachings, sealed by their contents and kept on Swarm.",
-
     "list_search_label": "Search teachings and transcripts",
     "list_search_placeholder": "A title, a teacher, a phrase",
     "list_filter_teacher": "Teacher",
@@ -29,16 +27,13 @@
     "card_taught": "Taught",
     "card_language": "Language",
     "card_duration": "Length",
-
     "format_audio": "Audio",
     "format_text": "Text",
     "format_video": "Video",
     "format_photo": "Photo",
-
     "lang_en": "English",
     "lang_fr": "French",
     "lang_bo": "Tibetan",
-
     "teaser_title": "Change a word, the fingerprint changes.",
     "teaser_lead": "Every file here has a fingerprint taken from its exact contents. Edit the line and watch it.",
     "teaser_original": "As recorded",
@@ -48,7 +43,6 @@
     "teaser_edit_label": "Edit this line",
     "teaser_source": "From the transcript of {title}, {date}.",
     "teaser_more": "How Swarm keeps a teaching",
-
     "detail_back": "All teachings",
     "detail_listen": "Listen",
     "detail_read": "Read",
@@ -69,7 +63,6 @@
     "detail_duration": "Length",
     "detail_formats": "Formats",
     "detail_about": "About this teaching",
-
     "check_title": "Check this copy",
     "check_intro": "Your browser fetches the file from Swarm and takes its fingerprint itself. No server of ours is involved.",
     "check_file": "File to check",
@@ -87,7 +80,6 @@
     "check_copy_hash": "Copy the fingerprint",
     "check_copied": "Copied",
     "check_self": "To check by hand: download the file, then run sha256sum on it and compare.",
-
     "panel_title": "Source and files",
     "panel_open": "Source and files",
     "panel_close": "Close",
@@ -106,7 +98,6 @@
     "panel_paid_for_value": "MetaProvide",
     "panel_paid_for_help": "Swarm storage is prepaid rent. MetaProvide buys the postage batch and its top-ups; centres and teachers pay nothing.",
     "panel_resolves_help": "A gateway reassembles the pieces from the Swarm network. If you run your own Bee node you can resolve the same reference directly.",
-
     "source_archive": "Archive",
     "source_publisher": "Publisher",
     "source_original_page": "Original page",
@@ -118,7 +109,6 @@
     "source_video_playlist": "Video playlist",
     "source_note": "Note",
     "source_detail": "Source detail",
-
     "how_title": "How Swarm keeps a teaching",
     "how_lead": "Four things happen between a voice in a room and a copy you can trust.",
     "how_step_recorded": "Recorded",
@@ -137,7 +127,6 @@
     "how_why_body": "Nalanda’s library burned in the twelfth century. Between 1966 and 1976 the monastery libraries of Tibet were destroyed, and much of what survives was carried into exile by hand. The people who keep these texts today, in Dharamsala and elsewhere, worry about the next fifty years.",
     "how_limits_title": "What it does not promise",
     "how_cta": "Check a teaching yourself",
-
     "about_title": "A library, held in common",
     "about_lead": "The Dharma Commons shares recorded teachings so they can be found, cited and checked beyond any one organisation.",
     "about_evident_title": "Tamper-evident, not tamper-proof",
@@ -148,7 +137,6 @@
     "about_privacy_body": "Only published teachings and their records are kept here. Registrations, attendance and anything that identifies a living participant are never stored on Swarm.",
     "about_review_title": "Approved before it is shared",
     "about_review_body": "Each teaching is packaged, checked and approved by the people responsible for it, with its rights recorded, before it appears in this library.",
-
     "contribute_title": "Preserve your teachings here",
     "contribute_lead": "For teachers and centres with recordings and transcripts worth keeping for the next generation.",
     "contribute_what_title": "What we ask for",
@@ -159,15 +147,18 @@
     "contribute_cost_body": "Nothing. MetaProvide pays for the storage.",
     "contribute_contact": "Write to us",
     "contribute_contact_missing": "Contact address to be announced",
-
     "footer_line": "Recorded teachings, kept in common.",
     "footer_powered": "Powered by MetaProvide",
     "footer_swarm": "Stored on the Swarm network",
     "footer_privacy": "No cookies, no tracking.",
-
     "notfound_title": "Nothing is kept at this address.",
     "notfound_body": "The page may have moved. The teachings are all in one place.",
-
     "search_results_title": "Phrases found inside transcripts",
-    "search_loading": "Searching transcripts…"
+    "search_loading": "Searching transcripts…",
+    "intro_step_recorded": "One teaching, gathered as files such as {file}.",
+    "intro_step_sealed": "Its exact bytes give it a fingerprint.",
+    "intro_step_spread": "Cut into chunks, held on many computers.",
+    "intro_step_found": "Gathered back and checked in your browser.",
+    "intro_skip": "Go to the teachings",
+    "intro_caption": "{file} from {title}, cut into chunks and held on {nodes} Swarm nodes. Scroll to watch it scatter."
 }

@@ -1,6 +1,7 @@
 ---
 import FingerprintDemo from '../components/islands/FingerprintDemo';
 import TeachingIndex, { type IndexItem } from '../components/islands/TeachingIndex';
+import ScatterIntro from '../components/ScatterIntro.astro';
 import { pick, t } from '../i18n';
 import Base from '../layouts/Base.astro';
 import { sha256Hex } from '../lib/sha256';
@@ -43,6 +44,13 @@ const indexMessages = pick([
 const fingerprintLine = 'Subdue your own mind thoroughly.';
 const lineSource = teachings.find((entry) => entry.data.transcript?.includes('Subdue your own mind thoroughly'));
 const lineHash = await sha256Hex(new TextEncoder().encode(fingerprintLine));
+// The intro scatters a real transcript file: the oldest teaching that has one.
+const introTeaching = [...teachings].reverse().find((entry) => entry.data.transcript);
+const introFile = introTeaching?.data.files.find((file) => file.kind === 'text');
+const introExcerpt =
+    introTeaching?.data.transcript?.replace(/^[=s]+/m, '').match(/So, good evening[^.]*./)?.[0] ??
+    introTeaching?.data.summary.title ??
+    '';
 const fingerprintMessages = pick([
     'teaser_original',
     'teaser_yours',
@@ -53,12 +61,17 @@ const fingerprintMessages = pick([
 ---
 
 <Base current="teachings">
-    <section class="hero" aria-labelledby="hero-title">
-        <div class="container hero__grid">
-            <h1 id="hero-title">{t('hero_title')}</h1>
-            <p class="lead">{t('hero_lead')}</p>
-        </div>
-    </section>
+    {
+        introTeaching && introFile ? (
+            <ScatterIntro
+                fileName={introFile.path}
+                fileBytes={introFile.bytes}
+                sha256={introFile.sha256}
+                excerpt={introExcerpt}
+                teachingTitle={introTeaching.data.summary.title}
+            />
+        ) : null
+    }
 
     <section id="teachings" aria-label={t('nav_teachings')}>
         <div class="container">

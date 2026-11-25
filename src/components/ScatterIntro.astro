@@ -1,0 +1,572 @@
+---
+/**
+ * The opening of the site: one real file, sealed with its fingerprint, cut into chunks
+ * that scatter onto Swarm nodes as the visitor scrolls. The base CSS draws the finished
+ * state (chunks resting in their nodes); the scroll choreography only runs where
+ * scroll-driven animations are supported and motion is welcome.
+ */
+import { t } from '../i18n';
+import { formatBytes } from '../lib/teachings';
+
+interface Props {
+    fileName: string;
+    fileBytes: number;
+    sha256: string;
+    /** Opening words of the real transcript, drawn on the sheet. */
+    excerpt: string;
+    teachingTitle: string;
+}
+
+const { fileName, fileBytes, sha256, excerpt, teachingTitle } = Astro.props;
+
+const view = { width: 800, height: 720 };
+const sheet = { x: 312, y: 204, width: 176, height: 228, header: 32 };
+const columns = 4;
+const rows = 6;
+const chunkWidth = sheet.width / columns;
+const chunkHeight = (sheet.height - sheet.header) / rows;
+const sheetCentre = { x: sheet.x + sheet.width / 2, y: sheet.y + sheet.height / 2 };
+
+// Isometric kernel (iso-glow): +x down-right, +y down-left, +z up.
+const cos30 = Math.cos(Math.PI / 6);
+const sin30 = Math.sin(Math.PI / 6);
+const iso = (x: number, y: number, z: number, ox: number, oy: number): [number, number] => [
+    (x - y) * cos30 + ox,
+    (x + y) * sin30 - z + oy,
+];
+const points = (list: [number, number][]) => list.map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`).join(' ');
+
+const nodeCount = 8;
+const nodeSize = 30;
+const nodeHeight = 22;
+const ring = { cx: 400, cy: 330, rx: 335, ry: 268 };
+
+const nodes = Array.from({ length: nodeCount }, (_, index) => {
+    const angle = (index / nodeCount) * Math.PI * 2 - Math.PI / 2 + Math.PI / nodeCount;
+    const cx = ring.cx + Math.cos(angle) * ring.rx;
+    const cy = ring.cy + Math.sin(angle) * ring.ry;
+    const s = nodeSize;
+    const h = nodeHeight;
+    const ox = cx;
+    const oy = cy - s * sin30 + h / 2;
+    const top = points([iso(0, 0, h, ox, oy), iso(s, 0, h, ox, oy), iso(s, s, h, ox, oy), iso(0, s, h, ox, oy)]);
+    const left = points([iso(0, s, h, ox, oy), iso(s, s, h, ox, oy), iso(s, s, 0, ox, oy), iso(0, s, 0, ox, oy)]);
+    const right = points([iso(s, 0, h, ox, oy), iso(s, s, h, ox, oy), iso(s, s, 0, ox, oy), iso(s, 0, 0, ox, oy)]);
+    const [topX, topY] = iso(s / 2, s / 2, h, ox, oy);
+    const [lockX, lockY] = iso(s, s / 2, h / 2, ox, oy);
+    return { index, top, left, right, topX, topY, lockX, lockY, centreX: cx, centreY: cy };
+});
+
+const links = nodes.flatMap((node, index) => {
+    const next = nodes[(index + 1) % nodeCount];
+    const across = nodes[(index + 3) % nodeCount];
+    return [{ from: node, to: next }, ...(index % 2 === 0 ? [{ from: node, to: across }] : [])];
+});
+
+const landing = [
+    [-9, -1],
+    [0, 4],
+    [9, -1],
+];
+
+const chunks = Array.from({ length: columns * rows }, (_, index) => {
+    const column = index % columns;
+    const row = Math.floor(index / columns);
+    const x = sheet.x + column * chunkWidth;
+    const y = sheet.y + sheet.header + row * chunkHeight;
+    const centreX = x + chunkWidth / 2;
+    const centreY = y + chunkHeight / 2;
+    // Spread neighbouring chunks onto different nodes, the way Swarm distributes by address.
+    const node = nodes[(index * 3) % nodeCount] ?? nodes[0];
+    const slot = landing[Math.floor(index / nodeCount) % landing.length] ?? [0, 0];
+    const dx = node.topX + slot[0] - centreX;
+    const dy = node.topY + slot[1] - centreY;
+    const sx = (centreX - sheetCentre.x) * 0.35;
+    const sy = (centreY - sheetCentre.y) * 0.35;
+    const order = (index * 7) % (columns * rows);
+    const start = 38 + order * 0.9;
+    return { x, y, dx, dy, sx, sy, start, end: start + 22 };
+});
+
+const lines = excerpt.split(/\s+/).reduce<string[]>((acc, word) => {
+    const last = acc[acc.length - 1];
+    if (last !== undefined && (last + word).length < 26) {
+        acc[acc.length - 1] = `${last} ${word}`;
+    } else {
+        acc.push(word);
+    }
+    return acc;
+}, []);
+
+const shortHash = `${sha256.slice(0, 8)}…${sha256.slice(-6)}`;
+const steps = [
+    { title: t('how_step_recorded'), body: t('intro_step_recorded', { file: fileName }) },
+    { title: t('how_step_sealed'), body: t('intro_step_sealed') },
+    { title: t('how_step_spread'), body: t('intro_step_spread') },
+    { title: t('how_step_found'), body: t('intro_step_found') },
+];
+---
+
+<section class="scatter" aria-labelledby="hero-title">
+    <div class="scatter__pin">
+        <div class="container scatter__grid">
+            <div class="scatter__text">
+                <h1 id="hero-title">{t('hero_title')}</h1>
+                <p class="lead">{t('hero_lead')}</p>
+                <ol class="scatter__steps">
+                    {
+                        steps.map((step) => (
+                            <li>
+                                <strong>{step.title}</strong>
+                                <span>{step.body}</span>
+                            </li>
+                        ))
+                    }
+                </ol>
+                <a class="btn btn--primary scatter__skip" href="#teachings">{t('intro_skip')}</a>
+            </div>
+            <figure class="scatter__figure">
+                <svg
+                    viewBox={`0 0 ${view.width} ${view.height}`}
+                    role="img"
+                    aria-labelledby="scatter-caption"
+                    data-testid="scatter-figure"
+                >
+                    <g class="scatter__links">
+                        {
+                            links.map((link) => (
+                                <line
+                                    x1={link.from.centreX.toFixed(1)}
+                                    y1={link.from.centreY.toFixed(1)}
+                                    x2={link.to.centreX.toFixed(1)}
+                                    y2={link.to.centreY.toFixed(1)}
+                                />
+                            ))
+                        }
+                    </g>
+
+                    <g class="scatter__sheet">
+                        <rect
+                            class="scatter__paper"
+                            x={sheet.x}
+                            y={sheet.y}
+                            width={sheet.width}
+                            height={sheet.height}
+                            rx="4"
+                        />
+                        <text class="scatter__filename" x={sheet.x + 10} y={sheet.y + 20}>{fileName}</text>
+                        <text class="scatter__size" x={sheet.x + sheet.width - 10} y={sheet.y + 20} text-anchor="end">
+                            {formatBytes(fileBytes)}
+                        </text>
+                        <line
+                            class="scatter__rule"
+                            x1={sheet.x}
+                            x2={sheet.x + sheet.width}
+                            y1={sheet.y + sheet.header}
+                            y2={sheet.y + sheet.header}
+                        />
+                    </g>
+
+                    <g class="scatter__seal" style={`--sx:${sheet.x + sheet.width}px;--sy:${sheet.y}px`}>
+                        <circle cx={sheet.x + sheet.width} cy={sheet.y + sheet.height} r="26" />
+                        <circle class="scatter__seal-inner" cx={sheet.x + sheet.width} cy={sheet.y + sheet.height} r="20" />
+                        <path
+                            d={`M${sheet.x + sheet.width - 9} ${sheet.y + sheet.height - 4}h18M${sheet.x + sheet.width - 9} ${sheet.y + sheet.height + 4}h18M${sheet.x + sheet.width - 4} ${sheet.y + sheet.height - 9}v18M${sheet.x + sheet.width + 4} ${sheet.y + sheet.height - 9}v18`}
+                        />
+                        <text class="scatter__hash" x={sheet.x + sheet.width + 34} y={sheet.y + sheet.height + 5}>
+                            {shortHash}
+                        </text>
+                    </g>
+
+                    <g class="scatter__nodes">
+                        {
+                            nodes.map((node) => (
+                                <g class="scatter__node" style={`--n:${node.index}`}>
+                                    <polygon class="face face--left" points={node.left} />
+                                    <polygon class="face face--right" points={node.right} />
+                                    <polygon class="face face--top" points={node.top} />
+                                    <g class="lock" transform={`translate(${node.lockX.toFixed(1)} ${node.lockY.toFixed(1)})`}>
+                                        <rect x="-4" y="-2" width="8" height="7" rx="1" />
+                                        <path d="M-2.5 -2v-2.5a2.5 2.5 0 0 1 5 0v2.5" />
+                                    </g>
+                                </g>
+                            ))
+                        }
+                    </g>
+
+                    <g class="scatter__chunks">
+                        {
+                            chunks.map((chunk, index) => (
+                                <g
+                                    class="chunk"
+                                    style={`--dx:${chunk.dx.toFixed(1)}px;--dy:${chunk.dy.toFixed(1)}px;--sx:${chunk.sx.toFixed(1)}px;--sy:${chunk.sy.toFixed(1)}px;--a:${chunk.start.toFixed(1)}%;--b:${chunk.end.toFixed(1)}%`}
+                                >
+                                    <rect x={chunk.x + 1} y={chunk.y + 1} width={chunkWidth - 2} height={chunkHeight - 2} rx="2" />
+                                    {(index % columns) < 3 ? (
+                                        <line
+                                            x1={chunk.x + 6}
+                                            x2={chunk.x + chunkWidth - (index % 2 === 0 ? 4 : 10)}
+                                            y1={chunk.y + chunkHeight / 2}
+                                            y2={chunk.y + chunkHeight / 2}
+                                        />
+                                    ) : null}
+                                </g>
+                            ))
+                        }
+                    </g>
+
+                    <g class="scatter__words" aria-hidden="true">
+                        {
+                            lines.slice(0, 9).map((line, index) => (
+                                <text x={sheet.x + 10} y={sheet.y + sheet.header + 18 + index * 19}>
+                                    {line}
+                                </text>
+                            ))
+                        }
+                    </g>
+                </svg>
+                <figcaption id="scatter-caption">
+                    {t('intro_caption', { file: fileName, title: teachingTitle, nodes: nodeCount })}
+                </figcaption>
+            </figure>
+        </div>
+    </div>
+</section>
+
+<style>
+    .scatter {
+        position: relative;
+    }
+    .scatter__pin {
+        padding-block: var(--space-2xl) var(--space-xl);
+    }
+    .scatter__grid {
+        display: grid;
+        grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+        gap: var(--space-2xl);
+        align-items: center;
+    }
+    .scatter__text {
+        display: grid;
+        gap: var(--space-lg);
+        justify-items: start;
+    }
+    .scatter__text h1 {
+        font-size: var(--text-display);
+        line-height: 0.98;
+        max-width: 12ch;
+    }
+    .scatter__text .lead {
+        color: var(--color-ink-2);
+        max-width: 34ch;
+    }
+    .scatter__steps {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: var(--space-sm);
+        border-top: var(--rule-hair) solid var(--color-rule);
+        padding-block-start: var(--space-md);
+        counter-reset: step;
+        max-width: 40ch;
+    }
+    .scatter__steps li {
+        display: grid;
+        grid-template-columns: 2ch minmax(0, 1fr);
+        column-gap: var(--space-sm);
+        counter-increment: step;
+        font-size: var(--text-sm);
+        color: var(--color-ink-2);
+    }
+    .scatter__steps li::before {
+        content: counter(step);
+        grid-row: span 2;
+        font-weight: 700;
+        color: var(--color-ink);
+        font-variant-numeric: tabular-nums;
+    }
+    .scatter__steps strong {
+        color: var(--color-ink);
+        font-weight: 600;
+        font-size: var(--text-md);
+    }
+    .scatter__figure {
+        margin: 0;
+        display: grid;
+        gap: var(--space-sm);
+    }
+    .scatter__figure svg {
+        width: 100%;
+        height: auto;
+        max-height: min(72vh, 640px);
+        overflow: visible;
+    }
+    .scatter__figure figcaption {
+        font-size: var(--text-sm);
+        color: var(--color-muted);
+        max-width: 60ch;
+    }
+
+    /* The drawing, in its finished state. */
+    svg * {
+        vector-effect: non-scaling-stroke;
+    }
+    .scatter__links line {
+        stroke: var(--color-rule);
+        stroke-width: 1;
+    }
+    .scatter__paper {
+        fill: var(--color-paper);
+        stroke: var(--color-ink);
+        stroke-width: 1;
+        stroke-dasharray: 4 4;
+        opacity: 0.55;
+    }
+    .scatter__rule {
+        stroke: var(--color-rule);
+    }
+    .scatter__filename,
+    .scatter__size,
+    .scatter__hash {
+        font-family: var(--font-outlier);
+        font-size: 11px;
+        fill: var(--color-ink);
+    }
+    .scatter__size {
+        fill: var(--color-muted);
+    }
+    .scatter__seal circle {
+        fill: var(--color-paper);
+        stroke: var(--color-ink);
+        stroke-width: 1.5;
+    }
+    .scatter__seal .scatter__seal-inner {
+        fill: var(--color-accent-soft);
+        stroke: var(--color-accent);
+    }
+    .scatter__seal path {
+        fill: none;
+        stroke: var(--color-accent-soft-ink);
+        stroke-width: 1.5;
+    }
+    .scatter__seal .scatter__hash {
+        fill: var(--color-ink-2);
+    }
+    .scatter__words {
+        opacity: 0;
+    }
+    .scatter__words text {
+        font-family: var(--font-read);
+        font-size: 12px;
+        fill: var(--color-ink-2);
+    }
+    .scatter__node .face {
+        stroke: var(--color-ink);
+        stroke-width: 1;
+        stroke-linejoin: round;
+    }
+    .scatter__node .face--top {
+        fill: var(--color-accent-soft);
+        stroke: var(--color-accent);
+    }
+    .scatter__node .face--left {
+        fill: var(--color-paper-2);
+    }
+    .scatter__node .face--right {
+        fill: var(--color-paper-3);
+    }
+    .scatter__node .lock rect,
+    .scatter__node .lock path {
+        fill: none;
+        stroke: var(--color-ink);
+        stroke-width: 1;
+    }
+    .chunk {
+        transform-box: fill-box;
+        transform-origin: center;
+        transform: translate(var(--dx), var(--dy)) scale(0.42);
+    }
+    .chunk rect {
+        fill: var(--color-paper);
+        stroke: var(--color-ink);
+        stroke-width: 1;
+    }
+    .chunk line {
+        stroke: var(--color-muted);
+        stroke-width: 1;
+    }
+
+    @media (max-width: 60rem) {
+        .scatter__grid {
+            grid-template-columns: minmax(0, 1fr);
+            gap: var(--space-xl);
+        }
+        .scatter__figure {
+            order: -1;
+        }
+        .scatter__pin {
+            padding-block: var(--space-xl);
+        }
+    }
+
+    /* Scroll choreography: the track is tall, the stage is pinned, the file scatters. */
+    @supports (animation-timeline: view()) {
+        @media (prefers-reduced-motion: no-preference) and (min-width: 60rem) {
+            .scatter {
+                height: 320vh;
+                view-timeline: --scatter block;
+            }
+            .scatter__pin {
+                position: sticky;
+                top: 64px;
+                min-height: calc(100vh - 64px);
+                display: grid;
+                align-items: center;
+                padding-block: var(--space-xl);
+            }
+            .scatter__steps li {
+                animation-name: step-on;
+                animation-timing-function: linear;
+                animation-fill-mode: both;
+                animation-timeline: --scatter;
+            }
+            .scatter__steps li:nth-child(1) {
+                animation-range: contain 0% contain 12%;
+            }
+            .scatter__steps li:nth-child(2) {
+                animation-range: contain 14% contain 28%;
+            }
+            .scatter__steps li:nth-child(3) {
+                animation-range: contain 34% contain 62%;
+            }
+            .scatter__steps li:nth-child(4) {
+                animation-range: contain 66% contain 86%;
+            }
+            @keyframes step-on {
+                from {
+                    opacity: 0.35;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            .scatter__paper {
+                animation-name: paper-fade;
+                animation-timing-function: linear;
+                animation-fill-mode: both;
+                animation-timeline: --scatter;
+                animation-range: contain 30% contain 58%;
+            }
+            @keyframes paper-fade {
+                from {
+                    opacity: 1;
+                }
+                to {
+                    opacity: 0.55;
+                }
+            }
+            .scatter__words {
+                animation-name: words-fade;
+                animation-timing-function: linear;
+                animation-fill-mode: both;
+                animation-timeline: --scatter;
+                animation-range: contain 22% contain 36%;
+            }
+            @keyframes words-fade {
+                from {
+                    opacity: 1;
+                }
+                to {
+                    opacity: 0;
+                }
+            }
+            .scatter__seal {
+                transform-box: fill-box;
+                transform-origin: center;
+                animation-name: seal-press;
+                animation-timing-function: linear;
+                animation-fill-mode: both;
+                animation-timeline: --scatter;
+                animation-range: contain 12% contain 24%;
+            }
+            @keyframes seal-press {
+                from {
+                    opacity: 0;
+                    transform: scale(1.6);
+                }
+                to {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+            .chunk {
+                animation-name: chunk-scatter;
+                animation-timing-function: linear;
+                animation-fill-mode: both;
+                animation-timeline: --scatter;
+                animation-range: contain var(--a) contain var(--b);
+            }
+            .chunk > * {
+                animation-name: chunk-cut;
+                animation-timing-function: linear;
+                animation-fill-mode: both;
+                animation-timeline: --scatter;
+                animation-range: contain 24% contain 34%;
+            }
+            @keyframes chunk-cut {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+            @keyframes chunk-scatter {
+                0% {
+                    transform: translate(0, 0) scale(1);
+                }
+                30% {
+                    transform: translate(var(--sx), var(--sy)) scale(0.85);
+                }
+                100% {
+                    transform: translate(var(--dx), var(--dy)) scale(0.42);
+                }
+            }
+            .scatter__nodes,
+            .scatter__links {
+                animation-name: network-in;
+                animation-timing-function: linear;
+                animation-fill-mode: both;
+                animation-timeline: --scatter;
+                animation-range: contain 28% contain 42%;
+            }
+            @keyframes network-in {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+            .scatter__node .face--top {
+                animation-name: node-lit;
+                animation-timing-function: linear;
+                animation-fill-mode: both;
+                animation-timeline: --scatter;
+                animation-range: contain 66% contain 80%;
+            }
+            @keyframes node-lit {
+                from {
+                    fill: var(--color-paper);
+                    stroke: var(--color-ink);
+                }
+                to {
+                    fill: var(--color-accent-soft);
+                    stroke: var(--color-accent);
+                }
+            }
+        }
+    }
+</style>
