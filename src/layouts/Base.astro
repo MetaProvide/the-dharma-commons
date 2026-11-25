@@ -1,0 +1,59 @@
+---
+import '@fontsource-variable/epilogue/wght.css';
+import '@fontsource-variable/newsreader/opsz.css';
+import '@fontsource/ibm-plex-mono/400.css';
+import '../styles/global.css';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { t } from '../i18n';
+
+interface Props {
+    title?: string;
+    description?: string;
+    current?: 'teachings' | 'how' | 'about' | 'contribute';
+    ogType?: 'website' | 'article';
+}
+
+const { title, description = t('site_description'), current, ogType = 'website' } = Astro.props;
+const siteName = t('site_name');
+const fullTitle = title ? `${title} · ${siteName}` : siteName;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL('/og.png', Astro.site);
+---
+
+<!doctype html>
+<html lang={Astro.currentLocale ?? 'en'}>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>{fullTitle}</title>
+        <meta name="description" content={description} />
+        <link rel="canonical" href={canonical} />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="sitemap" href="/sitemap-index.xml" />
+        <meta name="color-scheme" content="light dark" />
+        <meta property="og:site_name" content={siteName} />
+        <meta property="og:title" content={title ?? siteName} />
+        <meta property="og:description" content={description} />
+        <meta property="og:type" content={ogType} />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:image" content={ogImage} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <script is:inline>
+            try {
+                const saved = localStorage.getItem('tdc-theme');
+                if (saved === 'light' || saved === 'dark') {
+                    document.documentElement.dataset.theme = saved;
+                }
+            } catch {}
+        </script>
+    </head>
+    <body>
+        <a class="skip" href="#main">{t('skip_to_content')}</a>
+        <Header current={current} />
+        <main id="main" tabindex="-1">
+            <slot />
+        </main>
+        <Footer />
+    </body>
+</html>

@@ -1,0 +1,91 @@
+---
+import FingerprintDemo from '../components/islands/FingerprintDemo';
+import TeachingIndex, { type IndexItem } from '../components/islands/TeachingIndex';
+import { pick, t } from '../i18n';
+import Base from '../layouts/Base.astro';
+import { sha256Hex } from '../lib/sha256';
+import { formatDate, formatDuration, getTeachings, languageName } from '../lib/teachings';
+
+const teachings = await getTeachings();
+
+const items: IndexItem[] = teachings.map(({ id, data }) => ({
+    id,
+    href: `/teachings/${id}`,
+    title: data.summary.title,
+    teachers: data.summary.teacherNames,
+    taughtOn: data.summary.taughtOn,
+    taughtLabel: formatDate(data.summary.taughtOn),
+    language: data.summary.language,
+    languageLabel: languageName(data.summary.language),
+    formats: data.summary.formats.map((key) => ({ key, label: t(`format_${key}`) })),
+    durationLabel: formatDuration(data.summary.durationLabel),
+    haystack: [data.place, data.session, data.description].filter(Boolean).join(' '),
+}));
+
+const indexMessages = pick([
+    'list_search_label',
+    'list_search_placeholder',
+    'list_filter_teacher',
+    'list_filter_language',
+    'list_filter_format',
+    'list_filter_any',
+    'list_count_one',
+    'list_count_many',
+    'list_empty_title',
+    'list_empty_body',
+    'list_clear',
+    'list_transcript_matches',
+    'list_caption',
+    'search_loading',
+] as const);
+
+// The fingerprint line comes from a real, sealed transcript.
+const fingerprintLine = 'Subdue your own mind thoroughly.';
+const lineSource = teachings.find((entry) => entry.data.transcript?.includes('Subdue your own mind thoroughly'));
+const lineHash = await sha256Hex(new TextEncoder().encode(fingerprintLine));
+const fingerprintMessages = pick([
+    'teaser_original',
+    'teaser_yours',
+    'teaser_match',
+    'teaser_differs',
+    'teaser_edit_label',
+] as const);
+---
+
+<Base current="teachings">
+    <section class="hero" aria-labelledby="hero-title">
+        <div class="container hero__grid">
+            <h1 id="hero-title">{t('hero_title')}</h1>
+            <p class="lead">{t('hero_lead')}</p>
+        </div>
+    </section>
+
+    <section id="teachings" aria-label={t('nav_teachings')}>
+        <div class="container">
+            <TeachingIndex client:load items={items} messages={indexMessages} />
+        </div>
+    </section>
+
+    <section class="print" aria-labelledby="print-title">
+        <div class="container">
+            <div class="print__head">
+                <h2 id="print-title">{t('teaser_title')}</h2>
+                <p class="lead">{t('teaser_lead')}</p>
+            </div>
+            <FingerprintDemo client:visible line={fingerprintLine} lineHash={lineHash} messages={fingerprintMessages} />
+            <div class="print__foot">
+                {
+                    lineSource ? (
+                        <p>
+                            {t('teaser_source', {
+                                title: lineSource.data.summary.title,
+                                date: formatDate(lineSource.data.summary.taughtOn) ?? '',
+                            })}
+                        </p>
+                    ) : null
+                }
+                <a href="/how-it-works">{t('teaser_more')}</a>
+            </div>
+        </div>
+    </section>
+</Base>

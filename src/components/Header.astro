@@ -1,0 +1,60 @@
+---
+import { t } from '../i18n';
+
+interface Props {
+    current?: 'teachings' | 'how' | 'about' | 'contribute';
+}
+
+const { current } = Astro.props;
+const links = [
+    { key: 'teachings', href: '/#teachings', label: t('nav_teachings') },
+    { key: 'how', href: '/how-it-works', label: t('nav_how') },
+    { key: 'about', href: '/about', label: t('nav_about') },
+    { key: 'contribute', href: '/contribute', label: t('nav_contribute') },
+] as const;
+---
+
+<header class="slab">
+    <div class="container slab__inner">
+        <a class="wordmark" href="/" aria-label={t('home_aria')}>
+            <svg class="wordmark__seal" viewBox="0 0 32 32" aria-hidden="true">
+                <circle cx="16" cy="16" r="14.5" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
+                <path d="M9 13.5h14M9 18.5h14M13.5 9v14M18.5 9v14" fill="none" stroke="currentColor" stroke-width="1.5"></path>
+            </svg>
+            <span>{t('site_name')}</span>
+        </a>
+        <nav aria-label={t('nav_label')}>
+            <ul class="slab__links">
+                {
+                    links.map((link) => (
+                        <li>
+                            <a href={link.href} aria-current={current === link.key ? 'page' : undefined}>
+                                {link.label}
+                            </a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </nav>
+        <button type="button" class="theme-switch" data-theme-switch aria-label={t('theme_toggle')}>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.5"></circle><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"></path></svg>
+        </button>
+    </div>
+</header>
+
+<script>
+    const button = document.querySelector<HTMLButtonElement>('[data-theme-switch]');
+    button?.addEventListener('click', () => {
+        const root = document.documentElement;
+        const isDark =
+            root.dataset.theme === 'dark' ||
+            (!root.dataset.theme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        const next = isDark ? 'light' : 'dark';
+        root.dataset.theme = next;
+        try {
+            localStorage.setItem('tdc-theme', next);
+        } catch {
+            // Storage can be blocked; the switch still works for this page.
+        }
+    });
+</script>

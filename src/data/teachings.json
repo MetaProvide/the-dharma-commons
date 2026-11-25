@@ -1,0 +1,159 @@
+{
+    "$comment": "Snapshot of approved, ready records from the Joyma archive (stage.joyma.co/archive), taken 2026-11-25. Replace with the live Joyma API when it exists.",
+    "exportedAt": "2026-11-25T21:30:00Z",
+    "source": "https://stage.joyma.co/archive",
+    "teachings": [
+        {
+            "summary": {
+                "id": "01a0de3b-e9a9-711a-9b82-15021823b31c",
+                "title": "The need for Wisdom and Compassion",
+                "teacherNames": ["Kyabje Lama Thubten Zopa Rinpoche"],
+                "formats": ["audio", "text"],
+                "language": "en",
+                "taughtOn": "2006-06-03",
+                "durationLabel": "4:31:10"
+            },
+            "reference": "697080c3b6d473f23a62dd40231943ba203acae22297e00004ce8389244594ef",
+            "collectionUrl": "https://bzz.link/bzz/697080c3b6d473f23a62dd40231943ba203acae22297e00004ce8389244594ef/",
+            "postageStamp": "1eca54ec4039d5a6956f6745184d89434f189af977688a1f34c99dadd8d7c870",
+            "session": null,
+            "description": "Lama Zopa Rinpoche gave these teachings at Tara Institute in Melbourne on 2 and 3 June 2006, as part of a longer tour through Australia that included a month-long retreat in Adelaide. This is the teaching of 3 June.",
+            "place": "Tara Institute, Melbourne, Australia",
+            "archiveId": "1585",
+            "rights": "Transcript copyright Lama Yeshe Wisdom Archive. Audio copyright FPMT Inc. Published on Swarm with permission from FPMT. All rights reserved by the respective copyright holders; this publication grants no further licence.",
+            "packagedAt": "2026-09-18T21:50:08Z",
+            "packagedBy": "MetaProvide / Lotus - Swarm archive proof of concept",
+            "files": [
+                {
+                    "path": "audio.opus",
+                    "content_type": "audio/ogg",
+                    "kind": "audio",
+                    "bytes": 62821484,
+                    "gateway_url": "https://bzz.link/bzz/697080c3b6d473f23a62dd40231943ba203acae22297e00004ce8389244594ef/audio.opus",
+                    "sha256": "c6b7b704a164a2605e4127d0cb786ffebd65aef88d43bc82ad824ba81a643b01"
+                },
+                {
+                    "path": "transcript.txt",
+                    "content_type": "text/plain; charset=utf-8",
+                    "kind": "text",
+                    "bytes": 141561,
+                    "gateway_url": "https://bzz.link/bzz/697080c3b6d473f23a62dd40231943ba203acae22297e00004ce8389244594ef/transcript.txt",
+                    "sha256": "02c207a5adfa2cc853dcc0a081e95de6d12b541d0b4c778a8879f9d00a6b3095"
+                }
+            ],
+            "sources": [
+                {
+                    "role": "publisher",
+                    "value": "FPMT",
+                    "url": null
+                },
+                {
+                    "role": "original_page",
+                    "value": "https://fpmt.org/media/streaming/teachings-of-lama-zopa-rinpoche/lama-zopa-rinpoche-teachings-in-tara-institute-2006/",
+                    "url": "https://fpmt.org/media/streaming/teachings-of-lama-zopa-rinpoche/lama-zopa-rinpoche-teachings-in-tara-institute-2006/"
+                },
+                {
+                    "role": "download_audio",
+                    "value": "https://fpmt.box.com/v/TaraInstitute2006",
+                    "url": "https://fpmt.box.com/v/TaraInstitute2006"
+                },
+                {
+                    "role": "transcript_collection",
+                    "value": "https://fpmt.box.com/s/hedf78ci7a8223tkqrrg8z9brhcoh9at",
+                    "url": "https://fpmt.box.com/s/hedf78ci7a8223tkqrrg8z9brhcoh9at"
+                },
+                {
+                    "role": "transcript_archive",
+                    "value": "Lama Yeshe Wisdom Archive",
+                    "url": null
+                },
+                {
+                    "role": "video_playlist",
+                    "value": "https://www.youtube.com/playlist?list=PLd3YWIA0vLx-2OwelpTuYAX_XOmJfBO9t",
+                    "url": "https://www.youtube.com/playlist?list=PLd3YWIA0vLx-2OwelpTuYAX_XOmJfBO9t"
+                },
+                {
+                    "role": "note",
+                    "value": "FPMT publishes video of these teachings; the transcripts were typed from the original tapes, not from the videos, so video boundaries do not line up with transcript boundaries. The audio here is the FPMT MP3 release, joined in playing order.",
+                    "url": null
+                }
+            ]
+        },
+        {
+            "summary": {
+                "id": "01a0de3b-b3a3-7091-b081-8de378100db8",
+                "title": "Why we need a spiritual path",
+                "teacherNames": ["Kyabje Lama Thubten Zopa Rinpoche"],
+                "formats": ["audio", "text"],
+                "language": "en",
+                "taughtOn": "2006-06-02",
+                "durationLabel": "3:27:08"
+            },
+            "reference": "30b2a2de37790bbad8f8d8d5acd947d43a7848bdacd27e7bc61f68f332166697",
+            "collectionUrl": "https://bzz.link/bzz/30b2a2de37790bbad8f8d8d5acd947d43a7848bdacd27e7bc61f68f332166697/",
+            "postageStamp": "1eca54ec4039d5a6956f6745184d89434f189af977688a1f34c99dadd8d7c870",
+            "session": null,
+            "description": "Lama Zopa Rinpoche gave these teachings at Tara Institute in Melbourne on 2 and 3 June 2006, as part of a longer tour through Australia that included a month-long retreat in Adelaide. This is the teaching of 2 June.",
+            "place": "Tara Institute, Melbourne, Australia",
+            "archiveId": "1584",
+            "rights": "Transcript copyright Lama Yeshe Wisdom Archive. Audio copyright FPMT Inc. Published on Swarm with permission from FPMT. All rights reserved by the respective copyright holders; this publication grants no further licence.",
+            "packagedAt": "2026-09-18T21:50:07Z",
+            "packagedBy": "MetaProvide / Lotus - Swarm archive proof of concept",
+            "files": [
+                {
+                    "path": "audio.opus",
+                    "content_type": "audio/ogg",
+                    "kind": "audio",
+                    "bytes": 48352626,
+                    "gateway_url": "https://bzz.link/bzz/30b2a2de37790bbad8f8d8d5acd947d43a7848bdacd27e7bc61f68f332166697/audio.opus",
+                    "sha256": "7ea4aba1288fd86e52bebb95695df722bf3fb9688004f8c6da2f898a4cf13dd0"
+                },
+                {
+                    "path": "transcript.txt",
+                    "content_type": "text/plain; charset=utf-8",
+                    "kind": "text",
+                    "bytes": 91222,
+                    "gateway_url": "https://bzz.link/bzz/30b2a2de37790bbad8f8d8d5acd947d43a7848bdacd27e7bc61f68f332166697/transcript.txt",
+                    "sha256": "c47635198fe762eee437b378ff6e520817624717d8cc59c6fba13a605eb62540"
+                }
+            ],
+            "sources": [
+                {
+                    "role": "publisher",
+                    "value": "FPMT",
+                    "url": null
+                },
+                {
+                    "role": "original_page",
+                    "value": "https://fpmt.org/media/streaming/teachings-of-lama-zopa-rinpoche/lama-zopa-rinpoche-teachings-in-tara-institute-2006/",
+                    "url": "https://fpmt.org/media/streaming/teachings-of-lama-zopa-rinpoche/lama-zopa-rinpoche-teachings-in-tara-institute-2006/"
+                },
+                {
+                    "role": "download_audio",
+                    "value": "https://fpmt.box.com/v/TaraInstitute2006",
+                    "url": "https://fpmt.box.com/v/TaraInstitute2006"
+                },
+                {
+                    "role": "transcript_collection",
+                    "value": "https://fpmt.box.com/s/hedf78ci7a8223tkqrrg8z9brhcoh9at",
+                    "url": "https://fpmt.box.com/s/hedf78ci7a8223tkqrrg8z9brhcoh9at"
+                },
+                {
+                    "role": "transcript_archive",
+                    "value": "Lama Yeshe Wisdom Archive",
+                    "url": null
+                },
+                {
+                    "role": "video_playlist",
+                    "value": "https://www.youtube.com/playlist?list=PLd3YWIA0vLx-2OwelpTuYAX_XOmJfBO9t",
+                    "url": "https://www.youtube.com/playlist?list=PLd3YWIA0vLx-2OwelpTuYAX_XOmJfBO9t"
+                },
+                {
+                    "role": "note",
+                    "value": "FPMT publishes video of these teachings; the transcripts were typed from the original tapes, not from the videos, so video boundaries do not line up with transcript boundaries. The audio here is the FPMT MP3 release, joined in playing order.",
+                    "url": null
+                }
+            ]
+        }
+    ]
+}
