@@ -22,7 +22,7 @@ SCREENSHOTS=1 pnpm test tests/screenshots.spec.ts   # review screenshots into sc
 ## Data
 
 `src/data/teachings.json` is a snapshot of the approved, ready records from the Joyma archive (taken from
-`stage.joyma.co/archive` on 2026-11-25), in the shape of Joyma's public archive Data classes. Transcripts in
+`joyma.co/archive` on 2026-11-25, 11 teachings), in the shape of Joyma's public archive Data classes. Transcripts in
 `src/data/transcripts/` are the exact files stored on Swarm; the build refuses to run if one does not match its
 recorded SHA-256. The live Joyma API replaces the snapshot in a later step (see BRIEF.md § 2).
 
