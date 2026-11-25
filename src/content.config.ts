@@ -1,6 +1,6 @@
 import { defineCollection } from 'astro:content';
 import { createHash } from 'node:crypto';
-import { readFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { z } from 'astro/zod';
 import snapshot from './data/teachings.json';
@@ -74,25 +74,46 @@ export type TeachingSource = z.infer<typeof sourceSchema>;
 export type TeachingFormat = z.infer<typeof formatSchema>;
 
 /**
- * Reads the committed transcript for a teaching and refuses to build if it is not
- * byte-identical to the text file recorded on Swarm.
+ * Transcripts are copyrighted and are not kept in this public repository. The build reads
+ * them from Swarm (the same bytes the site lets visitors check), caches them outside git in
+ * `.cache/transcripts/`, and refuses any copy that is not byte-identical to the SHA-256
+ * recorded when the teaching was sealed.
  */
-async function readTranscript(id: string, files: { kind: string; sha256: string }[]): Promise<string | null> {
-    const expected = files.find((file) => file.kind === 'text')?.sha256;
-    if (!expected) {
+const transcriptCache = join(process.cwd(), '.cache', 'transcripts');
+
+const sha256 = (bytes: Uint8Array): string => createHash('sha256').update(bytes).digest('hex');
+
+async function readTranscript(
+    id: string,
+    files: { kind: string; sha256: string; gateway_url: string }[],
+): Promise<string | null> {
+    const textFile = files.find((file) => file.kind === 'text');
+    if (!textFile) {
         return null;
     }
-    let bytes: Buffer;
+    const cachePath = join(transcriptCache, `${textFile.sha256}.txt`);
+
     try {
-        bytes = await readFile(join(process.cwd(), 'src/data/transcripts', `${id}.txt`));
+        const cached = await readFile(cachePath);
+        if (sha256(cached) === textFile.sha256) {
+            return cached.toString('utf8');
+        }
     } catch {
-        return null;
+        // Not cached yet: fetch it from Swarm below.
     }
-    const actual = createHash('sha256').update(bytes).digest('hex');
-    if (actual !== expected) {
-        throw new Error(`Transcript for ${id} does not match its Swarm SHA-256 (${actual} != ${expected}).`);
+
+    const response = await fetch(textFile.gateway_url);
+    if (!response.ok) {
+        throw new Error(`Could not fetch the transcript for ${id} from Swarm (HTTP ${response.status}).`);
     }
-    return bytes.toString('utf8');
+    const bytes = new Uint8Array(await response.arrayBuffer());
+    const actual = sha256(bytes);
+    if (actual !== textFile.sha256) {
+        throw new Error(`Transcript for ${id} does not match its Swarm SHA-256 (${actual} != ${textFile.sha256}).`);
+    }
+    await mkdir(transcriptCache, { recursive: true });
+    await writeFile(cachePath, bytes);
+    return Buffer.from(bytes).toString('utf8');
 }
 
 const teachings = defineCollection({

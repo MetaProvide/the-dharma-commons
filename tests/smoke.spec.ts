@@ -12,7 +12,7 @@ const transcriptFile = withTranscript.files.find((file) => file.kind === 'text')
 if (!transcriptFile) {
     throw new Error('Expected a transcript file on the Tara Institute teaching.');
 }
-const transcriptBytes = readFileSync(join(process.cwd(), 'src/data/transcripts', `${withTranscript.summary.id}.txt`));
+const transcriptBytes = readFileSync(join(process.cwd(), '.cache/transcripts', `${transcriptFile.sha256}.txt`));
 const teachingPath = `/teachings/${withTranscript.summary.id}`;
 
 /** Fails the test on any console error or uncaught exception. */
@@ -168,7 +168,10 @@ test.describe('pages', () => {
             await page.goto(path);
             await expect(page.getByRole('heading', { level: 1 })).toHaveText(heading);
             if (path === '/contribute') {
-                await expect(page.getByRole('link', { name: 'hello@metaprovide.org' })).toHaveAttribute('href', 'mailto:hello@metaprovide.org');
+                await expect(page.getByRole('link', { name: 'hello@metaprovide.org' })).toHaveAttribute(
+                    'href',
+                    'mailto:hello@metaprovide.org',
+                );
             }
             await expect(page.getByRole('link', { name: 'Powered by MetaProvide' })).toBeVisible();
             expect(errors.filter((error) => !error.includes('404'))).toEqual([]);

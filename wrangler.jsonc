@@ -1,13 +1,24 @@
 {
-    // The Dharma Commons: static Astro build served by Cloudflare Workers static assets.
+    // The Dharma Commons: the static Astro build, served by Workers static assets on dharmacommons.org.
+    // Deployed from GitHub by Cloudflare Workers Builds (build: pnpm run build, deploy: npx wrangler deploy).
     "$schema": "node_modules/wrangler/config-schema.json",
     "name": "the-dharma-commons",
+    "main": "worker/index.ts",
     "compatibility_date": "2026-11-01",
     "assets": {
         "directory": "./dist",
+        "binding": "ASSETS",
         "not_found_handling": "404-page",
-        "html_handling": "auto-trailing-slash"
+        "html_handling": "auto-trailing-slash",
+        // The script runs first so www. and dharmacommons.com redirect on every path, not only on misses.
+        "run_worker_first": true
     },
+    "routes": [
+        { "pattern": "dharmacommons.org", "custom_domain": true },
+        { "pattern": "www.dharmacommons.org", "custom_domain": true },
+        { "pattern": "dharmacommons.com", "custom_domain": true },
+        { "pattern": "www.dharmacommons.com", "custom_domain": true }
+    ],
     "workers_dev": true,
     "preview_urls": false,
     "observability": { "enabled": false }

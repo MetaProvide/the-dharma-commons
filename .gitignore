@@ -8,3 +8,6 @@ screenshots/
 .env.*
 .DS_Store
 
+
+# Transcripts fetched from Swarm at build time (copyrighted; never committed)
+.cache/

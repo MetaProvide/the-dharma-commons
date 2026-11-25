@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-    site: 'https://thedharmacommons.org',
+    site: 'https://dharmacommons.org',
     output: 'static',
     trailingSlash: 'ignore',
     i18n: {

@@ -6,7 +6,7 @@
             "**",
             "!dist",
             "!.astro",
-            "!src/data/transcripts",
+            "!.cache",
             "!test-results",
             "!playwright-report",
             "!.hallmark",
