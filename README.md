@@ -16,6 +16,7 @@ pnpm build                              # static site in dist/, then the Pagefin
 pnpm preview                            # serve dist/
 pnpm lint                               # Biome
 pnpm check                              # astro check (TypeScript 6; astro check does not support 7 yet)
+pnpm run deploy                         # build, then deploy dist/ to Cloudflare Workers static assets (wrangler.jsonc)
 pnpm og                                 # re-render public/og.png from the built home page
 pnpm test                               # Playwright smoke tests (builds must exist: run pnpm build first)
 SCREENSHOTS=1 pnpm test tests/screenshots.spec.ts   # review screenshots into screenshots/
