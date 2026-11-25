@@ -8,5 +8,3 @@ screenshots/
 .env.*
 .DS_Store
 
-# scroll-craft has no licence file; kept local until its licence is confirmed
-.claude/skills/scroll-craft/
