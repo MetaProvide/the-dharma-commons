@@ -1,4 +1,5 @@
 ---
+
 name: Blueprint
 slug: blueprint
 genre: modern-minimal
@@ -20,25 +21,41 @@ A drafting sheet as a material: Prussian-blue paper, a white line for ink, Chakr
 
 ```css
 :root {
-  --color-paper: oklch(35% 0.105 256); --color-paper-2: oklch(31% 0.10 257); --color-paper-3: oklch(26.5% 0.095 258);
-  --color-ink: oklch(97% 0.012 240); --color-ink-2: oklch(90% 0.025 242); --color-muted: oklch(80% 0.045 244);
-  --color-rule: oklch(93% 0.02 240 / 0.85); --color-rule-2: oklch(93% 0.02 240 / 0.32);
-  --color-grid: oklch(97% 0.01 240 / 0.09); --color-grid-2: oklch(97% 0.01 240 / 0.2);
-  --color-accent: oklch(97% 0.012 240); --color-accent-ink: oklch(33% 0.105 256); --color-focus: oklch(97% 0.012 240);
-  --font-display: "Chakra Petch", ui-sans-serif, sans-serif; --font-body: "IBM Plex Sans", ui-sans-serif, sans-serif;
-  --font-outlier: "IBM Plex Mono", ui-monospace, monospace;
-  --radius-card: 0; --radius-pill: 0; --rule-hair: 1px; --rule-heavy: 2px; --shadow-card: none;
-  --tracking-display: -0.012em; --display-weight: 600; --sheet-inset: 20px; --tick: 14px;
+    --color-paper: oklch(35% 0.105 256);
+    --color-paper-2: oklch(31% 0.1 257);
+    --color-paper-3: oklch(26.5% 0.095 258);
+    --color-ink: oklch(97% 0.012 240);
+    --color-ink-2: oklch(90% 0.025 242);
+    --color-muted: oklch(80% 0.045 244);
+    --color-rule: oklch(93% 0.02 240 / 0.85);
+    --color-rule-2: oklch(93% 0.02 240 / 0.32);
+    --color-grid: oklch(97% 0.01 240 / 0.09);
+    --color-grid-2: oklch(97% 0.01 240 / 0.2);
+    --color-accent: oklch(97% 0.012 240);
+    --color-accent-ink: oklch(33% 0.105 256);
+    --color-focus: oklch(97% 0.012 240);
+    --font-display: "Chakra Petch", ui-sans-serif, sans-serif;
+    --font-body: "IBM Plex Sans", ui-sans-serif, sans-serif;
+    --font-outlier: "IBM Plex Mono", ui-monospace, monospace;
+    --radius-card: 0;
+    --radius-pill: 0;
+    --rule-hair: 1px;
+    --rule-heavy: 2px;
+    --shadow-card: none;
+    --tracking-display: -0.012em;
+    --display-weight: 600;
+    --sheet-inset: 20px;
+    --tick: 14px;
 }
 ```
 
 Three sheets, stated in the stamp (`blueprint: cyanotype`).
 
-| Sheet | Ground, line, muted |
-| --- | --- |
-| **cyanotype** (default) | the tokens above |
-| **whiteprint** | ground `oklch(97.5% 0.006 240)`, ink `oklch(35% 0.105 256)`, muted `oklch(52% 0.07 255)` |
-| **brownline** | ground `oklch(86% 0.045 80)`, ink `oklch(28% 0.05 50)`, muted `oklch(45% 0.05 55)`, a red pencil `oklch(45% 0.19 28)` for annotation only |
+| Sheet                   | Ground, line, muted                                                                                                                       |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| **cyanotype** (default) | the tokens above                                                                                                                          |
+| **whiteprint**          | ground `oklch(97.5% 0.006 240)`, ink `oklch(35% 0.105 256)`, muted `oklch(52% 0.07 255)`                                                  |
+| **brownline**           | ground `oklch(86% 0.045 80)`, ink `oklch(28% 0.05 50)`, muted `oklch(45% 0.05 55)`, a red pencil `oklch(45% 0.19 28)` for annotation only |
 
 ## Type
 
@@ -90,14 +107,64 @@ Specification voice: the building type, the stage, the year, the format, a unit 
 ```
 
 ```css
-h1, h2, h3 { font-weight: 600; }
-h1, h2 { text-transform: uppercase; line-height: 1.02; }
-.num { font-family: var(--font-outlier); font-weight: 500; }
-.fig { position: relative; border: var(--rule-hair) solid var(--color-rule); }
-.fig::after { content: ""; position: absolute; inset: 5px; z-index: 2; border: var(--rule-hair) solid var(--color-rule-2); pointer-events: none; }
-.dim { position: relative; height: var(--rule-hair); background: var(--color-rule); }
-.dim::before, .dim::after { content: ""; position: absolute; top: calc(var(--tick) / -2); width: var(--rule-hair); height: var(--tick); background: var(--color-rule); transform: rotate(45deg); }
-.dim::before { left: 0; } .dim::after { right: 0; }
-.btn { border: var(--rule-hair) solid var(--color-rule); border-radius: 0; background: transparent; color: var(--color-ink); padding: var(--space-sm) var(--space-lg); font-weight: 500; }
-.btn--primary { background: var(--color-ink); border-color: var(--color-ink); color: var(--color-accent-ink); }
+h1,
+h2,
+h3 {
+    font-weight: 600;
+}
+h1,
+h2 {
+    text-transform: uppercase;
+    line-height: 1.02;
+}
+.num {
+    font-family: var(--font-outlier);
+    font-weight: 500;
+}
+.fig {
+    position: relative;
+    border: var(--rule-hair) solid var(--color-rule);
+}
+.fig::after {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    z-index: 2;
+    border: var(--rule-hair) solid var(--color-rule-2);
+    pointer-events: none;
+}
+.dim {
+    position: relative;
+    height: var(--rule-hair);
+    background: var(--color-rule);
+}
+.dim::before,
+.dim::after {
+    content: "";
+    position: absolute;
+    top: calc(var(--tick) / -2);
+    width: var(--rule-hair);
+    height: var(--tick);
+    background: var(--color-rule);
+    transform: rotate(45deg);
+}
+.dim::before {
+    left: 0;
+}
+.dim::after {
+    right: 0;
+}
+.btn {
+    border: var(--rule-hair) solid var(--color-rule);
+    border-radius: 0;
+    background: transparent;
+    color: var(--color-ink);
+    padding: var(--space-sm) var(--space-lg);
+    font-weight: 500;
+}
+.btn--primary {
+    background: var(--color-ink);
+    border-color: var(--color-ink);
+    color: var(--color-accent-ink);
+}
 ```

@@ -2,7 +2,7 @@
 
 The hero is a figure the user gave, with the line that says what it means. Everything that follows supports or qualifies it. Data is the narrative.
 
-- **Heading:** a large numeric display at graphic scale (`craft.md` § 7, tabular figures) paired with a worded headline. The figure is the biggest element and never the hero's only words: say what it means beside or beneath it as a real headline, not a small label. Read them together: *"Four seconds. From the alert link to the slow span."*
+- **Heading:** a large numeric display at graphic scale (`craft.md` § 7, tabular figures) paired with a worded headline. The figure is the biggest element and never the hero's only words: say what it means beside or beneath it as a real headline, not a small label. Read them together: _"Four seconds. From the alert link to the slow span."_
 - **Body:** sections each anchored by a supporting figure or chart.
 - **Divider:** hairline rules between figure blocks; `tabular-nums` everywhere.
 - **Button:** an outlined chip beneath the qualifier, labelled with a verb ("Read the report").
@@ -16,6 +16,7 @@ Avoid when the user has not given a number. Every figure on this page is the use
 Compositions: Figures for the supporting row, Rows for the qualifiers (`layout.md` § 5).
 
 **Sample opening lines** (the number is the user's; imitate how the words complete it):
-> *"Four seconds. From the alert link to the slow span."* The figure, then what it bought (Tracejam).
-> *"[the user's count] posts. New CSS you could use today."* A count grounds the page in real volume.
-> *"[the user's rate] faster, so the team can decide late."* A rate, then the behaviour it allows.
+
+> _"Four seconds. From the alert link to the slow span."_ The figure, then what it bought (Tracejam).
+> _"[the user's count] posts. New CSS you could use today."_ A count grounds the page in real volume.
+> _"[the user's rate] faster, so the team can decide late."_ A rate, then the behaviour it allows.

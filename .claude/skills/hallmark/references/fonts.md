@@ -22,18 +22,18 @@ Every model reaches for these first, so they read as unchosen: Inter, Roboto, Op
 
 ## Display faces the catalog does not use
 
-| Class | Faces (source) |
-| --- | --- |
-| Roman serif | EB Garamond, Cardo, Castoro, Piazzolla, Alegreya, Marcellus (Google); Gambetta, Recia (Fontshare) |
-| High-contrast serif | Gloock, Libre Bodoni, Abril Fatface, Rozha One, Besley (Google); Erode, Melodrama (Fontshare) |
-| Slab serif | Arvo, Hepta Slab, Domine, Alfa Slab One, Solway (Google); Bespoke Slab (Fontshare; old-style figures that ignore `lining-nums`, so figures go in the body face) |
-| Grotesk sans | Rethink Sans, Reddit Sans, Albert Sans (Google); Clash Grotesk, Supreme (Fontshare) |
-| Geometric sans | Lexend, League Spartan, Afacad (Google); Satoshi, Technor, Excon (Fontshare) |
-| Rounded sans | Inclusive Sans, Nunito Sans at 700 only with an argument, Varela Round (Google); Chubbo, Comico (Fontshare) |
-| Condensed and heavy | Teko, Tektur, Michroma, Antonio (Google); Clash Display, Panchang, Khand, Telma, Stardom, Array (Fontshare) |
-| Mono as display | Space Mono, Fragment Mono, Red Hat Mono, Spline Sans Mono, Sometype Mono (Google) |
-| Pixel | Press Start 2P, VT323, Pixelify Sans, Tiny5, DotGothic16, Workbench (Google) |
-| Handwritten | Shantell Sans, Caveat, Gochi Hand, Reenie Beanie (Google); Sharpie (Fontshare) |
+| Class               | Faces (source)                                                                                                                                                  |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Roman serif         | EB Garamond, Cardo, Castoro, Piazzolla, Alegreya, Marcellus (Google); Gambetta, Recia (Fontshare)                                                               |
+| High-contrast serif | Gloock, Libre Bodoni, Abril Fatface, Rozha One, Besley (Google); Erode, Melodrama (Fontshare)                                                                   |
+| Slab serif          | Arvo, Hepta Slab, Domine, Alfa Slab One, Solway (Google); Bespoke Slab (Fontshare; old-style figures that ignore `lining-nums`, so figures go in the body face) |
+| Grotesk sans        | Rethink Sans, Reddit Sans, Albert Sans (Google); Clash Grotesk, Supreme (Fontshare)                                                                             |
+| Geometric sans      | Lexend, League Spartan, Afacad (Google); Satoshi, Technor, Excon (Fontshare)                                                                                    |
+| Rounded sans        | Inclusive Sans, Nunito Sans at 700 only with an argument, Varela Round (Google); Chubbo, Comico (Fontshare)                                                     |
+| Condensed and heavy | Teko, Tektur, Michroma, Antonio (Google); Clash Display, Panchang, Khand, Telma, Stardom, Array (Fontshare)                                                     |
+| Mono as display     | Space Mono, Fragment Mono, Red Hat Mono, Spline Sans Mono, Sometype Mono (Google)                                                                               |
+| Pixel               | Press Start 2P, VT323, Pixelify Sans, Tiny5, DotGothic16, Workbench (Google)                                                                                    |
+| Handwritten         | Shantell Sans, Caveat, Gochi Hand, Reenie Beanie (Google); Sharpie (Fontshare)                                                                                  |
 
 ## Body faces
 
@@ -44,8 +44,15 @@ A body face may be one the catalog uses; bodies are not a theme's signature. San
 The wordmark in the nav and footer may take a different face from the body, and on tone-rich pages it should: collapsing it into the body family flattens the hierarchy and the page reads as un-branded. It is the outlier's one role when the page has no other:
 
 ```css
-:root { --font-body: "Switzer", ui-sans-serif, system-ui, sans-serif; --font-outlier: "Gambetta", ui-serif, serif; }
-.wordmark { font-family: var(--font-outlier); font-weight: 600; letter-spacing: -0.015em; }
+:root {
+    --font-body: "Switzer", ui-sans-serif, system-ui, sans-serif;
+    --font-outlier: "Gambetta", ui-serif, serif;
+}
+.wordmark {
+    font-family: var(--font-outlier);
+    font-weight: 600;
+    letter-spacing: -0.015em;
+}
 ```
 
 Collapse to one family only when the body voice is the brand (a letter, a manifesto, a long document); then the wordmark takes the family's display cut or its heaviest weight. A product page whose wordmark is the body face at 600 is the un-designed default.

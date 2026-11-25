@@ -1,4 +1,5 @@
 ---
+
 name: Vantage
 slug: vantage
 genre: modern-minimal
@@ -20,25 +21,40 @@ Reality capture at night: the thing itself, a site, a ridge, an object, rendered
 
 ```css
 :root {
-  --color-paper: oklch(13.5% 0.012 235); --color-paper-2: oklch(17% 0.014 235); --color-paper-3: oklch(21% 0.016 235);
-  --color-ink: oklch(95% 0.006 230); --color-ink-2: oklch(82% 0.012 230); --color-muted: oklch(66% 0.016 230);
-  --color-rule: oklch(27% 0.014 235); --color-rule-2: oklch(34% 0.016 235);
-  --color-accent: oklch(89% 0.19 126); --color-accent-hi: oklch(93% 0.17 126); --color-accent-ink: oklch(19% 0.04 126); --color-focus: oklch(89% 0.19 126);
-  --point-lo: oklch(42% 0.04 245); --point-mid: oklch(70% 0.04 232); --point-hi: oklch(96% 0.02 215);
-  --color-slot: oklch(21% 0.016 235);
-  --font-display: "Geologica", ui-sans-serif, system-ui, sans-serif; --font-body: "Geologica", ui-sans-serif, system-ui, sans-serif;
-  --radius-card: 4px; --radius-pill: 999px; --rule-hair: 1px; --tick: 10px;
-  --shadow-card: none;
-  --tracking-display: -0.035em; --display-weight: 300;
+    --color-paper: oklch(13.5% 0.012 235);
+    --color-paper-2: oklch(17% 0.014 235);
+    --color-paper-3: oklch(21% 0.016 235);
+    --color-ink: oklch(95% 0.006 230);
+    --color-ink-2: oklch(82% 0.012 230);
+    --color-muted: oklch(66% 0.016 230);
+    --color-rule: oklch(27% 0.014 235);
+    --color-rule-2: oklch(34% 0.016 235);
+    --color-accent: oklch(89% 0.19 126);
+    --color-accent-hi: oklch(93% 0.17 126);
+    --color-accent-ink: oklch(19% 0.04 126);
+    --color-focus: oklch(89% 0.19 126);
+    --point-lo: oklch(42% 0.04 245);
+    --point-mid: oklch(70% 0.04 232);
+    --point-hi: oklch(96% 0.02 215);
+    --color-slot: oklch(21% 0.016 235);
+    --font-display: "Geologica", ui-sans-serif, system-ui, sans-serif;
+    --font-body: "Geologica", ui-sans-serif, system-ui, sans-serif;
+    --radius-card: 4px;
+    --radius-pill: 999px;
+    --rule-hair: 1px;
+    --tick: 10px;
+    --shadow-card: none;
+    --tracking-display: -0.035em;
+    --display-weight: 300;
 }
 ```
 
 Two dials, stated in the stamp (`vantage: terrain/steel`). Two Vantage pages in one run differ on both.
 
-| Dial | Options |
-| --- | --- |
+| Dial                            | Options                                                                                                                                                                                  |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Subject** (what the cloud is) | `terrain` (default): ground, structures and canopy from above at an oblique angle. `object`: one thing scanned whole, turning on its axis. `interior`: a room or tunnel seen from inside |
-| **Colourway** | `steel` (default) as above. `sodium`: ground `oklch(13% 0.012 55)`, points from `oklch(40% 0.05 50)` to `oklch(95% 0.03 80)`, ink warm, the lime kept as the signal |
+| **Colourway**                   | `steel` (default) as above. `sodium`: ground `oklch(13% 0.012 55)`, points from `oklch(40% 0.05 50)` to `oklch(95% 0.03 80)`, ink warm, the lime kept as the signal                      |
 
 ## Type
 
@@ -89,11 +105,60 @@ Measured and exact: what was scanned, how big, how accurate, how soon.
 ```
 
 ```css
-h1, h2, h3 { font-family: var(--font-display); font-weight: var(--display-weight); font-variation-settings: "SHRP" 100; letter-spacing: var(--tracking-display); line-height: 1; }
-body { font-weight: 300; font-variation-settings: "SHRP" 0; }
-.num { font-variant-numeric: tabular-nums; font-weight: 400; } .num .u { color: var(--color-muted); font-size: 0.75em; }
-.ticks { position: relative; } .ticks::before, .ticks::after { content: ""; position: absolute; inset: 0; pointer-events: none; border: var(--rule-hair) solid var(--color-rule-2); -webkit-mask: conic-gradient(at var(--tick) var(--tick), transparent 75%, var(--color-ink) 0) 0 0 / calc(100% - var(--tick)) calc(100% - var(--tick)); mask: conic-gradient(at var(--tick) var(--tick), transparent 75%, var(--color-ink) 0) 0 0 / calc(100% - var(--tick)) calc(100% - var(--tick)); }
-.btn { min-height: 48px; padding: 0 var(--space-lg); border: 0; border-radius: var(--radius-pill); background: var(--color-accent); color: var(--color-accent-ink); font: 400 var(--text-md)/1 var(--font-body); transition: background var(--dur-short) var(--ease-out); }
-.btn:hover { background: var(--color-accent-hi); }
-.btn--line { background: transparent; color: var(--color-ink); box-shadow: inset 0 0 0 var(--rule-hair) var(--color-rule-2); }
+h1,
+h2,
+h3 {
+    font-family: var(--font-display);
+    font-weight: var(--display-weight);
+    font-variation-settings: "SHRP" 100;
+    letter-spacing: var(--tracking-display);
+    line-height: 1;
+}
+body {
+    font-weight: 300;
+    font-variation-settings: "SHRP" 0;
+}
+.num {
+    font-variant-numeric: tabular-nums;
+    font-weight: 400;
+}
+.num .u {
+    color: var(--color-muted);
+    font-size: 0.75em;
+}
+.ticks {
+    position: relative;
+}
+.ticks::before,
+.ticks::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border: var(--rule-hair) solid var(--color-rule-2);
+    -webkit-mask:
+        conic-gradient(at var(--tick) var(--tick), transparent 75%, var(--color-ink) 0) 0 0 / calc(100% - var(--tick))
+        calc(100% - var(--tick));
+    mask:
+        conic-gradient(at var(--tick) var(--tick), transparent 75%, var(--color-ink) 0) 0 0 / calc(100% - var(--tick))
+        calc(100% - var(--tick));
+}
+.btn {
+    min-height: 48px;
+    padding: 0 var(--space-lg);
+    border: 0;
+    border-radius: var(--radius-pill);
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+    font: 400 var(--text-md) / 1 var(--font-body);
+    transition: background var(--dur-short) var(--ease-out);
+}
+.btn:hover {
+    background: var(--color-accent-hi);
+}
+.btn--line {
+    background: transparent;
+    color: var(--color-ink);
+    box-shadow: inset 0 0 0 var(--rule-hair) var(--color-rule-2);
+}
 ```

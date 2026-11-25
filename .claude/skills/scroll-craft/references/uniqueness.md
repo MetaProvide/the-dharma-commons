@@ -20,7 +20,7 @@ viewport-heights across 6 or 7 acts with exactly one accent colour.
 What actually varied was the order of the middle acts and the palette.
 
 The device kit is an **aesthetic** axis. It changes how a page looks. It has no
-opinion on what a page *is*, so every build reached for the same shape, because
+opinion on what a page _is_, so every build reached for the same shape, because
 the shape was never a decision anybody made.
 
 > The world changes how a page LOOKS. The grammar changes what a page IS.
@@ -171,7 +171,7 @@ visitor never leaves the frame.
 **Forbids:** section boundaries of any kind. No `sc-section` blocks, no acts at
 all, no second stage, no `drift` steps (one continuous grade across the whole
 travel, authored into the world, not interpolated between legs). Nothing may
-scroll *over* the canvas: copy arrives inside it, at waypoints, in the fixed
+scroll _over_ the canvas: copy arrives inside it, at waypoints, in the fixed
 copy layer. The only element in document flow is the spacer.
 
 **Nav, hero, close:** the nav is a **map**. A waypoint list, a depth readout, a
@@ -324,7 +324,7 @@ CTA, at full bleed, no spotlight, no drift-down.
 **Bans:** `pin`, `spotlight`, `magnet`, `dwell`, `parallax`.
 
 **The taste floor still applies at speed.** Fast is not an excuse for a
-1.2 second entrance that the reader outruns. Cue windows here are short *and*
+1.2 second entrance that the reader outruns. Cue windows here are short _and_
 front-loaded, so a section is fully legible within the first third of its own
 span.
 
@@ -414,14 +414,14 @@ builds and they do not gate yours.
 **Before writing markup:** check the planned build against every existing row on
 these six dimensions.
 
-| # | Dimension | What it records |
-|---|---|---|
-| 1 | Grammar | Which of §2, or a named new one |
-| 2 | Nav treatment | What the chrome is and what it is for |
-| 3 | Hero device | What the first screen does |
-| 4 | Act-sequence shape | The device order, act count, total viewport-heights |
-| 5 | Close pattern | How the last screen behaves and what the CTA sits in |
-| 6 | Signature move | The one bespoke interaction, in a phrase |
+| #   | Dimension          | What it records                                      |
+| --- | ------------------ | ---------------------------------------------------- |
+| 1   | Grammar            | Which of §2, or a named new one                      |
+| 2   | Nav treatment      | What the chrome is and what it is for                |
+| 3   | Hero device        | What the first screen does                           |
+| 4   | Act-sequence shape | The device order, act count, total viewport-heights  |
+| 5   | Close pattern      | How the last screen behaves and what the CTA sits in |
+| 6   | Signature move     | The one bespoke interaction, in a phrase             |
 
 **The gate: a new build must differ from EVERY existing row on at least 4 of the
 6.** Not 4 of 6 on average across the table. Four against each row, individually.
@@ -449,15 +449,15 @@ decides otherwise.
 
 The full range is available when the brand's vibe asks for it:
 
-| Family | Reads as | Earned by |
-|---|---|---|
-| Brutalist | Blunt, structural, unstyled on purpose | Tools, infrastructure, anything anti-marketing |
-| Maximalist | Dense, layered, loud, generous | Culture brands, events, food, anything abundant |
-| Playful | Bouncy, coloured, informal | Kids, games, consumer apps, community |
-| Retro | Specific to a decade, not vaguely nostalgic | Heritage brands, music, anything with a real lineage |
-| Dense | Information-forward, small type, high count | Data products, catalogues, reference, finance |
-| Editorial | Paper, folios, measure, restraint | Long-form substance |
-| Premium-minimal | Quiet, dark, one accent, air | Luxury, and only when asked for |
+| Family          | Reads as                                    | Earned by                                            |
+| --------------- | ------------------------------------------- | ---------------------------------------------------- |
+| Brutalist       | Blunt, structural, unstyled on purpose      | Tools, infrastructure, anything anti-marketing       |
+| Maximalist      | Dense, layered, loud, generous              | Culture brands, events, food, anything abundant      |
+| Playful         | Bouncy, coloured, informal                  | Kids, games, consumer apps, community                |
+| Retro           | Specific to a decade, not vaguely nostalgic | Heritage brands, music, anything with a real lineage |
+| Dense           | Information-forward, small type, high count | Data products, catalogues, reference, finance        |
+| Editorial       | Paper, folios, measure, restraint           | Long-form substance                                  |
+| Premium-minimal | Quiet, dark, one accent, air                | Luxury, and only when asked for                      |
 
 Go where the interview points. If the human says "loud" and the page comes back
 in charcoal with one accent, the interview was decorative.

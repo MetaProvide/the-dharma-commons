@@ -16,6 +16,7 @@ Avoid for narrative brands. Catalogue treats every item as equal, wrong for a pr
 Compositions: Grid (`layout.md` § 5), one card per item: its image, name, price and one action.
 
 **Sample opening lines** (inventory headers: dated, with a count):
-> *"Today's loaves."* Two words, ownership of the day (Maple Street Bread).
-> *"Five collections, in store now."* The count and the where.
-> *"Thirty-eight pieces this spring, every one hand-stitched."* Count, season, qualifier; no adjectives.
+
+> _"Today's loaves."_ Two words, ownership of the day (Maple Street Bread).
+> _"Five collections, in store now."_ The count and the where.
+> _"Thirty-eight pieces this spring, every one hand-stitched."_ Count, season, qualifier; no adjectives.

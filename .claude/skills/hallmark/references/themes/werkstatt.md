@@ -1,4 +1,5 @@
 ---
+
 name: Werkstatt
 slug: werkstatt
 genre: playful
@@ -20,26 +21,40 @@ A design school's printed prospectus: a warm putty ground, near-black ink, heavy
 
 ```css
 :root {
-  --color-paper: oklch(84% 0.024 82); --color-paper-2: oklch(79.5% 0.028 80); --color-paper-3: oklch(89.5% 0.018 84);
-  --color-ink: oklch(18% 0.008 60); --color-ink-2: oklch(27% 0.01 60); --color-muted: oklch(39% 0.014 62);
-  --color-rule: oklch(58% 0.022 72);
-  --color-accent: oklch(46% 0.2 264); --color-accent-2: oklch(58% 0.205 33); --color-accent-2-deep: oklch(50% 0.19 31); --color-accent-3: oklch(85% 0.165 92);
-  --color-accent-ink: oklch(96% 0.012 82); --color-focus: oklch(46% 0.2 264);
-  --font-display: "Jost", "Futura", sans-serif; --font-body: "Karla", ui-sans-serif, system-ui, sans-serif;
-  --font-outlier: "JetBrains Mono", ui-monospace, monospace;
-  --radius-card: 0; --radius-pill: 0; --rule-hair: 1px; --rule-bar: 2px; --rule-box: 3px;
-  --shadow-card: none;
-  --tracking-display: -0.005em; --display-weight: 700;
+    --color-paper: oklch(84% 0.024 82);
+    --color-paper-2: oklch(79.5% 0.028 80);
+    --color-paper-3: oklch(89.5% 0.018 84);
+    --color-ink: oklch(18% 0.008 60);
+    --color-ink-2: oklch(27% 0.01 60);
+    --color-muted: oklch(39% 0.014 62);
+    --color-rule: oklch(58% 0.022 72);
+    --color-accent: oklch(46% 0.2 264);
+    --color-accent-2: oklch(58% 0.205 33);
+    --color-accent-2-deep: oklch(50% 0.19 31);
+    --color-accent-3: oklch(85% 0.165 92);
+    --color-accent-ink: oklch(96% 0.012 82);
+    --color-focus: oklch(46% 0.2 264);
+    --font-display: "Jost", "Futura", sans-serif;
+    --font-body: "Karla", ui-sans-serif, system-ui, sans-serif;
+    --font-outlier: "JetBrains Mono", ui-monospace, monospace;
+    --radius-card: 0;
+    --radius-pill: 0;
+    --rule-hair: 1px;
+    --rule-bar: 2px;
+    --rule-box: 3px;
+    --shadow-card: none;
+    --tracking-display: -0.005em;
+    --display-weight: 700;
 }
 ```
 
 Three colourways, set once per page and stated in the stamp (`werkstatt: putty`).
 
-| Colourway | Ground, ink, primaries |
-| --- | --- |
-| `putty` (default) | the block above |
-| `blackboard` | ground `oklch(17% 0.005 60)`, ink `oklch(90% 0.015 80)`, rule `oklch(38% 0.01 60)`, primaries a step brighter; putty returns as a well colour |
-| `blue` | ground `oklch(50% 0.22 265)`, ink `oklch(93% 0.02 85)`, rule `oklch(64% 0.14 265)`; the yellow does the accent's work |
+| Colourway         | Ground, ink, primaries                                                                                                                        |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `putty` (default) | the block above                                                                                                                               |
+| `blackboard`      | ground `oklch(17% 0.005 60)`, ink `oklch(90% 0.015 80)`, rule `oklch(38% 0.01 60)`, primaries a step brighter; putty returns as a well colour |
+| `blue`            | ground `oklch(50% 0.22 265)`, ink `oklch(93% 0.02 85)`, rule `oklch(64% 0.14 265)`; the yellow does the accent's work                         |
 
 ## Type
 
@@ -91,15 +106,65 @@ Plain school prose: the shop, the week, the tuition, the deadline, each said onc
 ```
 
 ```css
-h1, h2, h3 { font-weight: 700; line-height: 1.02; text-transform: uppercase; }
-small, th, figcaption { font-weight: 600; color: var(--color-muted); }
-.btn { display: inline-flex; align-items: center; gap: var(--space-xs); padding: var(--space-md) var(--space-lg); border: var(--rule-bar) solid currentColor; font: 600 var(--text-sm)/1 var(--font-body); text-transform: uppercase; color: inherit; background: transparent; }
-.btn--primary { background: var(--color-ink); border-color: var(--color-ink); color: var(--color-paper); }
-.band--ink { background: var(--color-ink); color: var(--color-paper); }
-.band--ink .btn--primary { background: var(--color-paper); border-color: var(--color-paper); color: var(--color-ink); }
-.ruled { border-block: var(--rule-box) solid var(--color-ink); }
-.photo { border: var(--rule-bar) solid var(--color-ink); border-radius: 0; }
-table { border-top: var(--rule-bar) solid var(--color-ink); } td { border-bottom: var(--rule-hair) solid var(--color-rule); }
-a { text-decoration-thickness: 2px; } a:hover { text-decoration-thickness: 3px; }
-::selection { background: var(--color-accent-3); color: var(--color-ink); }
+h1,
+h2,
+h3 {
+    font-weight: 700;
+    line-height: 1.02;
+    text-transform: uppercase;
+}
+small,
+th,
+figcaption {
+    font-weight: 600;
+    color: var(--color-muted);
+}
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-md) var(--space-lg);
+    border: var(--rule-bar) solid currentColor;
+    font: 600 var(--text-sm) / 1 var(--font-body);
+    text-transform: uppercase;
+    color: inherit;
+    background: transparent;
+}
+.btn--primary {
+    background: var(--color-ink);
+    border-color: var(--color-ink);
+    color: var(--color-paper);
+}
+.band--ink {
+    background: var(--color-ink);
+    color: var(--color-paper);
+}
+.band--ink .btn--primary {
+    background: var(--color-paper);
+    border-color: var(--color-paper);
+    color: var(--color-ink);
+}
+.ruled {
+    border-block: var(--rule-box) solid var(--color-ink);
+}
+.photo {
+    border: var(--rule-bar) solid var(--color-ink);
+    border-radius: 0;
+}
+table {
+    border-top: var(--rule-bar) solid var(--color-ink);
+}
+td {
+    border-bottom: var(--rule-hair) solid var(--color-rule);
+}
+a {
+    text-decoration-thickness: 2px;
+}
+a:hover {
+    text-decoration-thickness: 3px;
+}
+::selection {
+    background: var(--color-accent-3);
+    color: var(--color-ink);
+}
 ```

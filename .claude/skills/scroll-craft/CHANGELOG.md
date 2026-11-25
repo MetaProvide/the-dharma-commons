@@ -44,7 +44,6 @@ verification harness disables native pointer lock/capture before navigation.
 The public release also includes the Sonder hero-depth reference. No engine
 behavior or existing video-decoder fixes are changed in this release.
 
-
 ## 2026-09-01: skill renamed to `scroll-craft` to match the repo
 
 The repo, the skill and the invocation now share one spelling. The skill was
@@ -595,7 +594,7 @@ it resolves its paths instead of assuming them.
   registry. Builds are `<workspace>/builds/<name>/`, the registry is
   `<workspace>/FINGERPRINTS.md`, and neither is hardcoded anywhere any more.
 - **The registry is per-user and starts empty.** The gate exists to stop you
-  repeating *yourself*, so a new user's first build has nothing to clear and
+  repeating _yourself_, so a new user's first build has nothing to clear and
   every build after it does. Gating a newcomer against somebody else's twelve
   rows would block them out of grammars they have never used, which is the
   opposite of the point. `templates/FINGERPRINTS.md` is the seed; the author's

@@ -1,4 +1,5 @@
 ---
+
 name: Riso
 slug: riso
 genre: editorial
@@ -20,14 +21,25 @@ A small-press run from two drums and nothing else: bright uncoated stock, a medi
 
 ```css
 :root {
-  --color-paper: oklch(97% 0.011 90); --color-paper-2: oklch(93.5% 0.034 356); --color-paper-3: oklch(84% 0.11 356);
-  --color-ink: oklch(40% 0.165 265); --color-ink-2: oklch(45% 0.15 265); --color-muted: oklch(50% 0.115 265);
-  --color-rule: oklch(85% 0.045 265);
-  --color-accent: oklch(68% 0.235 356); --color-accent-ink: oklch(27% 0.13 265); --color-focus: oklch(44% 0.2 265);
-  --font-display: "Cabinet Grotesk", ui-sans-serif, sans-serif; --font-body: "Literata", ui-serif, Georgia, serif;
-  --radius-card: 2px; --radius-pill: 2px; --rule-hair: 1px;
-  --shadow-card: none; --texture-opacity: 0.08;
-  --tracking-display: -0.025em; --display-weight: 800;
+    --color-paper: oklch(97% 0.011 90);
+    --color-paper-2: oklch(93.5% 0.034 356);
+    --color-paper-3: oklch(84% 0.11 356);
+    --color-ink: oklch(40% 0.165 265);
+    --color-ink-2: oklch(45% 0.15 265);
+    --color-muted: oklch(50% 0.115 265);
+    --color-rule: oklch(85% 0.045 265);
+    --color-accent: oklch(68% 0.235 356);
+    --color-accent-ink: oklch(27% 0.13 265);
+    --color-focus: oklch(44% 0.2 265);
+    --font-display: "Cabinet Grotesk", ui-sans-serif, sans-serif;
+    --font-body: "Literata", ui-serif, Georgia, serif;
+    --radius-card: 2px;
+    --radius-pill: 2px;
+    --rule-hair: 1px;
+    --shadow-card: none;
+    --texture-opacity: 0.08;
+    --tracking-display: -0.025em;
+    --display-weight: 800;
 }
 ```
 
@@ -82,17 +94,82 @@ Specific and hand-set: name the ink, the sheet, the drum and the price; verbs ov
 ```
 
 ```css
-h1, h2, h3 { font-weight: var(--display-weight); } h1 { line-height: 0.92; } h2 { line-height: 0.98; }
-.misreg { position: relative; display: inline-block; isolation: isolate; }
-.misreg::after { content: attr(data-text); position: absolute; inset: 0; z-index: -1; white-space: nowrap; pointer-events: none; color: var(--color-accent); transform: translate(2px, 3px); }
-.overprint { background: var(--color-accent); mix-blend-mode: multiply; }
-a { text-decoration-color: var(--color-accent); text-decoration-thickness: 2px; } a:hover { text-decoration-thickness: 4px; }
-.btn { display: inline-flex; align-items: center; min-height: 48px; padding: 0 var(--space-lg); border: 1.5px solid transparent; border-radius: var(--radius-card); font: var(--display-weight) 0.9375rem/1 var(--font-display); transition: background-color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
-.btn:active { transform: translate(1px, 1px); }
-.btn--primary { background: var(--color-accent); color: var(--color-accent-ink); }
-.btn--secondary { border-color: var(--color-ink); color: var(--color-ink); }
-.band--solid { background: var(--color-ink); color: var(--color-paper); }
-.grained { position: relative; isolation: isolate; }
-.grained::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: var(--texture-opacity); background-size: 200px 200px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 9 -4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E"); }
+h1,
+h2,
+h3 {
+    font-weight: var(--display-weight);
+}
+h1 {
+    line-height: 0.92;
+}
+h2 {
+    line-height: 0.98;
+}
+.misreg {
+    position: relative;
+    display: inline-block;
+    isolation: isolate;
+}
+.misreg::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    white-space: nowrap;
+    pointer-events: none;
+    color: var(--color-accent);
+    transform: translate(2px, 3px);
+}
+.overprint {
+    background: var(--color-accent);
+    mix-blend-mode: multiply;
+}
+a {
+    text-decoration-color: var(--color-accent);
+    text-decoration-thickness: 2px;
+}
+a:hover {
+    text-decoration-thickness: 4px;
+}
+.btn {
+    display: inline-flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 0 var(--space-lg);
+    border: 1.5px solid transparent;
+    border-radius: var(--radius-card);
+    font: var(--display-weight) 0.9375rem / 1 var(--font-display);
+    transition:
+        background-color var(--dur-short) var(--ease-out),
+        transform var(--dur-micro) var(--ease-out);
+}
+.btn:active {
+    transform: translate(1px, 1px);
+}
+.btn--primary {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+}
+.btn--secondary {
+    border-color: var(--color-ink);
+    color: var(--color-ink);
+}
+.band--solid {
+    background: var(--color-ink);
+    color: var(--color-paper);
+}
+.grained {
+    position: relative;
+    isolation: isolate;
+}
+.grained::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: var(--texture-opacity);
+    background-size: 200px 200px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 9 -4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+}
 ```

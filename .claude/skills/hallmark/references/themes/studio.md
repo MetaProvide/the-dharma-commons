@@ -1,4 +1,5 @@
 ---
+
 name: Studio
 slug: studio
 genre: editorial
@@ -20,17 +21,31 @@ A design studio's proof sheet, caught mid-build: cool studio-white paper with an
 
 ```css
 :root {
-  --color-paper: oklch(97.2% 0.006 215); --color-paper-2: oklch(94% 0.009 215); --color-paper-3: oklch(90.5% 0.011 215); --color-paper-hi: oklch(99% 0.004 215);
-  --color-ink: oklch(16% 0.032 250); --color-ink-2: oklch(34% 0.022 245); --color-muted: oklch(49% 0.018 240);
-  --color-rule: oklch(84% 0.010 225);
-  --color-accent: oklch(68% 0.172 50); --color-accent-ink: oklch(16% 0.032 250); --color-focus: oklch(52% 0.15 48);
-  --color-dot: color-mix(in oklab, var(--color-ink) 20%, transparent); --color-mark: color-mix(in oklab, var(--color-ink) 72%, transparent);
-  --font-display: "Hedvig Letters Serif", ui-serif, Georgia, serif; --font-body: "Geist", ui-sans-serif, system-ui, sans-serif;
-  --font-outlier: "Sofia Sans Extra Condensed", "Arial Narrow", ui-sans-serif, sans-serif;
-  --radius-card: 3px; --radius-pill: 3px; --rule-hair: 1px;
-  --shadow-card: none;
-  --shadow-sheet: 1px 2px 0 color-mix(in oklab, var(--color-ink) 7%, transparent), 10px 18px 36px -14px color-mix(in oklab, var(--color-ink) 32%, transparent);
-  --tracking-display: -0.022em; --display-weight: 400;
+    --color-paper: oklch(97.2% 0.006 215);
+    --color-paper-2: oklch(94% 0.009 215);
+    --color-paper-3: oklch(90.5% 0.011 215);
+    --color-paper-hi: oklch(99% 0.004 215);
+    --color-ink: oklch(16% 0.032 250);
+    --color-ink-2: oklch(34% 0.022 245);
+    --color-muted: oklch(49% 0.018 240);
+    --color-rule: oklch(84% 0.01 225);
+    --color-accent: oklch(68% 0.172 50);
+    --color-accent-ink: oklch(16% 0.032 250);
+    --color-focus: oklch(52% 0.15 48);
+    --color-dot: color-mix(in oklab, var(--color-ink) 20%, transparent);
+    --color-mark: color-mix(in oklab, var(--color-ink) 72%, transparent);
+    --font-display: "Hedvig Letters Serif", ui-serif, Georgia, serif;
+    --font-body: "Geist", ui-sans-serif, system-ui, sans-serif;
+    --font-outlier: "Sofia Sans Extra Condensed", "Arial Narrow", ui-sans-serif, sans-serif;
+    --radius-card: 3px;
+    --radius-pill: 3px;
+    --rule-hair: 1px;
+    --shadow-card: none;
+    --shadow-sheet:
+        1px 2px 0 color-mix(in oklab, var(--color-ink) 7%, transparent),
+        10px 18px 36px -14px color-mix(in oklab, var(--color-ink) 32%, transparent);
+    --tracking-display: -0.022em;
+    --display-weight: 400;
 }
 ```
 
@@ -87,13 +102,62 @@ Spare and exact, a little literary. Verbs over adjectives; name the work, the in
 ```
 
 ```css
-h1, h2, h3 { font-family: var(--font-display); font-weight: var(--display-weight); letter-spacing: var(--tracking-display); color: var(--color-ink); font-optical-sizing: auto; line-height: 1.0; }
-.proof { background-image: var(--grain), radial-gradient(circle at 1px 1px, var(--color-dot) 1px, transparent 1.4px); background-size: 160px 160px, 24px 24px; }
-.crop { position: relative; --l: 8px; --o: 12px; }
-.crop::before { content: ""; position: absolute; inset: calc(-1 * var(--o)); pointer-events: none; background: linear-gradient(var(--color-mark), var(--color-mark)) 0 var(--o) / var(--l) 1px no-repeat, linear-gradient(var(--color-mark), var(--color-mark)) var(--o) 0 / 1px var(--l) no-repeat; }
-.btn { border: var(--rule-hair) solid var(--color-ink); border-radius: 2px; min-height: 48px; padding: 0 var(--space-lg); font-weight: 500; color: var(--color-ink); }
-.btn::after { content: ""; position: absolute; inset: 2px; border: var(--rule-hair) solid var(--color-mark); }
-.btn--primary { background: var(--color-accent); color: var(--color-accent-ink); }
-.guide { height: var(--rule-hair); background: var(--color-accent); }
-.set { border-top: var(--rule-hair) solid var(--color-ink); } .set > * { border-bottom: var(--rule-hair) solid var(--color-rule); }
+h1,
+h2,
+h3 {
+    font-family: var(--font-display);
+    font-weight: var(--display-weight);
+    letter-spacing: var(--tracking-display);
+    color: var(--color-ink);
+    font-optical-sizing: auto;
+    line-height: 1;
+}
+.proof {
+    background-image: var(--grain), radial-gradient(circle at 1px 1px, var(--color-dot) 1px, transparent 1.4px);
+    background-size:
+        160px 160px,
+        24px 24px;
+}
+.crop {
+    position: relative;
+    --l: 8px;
+    --o: 12px;
+}
+.crop::before {
+    content: "";
+    position: absolute;
+    inset: calc(-1 * var(--o));
+    pointer-events: none;
+    background:
+        linear-gradient(var(--color-mark), var(--color-mark)) 0 var(--o) / var(--l) 1px no-repeat,
+        linear-gradient(var(--color-mark), var(--color-mark)) var(--o) 0 / 1px var(--l) no-repeat;
+}
+.btn {
+    border: var(--rule-hair) solid var(--color-ink);
+    border-radius: 2px;
+    min-height: 48px;
+    padding: 0 var(--space-lg);
+    font-weight: 500;
+    color: var(--color-ink);
+}
+.btn::after {
+    content: "";
+    position: absolute;
+    inset: 2px;
+    border: var(--rule-hair) solid var(--color-mark);
+}
+.btn--primary {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+}
+.guide {
+    height: var(--rule-hair);
+    background: var(--color-accent);
+}
+.set {
+    border-top: var(--rule-hair) solid var(--color-ink);
+}
+.set > * {
+    border-bottom: var(--rule-hair) solid var(--color-rule);
+}
 ```

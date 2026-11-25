@@ -1,4 +1,5 @@
 ---
+
 name: Dose
 slug: dose
 genre: modern-minimal
@@ -20,20 +21,40 @@ Translucent plastic and daylight: warm morning paper with a fine fibre grain, wi
 
 ```css
 :root {
-  --color-paper: oklch(97.6% 0.011 88); --color-paper-2: oklch(96.5% 0.02 160); --color-paper-3: oklch(93% 0.036 160);
-  --color-ink: oklch(21% 0.025 170); --color-ink-2: oklch(31% 0.02 170); --color-muted: oklch(49% 0.024 165);
-  --color-rule: oklch(86.5% 0.022 140);
-  --color-accent: oklch(50% 0.13 160); --color-accent-deep: oklch(42% 0.11 162); --color-accent-soft: oklch(88% 0.08 160); --color-accent-ink: oklch(99% 0.006 160);
-  --color-focus: oklch(45% 0.14 160);
-  --p-mon: oklch(85% 0.052 22); --p-tue: oklch(87.5% 0.058 64); --p-wed: oklch(91.5% 0.064 98); --p-thu: oklch(86.5% 0.075 160);
-  --p-fri: oklch(87% 0.048 210); --p-sat: oklch(84% 0.045 270); --p-sun: oklch(84% 0.048 322);
-  --light: oklch(99.4% 0.016 84); --glint: oklch(100% 0 0);
-  --font-display: "Schibsted Grotesk", ui-sans-serif, sans-serif; --font-body: "Instrument Sans", ui-sans-serif, sans-serif;
-  --font-outlier: "DM Mono", ui-monospace, monospace;
-  --radius-card: 14px; --radius-input: 10px; --radius-pill: 999px; --rule-hair: 1px;
-  --shadow-card: 0 1px 2px oklch(30% 0.03 165 / 0.08), 0 24px 48px -24px oklch(40% 0.08 165 / 0.35);
-  --shadow-lift: 0 1px 1px oklch(30% 0.03 165 / 0.10), 8px 18px 28px -14px oklch(36% 0.06 165 / 0.32), 18px 40px 60px -30px oklch(40% 0.08 165 / 0.30);
-  --tracking-display: -0.03em; --display-weight: 700;
+    --color-paper: oklch(97.6% 0.011 88);
+    --color-paper-2: oklch(96.5% 0.02 160);
+    --color-paper-3: oklch(93% 0.036 160);
+    --color-ink: oklch(21% 0.025 170);
+    --color-ink-2: oklch(31% 0.02 170);
+    --color-muted: oklch(49% 0.024 165);
+    --color-rule: oklch(86.5% 0.022 140);
+    --color-accent: oklch(50% 0.13 160);
+    --color-accent-deep: oklch(42% 0.11 162);
+    --color-accent-soft: oklch(88% 0.08 160);
+    --color-accent-ink: oklch(99% 0.006 160);
+    --color-focus: oklch(45% 0.14 160);
+    --p-mon: oklch(85% 0.052 22);
+    --p-tue: oklch(87.5% 0.058 64);
+    --p-wed: oklch(91.5% 0.064 98);
+    --p-thu: oklch(86.5% 0.075 160);
+    --p-fri: oklch(87% 0.048 210);
+    --p-sat: oklch(84% 0.045 270);
+    --p-sun: oklch(84% 0.048 322);
+    --light: oklch(99.4% 0.016 84);
+    --glint: oklch(100% 0 0);
+    --font-display: "Schibsted Grotesk", ui-sans-serif, sans-serif;
+    --font-body: "Instrument Sans", ui-sans-serif, sans-serif;
+    --font-outlier: "DM Mono", ui-monospace, monospace;
+    --radius-card: 14px;
+    --radius-input: 10px;
+    --radius-pill: 999px;
+    --rule-hair: 1px;
+    --shadow-card: 0 1px 2px oklch(30% 0.03 165 / 0.08), 0 24px 48px -24px oklch(40% 0.08 165 / 0.35);
+    --shadow-lift:
+        0 1px 1px oklch(30% 0.03 165 / 0.1), 8px 18px 28px -14px oklch(36% 0.06 165 / 0.32),
+        18px 40px 60px -30px oklch(40% 0.08 165 / 0.3);
+    --tracking-display: -0.03em;
+    --display-weight: 700;
 }
 ```
 
@@ -88,11 +109,54 @@ A pharmacist's plainness, spoken by a family: the name, the dose, the time, who 
 ```
 
 ```css
-h1, h2, h3 { font-family: var(--font-display); font-weight: 700; letter-spacing: var(--tracking-display); line-height: 1.02; }
-.btn { height: 52px; padding: 0 var(--space-lg); border: 0; border-radius: var(--radius-input); font: 500 var(--text-md) var(--font-body); box-shadow: inset 0 1px 0 var(--glint), 0 0 0 1px var(--color-rule), 0 3px 0 var(--color-rule); transition: transform var(--dur-micro) var(--ease-out); }
-.btn--primary { background: linear-gradient(var(--color-accent), var(--color-accent-deep)); color: var(--color-accent-ink); box-shadow: 0 0 0 1px var(--color-accent-deep), 0 3px 0 var(--color-accent-deep); }
-.btn:active { transform: translateY(3px); }
-.plastic { --t: var(--p-thu); position: relative; border-radius: var(--radius-card); background: linear-gradient(color-mix(in oklab, var(--glint) 32%, transparent), transparent 18%), color-mix(in oklab, var(--t) 62%, transparent); box-shadow: inset 0 1.5px 0 var(--glint), inset 0 -24px 36px -28px color-mix(in oklab, var(--t) 45%, var(--color-ink)); }
-.dose, .label { font-family: var(--font-outlier); font-variant-numeric: tabular-nums; }
-.band--ink { background: var(--color-ink); color: var(--color-paper); }
+h1,
+h2,
+h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: var(--tracking-display);
+    line-height: 1.02;
+}
+.btn {
+    height: 52px;
+    padding: 0 var(--space-lg);
+    border: 0;
+    border-radius: var(--radius-input);
+    font: 500 var(--text-md) var(--font-body);
+    box-shadow:
+        inset 0 1px 0 var(--glint),
+        0 0 0 1px var(--color-rule),
+        0 3px 0 var(--color-rule);
+    transition: transform var(--dur-micro) var(--ease-out);
+}
+.btn--primary {
+    background: linear-gradient(var(--color-accent), var(--color-accent-deep));
+    color: var(--color-accent-ink);
+    box-shadow:
+        0 0 0 1px var(--color-accent-deep),
+        0 3px 0 var(--color-accent-deep);
+}
+.btn:active {
+    transform: translateY(3px);
+}
+.plastic {
+    --t: var(--p-thu);
+    position: relative;
+    border-radius: var(--radius-card);
+    background:
+        linear-gradient(color-mix(in oklab, var(--glint) 32%, transparent), transparent 18%),
+        color-mix(in oklab, var(--t) 62%, transparent);
+    box-shadow:
+        inset 0 1.5px 0 var(--glint),
+        inset 0 -24px 36px -28px color-mix(in oklab, var(--t) 45%, var(--color-ink));
+}
+.dose,
+.label {
+    font-family: var(--font-outlier);
+    font-variant-numeric: tabular-nums;
+}
+.band--ink {
+    background: var(--color-ink);
+    color: var(--color-paper);
+}
 ```

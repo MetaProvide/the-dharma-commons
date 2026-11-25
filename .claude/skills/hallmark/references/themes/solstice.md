@@ -1,4 +1,5 @@
 ---
+
 name: Solstice
 slug: solstice
 genre: editorial
@@ -20,26 +21,39 @@ An almanac's warmth: cream paper, warm brown ink, Yeseva One heads, Archivo for 
 
 ```css
 :root {
-  --color-paper: oklch(94% 0.03 80); --color-paper-2: oklch(97% 0.02 85); --color-paper-3: oklch(89% 0.05 80);
-  --color-ink: oklch(27% 0.05 50); --color-ink-2: oklch(36% 0.05 50); --color-muted: oklch(48% 0.06 55);
-  --color-rule: oklch(84% 0.06 78);
-  --color-accent: oklch(54% 0.20 24); --color-accent-ink: oklch(97% 0.02 85); --color-focus: oklch(54% 0.20 24);
-  --color-gold: oklch(74% 0.14 75); --color-gold-2: oklch(84% 0.11 80); --color-slot: var(--color-gold);
-  --font-display: "Yeseva One", ui-serif, Georgia, serif; --font-body: "Archivo", ui-sans-serif, sans-serif;
-  --font-outlier: "Archivo Narrow", ui-sans-serif, sans-serif;
-  --radius-card: 0; --radius-pill: 999px; --rule-hair: 1px; --rule-bar: 2px;
-  --shadow-card: 10px 10px 0 var(--color-paper-3);
-  --tracking-display: -0.005em; --display-weight: 400;
+    --color-paper: oklch(94% 0.03 80);
+    --color-paper-2: oklch(97% 0.02 85);
+    --color-paper-3: oklch(89% 0.05 80);
+    --color-ink: oklch(27% 0.05 50);
+    --color-ink-2: oklch(36% 0.05 50);
+    --color-muted: oklch(48% 0.06 55);
+    --color-rule: oklch(84% 0.06 78);
+    --color-accent: oklch(54% 0.2 24);
+    --color-accent-ink: oklch(97% 0.02 85);
+    --color-focus: oklch(54% 0.2 24);
+    --color-gold: oklch(74% 0.14 75);
+    --color-gold-2: oklch(84% 0.11 80);
+    --color-slot: var(--color-gold);
+    --font-display: "Yeseva One", ui-serif, Georgia, serif;
+    --font-body: "Archivo", ui-sans-serif, sans-serif;
+    --font-outlier: "Archivo Narrow", ui-sans-serif, sans-serif;
+    --radius-card: 0;
+    --radius-pill: 999px;
+    --rule-hair: 1px;
+    --rule-bar: 2px;
+    --shadow-card: 10px 10px 0 var(--color-paper-3);
+    --tracking-display: -0.005em;
+    --display-weight: 400;
 }
 ```
 
 The signal is vermilion at hue 24, a red with warmth in it that sits with the gold and the brown, never clay; the gold rules and never fills. Three lights, stated in the stamp (`solstice: long-light`).
 
-| Light | Paper and ink | Signal and gold |
-| --- | --- | --- |
-| `long-light` (default) | cream `oklch(94% 0.03 80)` under brown `oklch(27% 0.05 50)` | vermilion `oklch(54% 0.20 24)`, gold `oklch(74% 0.14 75)` |
-| `dusk` | plum brown `oklch(27% 0.05 40)` under cream ink; raised wells stay cream | vermilion keeps `oklch(54% 0.20 24)` with cream text, gold `oklch(78% 0.14 80)` |
-| `midwinter` | frost `oklch(95% 0.012 230)` under cold brown `oklch(28% 0.03 260)` | vermilion keeps its hue, gold goes pale `oklch(80% 0.06 230)` |
+| Light                  | Paper and ink                                                            | Signal and gold                                                                 |
+| ---------------------- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
+| `long-light` (default) | cream `oklch(94% 0.03 80)` under brown `oklch(27% 0.05 50)`              | vermilion `oklch(54% 0.20 24)`, gold `oklch(74% 0.14 75)`                       |
+| `dusk`                 | plum brown `oklch(27% 0.05 40)` under cream ink; raised wells stay cream | vermilion keeps `oklch(54% 0.20 24)` with cream text, gold `oklch(78% 0.14 80)` |
+| `midwinter`            | frost `oklch(95% 0.012 230)` under cold brown `oklch(28% 0.03 260)`      | vermilion keeps its hue, gold goes pale `oklch(80% 0.06 230)`                   |
 
 ## Type
 
@@ -92,13 +106,50 @@ The almanac: the hour of light, the pressing day, the orchard by name. Never a t
 ```
 
 ```css
-h1, h2, h3 { font-weight: 400; line-height: 1; }
-.small, figcaption { font: 600 12.5px var(--font-outlier); color: var(--color-muted); }
-.btn { display: inline-flex; padding: var(--space-md) var(--space-xl); border: 0; font: 600 var(--text-sm)/1 var(--font-outlier); background: var(--color-accent); color: var(--color-accent-ink); }
-.btn--secondary { background: none; color: var(--color-ink); padding: var(--space-lg) 0 var(--space-xs); border-bottom: var(--rule-bar) solid var(--color-ink); }
-.well { background: var(--color-paper-2); border: var(--rule-bar) solid var(--color-ink); outline: var(--rule-hair) solid var(--color-gold); outline-offset: -7px; box-shadow: var(--shadow-card); }
-.band--ink { background: var(--color-ink); color: var(--color-paper); }
-.photo img { outline: var(--rule-hair) solid color-mix(in oklab, var(--color-ink) 10%, transparent); outline-offset: -1px; }
-a:hover { text-decoration-color: var(--color-accent); }
-::selection { background: color-mix(in oklab, var(--color-gold) 40%, transparent); }
+h1,
+h2,
+h3 {
+    font-weight: 400;
+    line-height: 1;
+}
+.small,
+figcaption {
+    font: 600 12.5px var(--font-outlier);
+    color: var(--color-muted);
+}
+.btn {
+    display: inline-flex;
+    padding: var(--space-md) var(--space-xl);
+    border: 0;
+    font: 600 var(--text-sm) / 1 var(--font-outlier);
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+}
+.btn--secondary {
+    background: none;
+    color: var(--color-ink);
+    padding: var(--space-lg) 0 var(--space-xs);
+    border-bottom: var(--rule-bar) solid var(--color-ink);
+}
+.well {
+    background: var(--color-paper-2);
+    border: var(--rule-bar) solid var(--color-ink);
+    outline: var(--rule-hair) solid var(--color-gold);
+    outline-offset: -7px;
+    box-shadow: var(--shadow-card);
+}
+.band--ink {
+    background: var(--color-ink);
+    color: var(--color-paper);
+}
+.photo img {
+    outline: var(--rule-hair) solid color-mix(in oklab, var(--color-ink) 10%, transparent);
+    outline-offset: -1px;
+}
+a:hover {
+    text-decoration-color: var(--color-accent);
+}
+::selection {
+    background: color-mix(in oklab, var(--color-gold) 40%, transparent);
+}
 ```

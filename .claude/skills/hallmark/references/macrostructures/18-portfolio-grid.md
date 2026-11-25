@@ -16,6 +16,7 @@ Avoid for products. Portfolio Grid is a service-business shape.
 Compositions: Grid with a filter row (`layout.md` § 5).
 
 **Sample opening lines** (name the volume and the era):
-> *"Selected work, 2018 to 2026."* A date range, nothing else.
-> *"Twelve projects, six clients, two countries."* Three counts, no adjective.
-> *"Work, indexed by year."* The index is the whole site.
+
+> _"Selected work, 2018 to 2026."_ A date range, nothing else.
+> _"Twelve projects, six clients, two countries."_ Three counts, no adjective.
+> _"Work, indexed by year."_ The index is the whole site.

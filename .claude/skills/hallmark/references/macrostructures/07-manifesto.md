@@ -23,6 +23,7 @@ Avoid for checkout, pricing or a product tour. Manifesto sells agreement; a call
 ```
 
 **Sample opening lines** (manifestos commit; they do not hedge):
-> *"We are a studio. We are not a platform."* Defines by refusal, one colour (Meridian).
-> *"We design products that last twelve years. We do not design products that need replacing every two."* A concrete number, a paired declaration.
-> *"Lightness above weight."* A one-line principle, no explanation.
+
+> _"We are a studio. We are not a platform."_ Defines by refusal, one colour (Meridian).
+> _"We design products that last twelve years. We do not design products that need replacing every two."_ A concrete number, a paired declaration.
+> _"Lightness above weight."_ A one-line principle, no explanation.

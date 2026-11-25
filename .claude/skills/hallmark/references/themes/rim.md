@@ -1,4 +1,5 @@
 ---
+
 name: Rim
 slug: rim
 genre: modern-minimal
@@ -20,14 +21,28 @@ An instrument at night: warm black paper, warm off-white ink, Switzer at a mediu
 
 ```css
 :root {
-  --color-paper: oklch(9% 0.008 75); --color-paper-2: oklch(12.5% 0.009 75); --color-paper-3: oklch(6.5% 0.007 75);
-  --color-ink: oklch(94% 0.010 80); --color-ink-2: oklch(84% 0.011 80); --color-muted: oklch(68% 0.012 80); --color-muted-2: oklch(50% 0.010 80);
-  --color-rule: oklch(25% 0.010 78); --color-rule-2: oklch(16% 0.009 78);
-  --color-accent: oklch(72% 0.17 45); --color-accent-ink: oklch(10% 0.02 45); --color-accent-2: oklch(74% 0.12 250); --color-focus: oklch(78% 0.15 45);
-  --font-display: "Switzer", ui-sans-serif, system-ui, sans-serif; --font-body: var(--font-display);
-  --font-outlier: "Geist Mono", ui-monospace, monospace;
-  --radius-card: 0; --radius-pill: 0; --rule-hair: 1px; --shadow-card: none;
-  --tracking-display: -0.04em; --display-weight: 500;
+    --color-paper: oklch(9% 0.008 75);
+    --color-paper-2: oklch(12.5% 0.009 75);
+    --color-paper-3: oklch(6.5% 0.007 75);
+    --color-ink: oklch(94% 0.01 80);
+    --color-ink-2: oklch(84% 0.011 80);
+    --color-muted: oklch(68% 0.012 80);
+    --color-muted-2: oklch(50% 0.01 80);
+    --color-rule: oklch(25% 0.01 78);
+    --color-rule-2: oklch(16% 0.009 78);
+    --color-accent: oklch(72% 0.17 45);
+    --color-accent-ink: oklch(10% 0.02 45);
+    --color-accent-2: oklch(74% 0.12 250);
+    --color-focus: oklch(78% 0.15 45);
+    --font-display: "Switzer", ui-sans-serif, system-ui, sans-serif;
+    --font-body: var(--font-display);
+    --font-outlier: "Geist Mono", ui-monospace, monospace;
+    --radius-card: 0;
+    --radius-pill: 0;
+    --rule-hair: 1px;
+    --shadow-card: none;
+    --tracking-display: -0.04em;
+    --display-weight: 500;
 }
 ```
 
@@ -82,15 +97,62 @@ Measured and exact: the site, the pass, the time in UTC, the area in square kilo
 ```
 
 ```css
-h1, h2, h3 { font-weight: var(--display-weight); line-height: 1.02; }
-h2 { letter-spacing: -0.03em; }
-.measure { font-family: var(--font-outlier); font-variant-numeric: tabular-nums; }
-.btn { border-radius: 0; padding: var(--space-sm) var(--space-md); border: var(--rule-hair) solid var(--color-rule); background: none; color: var(--color-ink); font-weight: 500; }
-.btn--primary { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-accent-ink); }
-.well { position: relative; background: var(--color-paper-2); }
-.photo { outline: var(--rule-hair) solid color-mix(in oklab, var(--color-ink) 8%, transparent); outline-offset: -1px; }
-.ticks::before, .ticks::after { content: ""; position: absolute; width: 12px; height: 12px; border: 0 solid var(--color-muted); pointer-events: none; z-index: var(--z-raised); }
-.ticks::before { top: calc(-1 * var(--space-xs)); left: calc(-1 * var(--space-xs)); border-width: 1px 0 0 1px; }
-.ticks::after { right: calc(-1 * var(--space-xs)); bottom: calc(-1 * var(--space-xs)); border-width: 0 1px 1px 0; }
-::selection { background: color-mix(in oklab, var(--color-accent) 35%, transparent); color: var(--color-ink); }
+h1,
+h2,
+h3 {
+    font-weight: var(--display-weight);
+    line-height: 1.02;
+}
+h2 {
+    letter-spacing: -0.03em;
+}
+.measure {
+    font-family: var(--font-outlier);
+    font-variant-numeric: tabular-nums;
+}
+.btn {
+    border-radius: 0;
+    padding: var(--space-sm) var(--space-md);
+    border: var(--rule-hair) solid var(--color-rule);
+    background: none;
+    color: var(--color-ink);
+    font-weight: 500;
+}
+.btn--primary {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-accent-ink);
+}
+.well {
+    position: relative;
+    background: var(--color-paper-2);
+}
+.photo {
+    outline: var(--rule-hair) solid color-mix(in oklab, var(--color-ink) 8%, transparent);
+    outline-offset: -1px;
+}
+.ticks::before,
+.ticks::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border: 0 solid var(--color-muted);
+    pointer-events: none;
+    z-index: var(--z-raised);
+}
+.ticks::before {
+    top: calc(-1 * var(--space-xs));
+    left: calc(-1 * var(--space-xs));
+    border-width: 1px 0 0 1px;
+}
+.ticks::after {
+    right: calc(-1 * var(--space-xs));
+    bottom: calc(-1 * var(--space-xs));
+    border-width: 0 1px 1px 0;
+}
+::selection {
+    background: color-mix(in oklab, var(--color-accent) 35%, transparent);
+    color: var(--color-ink);
+}
 ```

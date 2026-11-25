@@ -8,17 +8,17 @@ Dark mode is a second, equally designed rendering of the same system: not `filte
 
 ## Token re-derivation (per token, from the light value)
 
-| Token | Dark derivation |
-| --- | --- |
-| `--color-paper` | L 12-18%, anchor-tinted (chroma 0.008-0.015). Never `#000`. |
-| `--color-paper-2/3` | Elevation is lighter: +3% L per level above paper (light mode steps darker; dark mode steps lighter). |
-| `--color-ink` | L 92-96%, anchor-tinted. Never `#fff`. |
+| Token                             | Dark derivation                                                                                                 |
+| --------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `--color-paper`                   | L 12-18%, anchor-tinted (chroma 0.008-0.015). Never `#000`.                                                     |
+| `--color-paper-2/3`               | Elevation is lighter: +3% L per level above paper (light mode steps darker; dark mode steps lighter).           |
+| `--color-ink`                     | L 92-96%, anchor-tinted. Never `#fff`.                                                                          |
 | `--color-ink-2` / muted / neutral | re-space the L steps between the new paper and ink so the typographic depth reads even; keep every chroma tint. |
-| `--color-rule` | L ~26-34%; hairlines must survive on the dark ground (check against paper-2, not just paper). |
-| `--color-accent` | chroma -0.02 to -0.04, L +5-10% (saturated light-mode accents glare on dark). |
-| `--color-accent-ink` | re-verify: >= 4.5:1 body / 3:1 large on the new accent fill. |
-| `--color-focus` | follows the accent derivation; ring contrast 3:1 or more against both papers. |
-| hue | Never moves between modes, on any token. |
+| `--color-rule`                    | L ~26-34%; hairlines must survive on the dark ground (check against paper-2, not just paper).                   |
+| `--color-accent`                  | chroma -0.02 to -0.04, L +5-10% (saturated light-mode accents glare on dark).                                   |
+| `--color-accent-ink`              | re-verify: >= 4.5:1 body / 3:1 large on the new accent fill.                                                    |
+| `--color-focus`                   | follows the accent derivation; ring contrast 3:1 or more against both papers.                                   |
+| hue                               | Never moves between modes, on any token.                                                                        |
 
 Plus one non-token move: reduce body `font-weight` by 50 units (400 to 350) in dark; light-on-dark text reads optically heavier.
 
@@ -27,10 +27,14 @@ Plus one non-token move: reduce body `font-weight` by 50 units (400 to 350) in d
 `tokens.css` carries the light block as-is, then exactly two additions:
 
 ```css
-[data-mode="dark"] { /* only the tokens that move, re-derived per the table */ }
+[data-mode="dark"] {
+    /* only the tokens that move, re-derived per the table */
+}
 
 @media (prefers-color-scheme: dark) {
-  :root:not([data-mode]) { /* the same overrides, for OS-preference auto mode */ }
+    :root:not([data-mode]) {
+        /* the same overrides, for OS-preference auto mode */
+    }
 }
 ```
 

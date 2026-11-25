@@ -102,11 +102,11 @@ Not "the hero is impressive". A described moment, with a before and an after.
 
 The peak gets three things, and it gets them at the expense of other acts:
 
-| It gets | Because |
-|---|---|
-| The asset budget | The best generated frames or the only real footage go here, not to act two |
-| The silence before it | An act of quiet, or an empty viewport, so the change has something to be a change from |
-| The most scroll room | The largest `data-sc-span` on the page, and the `data-sc-dwell` that makes the camera settle exactly on it |
+| It gets               | Because                                                                                                    |
+| --------------------- | ---------------------------------------------------------------------------------------------------------- |
+| The asset budget      | The best generated frames or the only real footage go here, not to act two                                 |
+| The silence before it | An act of quiet, or an empty viewport, so the change has something to be a change from                     |
+| The most scroll room  | The largest `data-sc-span` on the page, and the `data-sc-dwell` that makes the camera settle exactly on it |
 
 **A page with three peaks has none.** Three impressive acts flatten each other,
 and the visitor leaves able to say the site was nice and unable to say what
@@ -196,14 +196,14 @@ Scroll distance is emotional time. It is the only clock this medium has, and it
 is fully under your control, which makes it the cheapest emotional instrument in
 the kit and the one most often left at default.
 
-| Pacing | Reads as | Built with |
-|---|---|---|
-| Short acts, hard cuts | Adrenaline, pulse, impatience | Acts under 1.4vh, no `pin`, `dwell` at 0 |
-| A long pin | Held breath, pressure, attention | `data-sc-span` 3+, overlapping cues, one idea |
-| An empty viewport before a reveal | Silence before the drop | A ground-only act, no cue until the next one |
-| A slow settle mid-act | The shot landing | `data-sc-dwell` 0.35 to 0.6 with the cue peak on the settle |
-| A fast cue with a long plateau | Confidence, arrival | `data-sc-cue="0.1 0.9 0.08 0.4"` |
-| A slow ramp in | Hesitation, dawning | Long `rampIn`, and use it once, because it is close to feeling broken |
+| Pacing                            | Reads as                         | Built with                                                            |
+| --------------------------------- | -------------------------------- | --------------------------------------------------------------------- |
+| Short acts, hard cuts             | Adrenaline, pulse, impatience    | Acts under 1.4vh, no `pin`, `dwell` at 0                              |
+| A long pin                        | Held breath, pressure, attention | `data-sc-span` 3+, overlapping cues, one idea                         |
+| An empty viewport before a reveal | Silence before the drop          | A ground-only act, no cue until the next one                          |
+| A slow settle mid-act             | The shot landing                 | `data-sc-dwell` 0.35 to 0.6 with the cue peak on the settle           |
+| A fast cue with a long plateau    | Confidence, arrival              | `data-sc-cue="0.1 0.9 0.08 0.4"`                                      |
+| A slow ramp in                    | Hesitation, dawning              | Long `rampIn`, and use it once, because it is close to feeling broken |
 
 Three rules follow.
 

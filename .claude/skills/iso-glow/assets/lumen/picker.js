@@ -3,36 +3,74 @@
    reverse and rotate. Drives --accent / --accent2 and the shared #rw-theme / #rw-themehi
    gradients (angle + stop offsets) in whichever figure is mounted. Remembered per viewer. */
 (() => {
-  // Lumen is dark-only: lock the theme, whatever the system or a theme toggle says
-  const lockDark = () => { if (document.documentElement.dataset.theme !== 'dark') document.documentElement.dataset.theme = 'dark'; };
-  lockDark(); new MutationObserver(lockDark).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
-  const KEY = 'iso-glow-lumen-grad';
-  const PRESETS = [   // curated: neighbouring hues, both ends bright enough to glow on dark faces (no grey middle)
-    ['Aurora', '#b8f53d', '#2ee6d6'], ['Sunset', '#ff8a3d', '#ff4fa3'], ['Ocean', '#38e1ff', '#6c7bff'], ['Nebula', '#c084fc', '#f472b6'],
-    ['Solar', '#ffd23f', '#ff4d5e'], ['Mint', '#5cffb0', '#38bdf8'], ['Ultraviolet', '#8b7bff', '#22d3ee'], ['Rose gold', '#ffb38a', '#ff6fa8'],
-  ];
-  const DEF = { stops: [{ c: '#b8f53d', p: 0 }, { c: '#2ee6d6', p: 100 }], angle: 135 };
-  const hexOk = s => /^#[0-9a-f]{6}$/i.test(s);
-  // body tint: orange/gold/yellow turn muddy brown when darkened, so tint bodies with the other stop;
-  // if both are warm, use the redder one
-  const hue = h => { const r = parseInt(h.slice(1, 3), 16) / 255, g = parseInt(h.slice(3, 5), 16) / 255, b = parseInt(h.slice(5, 7), 16) / 255;
-    const mx = Math.max(r, g, b), mn = Math.min(r, g, b), d = mx - mn; if (!d) return -1;
-    const x = mx === r ? ((g - b) / d) % 6 : mx === g ? (b - r) / d + 2 : (r - g) / d + 4; return (x * 60 + 360) % 360; };
-  const muddy = h => { const x = hue(h); return x >= 18 && x <= 70; };
-  const tintOf = (a, b) => !muddy(a) ? a : !muddy(b) ? b : (hue(a) < hue(b) ? a : b);
-  const css = g => `linear-gradient(${g.angle}deg, ${g.stops[0].c} ${g.stops[0].p}%, ${g.stops[1].c} ${g.stops[1].p}%)`;
+    // Lumen is dark-only: lock the theme, whatever the system or a theme toggle says
+    const lockDark = () => {
+        if (document.documentElement.dataset.theme !== 'dark') document.documentElement.dataset.theme = 'dark';
+    };
+    lockDark();
+    new MutationObserver(lockDark).observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['data-theme'],
+    });
+    const KEY = 'iso-glow-lumen-grad';
+    const PRESETS = [
+        // curated: neighbouring hues, both ends bright enough to glow on dark faces (no grey middle)
+        ['Aurora', '#b8f53d', '#2ee6d6'],
+        ['Sunset', '#ff8a3d', '#ff4fa3'],
+        ['Ocean', '#38e1ff', '#6c7bff'],
+        ['Nebula', '#c084fc', '#f472b6'],
+        ['Solar', '#ffd23f', '#ff4d5e'],
+        ['Mint', '#5cffb0', '#38bdf8'],
+        ['Ultraviolet', '#8b7bff', '#22d3ee'],
+        ['Rose gold', '#ffb38a', '#ff6fa8'],
+    ];
+    const DEF = {
+        stops: [
+            { c: '#b8f53d', p: 0 },
+            { c: '#2ee6d6', p: 100 },
+        ],
+        angle: 135,
+    };
+    const hexOk = (s) => /^#[0-9a-f]{6}$/i.test(s);
+    // body tint: orange/gold/yellow turn muddy brown when darkened, so tint bodies with the other stop;
+    // if both are warm, use the redder one
+    const hue = (h) => {
+        const r = parseInt(h.slice(1, 3), 16) / 255,
+            g = parseInt(h.slice(3, 5), 16) / 255,
+            b = parseInt(h.slice(5, 7), 16) / 255;
+        const mx = Math.max(r, g, b),
+            mn = Math.min(r, g, b),
+            d = mx - mn;
+        if (!d) return -1;
+        const x = mx === r ? ((g - b) / d) % 6 : mx === g ? (b - r) / d + 2 : (r - g) / d + 4;
+        return (x * 60 + 360) % 360;
+    };
+    const muddy = (h) => {
+        const x = hue(h);
+        return x >= 18 && x <= 70;
+    };
+    const tintOf = (a, b) => (!muddy(a) ? a : !muddy(b) ? b : hue(a) < hue(b) ? a : b);
+    const css = (g) =>
+        `linear-gradient(${g.angle}deg, ${g.stops[0].c} ${g.stops[0].p}%, ${g.stops[1].c} ${g.stops[1].p}%)`;
 
-  const init = () => {
-    const sw = document.getElementById('swatches');
-    if (!sw || sw.dataset.lumen) return;
-    sw.dataset.lumen = '1';
-    const root = document.documentElement, holder = document.getElementById('stageHolder');
-    let g; try { g = JSON.parse(localStorage.getItem(KEY) || 'null'); } catch (e) { g = null; }
-    if (!g || !g.stops || g.stops.length !== 2 || !g.stops.every(s => hexOk(s.c))) g = JSON.parse(JSON.stringify(DEF));
-    let sel = 0;
+    const init = () => {
+        const sw = document.getElementById('swatches');
+        if (!sw || sw.dataset.lumen) return;
+        sw.dataset.lumen = '1';
+        const root = document.documentElement,
+            holder = document.getElementById('stageHolder');
+        let g;
+        try {
+            g = JSON.parse(localStorage.getItem(KEY) || 'null');
+        } catch (e) {
+            g = null;
+        }
+        if (!g || !g.stops || g.stops.length !== 2 || !g.stops.every((s) => hexOk(s.c)))
+            g = JSON.parse(JSON.stringify(DEF));
+        let sel = 0;
 
-    const style = document.createElement('style');
-    style.textContent = `
+        const style = document.createElement('style');
+        style.textContent = `
       #swatches > button[data-accent] { display:none; }
       #swatches { flex-wrap:wrap !important; height:auto !important; max-width:100%; row-gap:6px; border-radius:16px; overflow:visible !important; }
       .dh-theme { display:none !important; }
@@ -70,23 +108,41 @@
       .lg-tools button { height:28px; padding:0 9px; border:1px solid var(--edge); border-radius:7px; background:none; color:var(--ink-hi); font:inherit; cursor:pointer; }
       .lg-tools button:hover { border-color:var(--line); }
       .lg-lbl { color:var(--ink); }`;
-    document.head.appendChild(style);
+        document.head.appendChild(style);
 
-    const chip = document.createElement('button');
-    chip.type = 'button'; chip.className = 'lg-chip'; chip.setAttribute('aria-haspopup', 'dialog'); chip.setAttribute('aria-expanded', 'false');
-    chip.innerHTML = '<i></i>Custom'; chip.title = 'Edit gradient: stops, angle, colours';
-    // the presets live in the row itself, always visible; the chip opens the full editor
-    const pres = PRESETS.map(([n, a, b], i) => {
-      const el = document.createElement('button');
-      el.type = 'button'; el.className = 'lg-pre'; el.title = n; el.setAttribute('role', 'radio'); el.setAttribute('aria-label', `${n} gradient`);
-      el.innerHTML = `<i style="background:linear-gradient(135deg, ${a}, ${b})"></i>`;
-      el.addEventListener('click', () => { g.stops = [{ c: a, p: 0 }, { c: b, p: 100 }]; apply(); });
-      sw.appendChild(el); return el;
-    });
-    sw.appendChild(chip);
-    const pop = document.createElement('div');
-    pop.className = 'lg-pop'; pop.hidden = true; pop.setAttribute('role', 'dialog'); pop.setAttribute('aria-label', 'Gradient');
-    pop.innerHTML = `
+        const chip = document.createElement('button');
+        chip.type = 'button';
+        chip.className = 'lg-chip';
+        chip.setAttribute('aria-haspopup', 'dialog');
+        chip.setAttribute('aria-expanded', 'false');
+        chip.innerHTML = '<i></i>Custom';
+        chip.title = 'Edit gradient: stops, angle, colours';
+        // the presets live in the row itself, always visible; the chip opens the full editor
+        const pres = PRESETS.map(([n, a, b], i) => {
+            const el = document.createElement('button');
+            el.type = 'button';
+            el.className = 'lg-pre';
+            el.title = n;
+            el.setAttribute('role', 'radio');
+            el.setAttribute('aria-label', `${n} gradient`);
+            el.innerHTML = `<i style="background:linear-gradient(135deg, ${a}, ${b})"></i>`;
+            el.addEventListener('click', () => {
+                g.stops = [
+                    { c: a, p: 0 },
+                    { c: b, p: 100 },
+                ];
+                apply();
+            });
+            sw.appendChild(el);
+            return el;
+        });
+        sw.appendChild(chip);
+        const pop = document.createElement('div');
+        pop.className = 'lg-pop';
+        pop.hidden = true;
+        pop.setAttribute('role', 'dialog');
+        pop.setAttribute('aria-label', 'Gradient');
+        pop.innerHTML = `
       <div class="lg-h">Custom gradient <small>linear</small></div>
       <div class="lg-bar" title="Drag a stop to move it"><div class="lg-stop" data-s="0" tabindex="0" aria-label="Start colour stop"></div><div class="lg-stop" data-s="1" tabindex="0" aria-label="End colour stop"></div></div>
       <div class="lg-row"><label class="lg-sw" title="Stop colour"><input type="color" aria-label="Stop colour"></label>
@@ -97,105 +153,227 @@
           <div class="lg-tools"><span class="lg-lbl">Angle</span><input type="number" class="lg-deg" min="0" max="359" step="1" aria-label="Angle in degrees"><span class="lg-lbl">°</span></div>
           <div class="lg-tools"><button type="button" data-act="rot" title="Rotate 90°">↻ 90°</button><button type="button" data-act="rev" title="Reverse">⇄ Reverse</button></div>
         </div></div>`;
-    document.body.appendChild(pop);
-    const $ = s => pop.querySelector(s);
-    const bar = $('.lg-bar'), stops = [...pop.querySelectorAll('.lg-stop')], colIn = $('.lg-sw input'), hexIn = $('.lg-hex'), posIn = $('.lg-pos'),
-          degIn = $('.lg-deg'), dial = $('.lg-dial'), needle = dial.querySelector('b');
+        document.body.appendChild(pop);
+        const $ = (s) => pop.querySelector(s);
+        const bar = $('.lg-bar'),
+            stops = [...pop.querySelectorAll('.lg-stop')],
+            colIn = $('.lg-sw input'),
+            hexIn = $('.lg-hex'),
+            posIn = $('.lg-pos'),
+            degIn = $('.lg-deg'),
+            dial = $('.lg-dial'),
+            needle = dial.querySelector('b');
 
-    // ---- apply to the page + current figure ----
-    function applySvg() {
-      const a = g.angle * Math.PI / 180, dx = Math.sin(a), dy = -Math.cos(a);
-      document.querySelectorAll('#rw-theme, #rw-themehi').forEach(el => {
-        el.setAttribute('x1', (.5 - dx / 2).toFixed(3)); el.setAttribute('y1', (.5 - dy / 2).toFixed(3));
-        el.setAttribute('x2', (.5 + dx / 2).toFixed(3)); el.setAttribute('y2', (.5 + dy / 2).toFixed(3));
-        const st = el.querySelectorAll('stop');
-        if (st[0]) st[0].setAttribute('offset', (g.stops[0].p / 100).toFixed(3));
-        if (st[1]) st[1].setAttribute('offset', (g.stops[1].p / 100).toFixed(3));
-      });
-    }
-    function apply(save = true) {
-      const [s0, s1] = g.stops;
-      root.style.setProperty('--accent', s0.c);
-      root.style.setProperty('--accent2', s1.c);
-      root.style.setProperty('--rw-tint', tintOf(s0.c, s1.c));
-      root.style.setProperty('--accent-hi', `color-mix(in srgb, ${s0.c} 55%, #ffffff)`);
-      root.style.setProperty('--accent-dim', `color-mix(in srgb, ${s0.c} 10%, transparent)`);
-      root.style.setProperty('--glass-on', `color-mix(in srgb, ${s0.c} 9%, #101112)`);
-      applySvg();
-      const bg = css(g);
-      chip.querySelector('i').style.background = bg;
-      const k = PRESETS.findIndex(([, a, b]) => a === s0.c && b === s1.c && s0.p === 0 && s1.p === 100);
-      pres.forEach((el, i) => el.setAttribute('aria-checked', i === k ? 'true' : 'false'));
-      chip.setAttribute('aria-checked', k < 0 ? 'true' : 'false');
-      bar.style.background = `linear-gradient(90deg, ${s0.c} ${s0.p}%, ${s1.c} ${s1.p}%)`;
-      stops.forEach((el, i) => { el.style.left = g.stops[i].p + '%'; el.style.background = g.stops[i].c; el.classList.toggle('on', i === sel); });
-      const s = g.stops[sel];
-      colIn.value = s.c; if (document.activeElement !== hexIn) hexIn.value = s.c.toUpperCase();
-      if (document.activeElement !== posIn) posIn.value = Math.round(s.p);
-      if (document.activeElement !== degIn) degIn.value = Math.round(g.angle);
-      needle.style.transform = `rotate(${g.angle + 180}deg)`;
-      if (save) { try { localStorage.setItem(KEY, JSON.stringify(g)); } catch (e) {} }
-    }
-    // re-apply angle/offsets whenever a new figure mounts
-    if (holder) new MutationObserver(applySvg).observe(holder, { childList: true });
+        // ---- apply to the page + current figure ----
+        function applySvg() {
+            const a = (g.angle * Math.PI) / 180,
+                dx = Math.sin(a),
+                dy = -Math.cos(a);
+            document.querySelectorAll('#rw-theme, #rw-themehi').forEach((el) => {
+                el.setAttribute('x1', (0.5 - dx / 2).toFixed(3));
+                el.setAttribute('y1', (0.5 - dy / 2).toFixed(3));
+                el.setAttribute('x2', (0.5 + dx / 2).toFixed(3));
+                el.setAttribute('y2', (0.5 + dy / 2).toFixed(3));
+                const st = el.querySelectorAll('stop');
+                if (st[0]) st[0].setAttribute('offset', (g.stops[0].p / 100).toFixed(3));
+                if (st[1]) st[1].setAttribute('offset', (g.stops[1].p / 100).toFixed(3));
+            });
+        }
+        function apply(save = true) {
+            const [s0, s1] = g.stops;
+            root.style.setProperty('--accent', s0.c);
+            root.style.setProperty('--accent2', s1.c);
+            root.style.setProperty('--rw-tint', tintOf(s0.c, s1.c));
+            root.style.setProperty('--accent-hi', `color-mix(in srgb, ${s0.c} 55%, #ffffff)`);
+            root.style.setProperty('--accent-dim', `color-mix(in srgb, ${s0.c} 10%, transparent)`);
+            root.style.setProperty('--glass-on', `color-mix(in srgb, ${s0.c} 9%, #101112)`);
+            applySvg();
+            const bg = css(g);
+            chip.querySelector('i').style.background = bg;
+            const k = PRESETS.findIndex(([, a, b]) => a === s0.c && b === s1.c && s0.p === 0 && s1.p === 100);
+            pres.forEach((el, i) => el.setAttribute('aria-checked', i === k ? 'true' : 'false'));
+            chip.setAttribute('aria-checked', k < 0 ? 'true' : 'false');
+            bar.style.background = `linear-gradient(90deg, ${s0.c} ${s0.p}%, ${s1.c} ${s1.p}%)`;
+            stops.forEach((el, i) => {
+                el.style.left = g.stops[i].p + '%';
+                el.style.background = g.stops[i].c;
+                el.classList.toggle('on', i === sel);
+            });
+            const s = g.stops[sel];
+            colIn.value = s.c;
+            if (document.activeElement !== hexIn) hexIn.value = s.c.toUpperCase();
+            if (document.activeElement !== posIn) posIn.value = Math.round(s.p);
+            if (document.activeElement !== degIn) degIn.value = Math.round(g.angle);
+            needle.style.transform = `rotate(${g.angle + 180}deg)`;
+            if (save) {
+                try {
+                    localStorage.setItem(KEY, JSON.stringify(g));
+                } catch (e) {}
+            }
+        }
+        // re-apply angle/offsets whenever a new figure mounts
+        if (holder) new MutationObserver(applySvg).observe(holder, { childList: true });
 
-    // ---- popover open/close ----
-    function place() {
-      const r = chip.getBoundingClientRect(), w = 272, h = pop.offsetHeight || 330;
-      let left = Math.min(window.innerWidth - w - 12, Math.max(12, r.right - w));
-      let top = r.bottom + 8; if (top + h > window.innerHeight - 12) top = Math.max(12, r.top - h - 8);
-      pop.style.left = left + 'px'; pop.style.top = top + 'px';
-    }
-    function open(v) { pop.hidden = !v; chip.setAttribute('aria-expanded', v ? 'true' : 'false'); if (v) { place(); } }
-    chip.addEventListener('click', e => { e.stopPropagation(); open(pop.hidden); });
-    document.addEventListener('pointerdown', e => { if (!pop.hidden && !pop.contains(e.target) && !chip.contains(e.target)) open(false); });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape' && !pop.hidden) { open(false); chip.focus(); } });
-    window.addEventListener('resize', () => { if (!pop.hidden) place(); });
-    window.addEventListener('scroll', () => { if (!pop.hidden) place(); }, true);
-    pop.addEventListener('keydown', e => e.stopPropagation());       // typing in the editor never drives the figure
+        // ---- popover open/close ----
+        function place() {
+            const r = chip.getBoundingClientRect(),
+                w = 272,
+                h = pop.offsetHeight || 330;
+            const left = Math.min(window.innerWidth - w - 12, Math.max(12, r.right - w));
+            let top = r.bottom + 8;
+            if (top + h > window.innerHeight - 12) top = Math.max(12, r.top - h - 8);
+            pop.style.left = left + 'px';
+            pop.style.top = top + 'px';
+        }
+        function open(v) {
+            pop.hidden = !v;
+            chip.setAttribute('aria-expanded', v ? 'true' : 'false');
+            if (v) {
+                place();
+            }
+        }
+        chip.addEventListener('click', (e) => {
+            e.stopPropagation();
+            open(pop.hidden);
+        });
+        document.addEventListener('pointerdown', (e) => {
+            if (!pop.hidden && !pop.contains(e.target) && !chip.contains(e.target)) open(false);
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !pop.hidden) {
+                open(false);
+                chip.focus();
+            }
+        });
+        window.addEventListener('resize', () => {
+            if (!pop.hidden) place();
+        });
+        window.addEventListener(
+            'scroll',
+            () => {
+                if (!pop.hidden) place();
+            },
+            true,
+        );
+        pop.addEventListener('keydown', (e) => e.stopPropagation()); // typing in the editor never drives the figure
 
-    // ---- stops: select + drag along the bar ----
-    const pct = x => { const r = bar.getBoundingClientRect(); return Math.max(0, Math.min(100, (x - r.left) / r.width * 100)); };
-    stops.forEach((el, i) => {
-      el.addEventListener('pointerdown', e => {
-        e.preventDefault(); e.stopPropagation(); sel = i; el.setPointerCapture(e.pointerId); el.style.cursor = 'grabbing';
-        const mv = ev => { g.stops[i].p = Math.round(pct(ev.clientX)); apply(false); };
-        const up = () => { el.removeEventListener('pointermove', mv); el.style.cursor = ''; apply(); };
-        el.addEventListener('pointermove', mv); el.addEventListener('pointerup', up, { once: true }); apply(false);
-      });
-      el.addEventListener('keydown', e => {
-        if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') { sel = i; g.stops[i].p = Math.max(0, Math.min(100, g.stops[i].p + (e.key === 'ArrowLeft' ? -1 : 1) * (e.shiftKey ? 10 : 1))); apply(); e.preventDefault(); }
-      });
-      el.addEventListener('focus', () => { sel = i; apply(false); });
-    });
-    // clicking the bar moves the nearest stop there
-    bar.addEventListener('pointerdown', e => {
-      if (e.target.classList.contains('lg-stop')) return;
-      const p = pct(e.clientX), i = Math.abs(g.stops[0].p - p) <= Math.abs(g.stops[1].p - p) ? 0 : 1;
-      sel = i; g.stops[i].p = Math.round(p); apply();
-    });
-    // ---- selected stop: colour, hex, position ----
-    colIn.addEventListener('input', () => { g.stops[sel].c = colIn.value; apply(); });
-    hexIn.addEventListener('input', () => { let v = hexIn.value.trim(); if (v[0] !== '#') v = '#' + v; if (hexOk(v)) { g.stops[sel].c = v.toLowerCase(); apply(); } });
-    hexIn.addEventListener('blur', () => apply(false));
-    posIn.addEventListener('input', () => { const v = +posIn.value; if (!isNaN(v)) { g.stops[sel].p = Math.max(0, Math.min(100, v)); apply(); } });
-    // ---- angle: dial + number + tools ----
-    const setAngle = a => { g.angle = ((Math.round(a) % 360) + 360) % 360; apply(); };
-    degIn.addEventListener('input', () => { const v = +degIn.value; if (!isNaN(v)) setAngle(v); });
-    dial.addEventListener('pointerdown', e => {
-      e.preventDefault(); dial.setPointerCapture(e.pointerId);
-      const mv = ev => { const r = dial.getBoundingClientRect(), x = ev.clientX - (r.left + r.width / 2), y = ev.clientY - (r.top + r.height / 2);
-        let a = Math.atan2(x, -y) * 180 / Math.PI; if (ev.shiftKey) a = Math.round(a / 15) * 15; setAngle(a); };
-      mv(e); dial.addEventListener('pointermove', mv); dial.addEventListener('pointerup', () => dial.removeEventListener('pointermove', mv), { once: true });
-    });
-    dial.addEventListener('keydown', e => { if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') { setAngle(g.angle - (e.shiftKey ? 15 : 1)); e.preventDefault(); }
-      if (e.key === 'ArrowRight' || e.key === 'ArrowUp') { setAngle(g.angle + (e.shiftKey ? 15 : 1)); e.preventDefault(); } });
-    pop.querySelector('[data-act="rot"]').addEventListener('click', () => setAngle(g.angle + 90));
-    pop.querySelector('[data-act="rev"]').addEventListener('click', () => {
-      const [a, b] = g.stops; g.stops = [{ c: b.c, p: 100 - b.p }, { c: a.c, p: 100 - a.p }]; apply();
-    });
+        // ---- stops: select + drag along the bar ----
+        const pct = (x) => {
+            const r = bar.getBoundingClientRect();
+            return Math.max(0, Math.min(100, ((x - r.left) / r.width) * 100));
+        };
+        stops.forEach((el, i) => {
+            el.addEventListener('pointerdown', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                sel = i;
+                el.setPointerCapture(e.pointerId);
+                el.style.cursor = 'grabbing';
+                const mv = (ev) => {
+                    g.stops[i].p = Math.round(pct(ev.clientX));
+                    apply(false);
+                };
+                const up = () => {
+                    el.removeEventListener('pointermove', mv);
+                    el.style.cursor = '';
+                    apply();
+                };
+                el.addEventListener('pointermove', mv);
+                el.addEventListener('pointerup', up, { once: true });
+                apply(false);
+            });
+            el.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+                    sel = i;
+                    g.stops[i].p = Math.max(
+                        0,
+                        Math.min(100, g.stops[i].p + (e.key === 'ArrowLeft' ? -1 : 1) * (e.shiftKey ? 10 : 1)),
+                    );
+                    apply();
+                    e.preventDefault();
+                }
+            });
+            el.addEventListener('focus', () => {
+                sel = i;
+                apply(false);
+            });
+        });
+        // clicking the bar moves the nearest stop there
+        bar.addEventListener('pointerdown', (e) => {
+            if (e.target.classList.contains('lg-stop')) return;
+            const p = pct(e.clientX),
+                i = Math.abs(g.stops[0].p - p) <= Math.abs(g.stops[1].p - p) ? 0 : 1;
+            sel = i;
+            g.stops[i].p = Math.round(p);
+            apply();
+        });
+        // ---- selected stop: colour, hex, position ----
+        colIn.addEventListener('input', () => {
+            g.stops[sel].c = colIn.value;
+            apply();
+        });
+        hexIn.addEventListener('input', () => {
+            let v = hexIn.value.trim();
+            if (v[0] !== '#') v = '#' + v;
+            if (hexOk(v)) {
+                g.stops[sel].c = v.toLowerCase();
+                apply();
+            }
+        });
+        hexIn.addEventListener('blur', () => apply(false));
+        posIn.addEventListener('input', () => {
+            const v = +posIn.value;
+            if (!isNaN(v)) {
+                g.stops[sel].p = Math.max(0, Math.min(100, v));
+                apply();
+            }
+        });
+        // ---- angle: dial + number + tools ----
+        const setAngle = (a) => {
+            g.angle = ((Math.round(a) % 360) + 360) % 360;
+            apply();
+        };
+        degIn.addEventListener('input', () => {
+            const v = +degIn.value;
+            if (!isNaN(v)) setAngle(v);
+        });
+        dial.addEventListener('pointerdown', (e) => {
+            e.preventDefault();
+            dial.setPointerCapture(e.pointerId);
+            const mv = (ev) => {
+                const r = dial.getBoundingClientRect(),
+                    x = ev.clientX - (r.left + r.width / 2),
+                    y = ev.clientY - (r.top + r.height / 2);
+                let a = (Math.atan2(x, -y) * 180) / Math.PI;
+                if (ev.shiftKey) a = Math.round(a / 15) * 15;
+                setAngle(a);
+            };
+            mv(e);
+            dial.addEventListener('pointermove', mv);
+            dial.addEventListener('pointerup', () => dial.removeEventListener('pointermove', mv), { once: true });
+        });
+        dial.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {
+                setAngle(g.angle - (e.shiftKey ? 15 : 1));
+                e.preventDefault();
+            }
+            if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {
+                setAngle(g.angle + (e.shiftKey ? 15 : 1));
+                e.preventDefault();
+            }
+        });
+        pop.querySelector('[data-act="rot"]').addEventListener('click', () => setAngle(g.angle + 90));
+        pop.querySelector('[data-act="rev"]').addEventListener('click', () => {
+            const [a, b] = g.stops;
+            g.stops = [
+                { c: b.c, p: 100 - b.p },
+                { c: a.c, p: 100 - a.p },
+            ];
+            apply();
+        });
 
-    apply(false);
-  };
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else setTimeout(init, 0);
+        apply(false);
+    };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+    else setTimeout(init, 0);
 })();

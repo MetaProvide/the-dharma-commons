@@ -32,14 +32,14 @@ and the principle to adapt. A list of URLs is not evidence of design research.
 
 Before generating assets, write a layer contract:
 
-| Plane | Asset and depth | Independent movement | Contact/occlusion rule |
-|---|---|---|---|
-| Far environment | Clean background plate | Smallest displacement | No duplicate extracted subject |
-| Midground | Architecture, landscape, or a meaningful product surface | Moderate displacement | Establishes scale and distance |
-| Focal subject | Real product, alpha cutout, or rendered object | Deliberate travel/rotation | Stays on its support when grounded |
-| Near foreground | Cutout, framing element, or physical detail | Strongest restrained displacement | Frames the subject; preserves key copy |
-| Atmosphere | Light, mist, dust, or translucent material if appropriate | Slow independent change | Creates separation without washing out the page |
-| Typography and controls | Semantic HTML | Stable or carefully staged | Complete headline and primary action remain readable |
+| Plane                   | Asset and depth                                           | Independent movement              | Contact/occlusion rule                               |
+| ----------------------- | --------------------------------------------------------- | --------------------------------- | ---------------------------------------------------- |
+| Far environment         | Clean background plate                                    | Smallest displacement             | No duplicate extracted subject                       |
+| Midground               | Architecture, landscape, or a meaningful product surface  | Moderate displacement             | Establishes scale and distance                       |
+| Focal subject           | Real product, alpha cutout, or rendered object            | Deliberate travel/rotation        | Stays on its support when grounded                   |
+| Near foreground         | Cutout, framing element, or physical detail               | Strongest restrained displacement | Frames the subject; preserves key copy               |
+| Atmosphere              | Light, mist, dust, or translucent material if appropriate | Slow independent change           | Creates separation without washing out the page      |
+| Typography and controls | Semantic HTML                                             | Stable or carefully staged        | Complete headline and primary action remain readable |
 
 Use only planes the scene needs. Several divs that move together are one visual
 plane. The opening must already be compelling before the visitor scrolls.
@@ -101,18 +101,18 @@ Plan the feeling curve, actual information order, navigation, and ending before
 filling sections. Give the visitor agency tied to the offer. Selected state
 should carry into examples, exports, or inquiries rather than reset at the CTA.
 
-| Approved site | Spatial encounter | Useful interaction or structural lesson |
-|---|---|---|
-| AI Automation Society | Independent ridges reveal a real community window | Learning route, accurately labeled community proof, and real membership paths |
-| PERKFORM | A genuine can travels through coffee splash and separate beans | Lateral flavor collection carries the chosen can into launch interest |
-| Glaido | Physical lime/chrome voice elements resolve into order | Destination dock changes the example; a clearly labeled local cleanup illustration is usable |
-| Herkules Advisory | The architectural brand mark settles into its structure | Side navigation, service ledger, and a downloadable decision brief |
-| Serein | The alpine landscape becomes the view through a room window | A day planner carries its selection into actual correspondence |
-| FORME | A modeled pleated lamp responds to light | A photographic object-index drawer, dimmer, and collection desk |
-| Pelagic | A translucent specimen approaches and passes the viewer | Depth presets update a sourced light-zone model; the visitor's notebook is the ending |
-| NOEMA | A complete amber bottle sits among separate botanical planes | Scent composition updates a persistent portrait bookmark and a final document |
-| OFFGRID | A grounded bicycle moves against distant terrain and a near ledge | Terrain presets produce a selected ride dossier and useful export |
-| Afterhours | Independent curtains open behind a near reflective record | Opt-in audio controls stay synchronized; a guest-list form is part of the invitation |
+| Approved site         | Spatial encounter                                                 | Useful interaction or structural lesson                                                      |
+| --------------------- | ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| AI Automation Society | Independent ridges reveal a real community window                 | Learning route, accurately labeled community proof, and real membership paths                |
+| PERKFORM              | A genuine can travels through coffee splash and separate beans    | Lateral flavor collection carries the chosen can into launch interest                        |
+| Glaido                | Physical lime/chrome voice elements resolve into order            | Destination dock changes the example; a clearly labeled local cleanup illustration is usable |
+| Herkules Advisory     | The architectural brand mark settles into its structure           | Side navigation, service ledger, and a downloadable decision brief                           |
+| Serein                | The alpine landscape becomes the view through a room window       | A day planner carries its selection into actual correspondence                               |
+| FORME                 | A modeled pleated lamp responds to light                          | A photographic object-index drawer, dimmer, and collection desk                              |
+| Pelagic               | A translucent specimen approaches and passes the viewer           | Depth presets update a sourced light-zone model; the visitor's notebook is the ending        |
+| NOEMA                 | A complete amber bottle sits among separate botanical planes      | Scent composition updates a persistent portrait bookmark and a final document                |
+| OFFGRID               | A grounded bicycle moves against distant terrain and a near ledge | Terrain presets produce a selected ride dossier and useful export                            |
+| Afterhours            | Independent curtains open behind a near reflective record         | Opt-in audio controls stay synchronized; a guest-list form is part of the invitation         |
 
 These are examples, not ten mandatory page grammars. A new grammar must define
 actual structural constraints. A renamed grammar, palette, industry, or hero

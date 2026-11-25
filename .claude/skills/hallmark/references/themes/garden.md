@@ -1,4 +1,5 @@
 ---
+
 name: Garden
 slug: garden
 genre: editorial
@@ -20,15 +21,29 @@ A grower's voice: warm oat paper, a near-black green ink, Vollkorn heads and old
 
 ```css
 :root {
-  --color-paper: oklch(95.8% 0.024 90); --color-paper-2: oklch(92.6% 0.030 90); --color-paper-3: oklch(89% 0.034 90);
-  --color-ink: oklch(23% 0.050 152); --color-ink-2: oklch(33% 0.048 150); --color-muted: oklch(46% 0.034 142);
-  --color-rule: oklch(83% 0.024 112); --color-rule-2: oklch(68% 0.042 138);
-  --color-accent: oklch(46% 0.135 142); --color-accent-2: oklch(86% 0.075 128); --color-accent-ink: oklch(97% 0.015 95);
-  --color-focus: oklch(46% 0.135 142); --tint-moss: oklch(46% 0.135 142 / 0.11); --tint-clay: oklch(54% 0.140 46 / 0.10);
-  --font-display: "Vollkorn", ui-serif, Georgia, serif; --font-body: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --font-outlier: "Newsreader", ui-serif, Georgia, serif;
-  --radius-card: 4px; --radius-pill: 999px; --rule-hair: 1px; --shadow-card: none;
-  --tracking-display: -0.012em; --display-weight: 600;
+    --color-paper: oklch(95.8% 0.024 90);
+    --color-paper-2: oklch(92.6% 0.03 90);
+    --color-paper-3: oklch(89% 0.034 90);
+    --color-ink: oklch(23% 0.05 152);
+    --color-ink-2: oklch(33% 0.048 150);
+    --color-muted: oklch(46% 0.034 142);
+    --color-rule: oklch(83% 0.024 112);
+    --color-rule-2: oklch(68% 0.042 138);
+    --color-accent: oklch(46% 0.135 142);
+    --color-accent-2: oklch(86% 0.075 128);
+    --color-accent-ink: oklch(97% 0.015 95);
+    --color-focus: oklch(46% 0.135 142);
+    --tint-moss: oklch(46% 0.135 142 / 0.11);
+    --tint-clay: oklch(54% 0.14 46 / 0.1);
+    --font-display: "Vollkorn", ui-serif, Georgia, serif;
+    --font-body: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+    --font-outlier: "Newsreader", ui-serif, Georgia, serif;
+    --radius-card: 4px;
+    --radius-pill: 999px;
+    --rule-hair: 1px;
+    --shadow-card: none;
+    --tracking-display: -0.012em;
+    --display-weight: 600;
 }
 ```
 
@@ -83,15 +98,53 @@ Warm, honest, seasonal, unhurried. Say the field, the variety, the month, the ac
 ```
 
 ```css
-body { font-variant-numeric: oldstyle-nums; color: var(--color-ink-2); }
-table, .num { font-variant-numeric: lining-nums tabular-nums; }
-h1, h2, h3 { font-weight: var(--display-weight); color: var(--color-ink); }
-.figure { font: 600 clamp(6rem, 12vw, 11rem)/0.86 var(--font-display); font-variant-numeric: oldstyle-nums proportional-nums; color: var(--color-ink); }
-.btn { border-radius: var(--radius-pill); border: var(--rule-hair) solid var(--color-rule-2); padding: var(--space-sm) var(--space-lg); font-weight: 500; color: var(--color-ink); }
-.btn--primary { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-accent-ink); }
-.band--moss { background: var(--tint-moss); }
-.photo img { border-radius: var(--radius-card); outline: var(--rule-hair) solid var(--color-rule); outline-offset: -1px; }
-.photo figcaption { font: 400 var(--text-sm)/1.4 var(--font-outlier); color: var(--color-muted); }
-a:hover { text-decoration-color: var(--color-accent); }
-::selection { background: color-mix(in oklab, var(--color-accent) 22%, transparent); }
+body {
+    font-variant-numeric: oldstyle-nums;
+    color: var(--color-ink-2);
+}
+table,
+.num {
+    font-variant-numeric: lining-nums tabular-nums;
+}
+h1,
+h2,
+h3 {
+    font-weight: var(--display-weight);
+    color: var(--color-ink);
+}
+.figure {
+    font: 600 clamp(6rem, 12vw, 11rem) / 0.86 var(--font-display);
+    font-variant-numeric: oldstyle-nums proportional-nums;
+    color: var(--color-ink);
+}
+.btn {
+    border-radius: var(--radius-pill);
+    border: var(--rule-hair) solid var(--color-rule-2);
+    padding: var(--space-sm) var(--space-lg);
+    font-weight: 500;
+    color: var(--color-ink);
+}
+.btn--primary {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-accent-ink);
+}
+.band--moss {
+    background: var(--tint-moss);
+}
+.photo img {
+    border-radius: var(--radius-card);
+    outline: var(--rule-hair) solid var(--color-rule);
+    outline-offset: -1px;
+}
+.photo figcaption {
+    font: 400 var(--text-sm) / 1.4 var(--font-outlier);
+    color: var(--color-muted);
+}
+a:hover {
+    text-decoration-color: var(--color-accent);
+}
+::selection {
+    background: color-mix(in oklab, var(--color-accent) 22%, transparent);
+}
 ```

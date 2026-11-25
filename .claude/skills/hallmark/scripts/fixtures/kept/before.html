@@ -20,7 +20,7 @@ body { font-family: sans-serif; }
   <button type="submit" onclick="track('book')" data-testid="book-button">Book</button>
 </form>
 <script>
-document.getElementById('nav-toggle').addEventListener('click', function () { document.querySelector('#site-nav').classList.toggle('is-open'); });
+document.getElementById('nav-toggle').addEventListener('click', () => { document.querySelector('#site-nav').classList.toggle('is-open'); });
 </script>
 </body>
 </html>

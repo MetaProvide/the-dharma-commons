@@ -1,4 +1,5 @@
 ---
+
 name: Loom
 slug: loom
 genre: editorial
@@ -20,25 +21,38 @@ A weaving studio speaking quietly: ecru paper, Caslon cut for display with a boo
 
 ```css
 :root {
-  --color-paper: oklch(95.5% 0.014 85); --color-paper-2: oklch(92% 0.022 84); --color-paper-3: oklch(85% 0.032 80);
-  --color-ink: oklch(21% 0.012 60); --color-ink-2: oklch(31% 0.012 60); --color-muted: oklch(46% 0.014 62);
-  --color-rule: oklch(83% 0.022 84); --color-rule-ink: oklch(21% 0.012 60);
-  --color-accent: oklch(34% 0.115 267); --color-accent-2: oklch(43% 0.125 267); --color-accent-ink: oklch(95.5% 0.014 85); --color-focus: oklch(43% 0.15 267);
-  --font-display: "Libre Caslon Display", "Libre Caslon Text", ui-serif, Georgia, serif; --font-body: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --font-outlier: "DM Mono", ui-monospace, monospace;
-  --radius-card: 0; --radius-pill: 0; --rule-hair: 1px; --rule-ink: 2px;
-  --shadow-card: none;
-  --tracking-display: -0.01em; --display-weight: 400;
+    --color-paper: oklch(95.5% 0.014 85);
+    --color-paper-2: oklch(92% 0.022 84);
+    --color-paper-3: oklch(85% 0.032 80);
+    --color-ink: oklch(21% 0.012 60);
+    --color-ink-2: oklch(31% 0.012 60);
+    --color-muted: oklch(46% 0.014 62);
+    --color-rule: oklch(83% 0.022 84);
+    --color-rule-ink: oklch(21% 0.012 60);
+    --color-accent: oklch(34% 0.115 267);
+    --color-accent-2: oklch(43% 0.125 267);
+    --color-accent-ink: oklch(95.5% 0.014 85);
+    --color-focus: oklch(43% 0.15 267);
+    --font-display: "Libre Caslon Display", "Libre Caslon Text", ui-serif, Georgia, serif;
+    --font-body: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+    --font-outlier: "DM Mono", ui-monospace, monospace;
+    --radius-card: 0;
+    --radius-pill: 0;
+    --rule-hair: 1px;
+    --rule-ink: 2px;
+    --shadow-card: none;
+    --tracking-display: -0.01em;
+    --display-weight: 400;
 }
 ```
 
 Three colourways, stated in the stamp (`loom: ecru`).
 
-| Colourway | Paper, ink, indigo |
-| --- | --- |
-| `ecru` (default) | the block above |
-| `indigo` | paper `oklch(34% 0.10 266)`, ink ecru `oklch(95% 0.015 85)`, rule `oklch(50% 0.09 266)`; the button turns ecru with indigo text |
-| `oat` | paper `oklch(88% 0.04 80)`, ink `oklch(15% 0.01 60)`, rules in the ink at 1px, indigo `oklch(38% 0.10 266)` kept to a rule and a button |
+| Colourway        | Paper, ink, indigo                                                                                                                      |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `ecru` (default) | the block above                                                                                                                         |
+| `indigo`         | paper `oklch(34% 0.10 266)`, ink ecru `oklch(95% 0.015 85)`, rule `oklch(50% 0.09 266)`; the button turns ecru with indigo text         |
+| `oat`            | paper `oklch(88% 0.04 80)`, ink `oklch(15% 0.01 60)`, rules in the ink at 1px, indigo `oklch(38% 0.10 266)` kept to a rule and a button |
 
 ## Type
 
@@ -92,15 +106,57 @@ The weaver speaking plainly at the loom: the fibre, the metre, the weeks, the ro
 ```
 
 ```css
-h1, h2, h3 { font-weight: 400; line-height: 1.04; font-synthesis: none; }
-.num { font-family: var(--font-outlier); font-variant-numeric: tabular-nums; }
-.btn { display: inline-flex; align-items: center; padding: var(--space-md) var(--space-lg); font: 500 var(--text-sm)/1 var(--font-body); background: var(--color-accent); color: var(--color-accent-ink); transition: background-color var(--dur-short) var(--ease-out); }
-.btn:hover { background: var(--color-accent-2); }
-.link { font-weight: 500; padding-block: var(--space-2xs); border-bottom: 2px solid currentColor; text-decoration: none; transition: border-color var(--dur-short) var(--ease-out); }
-.link:hover { border-color: var(--color-accent); }
-.photo img { outline: 1px solid color-mix(in oklab, var(--color-ink) 8%, transparent); outline-offset: -1px; }
-.photo figcaption { margin-top: var(--space-sm); font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); }
-.band--indigo { background: var(--color-accent); color: var(--color-accent-ink); }
-.band--indigo .btn { background: var(--color-paper); color: var(--color-accent); }
-.band--indigo :focus-visible { outline-color: var(--color-accent-ink); }
+h1,
+h2,
+h3 {
+    font-weight: 400;
+    line-height: 1.04;
+    font-synthesis: none;
+}
+.num {
+    font-family: var(--font-outlier);
+    font-variant-numeric: tabular-nums;
+}
+.btn {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-md) var(--space-lg);
+    font: 500 var(--text-sm) / 1 var(--font-body);
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+    transition: background-color var(--dur-short) var(--ease-out);
+}
+.btn:hover {
+    background: var(--color-accent-2);
+}
+.link {
+    font-weight: 500;
+    padding-block: var(--space-2xs);
+    border-bottom: 2px solid currentColor;
+    text-decoration: none;
+    transition: border-color var(--dur-short) var(--ease-out);
+}
+.link:hover {
+    border-color: var(--color-accent);
+}
+.photo img {
+    outline: 1px solid color-mix(in oklab, var(--color-ink) 8%, transparent);
+    outline-offset: -1px;
+}
+.photo figcaption {
+    margin-top: var(--space-sm);
+    font: 500 var(--text-sm) / 1.4 var(--font-body);
+    color: var(--color-muted);
+}
+.band--indigo {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+}
+.band--indigo .btn {
+    background: var(--color-paper);
+    color: var(--color-accent);
+}
+.band--indigo :focus-visible {
+    outline-color: var(--color-accent-ink);
+}
 ```

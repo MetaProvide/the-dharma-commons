@@ -1,4 +1,5 @@
 ---
+
 name: Editorial
 slug: editorial
 genre: editorial
@@ -20,13 +21,26 @@ A contemporary magazine voice: warm white uncoated stock, a printed black with a
 
 ```css
 :root {
-  --color-paper: oklch(97% 0.007 86); --color-paper-2: oklch(94% 0.010 86); --color-paper-3: oklch(91% 0.012 84);
-  --color-ink: oklch(16% 0.012 280); --color-ink-2: oklch(29% 0.011 280); --color-muted: oklch(48% 0.010 75);
-  --color-rule: oklch(85% 0.009 85); --color-rule-2: oklch(64% 0.010 80);
-  --color-accent: oklch(49% 0.130 152); --color-accent-ink: oklch(98% 0.005 88); --color-focus: oklch(52% 0.135 152);
-  --font-display: "Bricolage Grotesque", ui-sans-serif, sans-serif; --font-body: "Source Serif 4", ui-serif, Georgia, serif;
-  --radius-card: 0; --radius-pill: 0; --rule-hair: 1px; --rule-heavy: 4px; --shadow-card: none;
-  --tracking-display: -0.012em; --display-weight: 800;
+    --color-paper: oklch(97% 0.007 86);
+    --color-paper-2: oklch(94% 0.01 86);
+    --color-paper-3: oklch(91% 0.012 84);
+    --color-ink: oklch(16% 0.012 280);
+    --color-ink-2: oklch(29% 0.011 280);
+    --color-muted: oklch(48% 0.01 75);
+    --color-rule: oklch(85% 0.009 85);
+    --color-rule-2: oklch(64% 0.01 80);
+    --color-accent: oklch(49% 0.13 152);
+    --color-accent-ink: oklch(98% 0.005 88);
+    --color-focus: oklch(52% 0.135 152);
+    --font-display: "Bricolage Grotesque", ui-sans-serif, sans-serif;
+    --font-body: "Source Serif 4", ui-serif, Georgia, serif;
+    --radius-card: 0;
+    --radius-pill: 0;
+    --rule-hair: 1px;
+    --rule-heavy: 4px;
+    --shadow-card: none;
+    --tracking-display: -0.012em;
+    --display-weight: 800;
 }
 ```
 
@@ -81,17 +95,75 @@ Contemporary, lightly literary, exact. Name the issue, the page count, the date;
 ```
 
 ```css
-body { color: var(--color-ink-2); font-optical-sizing: auto; font-variant-numeric: oldstyle-nums; }
-h1, h2, h3 { font-weight: var(--display-weight); font-variation-settings: "wdth" 75, "opsz" 96; color: var(--color-ink); font-variant-numeric: lining-nums tabular-nums; }
-small, figcaption, th, nav, label, .btn, .tag { font-family: var(--font-display); font-weight: 500; font-variation-settings: "opsz" 12; }
-.standfirst { font: 400 var(--text-display-s)/1.2 var(--font-body); color: var(--color-ink); }
-.opens { border-top: var(--rule-heavy) solid var(--color-ink); padding-top: var(--space-lg); }
-.btn { border: var(--rule-hair) solid var(--color-ink); border-radius: 0; min-height: 48px; padding: 0 var(--space-lg); }
-.btn--primary { background: var(--color-ink); color: var(--color-paper); }
-.btn--secondary { background: none; color: var(--color-ink); }
-.tag { background: var(--color-accent); color: var(--color-accent-ink); padding: var(--space-3xs) var(--space-xs); }
-.well { background: var(--color-paper-2); border-top: var(--rule-hair) solid var(--color-rule-2); }
-.photo > img { outline: 1px solid color-mix(in oklab, var(--color-ink) 8%, transparent); outline-offset: -1px; }
-a { text-decoration-color: var(--color-rule-2); text-underline-offset: 0.2em; } a:hover { text-decoration-color: var(--color-accent); }
-::selection { background: color-mix(in oklab, var(--color-accent) 22%, transparent); }
+body {
+    color: var(--color-ink-2);
+    font-optical-sizing: auto;
+    font-variant-numeric: oldstyle-nums;
+}
+h1,
+h2,
+h3 {
+    font-weight: var(--display-weight);
+    font-variation-settings:
+        "wdth" 75,
+        "opsz" 96;
+    color: var(--color-ink);
+    font-variant-numeric: lining-nums tabular-nums;
+}
+small,
+figcaption,
+th,
+nav,
+label,
+.btn,
+.tag {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-variation-settings: "opsz" 12;
+}
+.standfirst {
+    font: 400 var(--text-display-s) / 1.2 var(--font-body);
+    color: var(--color-ink);
+}
+.opens {
+    border-top: var(--rule-heavy) solid var(--color-ink);
+    padding-top: var(--space-lg);
+}
+.btn {
+    border: var(--rule-hair) solid var(--color-ink);
+    border-radius: 0;
+    min-height: 48px;
+    padding: 0 var(--space-lg);
+}
+.btn--primary {
+    background: var(--color-ink);
+    color: var(--color-paper);
+}
+.btn--secondary {
+    background: none;
+    color: var(--color-ink);
+}
+.tag {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+    padding: var(--space-3xs) var(--space-xs);
+}
+.well {
+    background: var(--color-paper-2);
+    border-top: var(--rule-hair) solid var(--color-rule-2);
+}
+.photo > img {
+    outline: 1px solid color-mix(in oklab, var(--color-ink) 8%, transparent);
+    outline-offset: -1px;
+}
+a {
+    text-decoration-color: var(--color-rule-2);
+    text-underline-offset: 0.2em;
+}
+a:hover {
+    text-decoration-color: var(--color-accent);
+}
+::selection {
+    background: color-mix(in oklab, var(--color-accent) 22%, transparent);
+}
 ```

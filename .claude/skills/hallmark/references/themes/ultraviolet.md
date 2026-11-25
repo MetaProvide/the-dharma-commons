@@ -1,4 +1,5 @@
 ---
+
 name: Ultraviolet
 slug: ultraviolet
 genre: modern-minimal
@@ -20,26 +21,38 @@ A producer's tool in one pigment: a paper tinted the same hue as the ink, one sa
 
 ```css
 :root {
-  --color-paper: oklch(95% 0.02 300); --color-paper-2: oklch(92% 0.03 300); --color-paper-3: oklch(89% 0.035 300);
-  --color-ink: oklch(18% 0.02 300); --color-ink-2: oklch(28% 0.03 300); --color-muted: oklch(46% 0.05 300);
-  --color-rule: oklch(84% 0.04 300); --color-rule-2: oklch(70% 0.08 295);
-  --color-accent: oklch(50% 0.25 290); --color-accent-deep: oklch(43% 0.22 290); --color-accent-soft: oklch(86% 0.08 295);
-  --color-accent-ink: oklch(97% 0.01 300); --color-focus: oklch(50% 0.25 290);
-  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif; --font-body: "Onest", ui-sans-serif, sans-serif;
-  --font-outlier: "JetBrains Mono", ui-monospace, monospace;
-  --radius-card: 16px; --radius-pill: 999px; --rule-hair: 1px;
-  --shadow-card: 0 1px 2px oklch(18% 0.02 300 / 0.06);
-  --tracking-display: -0.03em; --display-weight: 500;
+    --color-paper: oklch(95% 0.02 300);
+    --color-paper-2: oklch(92% 0.03 300);
+    --color-paper-3: oklch(89% 0.035 300);
+    --color-ink: oklch(18% 0.02 300);
+    --color-ink-2: oklch(28% 0.03 300);
+    --color-muted: oklch(46% 0.05 300);
+    --color-rule: oklch(84% 0.04 300);
+    --color-rule-2: oklch(70% 0.08 295);
+    --color-accent: oklch(50% 0.25 290);
+    --color-accent-deep: oklch(43% 0.22 290);
+    --color-accent-soft: oklch(86% 0.08 295);
+    --color-accent-ink: oklch(97% 0.01 300);
+    --color-focus: oklch(50% 0.25 290);
+    --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+    --font-body: "Onest", ui-sans-serif, sans-serif;
+    --font-outlier: "JetBrains Mono", ui-monospace, monospace;
+    --radius-card: 16px;
+    --radius-pill: 999px;
+    --rule-hair: 1px;
+    --shadow-card: 0 1px 2px oklch(18% 0.02 300 / 0.06);
+    --tracking-display: -0.03em;
+    --display-weight: 500;
 }
 ```
 
 Three colourways, set once per page and stated in the stamp (`ultraviolet: lavender`). A nocturnal prompt takes `night`, which may carry one band in the `record` colours.
 
-| Colourway | Paper, ink, accent |
-| --- | --- |
-| `lavender` (default) | the block above |
-| `record` | ground `oklch(50% 0.25 290)`, ink `oklch(95% 0.02 300)`, the accent turns white `oklch(99% 0.005 300)` with violet text on it, rule `oklch(72% 0.14 292)` |
-| `night` | ground `oklch(14% 0.02 290)`, paper-2 `17.5% 0.025 290`, paper-3 `21% 0.03 290`, ink `92% 0.04 300`, ink-2 `80% 0.05 300`, muted `68% 0.06 300`, rule `28% 0.04 290`, rule-2 `44% 0.07 292`, accent `55% 0.25 290`, deep `48% 0.24 290`, soft `36% 0.09 293`, focus `62% 0.22 290` |
+| Colourway            | Paper, ink, accent                                                                                                                                                                                                                                                                 |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `lavender` (default) | the block above                                                                                                                                                                                                                                                                    |
+| `record`             | ground `oklch(50% 0.25 290)`, ink `oklch(95% 0.02 300)`, the accent turns white `oklch(99% 0.005 300)` with violet text on it, rule `oklch(72% 0.14 292)`                                                                                                                          |
+| `night`              | ground `oklch(14% 0.02 290)`, paper-2 `17.5% 0.025 290`, paper-3 `21% 0.03 290`, ink `92% 0.04 300`, ink-2 `80% 0.05 300`, muted `68% 0.06 300`, rule `28% 0.04 290`, rule-2 `44% 0.07 292`, accent `55% 0.25 290`, deep `48% 0.24 290`, soft `36% 0.09 293`, focus `62% 0.22 290` |
 
 ## Type
 
@@ -92,15 +105,61 @@ Lowercase, short, exact: the stem, the bar, the minute, the track count. It talk
 ```
 
 ```css
-h1, h2, h3 { font-weight: 500; line-height: 1; text-transform: lowercase; letter-spacing: var(--tracking-display); }
-.figure { font: 300 var(--text-display)/0.9 var(--font-display); font-variant-numeric: tabular-nums; }
-.btn, .pill { display: inline-flex; align-items: center; border-radius: var(--radius-pill); font: 500 var(--text-sm)/1 var(--font-display); text-transform: lowercase; transition: background-color var(--dur-micro) var(--ease-out); }
-.btn { min-height: 48px; padding: 0 var(--space-lg); } .pill { padding: var(--space-xs) var(--space-md); box-shadow: inset 0 0 0 1.5px var(--color-rule-2); }
-.btn--primary { background: var(--color-accent); color: var(--color-accent-ink); }
-.btn--primary:hover { background: var(--color-accent-deep); }
-.btn--secondary { box-shadow: inset 0 0 0 1.5px currentColor; color: inherit; }
-.well { background: var(--color-paper-2); border-radius: var(--radius-card); }
-.band--violet { background: var(--color-accent); color: var(--color-accent-ink); }
-.wave__rest { fill: var(--color-accent-soft); } .wave__played { fill: var(--color-accent); }
-::selection { background: color-mix(in oklab, var(--color-accent) 25%, transparent); }
+h1,
+h2,
+h3 {
+    font-weight: 500;
+    line-height: 1;
+    text-transform: lowercase;
+    letter-spacing: var(--tracking-display);
+}
+.figure {
+    font: 300 var(--text-display) / 0.9 var(--font-display);
+    font-variant-numeric: tabular-nums;
+}
+.btn,
+.pill {
+    display: inline-flex;
+    align-items: center;
+    border-radius: var(--radius-pill);
+    font: 500 var(--text-sm) / 1 var(--font-display);
+    text-transform: lowercase;
+    transition: background-color var(--dur-micro) var(--ease-out);
+}
+.btn {
+    min-height: 48px;
+    padding: 0 var(--space-lg);
+}
+.pill {
+    padding: var(--space-xs) var(--space-md);
+    box-shadow: inset 0 0 0 1.5px var(--color-rule-2);
+}
+.btn--primary {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+}
+.btn--primary:hover {
+    background: var(--color-accent-deep);
+}
+.btn--secondary {
+    box-shadow: inset 0 0 0 1.5px currentColor;
+    color: inherit;
+}
+.well {
+    background: var(--color-paper-2);
+    border-radius: var(--radius-card);
+}
+.band--violet {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+}
+.wave__rest {
+    fill: var(--color-accent-soft);
+}
+.wave__played {
+    fill: var(--color-accent);
+}
+::selection {
+    background: color-mix(in oklab, var(--color-accent) 25%, transparent);
+}
 ```

@@ -1,4 +1,5 @@
 ---
+
 name: Sport
 slug: sport
 genre: editorial
@@ -20,16 +21,29 @@ A results-sheet material: cool concrete paper, blue-black ink, Saira Condensed 8
 
 ```css
 :root {
-  --color-paper: oklch(98% 0.005 250); --color-paper-2: oklch(95% 0.006 250); --color-paper-3: oklch(91.5% 0.007 250);
-  --color-ink: oklch(16% 0.080 260); --color-ink-2: oklch(22% 0.060 258); --color-muted: oklch(50% 0.020 250);
-  --color-rule: oklch(78% 0.008 250); --color-rule-2: oklch(36% 0.060 255);
-  --color-accent: oklch(88% 0.200 120); --color-accent-ink: oklch(16% 0.080 260); --color-accent-deep: oklch(58% 0.145 125);
-  --color-focus: oklch(58% 0.145 125); --color-slot: oklch(76% 0.07 258);
-  --font-display: "Saira Condensed", sans-serif; --font-body: "Albert Sans", ui-sans-serif, sans-serif;
-  --font-outlier: "JetBrains Mono", ui-monospace, monospace;
-  --radius-card: 4px; --radius-pill: 4px; --rule-hair: 1px; --rule-bar: 2px;
-  --shadow-card: none;
-  --tracking-display: -0.015em; --display-weight: 800;
+    --color-paper: oklch(98% 0.005 250);
+    --color-paper-2: oklch(95% 0.006 250);
+    --color-paper-3: oklch(91.5% 0.007 250);
+    --color-ink: oklch(16% 0.08 260);
+    --color-ink-2: oklch(22% 0.06 258);
+    --color-muted: oklch(50% 0.02 250);
+    --color-rule: oklch(78% 0.008 250);
+    --color-rule-2: oklch(36% 0.06 255);
+    --color-accent: oklch(88% 0.2 120);
+    --color-accent-ink: oklch(16% 0.08 260);
+    --color-accent-deep: oklch(58% 0.145 125);
+    --color-focus: oklch(58% 0.145 125);
+    --color-slot: oklch(76% 0.07 258);
+    --font-display: "Saira Condensed", sans-serif;
+    --font-body: "Albert Sans", ui-sans-serif, sans-serif;
+    --font-outlier: "JetBrains Mono", ui-monospace, monospace;
+    --radius-card: 4px;
+    --radius-pill: 4px;
+    --rule-hair: 1px;
+    --rule-bar: 2px;
+    --shadow-card: none;
+    --tracking-display: -0.015em;
+    --display-weight: 800;
 }
 ```
 
@@ -85,17 +99,63 @@ Race-briefing plain: the distance, the time, the place, as a marshal calls them.
 ```
 
 ```css
-h1, h2, h3 { font-family: var(--font-display); font-weight: var(--display-weight); letter-spacing: var(--tracking-display); text-transform: uppercase; line-height: 1.02; }
-.figure { font: var(--display-weight) var(--text-display)/0.9 var(--font-display); font-variant-numeric: tabular-nums; }
-.time { font: 500 var(--text-2xl)/1 var(--font-outlier); font-variant-numeric: tabular-nums; }
-.btn { border: var(--rule-bar) solid transparent; border-radius: var(--radius-card); padding: var(--space-sm) var(--space-lg); font: var(--display-weight) var(--text-md)/1.25 var(--font-display); text-transform: uppercase; }
-.btn--primary { background: var(--color-accent); color: var(--color-accent-ink); }
-.btn--secondary { border-color: var(--color-ink); color: var(--color-ink); }
-.well { background: var(--color-paper-2); border-top: var(--rule-bar) solid var(--color-rule-2); }
-.rule { border-top: var(--rule-bar) solid var(--color-rule-2); }
-th, td { border-top: var(--rule-hair) solid var(--color-rule); }
-.photo { border-radius: var(--radius-card); outline: 1px solid color-mix(in oklab, var(--color-ink) 8%, transparent); outline-offset: -1px; }
-.scrim { background: linear-gradient(to top, color-mix(in oklab, var(--color-ink) 70%, transparent), transparent 60%); color: var(--color-paper); }
-a:hover { text-decoration-color: var(--color-accent-deep); }
-::selection { background: var(--color-accent); color: var(--color-ink); }
+h1,
+h2,
+h3 {
+    font-family: var(--font-display);
+    font-weight: var(--display-weight);
+    letter-spacing: var(--tracking-display);
+    text-transform: uppercase;
+    line-height: 1.02;
+}
+.figure {
+    font: var(--display-weight) var(--text-display) / 0.9 var(--font-display);
+    font-variant-numeric: tabular-nums;
+}
+.time {
+    font: 500 var(--text-2xl) / 1 var(--font-outlier);
+    font-variant-numeric: tabular-nums;
+}
+.btn {
+    border: var(--rule-bar) solid transparent;
+    border-radius: var(--radius-card);
+    padding: var(--space-sm) var(--space-lg);
+    font: var(--display-weight) var(--text-md) / 1.25 var(--font-display);
+    text-transform: uppercase;
+}
+.btn--primary {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+}
+.btn--secondary {
+    border-color: var(--color-ink);
+    color: var(--color-ink);
+}
+.well {
+    background: var(--color-paper-2);
+    border-top: var(--rule-bar) solid var(--color-rule-2);
+}
+.rule {
+    border-top: var(--rule-bar) solid var(--color-rule-2);
+}
+th,
+td {
+    border-top: var(--rule-hair) solid var(--color-rule);
+}
+.photo {
+    border-radius: var(--radius-card);
+    outline: 1px solid color-mix(in oklab, var(--color-ink) 8%, transparent);
+    outline-offset: -1px;
+}
+.scrim {
+    background: linear-gradient(to top, color-mix(in oklab, var(--color-ink) 70%, transparent), transparent 60%);
+    color: var(--color-paper);
+}
+a:hover {
+    text-decoration-color: var(--color-accent-deep);
+}
+::selection {
+    background: var(--color-accent);
+    color: var(--color-ink);
+}
 ```

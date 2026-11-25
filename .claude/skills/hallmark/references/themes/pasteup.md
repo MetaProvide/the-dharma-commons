@@ -1,4 +1,5 @@
 ---
+
 name: Paste-up
 slug: pasteup
 genre: playful
@@ -20,15 +21,26 @@ A hand-made flyer: kraft board, near-black toner, League Gothic capitals at post
 
 ```css
 :root {
-  --color-paper: oklch(73% 0.068 70); --color-paper-2: oklch(66% 0.072 68); --color-paper-3: oklch(97% 0.008 90);
-  --color-ink: oklch(17% 0.01 60); --color-ink-2: oklch(24% 0.014 60); --color-muted: oklch(28% 0.026 62);
-  --color-rule: oklch(50% 0.055 68); --color-rule-2: oklch(84% 0.012 85);
-  --color-accent: oklch(93% 0.2 112); --color-accent-ink: oklch(17% 0.01 60); --color-focus: oklch(17% 0.01 60);
-  --font-display: "League Gothic", Impact, sans-serif; --font-body: "Newsreader", Georgia, serif;
-  --radius-card: 0; --radius-pill: 999px; --rule-hair: 1px;
-  --shadow-card: 0 1px 0 oklch(18% 0.01 60 / 0.2), 0 4px 10px oklch(18% 0.01 60 / 0.12);
-  --shadow-sheet: 0 14px 30px oklch(18% 0.01 60 / 0.26), 0 2px 4px oklch(18% 0.01 60 / 0.14);
-  --tracking-display: 0.01em; --display-weight: 400;
+    --color-paper: oklch(73% 0.068 70);
+    --color-paper-2: oklch(66% 0.072 68);
+    --color-paper-3: oklch(97% 0.008 90);
+    --color-ink: oklch(17% 0.01 60);
+    --color-ink-2: oklch(24% 0.014 60);
+    --color-muted: oklch(28% 0.026 62);
+    --color-rule: oklch(50% 0.055 68);
+    --color-rule-2: oklch(84% 0.012 85);
+    --color-accent: oklch(93% 0.2 112);
+    --color-accent-ink: oklch(17% 0.01 60);
+    --color-focus: oklch(17% 0.01 60);
+    --font-display: "League Gothic", Impact, sans-serif;
+    --font-body: "Newsreader", Georgia, serif;
+    --radius-card: 0;
+    --radius-pill: 999px;
+    --rule-hair: 1px;
+    --shadow-card: 0 1px 0 oklch(18% 0.01 60 / 0.2), 0 4px 10px oklch(18% 0.01 60 / 0.12);
+    --shadow-sheet: 0 14px 30px oklch(18% 0.01 60 / 0.26), 0 2px 4px oklch(18% 0.01 60 / 0.14);
+    --tracking-display: 0.01em;
+    --display-weight: 400;
 }
 ```
 
@@ -83,18 +95,73 @@ Flyer voice: the date, the door, the price, the table number.
 ```
 
 ```css
-h1, h2 { font-weight: 400; text-transform: uppercase; line-height: 1; } h1 { line-height: 0.92; }
-h3 { font: 500 var(--text-title)/1.2 var(--font-body); }
-.btn { border: 0; border-radius: 0; padding: var(--space-sm) var(--space-md); font: 500 15px/1.2 var(--font-body); color: var(--color-ink); box-shadow: 4px 4px 0 var(--color-ink); transition: translate var(--dur-micro) var(--ease-out), box-shadow var(--dur-micro) var(--ease-out); }
-.btn:hover { translate: 1px 1px; box-shadow: 3px 3px 0 var(--color-ink); }
-.btn:active { translate: 4px 4px; box-shadow: none; }
-.btn--primary { background: var(--color-accent); color: var(--color-accent-ink); }
-.btn--secondary { background: var(--color-paper-3); }
-.sheet { background: var(--color-paper-3); box-shadow: var(--shadow-sheet); rotate: var(--r, 0deg); }
-.sheet--fluoro { background: var(--color-accent); color: var(--color-accent-ink); }
-.sheet img { mix-blend-mode: multiply; filter: grayscale(1) contrast(1.3); }
-.fibre { position: relative; isolation: isolate; }
-.fibre::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: 0.5; mix-blend-mode: multiply; pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.02 0.03' numOctaves='3' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 0.55 0 0 0 0 0.45 0 0 0 0 0.3 0 0 0 0.28 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E"); }
-::selection { background: color-mix(in oklab, var(--color-accent) 70%, transparent); color: var(--color-ink); }
+h1,
+h2 {
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 1;
+}
+h1 {
+    line-height: 0.92;
+}
+h3 {
+    font: 500 var(--text-title) / 1.2 var(--font-body);
+}
+.btn {
+    border: 0;
+    border-radius: 0;
+    padding: var(--space-sm) var(--space-md);
+    font: 500 15px / 1.2 var(--font-body);
+    color: var(--color-ink);
+    box-shadow: 4px 4px 0 var(--color-ink);
+    transition:
+        translate var(--dur-micro) var(--ease-out),
+        box-shadow var(--dur-micro) var(--ease-out);
+}
+.btn:hover {
+    translate: 1px 1px;
+    box-shadow: 3px 3px 0 var(--color-ink);
+}
+.btn:active {
+    translate: 4px 4px;
+    box-shadow: none;
+}
+.btn--primary {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+}
+.btn--secondary {
+    background: var(--color-paper-3);
+}
+.sheet {
+    background: var(--color-paper-3);
+    box-shadow: var(--shadow-sheet);
+    rotate: var(--r, 0deg);
+}
+.sheet--fluoro {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+}
+.sheet img {
+    mix-blend-mode: multiply;
+    filter: grayscale(1) contrast(1.3);
+}
+.fibre {
+    position: relative;
+    isolation: isolate;
+}
+.fibre::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.5;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.02 0.03' numOctaves='3' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 0.55 0 0 0 0 0.45 0 0 0 0 0.3 0 0 0 0.28 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E");
+}
+::selection {
+    background: color-mix(in oklab, var(--color-accent) 70%, transparent);
+    color: var(--color-ink);
+}
 ```

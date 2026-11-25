@@ -1,10 +1,11 @@
 ---
+
 name: hallmark
 description: "Design skill for websites and new pages that look designed, not generated. Use when the user asks to build or design something new, or names Hallmark. Never use it on an existing design unless the user names Hallmark, as in `/hallmark redesign <path>`."
 argument-hint: "<prompt> | redesign <path> | audit <path>"
 version: 2.0.0
 metadata:
-  opencode/slash: "true"
+opencode/slash: "true"
 ---
 
 # Hallmark
@@ -61,17 +62,17 @@ Output one block (file:line citations, what is preserved, what is introduced), c
 
 One message, even on a five-word prompt:
 
-> *Before I build, four things. 1. **Material**, the one that matters most: what can the page show? Screenshots or a screen recording (or point me at the app, its URL or its folder and I will run it and take them), your photos, real numbers (customers, uptime, prices), a quote with the name of who said it, logos you may use. Paste them or give paths; without photos I place stand-ins from Hallmark's photo library that your own replace later, and I never invent a number, a quote or a logo. 2. **Audience**: who uses this and what do they care about? 3. **Use**: the one action the page should drive. 4. **Tone**: pick an extreme (editorial, brutalist, soft, utilitarian, luxury, playful, technical, austere); "clean and modern" is not a tone. Plus the vibe in 4 to 8 words and an anchor colour if you have one. Or say **go ahead** and I will infer and tell you what I picked.*
+> _Before I build, four things. 1. **Material**, the one that matters most: what can the page show? Screenshots or a screen recording (or point me at the app, its URL or its folder and I will run it and take them), your photos, real numbers (customers, uptime, prices), a quote with the name of who said it, logos you may use. Paste them or give paths; without photos I place stand-ins from Hallmark's photo library that your own replace later, and I never invent a number, a quote or a logo. 2. **Audience**: who uses this and what do they care about? 3. **Use**: the one action the page should drive. 4. **Tone**: pick an extreme (editorial, brutalist, soft, utilitarian, luxury, playful, technical, austere); "clean and modern" is not a tone. Plus the vibe in 4 to 8 words and an anchor colour if you have one. Or say **go ahead** and I will infer and tell you what I picked._
 
 Skipped fields are opt-outs: infer them, state the inferences in one line at the top of the reply, stamp them; no follow-up questions. Facts are never inferred: a number, a quote or a logo not given is absent; a picture not given is a stand-in in a slot. When the prompt answers all four, or no one can answer (a headless run, a batch), do not ask.
 
-**Genre,** silently: *AI tool, generative, music, video, voice, dark, atmospheric* → **atmospheric**; *SaaS, enterprise, API, platform, developer tool, infra, B2B* → **modern-minimal**; *playful, fun, friendly, soft, kids, games, community* → **playful**; otherwise **editorial**, which holds most consumer and family prompts. Once a theme is dealt, its genre wins (genre file, stamp, `--genre`). When two non-default genres fire, add one either-or to the message, or on go ahead pick and say so.
+**Genre,** silently: _AI tool, generative, music, video, voice, dark, atmospheric_ → **atmospheric**; _SaaS, enterprise, API, platform, developer tool, infra, B2B_ → **modern-minimal**; _playful, fun, friendly, soft, kids, games, community_ → **playful**; otherwise **editorial**, which holds most consumer and family prompts. Once a theme is dealt, its genre wins (genre file, stamp, `--genre`). When two non-default genres fire, add one either-or to the message, or on go ahead pick and say so.
 
 **Scope.** A prompt naming one element (button, input, card, modal, nav, footer, tab strip, chip) or saying "just the X" is a component (`flow.md` § Component scope). A screen someone works in (a dashboard, an admin, settings, a tool) is an app screen (`flow.md` § App screens).
 
 ### 2. Shape
 
-**Material first.** The inventory, one line: *real* (every concrete thing the prompt and the project supply: name, claim, numbers, places, dates, images), *pictures* (what the page shows and where each comes from: the user's, screenshots of the real product, the product built, the library), *absent* (every proof it will not have: logos, quotes, metrics nobody gave). The shape follows it: a page with pictures leads with them (`imagery.md` § 1); a page about words carries type and facts (Long Document, Letter, Index-First, Manifesto).
+**Material first.** The inventory, one line: _real_ (every concrete thing the prompt and the project supply: name, claim, numbers, places, dates, images), _pictures_ (what the page shows and where each comes from: the user's, screenshots of the real product, the product built, the library), _absent_ (every proof it will not have: logos, quotes, metrics nobody gave). The shape follows it: a page with pictures leads with them (`imagery.md` § 1); a page about words carries type and facts (Long Document, Letter, Index-First, Manifesto).
 
 **The job.** Name what a visitor comes to do (subscribe, book, visit, attend, buy, try, sign up, hire, join, listen) and read that job in [`references/anatomy.md`](references/anatomy.md): where real sites in the category put the action, the sections they are built around (the menu, the lineup, the issues, the record), and how they end. The page is built from that anatomy, never from a default run of figures, steps and an email band (85).
 
@@ -124,7 +125,7 @@ The run's only recital of its decisions, and the user's redirect window:
 - **Sweep** · run after build
 ```
 
-A custom run's rows are in `direction.md`. Then one quiet line, skipped in component scope or when `design.md` exists: *System portable? Say `lock the system` for a `design.md`.* On signal 9, `comp.md` runs here.
+A custom run's rows are in `direction.md`. Then one quiet line, skipped in component scope or when `design.md` exists: _System portable? Say `lock the system` for a `design.md`._ On signal 9, `comp.md` runs here.
 
 ### 6. Build
 

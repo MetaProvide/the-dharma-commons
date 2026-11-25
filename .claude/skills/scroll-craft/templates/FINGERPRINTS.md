@@ -5,7 +5,7 @@ ships. The registry exists so your next build can prove it is a different page
 rather than a re-skin of one you already made.
 
 This file is **yours**. It starts empty on purpose: the gate is about not
-repeating *yourself*, so it has nothing to say until you have built something.
+repeating _yourself_, so it has nothing to say until you have built something.
 
 The rules and the gate live in the skill's
 `references/uniqueness.md`. Short version:
@@ -27,10 +27,10 @@ changes only grammar and world will fail it.
 ## The registry
 
 | Build | Grammar | Nav treatment | Hero device | Act-sequence shape | Close pattern | Signature move | World | Port |
-|---|---|---|---|---|---|---|---|---|
+| ----- | ------- | ------------- | ----------- | ------------------ | ------------- | -------------- | ----- | ---- |
 
-*(empty: your first build has nothing to clear, so build whatever the interview
-points at. From the second onwards, this table is the constraint.)*
+_(empty: your first build has nothing to clear, so build whatever the interview
+points at. From the second onwards, this table is the constraint.)_
 
 ---
 

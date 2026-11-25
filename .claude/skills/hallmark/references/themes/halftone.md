@@ -1,4 +1,5 @@
 ---
+
 name: Halftone
 slug: halftone
 genre: playful
@@ -20,25 +21,40 @@ A loud one-colour print voice: butter-cream stock, brown-black ink, a fat Ultra 
 
 ```css
 :root {
-  --color-paper: oklch(96.2% 0.032 94); --color-paper-2: oklch(92.6% 0.046 92); --color-paper-3: oklch(87.5% 0.058 90);
-  --color-ink: oklch(23% 0.040 38); --color-ink-2: oklch(33% 0.045 40); --color-muted: oklch(44% 0.048 44);
-  --color-rule: oklch(82% 0.042 82);
-  --color-accent: oklch(54.5% 0.215 33); --color-accent-deep: oklch(46% 0.19 31); --color-accent-ink: oklch(97% 0.022 94); --color-focus: oklch(46% 0.19 31);
-  --color-dot: var(--color-accent); --halftone-size: 12px; --halftone-dot: 3px;
-  --font-display: "Ultra", ui-serif, Georgia, serif; --font-body: "Chivo", ui-sans-serif, sans-serif;
-  --radius-card: 0; --radius-input: 3px; --radius-pill: 999px; --rule-hair: 1px; --rule-bar: 3px;
-  --shadow-card: none;
-  --tracking-display: 0.005em; --display-weight: 400;
+    --color-paper: oklch(96.2% 0.032 94);
+    --color-paper-2: oklch(92.6% 0.046 92);
+    --color-paper-3: oklch(87.5% 0.058 90);
+    --color-ink: oklch(23% 0.04 38);
+    --color-ink-2: oklch(33% 0.045 40);
+    --color-muted: oklch(44% 0.048 44);
+    --color-rule: oklch(82% 0.042 82);
+    --color-accent: oklch(54.5% 0.215 33);
+    --color-accent-deep: oklch(46% 0.19 31);
+    --color-accent-ink: oklch(97% 0.022 94);
+    --color-focus: oklch(46% 0.19 31);
+    --color-dot: var(--color-accent);
+    --halftone-size: 12px;
+    --halftone-dot: 3px;
+    --font-display: "Ultra", ui-serif, Georgia, serif;
+    --font-body: "Chivo", ui-sans-serif, sans-serif;
+    --radius-card: 0;
+    --radius-input: 3px;
+    --radius-pill: 999px;
+    --rule-hair: 1px;
+    --rule-bar: 3px;
+    --shadow-card: none;
+    --tracking-display: 0.005em;
+    --display-weight: 400;
 }
 ```
 
 Committed: the spot carries the screen, the controls and a field band. Three stocks, stated in the stamp (`halftone: cream`).
 
-| Stock | Paper and ink | The spot |
-| --- | --- | --- |
-| **Cream and vermilion** (default) | the tokens above | `oklch(54.5% 0.215 33)` |
-| **Lemon on black** | `oklch(19% 0.01 60)` under `oklch(96% 0.02 90)` | yellow `oklch(88% 0.17 95)` with dark ink on it |
-| **Blood orange** | the colour goes into the stock: `oklch(72% 0.17 45)` under plum `oklch(24% 0.06 25)` | the plum ink is also the spot, so the dots print dark |
+| Stock                             | Paper and ink                                                                        | The spot                                              |
+| --------------------------------- | ------------------------------------------------------------------------------------ | ----------------------------------------------------- |
+| **Cream and vermilion** (default) | the tokens above                                                                     | `oklch(54.5% 0.215 33)`                               |
+| **Lemon on black**                | `oklch(19% 0.01 60)` under `oklch(96% 0.02 90)`                                      | yellow `oklch(88% 0.17 95)` with dark ink on it       |
+| **Blood orange**                  | the colour goes into the stock: `oklch(72% 0.17 45)` under plum `oklch(24% 0.06 25)` | the plum ink is also the spot, so the dots print dark |
 
 ## Type
 
@@ -91,16 +107,62 @@ The label: the fruit, the calories, the size of the can, the price of the box. B
 ```
 
 ```css
-h1, h2, h3 { font-weight: var(--display-weight); line-height: 1.08; }
-.poster { font: 400 clamp(10rem, 22vw, 20rem)/0.9 var(--font-display); letter-spacing: -0.02em; color: var(--color-accent); font-variant-numeric: tabular-nums; }
-.btn { padding: var(--space-md) var(--space-lg); border-radius: var(--radius-input); font: 700 var(--text-sm) var(--font-body); background: var(--color-accent); color: var(--color-accent-ink); }
-.btn--secondary { background: none; color: var(--color-ink); padding: var(--space-md) 0 var(--space-xs); border-radius: 0; border-bottom: var(--rule-bar) solid var(--color-accent); }
-.well { border: var(--rule-bar) solid var(--color-ink); background: var(--color-paper-2); }
-.ruled { border-top: var(--rule-bar) solid var(--color-ink); } .ruled > * { border-bottom: var(--rule-hair) solid var(--color-rule); }
-.photo { outline: var(--rule-hair) solid var(--color-ink); outline-offset: calc(-1 * var(--rule-hair)); }
-.halftone { position: relative; isolation: isolate; }
-.halftone::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-  background: radial-gradient(var(--color-dot) var(--halftone-dot), transparent calc(var(--halftone-dot) + 0.5px)) 0 0 / var(--halftone-size) var(--halftone-size);
-  mask: linear-gradient(110deg, transparent 45%, var(--color-ink) 95%); }
-::selection { background: color-mix(in oklab, var(--color-accent) 30%, transparent); }
+h1,
+h2,
+h3 {
+    font-weight: var(--display-weight);
+    line-height: 1.08;
+}
+.poster {
+    font: 400 clamp(10rem, 22vw, 20rem) / 0.9 var(--font-display);
+    letter-spacing: -0.02em;
+    color: var(--color-accent);
+    font-variant-numeric: tabular-nums;
+}
+.btn {
+    padding: var(--space-md) var(--space-lg);
+    border-radius: var(--radius-input);
+    font: 700 var(--text-sm) var(--font-body);
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+}
+.btn--secondary {
+    background: none;
+    color: var(--color-ink);
+    padding: var(--space-md) 0 var(--space-xs);
+    border-radius: 0;
+    border-bottom: var(--rule-bar) solid var(--color-accent);
+}
+.well {
+    border: var(--rule-bar) solid var(--color-ink);
+    background: var(--color-paper-2);
+}
+.ruled {
+    border-top: var(--rule-bar) solid var(--color-ink);
+}
+.ruled > * {
+    border-bottom: var(--rule-hair) solid var(--color-rule);
+}
+.photo {
+    outline: var(--rule-hair) solid var(--color-ink);
+    outline-offset: calc(-1 * var(--rule-hair));
+}
+.halftone {
+    position: relative;
+    isolation: isolate;
+}
+.halftone::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+        radial-gradient(var(--color-dot) var(--halftone-dot), transparent calc(var(--halftone-dot) + 0.5px)) 0 0 /
+        var(--halftone-size) var(--halftone-size);
+    mask: linear-gradient(110deg, transparent 45%, var(--color-ink) 95%);
+}
+::selection {
+    background: color-mix(in oklab, var(--color-accent) 30%, transparent);
+}
 ```

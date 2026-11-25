@@ -1,18 +1,19 @@
 ---
+
 name: scroll-craft
 description: >
-  Build premium scroll-driven landing pages for service, product, food, and
-  drink brands. Plan the visitor journey, page grammar, emotional peak, and
-  bespoke signature move. Create dimensional heroes with independent visual
-  planes, restrained motion, and separate mobile composition. Use supplied
-  photos and footage or generate photoreal assets through kie.ai, write semantic
-  HTML, and verify desktop, mobile, and reduced-motion scroll states visually.
-  Use for "scrollcraft", "scroll craft", "layered hero", "premium hero",
-  "cinematic hero", "scrollytelling", "scroll animation site", "a site where
-  scrolling plays a video", "Apple-style landing page", "3D scroll world",
-  "interactive landing page", "make my brand a scroll experience", "this looks
-  like a template", or requests for a distinctive website that feels like an
-  experience rather than a document.
+Build premium scroll-driven landing pages for service, product, food, and
+drink brands. Plan the visitor journey, page grammar, emotional peak, and
+bespoke signature move. Create dimensional heroes with independent visual
+planes, restrained motion, and separate mobile composition. Use supplied
+photos and footage or generate photoreal assets through kie.ai, write semantic
+HTML, and verify desktop, mobile, and reduced-motion scroll states visually.
+Use for "scrollcraft", "scroll craft", "layered hero", "premium hero",
+"cinematic hero", "scrollytelling", "scroll animation site", "a site where
+scrolling plays a video", "Apple-style landing page", "3D scroll world",
+"interactive landing page", "make my brand a scroll experience", "this looks
+like a template", or requests for a distinctive website that feels like an
+experience rather than a document.
 allowed-tools: Bash, Read, Write, Edit, Glob, Grep, AskUserQuestion
 ---
 
@@ -277,14 +278,14 @@ the page. Full method in [references/feel.md](references/feel.md).
 
 Then assign each beat a device. Do it deliberately and write it down as a table:
 
-| Beat | Device | Why this one |
-|---|---|---|
-| Recognition | `scrub` | The camera moving under the reader's own hand is the strongest possible open |
-| Tension | `pin` + kinetic | Copy assembles line by line while the frame holds still |
-| Turn | `reveal` | A wipe is a change of state, which is what this beat is |
-| Substance | `scrub` (macro) | Texture at a scale the eye cannot get otherwise |
-| Range | `pan` | Lateral travel reads as "options", vertical reads as "argument" |
-| Commitment | `pin` + pointer | The page stops moving and starts responding |
+| Beat        | Device          | Why this one                                                                 |
+| ----------- | --------------- | ---------------------------------------------------------------------------- |
+| Recognition | `scrub`         | The camera moving under the reader's own hand is the strongest possible open |
+| Tension     | `pin` + kinetic | Copy assembles line by line while the frame holds still                      |
+| Turn        | `reveal`        | A wipe is a change of state, which is what this beat is                      |
+| Substance   | `scrub` (macro) | Texture at a scale the eye cannot get otherwise                              |
+| Range       | `pan`           | Lateral travel reads as "options", vertical reads as "argument"              |
+| Commitment  | `pin` + pointer | The page stops moving and starts responding                                  |
 
 That table is a **filmic** score. It is the right shape for one grammar and the
 wrong shape for the other seven, so read your grammar's leans-on and bans list
@@ -352,11 +353,14 @@ Theme by overriding tokens, six values and two fonts:
 
 ```css
 :root {
-  --sc-canvas: #0A0806;  --sc-surface: #16110E;
-  --sc-ink:    #F5EBDD;  --sc-ink-soft: #A2968A;
-  --sc-accent: #FF5A3D;  --sc-accent-ink: #15110F;
-  --sc-font-display: "Archivo", system-ui, sans-serif;
-  --sc-font-text:    "Geist", system-ui, sans-serif;
+    --sc-canvas: #0a0806;
+    --sc-surface: #16110e;
+    --sc-ink: #f5ebdd;
+    --sc-ink-soft: #a2968a;
+    --sc-accent: #ff5a3d;
+    --sc-accent-ink: #15110f;
+    --sc-font-display: "Archivo", system-ui, sans-serif;
+    --sc-font-text: "Geist", system-ui, sans-serif;
 }
 ```
 
@@ -418,30 +422,30 @@ what you did not.
 Ship-blockers, not preferences. Each one is a thing that makes a page read as
 machine-made.
 
-| Never | Instead |
-|---|---|
-| Clay diorama / low-poly / claymation as the default world | Photographic. See worlds.md |
-| A "scroll" cue, arrow, or animated mouse icon | Nothing. They are looking at the hero; they know |
-| `01 / 06` section counters | Delete them. Sequence is not information here |
-| An eyebrow above every section heading | At most one per three sections. The heading carries itself |
-| Em dash anywhere visible | Period, comma, colon, or parentheses |
-| Centred copy in every act | Vary the anchor: lead, trail, centre, split |
-| The same device twice in a row | Score the journey properly in Step 2 |
-| Generating before the brief and creative authority are clear | Run Step 0. Record actual answers or explicitly delegated authored decisions in `BRIEF.md` |
-| A page with no engineered peak, or with three competing ones | One peak. It gets the asset budget, the silence before it, and the most scroll room. See feel.md §2 |
-| An ending that trails off, fades out, or just becomes a footer | The close resolves and holds. The last feeling is the one they carry |
-| Planning acts before the feeling curve exists | Curve first, devices second. See feel.md §1 |
-| Shipping without one bespoke signature move | Invent one. A recoloured spotlight or a retuned tilt is not one. See uniqueness.md §3 |
-| A build that clears fewer than 4 of 6 fingerprint dimensions against any existing row | Change the plan, not `FINGERPRINTS.md` |
-| Editing the engine to get a bespoke behaviour | Bespoke JS in the page, driven off `--sc-p` and your own `data-sc-*` |
-| Reaching for filmic one-shot because it is what the last build did | Pick from all eight grammars, and say why the other seven lost |
-| A full-frame dark overlay to fix contrast | A scrim only where the text sits |
-| Text baked into a generated image | Real markup, always. It is selectable, translatable and sharp |
-| Invented statistics in a counter | Only real numbers. No number, no counter |
-| `transition: all`, or animating width/height/top/left | `transform` and `opacity`; `clip-path` for wipes |
-| Gradient text, neon glow, zero-offset coloured halo shadows | Weight and size for emphasis; shadows with offset and blur |
-| Autoplaying audio, or any audio at all on a scrub clip | Strip the track. `encode.sh` already does |
-| Shipping without running Step 5 | Run Step 5 |
+| Never                                                                                 | Instead                                                                                             |
+| ------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| Clay diorama / low-poly / claymation as the default world                             | Photographic. See worlds.md                                                                         |
+| A "scroll" cue, arrow, or animated mouse icon                                         | Nothing. They are looking at the hero; they know                                                    |
+| `01 / 06` section counters                                                            | Delete them. Sequence is not information here                                                       |
+| An eyebrow above every section heading                                                | At most one per three sections. The heading carries itself                                          |
+| Em dash anywhere visible                                                              | Period, comma, colon, or parentheses                                                                |
+| Centred copy in every act                                                             | Vary the anchor: lead, trail, centre, split                                                         |
+| The same device twice in a row                                                        | Score the journey properly in Step 2                                                                |
+| Generating before the brief and creative authority are clear                          | Run Step 0. Record actual answers or explicitly delegated authored decisions in `BRIEF.md`          |
+| A page with no engineered peak, or with three competing ones                          | One peak. It gets the asset budget, the silence before it, and the most scroll room. See feel.md §2 |
+| An ending that trails off, fades out, or just becomes a footer                        | The close resolves and holds. The last feeling is the one they carry                                |
+| Planning acts before the feeling curve exists                                         | Curve first, devices second. See feel.md §1                                                         |
+| Shipping without one bespoke signature move                                           | Invent one. A recoloured spotlight or a retuned tilt is not one. See uniqueness.md §3               |
+| A build that clears fewer than 4 of 6 fingerprint dimensions against any existing row | Change the plan, not `FINGERPRINTS.md`                                                              |
+| Editing the engine to get a bespoke behaviour                                         | Bespoke JS in the page, driven off `--sc-p` and your own `data-sc-*`                                |
+| Reaching for filmic one-shot because it is what the last build did                    | Pick from all eight grammars, and say why the other seven lost                                      |
+| A full-frame dark overlay to fix contrast                                             | A scrim only where the text sits                                                                    |
+| Text baked into a generated image                                                     | Real markup, always. It is selectable, translatable and sharp                                       |
+| Invented statistics in a counter                                                      | Only real numbers. No number, no counter                                                            |
+| `transition: all`, or animating width/height/top/left                                 | `transform` and `opacity`; `clip-path` for wipes                                                    |
+| Gradient text, neon glow, zero-offset coloured halo shadows                           | Weight and size for emphasis; shadows with offset and blur                                          |
+| Autoplaying audio, or any audio at all on a scrub clip                                | Strip the track. `encode.sh` already does                                                           |
+| Shipping without running Step 5                                                       | Run Step 5                                                                                          |
 
 ## Output
 

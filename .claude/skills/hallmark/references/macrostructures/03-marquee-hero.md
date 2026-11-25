@@ -16,6 +16,7 @@ Avoid for products whose value needs explaining in seconds. Marquee makes the vi
 Compositions: a Poster or Corridor hero (`layout.md` § 6); below it, Rows, Grid or a Showcase (§ 5).
 
 **Sample opening lines** (imitate the specificity, not the wording):
-> *"Type, set with care."* Three words, refusal of the verb, treats type as material.
-> *"A studio for what comes next."* Names the practice without explaining it.
-> *"Print discipline, on screen."* Two phrases, a promise about method.
+
+> _"Type, set with care."_ Three words, refusal of the verb, treats type as material.
+> _"A studio for what comes next."_ Names the practice without explaining it.
+> _"Print discipline, on screen."_ Two phrases, a promise about method.

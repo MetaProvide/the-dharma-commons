@@ -1,4 +1,5 @@
 ---
+
 name: Grid
 slug: grid
 genre: editorial
@@ -20,16 +21,29 @@ Swiss international style as it is practised now: a white sheet, a blue-black in
 
 ```css
 :root {
-  --color-paper: oklch(97.5% 0.005 90); --color-paper-2: oklch(94.2% 0.006 90); --color-paper-3: oklch(90.5% 0.008 90);
-  --color-ink: oklch(19% 0.022 266); --color-ink-2: oklch(31% 0.02 266); --color-muted: oklch(47% 0.016 266);
-  --color-rule: oklch(87.5% 0.008 90);
-  --color-accent: oklch(44% 0.2 266); --color-accent-ink: oklch(97.5% 0.005 90); --color-focus: oklch(46% 0.2 266);
-  --color-field: oklch(44% 0.2 266); --color-field-ink: oklch(97.5% 0.005 90);
-  --color-mark: oklch(57% 0.215 29); --color-mark-ink: oklch(97.5% 0.005 90);
-  --font-display: "Radio Canada Big", ui-sans-serif, system-ui, sans-serif; --font-body: "Radio Canada", ui-sans-serif, system-ui, sans-serif;
-  --font-outlier: var(--font-display);
-  --radius-card: 0; --radius-pill: 0; --rule-hair: 1px; --shadow-card: none;
-  --tracking-display: -0.035em; --display-weight: 700;
+    --color-paper: oklch(97.5% 0.005 90);
+    --color-paper-2: oklch(94.2% 0.006 90);
+    --color-paper-3: oklch(90.5% 0.008 90);
+    --color-ink: oklch(19% 0.022 266);
+    --color-ink-2: oklch(31% 0.02 266);
+    --color-muted: oklch(47% 0.016 266);
+    --color-rule: oklch(87.5% 0.008 90);
+    --color-accent: oklch(44% 0.2 266);
+    --color-accent-ink: oklch(97.5% 0.005 90);
+    --color-focus: oklch(46% 0.2 266);
+    --color-field: oklch(44% 0.2 266);
+    --color-field-ink: oklch(97.5% 0.005 90);
+    --color-mark: oklch(57% 0.215 29);
+    --color-mark-ink: oklch(97.5% 0.005 90);
+    --font-display: "Radio Canada Big", ui-sans-serif, system-ui, sans-serif;
+    --font-body: "Radio Canada", ui-sans-serif, system-ui, sans-serif;
+    --font-outlier: var(--font-display);
+    --radius-card: 0;
+    --radius-pill: 0;
+    --rule-hair: 1px;
+    --shadow-card: none;
+    --tracking-display: -0.035em;
+    --display-weight: 700;
 }
 ```
 
@@ -86,16 +100,65 @@ Exact and plain, sentence case: name the record, the field, the year and the pre
 ```
 
 ```css
-h1, h2, h3 { font-weight: var(--display-weight); line-height: 1; text-align: start; }
-.btn { min-height: 52px; padding-inline: var(--space-lg); border: 0; border-radius: 0; font-weight: 500; transition: background-color var(--dur-short) var(--ease-out); }
-.btn--primary { background: var(--color-ink); color: var(--color-paper); }
-.btn--primary:hover { background: var(--color-ink-2); }
-.btn--secondary { background: none; color: currentColor; text-decoration: underline var(--rule-hair); text-underline-offset: 0.32em; }
-.btn--secondary:hover { color: var(--color-mark); }
-.field { background: var(--color-field); color: var(--color-field-ink); --color-focus: var(--color-field-ink); }
-.field--mark { background: var(--color-mark); color: var(--color-mark-ink); --color-focus: var(--color-ink); }
-.overprint { color: var(--color-field-ink); clip-path: inset(0 0 0 calc(7 * (100% + var(--gap-columns)) / 12 - var(--gap-columns))); }
-.wordmark { display: inline-grid; grid-template-columns: auto auto; column-gap: var(--space-sm); font: var(--display-weight) var(--text-md)/0.92 var(--font-display); }
-.wordmark::before { content: ""; grid-row: span 2; aspect-ratio: 1; background: var(--color-mark); }
-::selection { background: var(--color-mark); color: var(--color-mark-ink); }
+h1,
+h2,
+h3 {
+    font-weight: var(--display-weight);
+    line-height: 1;
+    text-align: start;
+}
+.btn {
+    min-height: 52px;
+    padding-inline: var(--space-lg);
+    border: 0;
+    border-radius: 0;
+    font-weight: 500;
+    transition: background-color var(--dur-short) var(--ease-out);
+}
+.btn--primary {
+    background: var(--color-ink);
+    color: var(--color-paper);
+}
+.btn--primary:hover {
+    background: var(--color-ink-2);
+}
+.btn--secondary {
+    background: none;
+    color: currentColor;
+    text-decoration: underline var(--rule-hair);
+    text-underline-offset: 0.32em;
+}
+.btn--secondary:hover {
+    color: var(--color-mark);
+}
+.field {
+    background: var(--color-field);
+    color: var(--color-field-ink);
+    --color-focus: var(--color-field-ink);
+}
+.field--mark {
+    background: var(--color-mark);
+    color: var(--color-mark-ink);
+    --color-focus: var(--color-ink);
+}
+.overprint {
+    color: var(--color-field-ink);
+    clip-path: inset(0 0 0 calc(7 * (100% + var(--gap-columns)) / 12 - var(--gap-columns)));
+}
+.wordmark {
+    display: inline-grid;
+    grid-template-columns: auto auto;
+    column-gap: var(--space-sm);
+    font: var(--display-weight) var(--text-md) / 0.92 var(--font-display);
+}
+.wordmark::before {
+    content: "";
+    grid-row: span 2;
+    aspect-ratio: 1;
+    background: var(--color-mark);
+}
+::selection {
+    background: var(--color-mark);
+    color: var(--color-mark-ink);
+}
 ```

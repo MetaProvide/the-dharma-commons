@@ -1,4 +1,5 @@
 ---
+
 name: Midnight
 slug: midnight
 genre: atmospheric
@@ -20,14 +21,28 @@ A cold, calm night instrument whose blue is the ground itself: deep midnight blu
 
 ```css
 :root {
-  --color-paper: oklch(14% 0.048 264); --color-paper-2: oklch(18.5% 0.052 264); --color-paper-3: oklch(23% 0.055 264);
-  --color-ink: oklch(95% 0.016 250); --color-ink-2: oklch(88% 0.05 245); --color-muted: oklch(73% 0.04 256);
-  --color-rule: oklch(29% 0.058 264); --color-rule-2: oklch(40% 0.06 262);
-  --color-accent: oklch(80% 0.11 230); --color-accent-2: oklch(58% 0.1 236); --color-accent-ink: oklch(16% 0.05 264); --color-focus: oklch(84% 0.12 228);
-  --font-display: "Mona Sans", ui-sans-serif, system-ui, sans-serif; --font-body: var(--font-display); --font-outlier: var(--font-display);
-  --radius-card: 0; --radius-pill: 0; --rule-hair: 1px;
-  --shadow-card: 0 24px 48px -24px oklch(6% 0.04 264 / 0.7);
-  --tracking-display: -0.015em; --display-weight: 300; --display-stretch: 125%;
+    --color-paper: oklch(14% 0.048 264);
+    --color-paper-2: oklch(18.5% 0.052 264);
+    --color-paper-3: oklch(23% 0.055 264);
+    --color-ink: oklch(95% 0.016 250);
+    --color-ink-2: oklch(88% 0.05 245);
+    --color-muted: oklch(73% 0.04 256);
+    --color-rule: oklch(29% 0.058 264);
+    --color-rule-2: oklch(40% 0.06 262);
+    --color-accent: oklch(80% 0.11 230);
+    --color-accent-2: oklch(58% 0.1 236);
+    --color-accent-ink: oklch(16% 0.05 264);
+    --color-focus: oklch(84% 0.12 228);
+    --font-display: "Mona Sans", ui-sans-serif, system-ui, sans-serif;
+    --font-body: var(--font-display);
+    --font-outlier: var(--font-display);
+    --radius-card: 0;
+    --radius-pill: 0;
+    --rule-hair: 1px;
+    --shadow-card: 0 24px 48px -24px oklch(6% 0.04 264 / 0.7);
+    --tracking-display: -0.015em;
+    --display-weight: 300;
+    --display-stretch: 125%;
 }
 ```
 
@@ -81,17 +96,67 @@ Cool and spare, the night shift's register: the hour, the count, the cost. Short
 ```
 
 ```css
-h1, h2 { font-weight: var(--display-weight); font-stretch: var(--display-stretch); line-height: 1.04; }
-h3 { font-weight: 500; }
-.fig { font-weight: var(--display-weight); font-stretch: var(--display-stretch); letter-spacing: -0.03em; line-height: 0.9; font-variant-numeric: tabular-nums; }
-.well { background: var(--color-paper-2); border-radius: var(--radius-card); }
-.well--raised { background: var(--color-paper-3); box-shadow: var(--shadow-card); }
-.btn { border: var(--rule-hair) solid transparent; background: none; border-radius: var(--radius-pill); padding: var(--space-sm) var(--space-lg); font-weight: 500; color: var(--color-ink); transition: background-color var(--dur-short) var(--ease-out); }
-.btn--primary { background: var(--color-accent); color: var(--color-accent-ink); }
-.btn--secondary { border-color: var(--color-rule-2); }
-.btn--secondary:hover { background: var(--color-paper-2); }
-.meter { height: 2px; background: var(--color-rule-2); } .meter > span { display: block; height: 100%; background: var(--color-accent); }
-a:hover { text-decoration-color: var(--color-accent); }
-.settle { animation: settle var(--dur-long) var(--ease-out) both; }
-@keyframes settle { from { opacity: 0.6; } }
+h1,
+h2 {
+    font-weight: var(--display-weight);
+    font-stretch: var(--display-stretch);
+    line-height: 1.04;
+}
+h3 {
+    font-weight: 500;
+}
+.fig {
+    font-weight: var(--display-weight);
+    font-stretch: var(--display-stretch);
+    letter-spacing: -0.03em;
+    line-height: 0.9;
+    font-variant-numeric: tabular-nums;
+}
+.well {
+    background: var(--color-paper-2);
+    border-radius: var(--radius-card);
+}
+.well--raised {
+    background: var(--color-paper-3);
+    box-shadow: var(--shadow-card);
+}
+.btn {
+    border: var(--rule-hair) solid transparent;
+    background: none;
+    border-radius: var(--radius-pill);
+    padding: var(--space-sm) var(--space-lg);
+    font-weight: 500;
+    color: var(--color-ink);
+    transition: background-color var(--dur-short) var(--ease-out);
+}
+.btn--primary {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+}
+.btn--secondary {
+    border-color: var(--color-rule-2);
+}
+.btn--secondary:hover {
+    background: var(--color-paper-2);
+}
+.meter {
+    height: 2px;
+    background: var(--color-rule-2);
+}
+.meter > span {
+    display: block;
+    height: 100%;
+    background: var(--color-accent);
+}
+a:hover {
+    text-decoration-color: var(--color-accent);
+}
+.settle {
+    animation: settle var(--dur-long) var(--ease-out) both;
+}
+@keyframes settle {
+    from {
+        opacity: 0.6;
+    }
+}
 ```

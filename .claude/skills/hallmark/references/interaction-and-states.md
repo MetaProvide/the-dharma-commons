@@ -4,16 +4,16 @@ Loaded for forms and stateful controls. `craft.md` § 9 and gate 39a own the inp
 
 ## The eight states
 
-| State | When | Treatment |
-| --- | --- | --- |
-| Default | At rest | Base styling |
-| Hover | Pointer over, inside `@media (hover: hover)` | One signal: a colour step, a 1px lift or a border step (11) |
-| Focus | Keyboard or programmatic focus | The ring, at once (15, 26a) |
-| Active | During press | A 1px drop or one step darker |
-| Disabled | Not interactive | Three channels together: `opacity: 0.55`, `cursor: not-allowed` and the native `disabled` attribute, or `aria-disabled="true"` where the control must stay focusable (39a) |
-| Loading | Processing | Inline progress; the label stays readable and the width does not jump |
-| Error | Failed | `--color-error` on the border, the message, `aria-invalid`; never colour alone |
-| Success | Completed | The result itself, from the server's answer; an icon from the page's set at most; no toast (16); no success state where no request was made (70) |
+| State    | When                                         | Treatment                                                                                                                                                                  |
+| -------- | -------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Default  | At rest                                      | Base styling                                                                                                                                                               |
+| Hover    | Pointer over, inside `@media (hover: hover)` | One signal: a colour step, a 1px lift or a border step (11)                                                                                                                |
+| Focus    | Keyboard or programmatic focus               | The ring, at once (15, 26a)                                                                                                                                                |
+| Active   | During press                                 | A 1px drop or one step darker                                                                                                                                              |
+| Disabled | Not interactive                              | Three channels together: `opacity: 0.55`, `cursor: not-allowed` and the native `disabled` attribute, or `aria-disabled="true"` where the control must stay focusable (39a) |
+| Loading  | Processing                                   | Inline progress; the label stays readable and the width does not jump                                                                                                      |
+| Error    | Failed                                       | `--color-error` on the border, the message, `aria-invalid`; never colour alone                                                                                             |
+| Success  | Completed                                    | The result itself, from the server's answer; an icon from the page's set at most; no toast (16); no success state where no request was made (70)                           |
 
 An element missing one of these is not finished.
 
@@ -26,8 +26,14 @@ The scaffold's ring is the page's: `outline: 2px solid var(--color-focus); outli
 44 x 44 CSS px for anything a finger can reach. Expand a small control without changing its look:
 
 ```css
-.icon-btn { position: relative; }
-.icon-btn::before { content: ""; position: absolute; inset: -12px; }
+.icon-btn {
+    position: relative;
+}
+.icon-btn::before {
+    content: "";
+    position: absolute;
+    inset: -12px;
+}
 ```
 
 ## Forms
@@ -46,20 +52,26 @@ Every text input, textarea, select and combobox.
 **The border never changes width.** State moves to `background-color`, `border-color`, `outline` or `box-shadow`, never `border-width`; a transparent outline is reserved at rest so the ring appears without a shift.
 
 ```css
-.input { border: 1px solid var(--color-muted); outline: 2px solid transparent; outline-offset: -3px; }
-.input:focus-visible { outline-color: var(--color-focus); }
+.input {
+    border: 1px solid var(--color-muted);
+    outline: 2px solid transparent;
+    outline-offset: -3px;
+}
+.input:focus-visible {
+    outline-color: var(--color-focus);
+}
 ```
 
-| State | Treatment |
-| --- | --- |
-| Default | 1px `--color-muted` border (a field's edge needs 3:1, which a rule never has), paper background, placeholder in `--color-muted` |
-| Hover | `--color-paper-2` background, border unchanged |
-| Focus | The ring; the border may deepen to `--color-ink-2` at the same width |
-| Filled | As default; the value carries the state |
-| Disabled | The three channels; placeholder dims one step |
-| Error | `--color-error` border, the error text in the helper line, an error icon from the page's set in the right-edge slot |
-| Success | Only after a real check returned; a check icon from the page's set; clears when the user edits |
-| Loading | A small spinner in the right-edge slot; the field stays editable, submit waits |
+| State    | Treatment                                                                                                                       |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| Default  | 1px `--color-muted` border (a field's edge needs 3:1, which a rule never has), paper background, placeholder in `--color-muted` |
+| Hover    | `--color-paper-2` background, border unchanged                                                                                  |
+| Focus    | The ring; the border may deepen to `--color-ink-2` at the same width                                                            |
+| Filled   | As default; the value carries the state                                                                                         |
+| Disabled | The three channels; placeholder dims one step                                                                                   |
+| Error    | `--color-error` border, the error text in the helper line, an error icon from the page's set in the right-edge slot             |
+| Success  | Only after a real check returned; a check icon from the page's set; clears when the user edits                                  |
+| Loading  | A small spinner in the right-edge slot; the field stays editable, submit waits                                                  |
 
 - **Height:** inputs match the height of the button beside them (44 to 52px on a marketing page, 39); vertical padding is `(height - line-height) / 2`.
 - **Right-edge slot:** reserve about 24px for a clear button, an error glyph or a spinner, so nothing reflows when one appears.
@@ -85,5 +97,5 @@ Reversible actions run at once and offer Undo for 5 to 10 seconds. Irreversible 
 ## Loading and empty
 
 - A skeleton where the content's shape is known (lists, cards, tables); a spinner only in a button, replacing the label.
-- An empty state is one line naming what is empty, one on why it matters, and one action (`craft.md` § 6). Never a bare *No results*.
+- An empty state is one line naming what is empty, one on why it matters, and one action (`craft.md` § 6). Never a bare _No results_.
 - A disabled control near the user's attention says why it is disabled.

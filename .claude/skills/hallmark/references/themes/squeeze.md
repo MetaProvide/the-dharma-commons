@@ -1,4 +1,5 @@
 ---
+
 name: Squeeze
 slug: squeeze
 genre: playful
@@ -20,15 +21,30 @@ A market stall in colour: a forest-green ground with real chroma, warm white ink
 
 ```css
 :root {
-  --color-paper: oklch(41% 0.100 154); --color-paper-2: oklch(47% 0.105 154); --color-paper-3: oklch(34% 0.090 156);
-  --color-ink: oklch(99% 0.005 90); --color-ink-2: oklch(94% 0.020 120); --color-muted: oklch(90% 0.030 150); --color-rule: oklch(55% 0.100 154);
-  --color-accent: oklch(83% 0.115 56); --color-accent-2: oklch(74% 0.150 46); --color-accent-ink: oklch(30% 0.070 40); --color-focus: oklch(88% 0.14 85);
-  --color-card: oklch(97% 0.012 85); --color-card-ink: oklch(24% 0.05 160);
-  --font-display: "Gabarito", ui-sans-serif, system-ui, sans-serif; --font-body: "Manrope", ui-sans-serif, system-ui, sans-serif;
-  --font-outlier: var(--font-display);
-  --radius-card: 24px; --radius-control: 16px; --radius-pill: 999px; --rule-hair: 1px; --rule-bar: 2px;
-  --shadow-card: 0 14px 32px -16px oklch(22% 0.05 160 / 0.5);
-  --tracking-display: -0.025em; --display-weight: 800;
+    --color-paper: oklch(41% 0.1 154);
+    --color-paper-2: oklch(47% 0.105 154);
+    --color-paper-3: oklch(34% 0.09 156);
+    --color-ink: oklch(99% 0.005 90);
+    --color-ink-2: oklch(94% 0.02 120);
+    --color-muted: oklch(90% 0.03 150);
+    --color-rule: oklch(55% 0.1 154);
+    --color-accent: oklch(83% 0.115 56);
+    --color-accent-2: oklch(74% 0.15 46);
+    --color-accent-ink: oklch(30% 0.07 40);
+    --color-focus: oklch(88% 0.14 85);
+    --color-card: oklch(97% 0.012 85);
+    --color-card-ink: oklch(24% 0.05 160);
+    --font-display: "Gabarito", ui-sans-serif, system-ui, sans-serif;
+    --font-body: "Manrope", ui-sans-serif, system-ui, sans-serif;
+    --font-outlier: var(--font-display);
+    --radius-card: 24px;
+    --radius-control: 16px;
+    --radius-pill: 999px;
+    --rule-hair: 1px;
+    --rule-bar: 2px;
+    --shadow-card: 0 14px 32px -16px oklch(22% 0.05 160 / 0.5);
+    --tracking-display: -0.025em;
+    --display-weight: 800;
 }
 ```
 
@@ -84,16 +100,63 @@ The stall-holder's, out loud on a Thursday morning: the fruit, the day it comes,
 ```
 
 ```css
-h1, h2, h3 { font-family: var(--font-display); font-weight: var(--display-weight); letter-spacing: var(--tracking-display); }
-h1, h2 { line-height: 1; }
-.figure { font: var(--display-weight) clamp(7rem, 16vw, 15rem)/0.85 var(--font-display); letter-spacing: -0.04em; font-variant-numeric: lining-nums tabular-nums; }
-.tile { background: var(--color-paper-2); border-radius: var(--radius-card); }
-.tile:has(:checked) { background: var(--color-paper-3); box-shadow: inset 0 0 0 3px var(--color-accent); }
-.card { background: var(--color-card); color: var(--color-card-ink); border-radius: var(--radius-card); box-shadow: var(--shadow-card); }
-.btn { border: var(--rule-bar) solid var(--color-ink); border-radius: var(--radius-control); padding: var(--space-sm) var(--space-lg); font: 700 var(--text-md)/1.25 var(--font-body); color: var(--color-ink); transition: translate var(--dur-micro) var(--ease-out), background-color var(--dur-micro) var(--ease-out); }
-.btn--primary { background: var(--color-accent); color: var(--color-accent-ink); border-color: var(--color-accent); }
-.btn--primary:hover { background: var(--color-accent-2); border-color: var(--color-accent-2); }
-.btn:active { translate: 0 1px; }
-.photo img { border-radius: var(--radius-card); }
-::selection { background: color-mix(in oklab, var(--color-accent) 45%, transparent); color: var(--color-card-ink); }
+h1,
+h2,
+h3 {
+    font-family: var(--font-display);
+    font-weight: var(--display-weight);
+    letter-spacing: var(--tracking-display);
+}
+h1,
+h2 {
+    line-height: 1;
+}
+.figure {
+    font: var(--display-weight) clamp(7rem, 16vw, 15rem) / 0.85 var(--font-display);
+    letter-spacing: -0.04em;
+    font-variant-numeric: lining-nums tabular-nums;
+}
+.tile {
+    background: var(--color-paper-2);
+    border-radius: var(--radius-card);
+}
+.tile:has(:checked) {
+    background: var(--color-paper-3);
+    box-shadow: inset 0 0 0 3px var(--color-accent);
+}
+.card {
+    background: var(--color-card);
+    color: var(--color-card-ink);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+}
+.btn {
+    border: var(--rule-bar) solid var(--color-ink);
+    border-radius: var(--radius-control);
+    padding: var(--space-sm) var(--space-lg);
+    font: 700 var(--text-md) / 1.25 var(--font-body);
+    color: var(--color-ink);
+    transition:
+        translate var(--dur-micro) var(--ease-out),
+        background-color var(--dur-micro) var(--ease-out);
+}
+.btn--primary {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+    border-color: var(--color-accent);
+}
+.btn--primary:hover {
+    background: var(--color-accent-2);
+    border-color: var(--color-accent-2);
+}
+.btn:active {
+    translate: 0 1px;
+}
+.photo img {
+    border-radius: var(--radius-card);
+}
+::selection {
+    background: color-mix(in oklab, var(--color-accent) 45%, transparent);
+    color: var(--color-card-ink);
+}
 ```

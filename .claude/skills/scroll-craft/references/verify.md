@@ -60,7 +60,7 @@ frames, which still require manual contact-sheet review.
 
 **FROZEN CLIP**: a scrub stage is on screen, the reader is scrolling, and the
 clip's playhead is not moving. Dead scroll cannot see this, because the stage
-itself *is* moving: a still photograph is sliding up the page, which is the
+itself _is_ moving: a still photograph is sliding up the page, which is the
 worst-looking failure this kit can produce and the one that most reliably makes
 a page feel broken.
 
@@ -94,7 +94,7 @@ Elements with their own opaque background are graded against that fill instead.
 Three things it gets right that a hand-rolled version usually does not:
 
 - **The direction is picked per line.** Light type on a dark page fails on the
-  brightest patch under it; dark type on a light page fails on the *darkest*
+  brightest patch under it; dark type on a light page fails on the _darkest_
   one, and grading that against the brightest patch is the most lenient reading
   available, so a high-key page can report clean over text that is failing. The
   harness compares the ink to the mean background and grades against whichever
@@ -102,7 +102,7 @@ Three things it gets right that a hand-rolled version usually does not:
 - **The sampled rect is clamped to the viewport.** The part of a pinned act's
   copy that has scrolled above the fold is not on screen, so what sits in those
   pixels is not behind anything the reader can see.
-- **Fixed chrome is hidden with the text.** A fixed bar paints in *front* of
+- **Fixed chrome is hidden with the text.** A fixed bar paints in _front_ of
   what scrolls under it, so its own mark is not the background behind a headline
   passing beneath it.
 
@@ -150,16 +150,16 @@ Real, and worth knowing before you trust a green run:
   bright frame is never graded, so "contrast clean" can still hide a legibility
   problem. Look at the sheet for anything that reads washed out.
 
-  **Author the fade-outs to land between sample positions.** The harness samples
-  a fixed number of positions per act, so a ramp-out that happens to straddle one
-  puts a half-faded headline on the sheet: graded by nobody, and read by eye as
-  ghost type over the frame. **Fix the ramp, not the sampling.** Shorten
-  `rampOut` so the cue is at full opacity at one sample and gone by the next,
-  rather than sitting at 0.5 on the sample in between. Widening the sample count
-  only finds more half-faded frames; it does not make the page look better,
-  because a real reader stopping on that pixel sees exactly what the sheet
-  shows. A cue caught mid-fade over a bright frame is a real defect, not a
-  sampling artefact.
+    **Author the fade-outs to land between sample positions.** The harness samples
+    a fixed number of positions per act, so a ramp-out that happens to straddle one
+    puts a half-faded headline on the sheet: graded by nobody, and read by eye as
+    ghost type over the frame. **Fix the ramp, not the sampling.** Shorten
+    `rampOut` so the cue is at full opacity at one sample and gone by the next,
+    rather than sitting at 0.5 on the sample in between. Widening the sample count
+    only finds more half-faded frames; it does not make the page look better,
+    because a real reader stopping on that pixel sees exactly what the sheet
+    shows. A cue caught mid-fade over a bright frame is a real defect, not a
+    sampling artefact.
 - **The floor is not size-aware.** It reports below 3:1 as a failure and 3:1 to
   4.5:1 as thin. WCAG allows 3:1 for large text, so a display headline in the
   thin band is usually fine and a 16px caption in it is not.
@@ -222,9 +222,9 @@ reconciliations against the account ledger, each with no other consumer, put
 actual debits at roughly **0.4x** the documented unit rates: a fleet whose
 per-call sums came to ~1447 credits was debited 530, and a three-build run whose
 per-call sums came to 2252 was debited 856. Both land near the same ratio. So a
-build report should say what the per-call sum is *and* that it is a planning
+build report should say what the per-call sum is _and_ that it is a planning
 ceiling rather than the amount billed. Reporting the sum as the cost is the
-honest default, because it never under-claims; reporting it as *measured* spend
+honest default, because it never under-claims; reporting it as _measured_ spend
 is wrong. Neither number is the other's substitute: the probe delta bounds a
 parallel run from above, the per-call sum bounds a serial one from above, and
 only a ledger read with a single consumer settles it.
@@ -247,7 +247,7 @@ the page is correct where the harness runs. It says nothing about iOS video.
 
 What iOS does to a scrub clip, and what the engine now handles for you:
 
-- iOS will not *paint* a muted video that has never been played. Seeks land,
+- iOS will not _paint_ a muted video that has never been played. Seeks land,
   `seeked` fires, and the picture stays on one frame. The decoder has to be
   primed with one `play()`/`pause()`.
 - The engine primes each clip at `loadedmetadata` (a muted inline `play()`
@@ -306,11 +306,11 @@ The engine helps here but does not finish the job, and the gap is specific:
   way). On a `flow` act, centring the element also opens its cue, because the
   element's viewport position and the act's progress move together.
 - **It does not fix a pinned act, and cannot with this approach.** A pinned
-  stage is `position: sticky`, so the control holds *one* viewport position for
+  stage is `position: sticky`, so the control holds _one_ viewport position for
   the entire act. Centring it is then only achievable by scrolling backwards out
   of the act, which parks progress at 0 and leaves the cue dark. Measured: a CTA
   cued at 0.75 on a 3vh pinned act sits at viewport y=70 from progress 0 to
-  0.875; `scrollIntoView({block:'center'})` from inside the act lands *before*
+  0.875; `scrollIntoView({block:'center'})` from inside the act lands _before_
   the act's top, at progress 0, cue opacity 0. The control is on screen and
   still invisible.
 
@@ -331,32 +331,32 @@ differently when you have forgotten what it is supposed to do.
 Each of these shipped once during this skill's own build, and each looked fine
 until it was measured.
 
-| Symptom | Cause |
-|---|---|
-| A hero headline wrapped to six lines | `max-width` in `ch` on a **container**: `ch` resolves against the container's font-size, not the display size of the heading inside it |
-| Centred copy hanging off the left edge | `inset-inline` declared **after** `left: 50%`; the shorthand resets `left` to auto |
-| An act that never pins, silently | An author rule setting `position` on the stage. The engine now warns in the console |
-| A stray headline painted over a later section | Cues frozen at their last value when their act scrolled out of range |
-| A clip stuck on its poster at the top of its act | The reveal waits for a `seeked` event, and a clip already at time 0 never seeks |
-| A closing CTA that fades out before the page ends | A two-value cue on the last act, plus a tall section after it |
-| Copied headings reading "even whenbreakfast" | Line-split spans abutting with no whitespace between them |
-| A headline from act 2 overlapping act 3, failing contrast on the way | A one-value hold cue on a middle act. Only the last act may hold |
-| A phone-only contrast failure on a trail-anchored act | The trail scrim aimed at the corner the copy leaves below 860px. The engine now switches it to a band |
-| A rail act that shows one frozen screenful under reduced motion | `[data-sc-pan] { transform: none }` deleting the navigation. The engine now falls back to a scroll region |
-| Two washed-out video acts no scrim tuning could rescue | Flat supplied footage with no white point. Grade the intermediate, not the CSS |
-| A blank stage for the first viewport of a pinned act | A two-value first cue with no ground. Ground or greet |
-| A rail heading dragged off-screen under reduced motion | The scroll-region fallback snap-centres a single wide track; keep the act heading outside the region, or give the rail multiple snap stops |
-| Keyboard focus landing on a control nobody can see | The browser's scroll-into-view parks the element barely on screen, which is where its cue has not opened, and the opacity check still passes. **The engine now centres it on `focusin`** when the element is inside a `[data-sc-act]` and its cue is under 0.85. That fixes the off-screen half. See the note below for what it does not fix |
-| A figure or drop numeral rendering as a plain bar | `data-sc-reveal` on type with `line-height` below 1. `clip-path` is relative to the border box, so the wipe eats the ascender and descender. See devices.md §4 |
-| An image three times too tall, pushing its own label off the fold | `width` overridden in CSS while `height` still resolves to the HTML attribute. Override both or neither. See taste.md |
-| An inverted section rendering its old ink, graded in the wrong direction | `--sc-ink` redefined on the subtree without restating `color`. See taste.md |
-| A ground colour arriving a section late | `drift` on a page of short acts; several are part-way through at once. Paint grounds per section. See devices.md §10 |
-| Every cue and reveal in a quiet act snapping 0 to 1 | A pinned act at `data-sc-span` ≤ 1, which is one pixel of travel. Minimum useful pinned span is ~1.2 |
-| A clip that scrubs beautifully, stops, and then slides up the page as a still photograph | The clip was mapped to the act's pinned travel, which is 0 through the entire entry slide and 1 through the entire exit slide. The engine now maps clip time across the stage's whole visible life by default. See devices.md §1 |
-| A custom fixed stage passing while its first screens do nothing | The page used `flow` markers, which are intentionally excluded from ordinary dead-scroll checks, but published no `data-sc-verify-state`. Report the actual rendered state and declare only genuine resolved holds |
-| The hero clip frozen on a real iPhone, later clips fine, every probe green | iOS never paints an unplayed muted video, and the one-shot gesture prime was spent while the hero was still downloading. The engine now primes per clip at `loadedmetadata` and retries on every gesture, including `touchend` |
-| A phone clip soft and stuttering while the same file is smooth on desktop | A landscape mobile encode in a portrait viewport: cover-fit decoded the full frame and threw three quarters of it away. Cut the phone clips portrait from the masters (see assets.md) |
-| Four rounds of mobile fixes verified green, phone still broken | Headless Chrome cannot reproduce the iOS decoder, Low Power Mode, or touch. Deploy `references/device-diag.html` beside the site on the first mobile report and let the phone answer |
+| Symptom                                                                                  | Cause                                                                                                                                                                                                                                                                                                                                        |
+| ---------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| A hero headline wrapped to six lines                                                     | `max-width` in `ch` on a **container**: `ch` resolves against the container's font-size, not the display size of the heading inside it                                                                                                                                                                                                       |
+| Centred copy hanging off the left edge                                                   | `inset-inline` declared **after** `left: 50%`; the shorthand resets `left` to auto                                                                                                                                                                                                                                                           |
+| An act that never pins, silently                                                         | An author rule setting `position` on the stage. The engine now warns in the console                                                                                                                                                                                                                                                          |
+| A stray headline painted over a later section                                            | Cues frozen at their last value when their act scrolled out of range                                                                                                                                                                                                                                                                         |
+| A clip stuck on its poster at the top of its act                                         | The reveal waits for a `seeked` event, and a clip already at time 0 never seeks                                                                                                                                                                                                                                                              |
+| A closing CTA that fades out before the page ends                                        | A two-value cue on the last act, plus a tall section after it                                                                                                                                                                                                                                                                                |
+| Copied headings reading "even whenbreakfast"                                             | Line-split spans abutting with no whitespace between them                                                                                                                                                                                                                                                                                    |
+| A headline from act 2 overlapping act 3, failing contrast on the way                     | A one-value hold cue on a middle act. Only the last act may hold                                                                                                                                                                                                                                                                             |
+| A phone-only contrast failure on a trail-anchored act                                    | The trail scrim aimed at the corner the copy leaves below 860px. The engine now switches it to a band                                                                                                                                                                                                                                        |
+| A rail act that shows one frozen screenful under reduced motion                          | `[data-sc-pan] { transform: none }` deleting the navigation. The engine now falls back to a scroll region                                                                                                                                                                                                                                    |
+| Two washed-out video acts no scrim tuning could rescue                                   | Flat supplied footage with no white point. Grade the intermediate, not the CSS                                                                                                                                                                                                                                                               |
+| A blank stage for the first viewport of a pinned act                                     | A two-value first cue with no ground. Ground or greet                                                                                                                                                                                                                                                                                        |
+| A rail heading dragged off-screen under reduced motion                                   | The scroll-region fallback snap-centres a single wide track; keep the act heading outside the region, or give the rail multiple snap stops                                                                                                                                                                                                   |
+| Keyboard focus landing on a control nobody can see                                       | The browser's scroll-into-view parks the element barely on screen, which is where its cue has not opened, and the opacity check still passes. **The engine now centres it on `focusin`** when the element is inside a `[data-sc-act]` and its cue is under 0.85. That fixes the off-screen half. See the note below for what it does not fix |
+| A figure or drop numeral rendering as a plain bar                                        | `data-sc-reveal` on type with `line-height` below 1. `clip-path` is relative to the border box, so the wipe eats the ascender and descender. See devices.md §4                                                                                                                                                                               |
+| An image three times too tall, pushing its own label off the fold                        | `width` overridden in CSS while `height` still resolves to the HTML attribute. Override both or neither. See taste.md                                                                                                                                                                                                                        |
+| An inverted section rendering its old ink, graded in the wrong direction                 | `--sc-ink` redefined on the subtree without restating `color`. See taste.md                                                                                                                                                                                                                                                                  |
+| A ground colour arriving a section late                                                  | `drift` on a page of short acts; several are part-way through at once. Paint grounds per section. See devices.md §10                                                                                                                                                                                                                         |
+| Every cue and reveal in a quiet act snapping 0 to 1                                      | A pinned act at `data-sc-span` ≤ 1, which is one pixel of travel. Minimum useful pinned span is ~1.2                                                                                                                                                                                                                                         |
+| A clip that scrubs beautifully, stops, and then slides up the page as a still photograph | The clip was mapped to the act's pinned travel, which is 0 through the entire entry slide and 1 through the entire exit slide. The engine now maps clip time across the stage's whole visible life by default. See devices.md §1                                                                                                             |
+| A custom fixed stage passing while its first screens do nothing                          | The page used `flow` markers, which are intentionally excluded from ordinary dead-scroll checks, but published no `data-sc-verify-state`. Report the actual rendered state and declare only genuine resolved holds                                                                                                                           |
+| The hero clip frozen on a real iPhone, later clips fine, every probe green               | iOS never paints an unplayed muted video, and the one-shot gesture prime was spent while the hero was still downloading. The engine now primes per clip at `loadedmetadata` and retries on every gesture, including `touchend`                                                                                                               |
+| A phone clip soft and stuttering while the same file is smooth on desktop                | A landscape mobile encode in a portrait viewport: cover-fit decoded the full frame and threw three quarters of it away. Cut the phone clips portrait from the masters (see assets.md)                                                                                                                                                        |
+| Four rounds of mobile fixes verified green, phone still broken                           | Headless Chrome cannot reproduce the iOS decoder, Low Power Mode, or touch. Deploy `references/device-diag.html` beside the site on the first mobile report and let the phone answer                                                                                                                                                         |
 
 The first three are invisible to every check except looking at rendered output.
 That is the argument for this whole pass.
@@ -364,7 +364,6 @@ That is the argument for this whole pass.
 Operational note: a `shoot.mjs` run can take the background server process down
 with it when it finishes. Check the port before the next pass and restart
 `serve.mjs` if it dropped.
-
 
 ## The harness will photograph the wrong site without telling you
 

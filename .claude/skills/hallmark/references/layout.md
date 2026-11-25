@@ -12,15 +12,15 @@ The canvas, the sizes, the sections and the hero for every theme build; a custom
 
 The scaffold writes these tokens and `base.css` sets them on the elements. A theme changes faces, weights, tracking and case; the steps hold, except where a theme sets its display a step larger.
 
-| Role | Token | At 1440 | Element |
-| --- | --- | --- | --- |
-| Hero head | `--text-display` | 84px | `h1` |
-| Long hero head, statement | `--text-display-s` | 60px | `.display-s` |
-| Section head | `--text-section` | 52px | `h2` |
-| Item title | `--text-title` | 25px | `h3` |
-| Lead (the one line under a head) | `--text-lead` | 21px | `.lead` |
-| Body | `--text-md` | 16px | `p` |
-| Label, caption, meta | `--text-sm` | 14px | `small`, `figcaption`, `th` |
+| Role                             | Token              | At 1440 | Element                     |
+| -------------------------------- | ------------------ | ------- | --------------------------- |
+| Hero head                        | `--text-display`   | 84px    | `h1`                        |
+| Long hero head, statement        | `--text-display-s` | 60px    | `.display-s`                |
+| Section head                     | `--text-section`   | 52px    | `h2`                        |
+| Item title                       | `--text-title`     | 25px    | `h3`                        |
+| Lead (the one line under a head) | `--text-lead`      | 21px    | `.lead`                     |
+| Body                             | `--text-md`        | 16px    | `p`                         |
+| Label, caption, meta             | `--text-sm`        | 14px    | `small`, `figcaption`, `th` |
 
 - A section head under 40px at 1440 is the most common reason a page looks unfinished (78). The hero head is about one and a half times the section head, the section head about twice the item title.
 - A head and its line sit 16 to 24px apart (`--space-md` to `--space-lg`); the head block and the section's content 48 to 64px (`--space-2xl`), 40px in a tight composition.
@@ -70,16 +70,16 @@ Under 60rem every composition stacks in reading order: the head block, then the 
 
 The first screen at 1440 x 900 and 1920 x 1080, and only the first screen (44c). Pick a posture at Step 2 from the job (`anatomy.md`), stamp it, and vary it run to run; text beside a picture (Settled, Stage) is the most common generated hero, so take it only when the picture is the strongest thing the prompt has.
 
-| Posture | Height | Content |
-| --- | --- | --- |
-| **Settled** | fills the screen under the nav | centred in the screen; the text on six columns, the visual on the other six |
-| **Stage** | fills the screen under the nav | the text on five columns, a visual on seven at 60 to 75% of the screen tall (reversed when a poster-size head needs the width); it may bleed off the outer edge |
-| **Banner** | 50 to 60% of the screen | the first section shows above the fold; for references, docs, utilities |
-| **Ledge** | fills the screen | a tall field above, the head resting at the base; at 1920 the head grows to its cap first |
-| **Corridor** | fills the screen | one centred column of 44ch or less, the head larger than usual |
-| **Poster** | 92 to 100dvh | a full-bleed photograph or canvas, the content on its calmest part with room around it, low and left or centred, never squeezed into a corner |
-| **Counter** | fills the screen under the nav | the action is the visual: the subscribe field with the latest issue, the booking times, the buy box with its options, the download with the screen, set large beside or under a shorter head |
-| **Index** | fills the screen under the nav | the content is the visual: the lineup, the menu, the list of issues or projects, set as the page's lead with the head small above it; for pages whose list is the reason to come |
+| Posture      | Height                         | Content                                                                                                                                                                                      |
+| ------------ | ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Settled**  | fills the screen under the nav | centred in the screen; the text on six columns, the visual on the other six                                                                                                                  |
+| **Stage**    | fills the screen under the nav | the text on five columns, a visual on seven at 60 to 75% of the screen tall (reversed when a poster-size head needs the width); it may bleed off the outer edge                              |
+| **Banner**   | 50 to 60% of the screen        | the first section shows above the fold; for references, docs, utilities                                                                                                                      |
+| **Ledge**    | fills the screen               | a tall field above, the head resting at the base; at 1920 the head grows to its cap first                                                                                                    |
+| **Corridor** | fills the screen               | one centred column of 44ch or less, the head larger than usual                                                                                                                               |
+| **Poster**   | 92 to 100dvh                   | a full-bleed photograph or canvas, the content on its calmest part with room around it, low and left or centred, never squeezed into a corner                                                |
+| **Counter**  | fills the screen under the nav | the action is the visual: the subscribe field with the latest issue, the booking times, the buy box with its options, the download with the screen, set large beside or under a shorter head |
+| **Index**    | fills the screen under the nav | the content is the visual: the lineup, the menu, the list of issues or projects, set as the page's lead with the head small above it; for pages whose list is the reason to come             |
 
 - **Centred in its screen.** For Settled, Stage, Banner and Corridor the space under the content is 1.0 to 1.5 times the space above it (44a), and the lowest content sits within 160px of the fold (79). Spend spare height on a larger visual or larger type, never on copy.
 - **The visual is big:** six or seven columns wide and 60% of the screen tall or more (520px at 1440 x 900), or a portrait object (a cover, a phone, a bottle) at 75% tall on four or five columns; its centre within 60px of the text block's. The hero grid is two tracks (`6fr 5fr`, `5fr 7fr`) with its own gap of `--space-2xl` to `--space-3xl`, so text and visual stand 48 to 120px apart; spans on the twelve columns leave an empty column between them. Under 60rem the gap becomes a row gap of `--space-xl`. What it shows is `imagery.md` § 1; a working form is a section or a close, not the default hero.

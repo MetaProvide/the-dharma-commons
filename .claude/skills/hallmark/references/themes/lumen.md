@@ -1,4 +1,5 @@
 ---
+
 name: Lumen
 slug: lumen
 genre: atmospheric
@@ -20,16 +21,29 @@ A night console with a literary voice: a violet-black ground, near-white ink, In
 
 ```css
 :root {
-  --color-paper: oklch(12.5% 0.027 290); --color-paper-2: oklch(16% 0.03 290); --color-paper-3: oklch(20% 0.032 290);
-  --color-ink: oklch(96% 0.01 300); --color-ink-2: oklch(85% 0.017 298); --color-muted: oklch(69% 0.026 295);
-  --color-rule: oklch(27% 0.034 290); --color-rule-2: oklch(36% 0.04 292); --rule-blueprint: oklch(96% 0.01 300 / 0.05);
-  --color-accent: oklch(80% 0.15 62); --color-accent-2: oklch(72% 0.15 12); --color-accent-ink: oklch(14% 0.028 290);
-  --color-live: oklch(80% 0.13 155); --color-focus: oklch(80% 0.15 62);
-  --font-display: "Instrument Serif", ui-serif, Georgia, serif; --font-body: "Geist", ui-sans-serif, system-ui, sans-serif;
-  --font-outlier: "Geist Mono", ui-monospace, monospace;
-  --radius-card: 10px; --radius-pill: 999px; --rule-hair: 1px;
-  --shadow-card: 0 28px 64px -30px oklch(4% 0.02 290 / 0.8);
-  --tracking-display: -0.015em; --display-weight: 400;
+    --color-paper: oklch(12.5% 0.027 290);
+    --color-paper-2: oklch(16% 0.03 290);
+    --color-paper-3: oklch(20% 0.032 290);
+    --color-ink: oklch(96% 0.01 300);
+    --color-ink-2: oklch(85% 0.017 298);
+    --color-muted: oklch(69% 0.026 295);
+    --color-rule: oklch(27% 0.034 290);
+    --color-rule-2: oklch(36% 0.04 292);
+    --rule-blueprint: oklch(96% 0.01 300 / 0.05);
+    --color-accent: oklch(80% 0.15 62);
+    --color-accent-2: oklch(72% 0.15 12);
+    --color-accent-ink: oklch(14% 0.028 290);
+    --color-live: oklch(80% 0.13 155);
+    --color-focus: oklch(80% 0.15 62);
+    --font-display: "Instrument Serif", ui-serif, Georgia, serif;
+    --font-body: "Geist", ui-sans-serif, system-ui, sans-serif;
+    --font-outlier: "Geist Mono", ui-monospace, monospace;
+    --radius-card: 10px;
+    --radius-pill: 999px;
+    --rule-hair: 1px;
+    --shadow-card: 0 28px 64px -30px oklch(4% 0.02 290 / 0.8);
+    --tracking-display: -0.015em;
+    --display-weight: 400;
 }
 ```
 
@@ -87,17 +101,74 @@ Engineered, plain, specific: the model, the state, the unit, the price. Lowercas
 ```
 
 ```css
-body { font-variant-numeric: tabular-nums; }
-h1, h2, h3, nav, label, th, figcaption, .btn { text-transform: lowercase; }
-h1, h2, h3 { font-weight: 400; } h2 { font-size: var(--text-display-s); line-height: 0.98; }
-.verb { display: inline-block; color: var(--color-accent-2); }
-.verb::after { content: ""; display: block; height: var(--rule-hair); background: currentColor; transform-origin: left; animation: draw var(--dur-long) var(--ease-out) both; }
-@keyframes draw { from { transform: scaleX(0); } }
-.btn { border-radius: var(--radius-pill); padding: var(--space-sm) var(--space-lg); font-weight: 500; }
-.btn--primary { background: var(--color-accent); color: var(--color-accent-ink); }
-.btn--secondary { box-shadow: inset 0 0 0 var(--rule-hair) var(--color-rule-2); color: var(--color-ink); }
-.btn--secondary:hover { background: var(--color-paper-2); }
-.well { background: var(--color-paper-2); border: var(--rule-hair) solid var(--color-rule); border-radius: var(--radius-card); }
-.blueprint { background-image: linear-gradient(var(--rule-blueprint) 1px, transparent 1px), linear-gradient(90deg, var(--rule-blueprint) 1px, transparent 1px); background-size: 48px 48px; }
-.readout { font: 400 0.8125rem/1.5 var(--font-outlier); color: var(--color-ink-2); }
+body {
+    font-variant-numeric: tabular-nums;
+}
+h1,
+h2,
+h3,
+nav,
+label,
+th,
+figcaption,
+.btn {
+    text-transform: lowercase;
+}
+h1,
+h2,
+h3 {
+    font-weight: 400;
+}
+h2 {
+    font-size: var(--text-display-s);
+    line-height: 0.98;
+}
+.verb {
+    display: inline-block;
+    color: var(--color-accent-2);
+}
+.verb::after {
+    content: "";
+    display: block;
+    height: var(--rule-hair);
+    background: currentColor;
+    transform-origin: left;
+    animation: draw var(--dur-long) var(--ease-out) both;
+}
+@keyframes draw {
+    from {
+        transform: scaleX(0);
+    }
+}
+.btn {
+    border-radius: var(--radius-pill);
+    padding: var(--space-sm) var(--space-lg);
+    font-weight: 500;
+}
+.btn--primary {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+}
+.btn--secondary {
+    box-shadow: inset 0 0 0 var(--rule-hair) var(--color-rule-2);
+    color: var(--color-ink);
+}
+.btn--secondary:hover {
+    background: var(--color-paper-2);
+}
+.well {
+    background: var(--color-paper-2);
+    border: var(--rule-hair) solid var(--color-rule);
+    border-radius: var(--radius-card);
+}
+.blueprint {
+    background-image:
+        linear-gradient(var(--rule-blueprint) 1px, transparent 1px),
+        linear-gradient(90deg, var(--rule-blueprint) 1px, transparent 1px);
+    background-size: 48px 48px;
+}
+.readout {
+    font: 400 0.8125rem / 1.5 var(--font-outlier);
+    color: var(--color-ink-2);
+}
 ```

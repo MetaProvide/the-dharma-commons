@@ -15,12 +15,22 @@ Loaded only when the picked theme earns texture (affinity table below) or a cust
 A speck grain, tokenised:
 
 ```css
-:root { --texture-opacity: 0.08; }
-.grained { position: relative; isolation: isolate; }
+:root {
+    --texture-opacity: 0.08;
+}
+.grained {
+    position: relative;
+    isolation: isolate;
+}
 .grained::after {
-  content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 1;
-  background-size: 200px 200px; opacity: var(--texture-opacity);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 9 -4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    background-size: 200px 200px;
+    opacity: var(--texture-opacity);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 9 -4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
 }
 ```
 
@@ -31,9 +41,14 @@ The colour matrix turns the noise into discrete specks (alpha is the noise times
 A dot screen with a size token:
 
 ```css
-:root { --halftone-size: 12px; --halftone-dot: 1.5px; }
-.halftone { background-image: radial-gradient(var(--color-ink) var(--halftone-dot), transparent var(--halftone-dot));
-  background-size: var(--halftone-size) var(--halftone-size); }
+:root {
+    --halftone-size: 12px;
+    --halftone-dot: 1.5px;
+}
+.halftone {
+    background-image: radial-gradient(var(--color-ink) var(--halftone-dot), transparent var(--halftone-dot));
+    background-size: var(--halftone-size) var(--halftone-size);
+}
 ```
 
 Plate fills and section bands. Never under or overlapping type. Dot in ink or one spot colour, never the accent at full field strength.
@@ -43,13 +58,28 @@ Plate fills and section bands. Never under or overlapping type. Dot in ink or on
 Riso's signature, portable to any print-lineage custom run:
 
 ```css
-.misreg { position: relative; display: inline-block; isolation: isolate; }
-.misreg::before, .misreg::after {
-  content: attr(data-text); position: absolute; inset: 0; z-index: -1;
-  white-space: nowrap; pointer-events: none;
+.misreg {
+    position: relative;
+    display: inline-block;
+    isolation: isolate;
 }
-.misreg::before { color: var(--color-accent);   transform: translate(-2px, -2px); }
-.misreg::after  { color: var(--color-accent-2, var(--color-focus)); transform: translate(2px, 2px); }
+.misreg::before,
+.misreg::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    white-space: nowrap;
+    pointer-events: none;
+}
+.misreg::before {
+    color: var(--color-accent);
+    transform: translate(-2px, -2px);
+}
+.misreg::after {
+    color: var(--color-accent-2, var(--color-focus));
+    transform: translate(2px, 2px);
+}
 ```
 
 **One focal word per page, in the hero, under the theme's `waive 38iii`; never every heading.** The span is an inline block so the copies sit on the glyphs whatever the head's line-height, and they print behind the ink so the word keeps its colour; only the fringes carry the echoes. The echo colours are the theme's declared spot inks (`--color-accent` and `--color-accent-2` here, or the theme's own echo tokens); the offset stays 1 to 3px (more reads broken, not printed). It may settle once on load over `--dur-long` at most, static under reduced motion; it never loops.
@@ -59,10 +89,17 @@ Riso's signature, portable to any print-lineage custom run:
 Arcade's recipe; the retro signal is atmosphere, never a drawn monitor bezel (47a):
 
 ```css
-:root { --scanline: oklch(from var(--color-ink) l c h / 0.06); }
-body::after { content: ""; position: fixed; inset: 0; z-index: var(--z-raised);
-  pointer-events: none;
-  background: repeating-linear-gradient(transparent 0 2px, var(--scanline) 2px 3px); }
+:root {
+    --scanline: oklch(from var(--color-ink) l c h / 0.06);
+}
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-raised);
+    pointer-events: none;
+    background: repeating-linear-gradient(transparent 0 2px, var(--scanline) 2px 3px);
+}
 ```
 
 `--scanline` is a page-local decorative token at low alpha. Arcade and arcade-adjacent customs only.
@@ -72,9 +109,13 @@ body::after { content: ""; position: fixed; inset: 0; z-index: var(--z-raised);
 For plates, tickets, and stubs on print-lineage pages:
 
 ```css
-.deckled { box-shadow: inset 0 0 0 1px var(--color-rule);
-  mask-image: radial-gradient(6px at 0 50%, transparent 97%, black);
-  mask-size: 12px 24px; mask-repeat: repeat-y; mask-position: left; }
+.deckled {
+    box-shadow: inset 0 0 0 1px var(--color-rule);
+    mask-image: radial-gradient(6px at 0 50%, transparent 97%, black);
+    mask-size: 12px 24px;
+    mask-repeat: repeat-y;
+    mask-position: left;
+}
 ```
 
 One edge, one element class per page (a ticket edge, a stamp perforation). Never on cards generally; it is an artifact, not a border style.

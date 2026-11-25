@@ -1,4 +1,5 @@
 ---
+
 name: Hedgerow
 slug: hedgerow
 genre: editorial
@@ -20,24 +21,36 @@ A dark page that reads as green, not night: a deep leaf-green ground, cream ink,
 
 ```css
 :root {
-  --color-paper: oklch(24% 0.052 158); --color-paper-2: oklch(19.5% 0.045 158); --color-paper-3: oklch(29.5% 0.05 158);
-  --color-ink: oklch(93% 0.022 88); --color-ink-2: oklch(81% 0.035 150); --color-muted: oklch(69% 0.045 150);
-  --color-rule: oklch(35% 0.05 158);
-  --color-accent: oklch(87% 0.19 118); --color-accent-2: oklch(92% 0.13 118); --color-accent-deep: oklch(46% 0.12 128); --color-accent-ink: oklch(22% 0.05 158); --color-focus: oklch(92% 0.13 118);
-  --font-display: "Prata", Georgia, serif; --font-body: "Manrope", ui-sans-serif, system-ui, sans-serif;
-  --font-outlier: "IBM Plex Mono", ui-monospace, monospace;
-  --radius-card: 0; --radius-pill: 999px; --rule-hair: 1px;
-  --shadow-card: none;
-  --tracking-display: -0.005em; --display-weight: 400;
+    --color-paper: oklch(24% 0.052 158);
+    --color-paper-2: oklch(19.5% 0.045 158);
+    --color-paper-3: oklch(29.5% 0.05 158);
+    --color-ink: oklch(93% 0.022 88);
+    --color-ink-2: oklch(81% 0.035 150);
+    --color-muted: oklch(69% 0.045 150);
+    --color-rule: oklch(35% 0.05 158);
+    --color-accent: oklch(87% 0.19 118);
+    --color-accent-2: oklch(92% 0.13 118);
+    --color-accent-deep: oklch(46% 0.12 128);
+    --color-accent-ink: oklch(22% 0.05 158);
+    --color-focus: oklch(92% 0.13 118);
+    --font-display: "Prata", Georgia, serif;
+    --font-body: "Manrope", ui-sans-serif, system-ui, sans-serif;
+    --font-outlier: "IBM Plex Mono", ui-monospace, monospace;
+    --radius-card: 0;
+    --radius-pill: 999px;
+    --rule-hair: 1px;
+    --shadow-card: none;
+    --tracking-display: -0.005em;
+    --display-weight: 400;
 }
 ```
 
 One dial, the colourway, stated in the stamp (`hedgerow: hedge`). `--color-accent-deep` is the moss strength of the signal: it takes the chartreuse's place on the cream band, where chartreuse vanishes.
 
-| Colourway | Ground | Ink | Accent |
-| --- | --- | --- | --- |
-| `hedge` (default) | oklch(24% 0.052 158) | cream oklch(93% 0.022 88) | chartreuse oklch(87% 0.19 118) |
-| `sloe` | plum oklch(25% 0.06 320) | oklch(94% 0.02 80) | straw oklch(88% 0.15 95) |
+| Colourway         | Ground                   | Ink                       | Accent                         |
+| ----------------- | ------------------------ | ------------------------- | ------------------------------ |
+| `hedge` (default) | oklch(24% 0.052 158)     | cream oklch(93% 0.022 88) | chartreuse oklch(87% 0.19 118) |
+| `sloe`            | plum oklch(25% 0.06 320) | oklch(94% 0.02 80)        | straw oklch(88% 0.15 95)       |
 
 ## Type
 
@@ -87,18 +100,64 @@ A field guide's: the plant and where it grows, then how far and when, only where
 ```
 
 ```css
-h1, h2, h3 { font-weight: 400; line-height: 1.08; font-synthesis: none; }
-.btn { border: 1.5px solid var(--color-accent); border-radius: var(--radius-pill); padding: var(--space-sm) var(--space-lg); font-size: var(--text-sm); font-weight: 700; transition: background-color var(--dur-short) var(--ease-out); }
-.btn--primary { background: var(--color-accent); color: var(--color-accent-ink); }
-.btn--primary:hover { background: var(--color-accent-2); border-color: var(--color-accent-2); }
-.btn--secondary { background: transparent; color: var(--color-accent); }
-.band--cream { background: var(--color-ink); color: var(--color-paper); --color-rule: color-mix(in oklab, var(--color-paper) 22%, var(--color-ink)); }
-.band--cream .btn { border-color: var(--color-paper); color: var(--color-paper); }
-.band--cream .btn--primary { background: var(--color-paper); color: var(--color-ink); }
-.band--cream .figure { color: var(--color-accent-deep); }
-.index { border-top: 1.5px solid var(--color-accent); }
-.index > li { border-bottom: var(--rule-hair) solid var(--color-rule); }
-.photo img { outline: var(--rule-hair) solid color-mix(in oklab, var(--color-ink) 8%, transparent); outline-offset: -1px; }
-.figure { font-family: var(--font-display); font-variant-numeric: lining-nums tabular-nums; }
-a { text-decoration-color: var(--color-accent); }
+h1,
+h2,
+h3 {
+    font-weight: 400;
+    line-height: 1.08;
+    font-synthesis: none;
+}
+.btn {
+    border: 1.5px solid var(--color-accent);
+    border-radius: var(--radius-pill);
+    padding: var(--space-sm) var(--space-lg);
+    font-size: var(--text-sm);
+    font-weight: 700;
+    transition: background-color var(--dur-short) var(--ease-out);
+}
+.btn--primary {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+}
+.btn--primary:hover {
+    background: var(--color-accent-2);
+    border-color: var(--color-accent-2);
+}
+.btn--secondary {
+    background: transparent;
+    color: var(--color-accent);
+}
+.band--cream {
+    background: var(--color-ink);
+    color: var(--color-paper);
+    --color-rule: color-mix(in oklab, var(--color-paper) 22%, var(--color-ink));
+}
+.band--cream .btn {
+    border-color: var(--color-paper);
+    color: var(--color-paper);
+}
+.band--cream .btn--primary {
+    background: var(--color-paper);
+    color: var(--color-ink);
+}
+.band--cream .figure {
+    color: var(--color-accent-deep);
+}
+.index {
+    border-top: 1.5px solid var(--color-accent);
+}
+.index > li {
+    border-bottom: var(--rule-hair) solid var(--color-rule);
+}
+.photo img {
+    outline: var(--rule-hair) solid color-mix(in oklab, var(--color-ink) 8%, transparent);
+    outline-offset: -1px;
+}
+.figure {
+    font-family: var(--font-display);
+    font-variant-numeric: lining-nums tabular-nums;
+}
+a {
+    text-decoration-color: var(--color-accent);
+}
 ```

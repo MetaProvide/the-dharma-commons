@@ -1,4 +1,5 @@
 ---
+
 name: Wayfind
 slug: wayfind
 genre: modern-minimal
@@ -20,24 +21,38 @@ Public signage set as a page: cool grey paper, blue-black ink, every glyph in Ch
 
 ```css
 :root {
-  --color-paper: oklch(95.5% 0.006 250); --color-paper-2: oklch(91% 0.009 250); --color-paper-3: oklch(99.5% 0.005 250);
-  --color-ink: oklch(16% 0.014 262); --color-ink-2: oklch(29% 0.014 262); --color-muted: oklch(47% 0.016 260);
-  --color-rule: oklch(80% 0.011 250); --color-ink-rule: oklch(34% 0.014 262);
-  --color-accent: oklch(51% 0.22 264); --color-accent-2: oklch(81% 0.16 82); --color-accent-ink: oklch(99.5% 0.003 250); --color-focus: oklch(51% 0.22 264);
-  --font-display: "Chivo Mono", ui-monospace, monospace; --font-body: var(--font-display); --font-outlier: var(--font-body);
-  --radius-card: 0; --radius-pill: 999px; --rule-hair: 1px; --rule-bar: 2px;
-  --shadow-card: 0 24px 40px -24px oklch(8% 0.01 260 / 0.6);
-  --tracking-display: -0.03em; --display-weight: 800;
+    --color-paper: oklch(95.5% 0.006 250);
+    --color-paper-2: oklch(91% 0.009 250);
+    --color-paper-3: oklch(99.5% 0.005 250);
+    --color-ink: oklch(16% 0.014 262);
+    --color-ink-2: oklch(29% 0.014 262);
+    --color-muted: oklch(47% 0.016 260);
+    --color-rule: oklch(80% 0.011 250);
+    --color-ink-rule: oklch(34% 0.014 262);
+    --color-accent: oklch(51% 0.22 264);
+    --color-accent-2: oklch(81% 0.16 82);
+    --color-accent-ink: oklch(99.5% 0.003 250);
+    --color-focus: oklch(51% 0.22 264);
+    --font-display: "Chivo Mono", ui-monospace, monospace;
+    --font-body: var(--font-display);
+    --font-outlier: var(--font-body);
+    --radius-card: 0;
+    --radius-pill: 999px;
+    --rule-hair: 1px;
+    --rule-bar: 2px;
+    --shadow-card: 0 24px 40px -24px oklch(8% 0.01 260 / 0.6);
+    --tracking-display: -0.03em;
+    --display-weight: 800;
 }
 ```
 
 Three colourways, set once per page and stated in the stamp (`wayfind: platform`).
 
-| Colourway | Paper, ink, rule |
-| --- | --- |
-| `platform` (default) | the block above |
-| `night` | paper `oklch(15% 0.012 262)`, ink `oklch(96% 0.005 250)`, rule `oklch(31% 0.014 262)`, cobalt lifts to `oklch(62% 0.2 264)` |
-| `signal` | paper `oklch(51% 0.22 264)` cobalt, ink white, rule `oklch(75% 0.12 264)`; the cobalt button becomes the ink one |
+| Colourway            | Paper, ink, rule                                                                                                            |
+| -------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `platform` (default) | the block above                                                                                                             |
+| `night`              | paper `oklch(15% 0.012 262)`, ink `oklch(96% 0.005 250)`, rule `oklch(31% 0.014 262)`, cobalt lifts to `oklch(62% 0.2 264)` |
+| `signal`             | paper `oklch(51% 0.22 264)` cobalt, ink white, rule `oklch(75% 0.12 264)`; the cobalt button becomes the ink one            |
 
 ## Type
 
@@ -91,15 +106,60 @@ Signage: the platform, the exit, the minute, the carriage. Imperative and short;
 ```
 
 ```css
-body { font-variant-numeric: tabular-nums; }
-h1, h2, h3 { font-weight: 800; line-height: 0.98; }
-h1 { font-size: min(var(--text-display), 4.75rem); }
-small, th, figcaption { font-weight: 500; color: var(--color-muted); }
-.btn { display: inline-flex; align-items: center; gap: var(--space-xs); padding: var(--space-md) var(--space-lg); border: var(--rule-bar) solid currentColor; font: 800 var(--text-sm)/1 var(--font-body); color: inherit; transition: background-color var(--dur-micro) steps(1); }
-.btn--primary { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-accent-ink); }
-.plate { border: var(--rule-bar) solid var(--color-ink); background: var(--color-ink); color: var(--color-paper); }
-.plate .figure { font-weight: 800; color: var(--color-accent-2); }
-.band--ink { background: var(--color-ink); color: var(--color-paper); }
-th { border-bottom: var(--rule-bar) solid currentColor; } td { border-bottom: var(--rule-hair) solid var(--color-rule); }
-::selection { background: var(--color-accent-2); color: var(--color-ink); }
+body {
+    font-variant-numeric: tabular-nums;
+}
+h1,
+h2,
+h3 {
+    font-weight: 800;
+    line-height: 0.98;
+}
+h1 {
+    font-size: min(var(--text-display), 4.75rem);
+}
+small,
+th,
+figcaption {
+    font-weight: 500;
+    color: var(--color-muted);
+}
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-md) var(--space-lg);
+    border: var(--rule-bar) solid currentColor;
+    font: 800 var(--text-sm) / 1 var(--font-body);
+    color: inherit;
+    transition: background-color var(--dur-micro) steps(1);
+}
+.btn--primary {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-accent-ink);
+}
+.plate {
+    border: var(--rule-bar) solid var(--color-ink);
+    background: var(--color-ink);
+    color: var(--color-paper);
+}
+.plate .figure {
+    font-weight: 800;
+    color: var(--color-accent-2);
+}
+.band--ink {
+    background: var(--color-ink);
+    color: var(--color-paper);
+}
+th {
+    border-bottom: var(--rule-bar) solid currentColor;
+}
+td {
+    border-bottom: var(--rule-hair) solid var(--color-rule);
+}
+::selection {
+    background: var(--color-accent-2);
+    color: var(--color-ink);
+}
 ```

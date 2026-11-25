@@ -18,6 +18,7 @@ Compositions: a pinned Split (`layout.md` § 5), the pin per `scroll-choreograph
 Mobile: under 60rem the sticky pane becomes a heading above its captures, stacked in flow.
 
 **Sample opening lines** (pin one statement, then walk the visitor through):
-> *"Plan, build, ship."* Three verbs, three sticky panes.
-> *"Read anything that emits lines."* Names what is possible, then walks through it (Streampipe).
-> *"From stdin, through the pipe, into your dashboard."* Names the data path, then explains each step.
+
+> _"Plan, build, ship."_ Three verbs, three sticky panes.
+> _"Read anything that emits lines."_ Names what is possible, then walks through it (Streampipe).
+> _"From stdin, through the pipe, into your dashboard."_ Names the data path, then explains each step.

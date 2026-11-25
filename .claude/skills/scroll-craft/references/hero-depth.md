@@ -59,7 +59,6 @@ On September 4, 2026, the original single-image hero was judged premium but lack
 
 Local implementation, when available: `OtherWorlds/sonder-studio/` in the author’s optional example workspace. See `components/SceneHero.tsx`, `lib/scene-motion.ts`, and `VERIFICATION.md` for the worked example. The principles above are self-contained; this path is optional reference material.
 
-
 ## Further approved examples
 
 The [ten-site rebuild](approved-collection.md) extends these principles to

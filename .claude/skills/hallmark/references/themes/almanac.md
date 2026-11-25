@@ -1,4 +1,5 @@
 ---
+
 name: Almanac
 slug: almanac
 genre: editorial
@@ -20,16 +21,29 @@ The register of a reference book: cool slate stock, blue-black ink, Hanken Grote
 
 ```css
 :root {
-  --color-paper: oklch(84% 0.012 245); --color-paper-2: oklch(81% 0.012 245); --color-paper-3: oklch(77% 0.012 245);
-  --color-ink: oklch(16% 0.020 245); --color-ink-2: oklch(24% 0.018 245); --color-muted: oklch(38% 0.016 245);
-  --color-rule: oklch(73% 0.013 240); --color-rule-2: oklch(32% 0.018 240);
-  --color-accent: oklch(45% 0.180 350); --color-accent-2: oklch(37% 0.160 350); --color-accent-ink: oklch(97% 0.006 245); --color-focus: oklch(46% 0.190 350);
-  --color-sheet: oklch(93.5% 0.008 245);
-  --font-display: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --font-body: "Newsreader", ui-serif, Georgia, serif;
-  --font-outlier: "IBM Plex Mono", ui-monospace, monospace;
-  --radius-card: 0; --radius-pill: 2px; --rule-hair: 1px; --rule-bar: 2px; --shadow-card: none;
-  --tracking-display: -0.02em; --display-weight: 600;
+    --color-paper: oklch(84% 0.012 245);
+    --color-paper-2: oklch(81% 0.012 245);
+    --color-paper-3: oklch(77% 0.012 245);
+    --color-ink: oklch(16% 0.02 245);
+    --color-ink-2: oklch(24% 0.018 245);
+    --color-muted: oklch(38% 0.016 245);
+    --color-rule: oklch(73% 0.013 240);
+    --color-rule-2: oklch(32% 0.018 240);
+    --color-accent: oklch(45% 0.18 350);
+    --color-accent-2: oklch(37% 0.16 350);
+    --color-accent-ink: oklch(97% 0.006 245);
+    --color-focus: oklch(46% 0.19 350);
+    --color-sheet: oklch(93.5% 0.008 245);
+    --font-display: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+    --font-body: "Newsreader", ui-serif, Georgia, serif;
+    --font-outlier: "IBM Plex Mono", ui-monospace, monospace;
+    --radius-card: 0;
+    --radius-pill: 2px;
+    --rule-hair: 1px;
+    --rule-bar: 2px;
+    --shadow-card: none;
+    --tracking-display: -0.02em;
+    --display-weight: 600;
 }
 ```
 
@@ -86,18 +100,76 @@ Declarative, dated, exact: cite the figure, the edition, the source, the unit. N
 ```
 
 ```css
-body { color: var(--color-ink-2); }
-h1, h2, h3 { font-weight: 600; color: var(--color-ink); }
-.num, td.num { font-family: var(--font-outlier); font-variant-numeric: tabular-nums; text-align: right; }
-thead th, .rule-firm { border-bottom: var(--rule-bar) solid var(--color-rule-2); }
-th { font: 500 var(--text-sm)/1.3 var(--font-body); color: var(--color-muted); text-align: left; }
-td { border-top: var(--rule-hair) solid var(--color-rule); }
-.btn { border: var(--rule-hair) solid var(--color-ink); border-radius: var(--radius-pill); padding: var(--space-sm) var(--space-lg); font: 500 var(--text-sm)/1 var(--font-display); color: var(--color-ink); background: transparent; }
-.btn--primary { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-accent-ink); } .btn--primary:hover { background: var(--color-accent-2); }
-.well { background: var(--color-paper-2); border-top: var(--rule-bar) solid var(--color-rule-2); }
-.sheet { background: var(--color-sheet); border-top: var(--rule-bar) solid var(--color-ink); }
-.band--ink { background: var(--color-ink); color: var(--color-paper); }
-.chart .series { fill: none; stroke: var(--color-accent); stroke-width: 2; }
-.photo > img { outline: var(--rule-hair) solid var(--color-rule-2); outline-offset: -1px; }
-a { color: var(--color-ink); text-decoration-color: var(--color-accent); text-underline-offset: 0.15em; } a:hover { text-decoration-thickness: 2px; }
+body {
+    color: var(--color-ink-2);
+}
+h1,
+h2,
+h3 {
+    font-weight: 600;
+    color: var(--color-ink);
+}
+.num,
+td.num {
+    font-family: var(--font-outlier);
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+}
+thead th,
+.rule-firm {
+    border-bottom: var(--rule-bar) solid var(--color-rule-2);
+}
+th {
+    font: 500 var(--text-sm) / 1.3 var(--font-body);
+    color: var(--color-muted);
+    text-align: left;
+}
+td {
+    border-top: var(--rule-hair) solid var(--color-rule);
+}
+.btn {
+    border: var(--rule-hair) solid var(--color-ink);
+    border-radius: var(--radius-pill);
+    padding: var(--space-sm) var(--space-lg);
+    font: 500 var(--text-sm) / 1 var(--font-display);
+    color: var(--color-ink);
+    background: transparent;
+}
+.btn--primary {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-accent-ink);
+}
+.btn--primary:hover {
+    background: var(--color-accent-2);
+}
+.well {
+    background: var(--color-paper-2);
+    border-top: var(--rule-bar) solid var(--color-rule-2);
+}
+.sheet {
+    background: var(--color-sheet);
+    border-top: var(--rule-bar) solid var(--color-ink);
+}
+.band--ink {
+    background: var(--color-ink);
+    color: var(--color-paper);
+}
+.chart .series {
+    fill: none;
+    stroke: var(--color-accent);
+    stroke-width: 2;
+}
+.photo > img {
+    outline: var(--rule-hair) solid var(--color-rule-2);
+    outline-offset: -1px;
+}
+a {
+    color: var(--color-ink);
+    text-decoration-color: var(--color-accent);
+    text-underline-offset: 0.15em;
+}
+a:hover {
+    text-decoration-thickness: 2px;
+}
 ```

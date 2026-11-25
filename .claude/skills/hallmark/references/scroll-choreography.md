@@ -25,17 +25,42 @@ The tall track owns a named view-timeline; the pinned pane's steps consume it in
 </section>
 ```
 ```css
-.chapter { min-height: 280vh; }                          /* track length = pin duration */
-.chapter__pin { position: sticky; top: calc(var(--banner-height, 0px) + var(--space-xl)); }
+.chapter {
+    min-height: 280vh;
+} /* track length = pin duration */
+.chapter__pin {
+    position: sticky;
+    top: calc(var(--banner-height, 0px) + var(--space-xl));
+}
 @supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) and (min-width: 40rem) {
-    .chapter { view-timeline: --chapter block; }
-    .chapter__steps li { animation: chapter-step linear both; animation-timeline: --chapter; }
-    .chapter__steps li:nth-child(1) { animation-range: contain 5% contain 30%; }
-    .chapter__steps li:nth-child(2) { animation-range: contain 30% contain 55%; }
-    .chapter__steps li:nth-child(3) { animation-range: contain 55% contain 80%; }
-    @keyframes chapter-step { from { opacity: 0.2; transform: translateY(8px); } to { opacity: 1; transform: none; } }
-  }
+    @media (prefers-reduced-motion: no-preference) and (min-width: 40rem) {
+        .chapter {
+            view-timeline: --chapter block;
+        }
+        .chapter__steps li {
+            animation: chapter-step linear both;
+            animation-timeline: --chapter;
+        }
+        .chapter__steps li:nth-child(1) {
+            animation-range: contain 5% contain 30%;
+        }
+        .chapter__steps li:nth-child(2) {
+            animation-range: contain 30% contain 55%;
+        }
+        .chapter__steps li:nth-child(3) {
+            animation-range: contain 55% contain 80%;
+        }
+        @keyframes chapter-step {
+            from {
+                opacity: 0.2;
+                transform: translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    }
 }
 ```
 
@@ -44,19 +69,27 @@ The tall track owns a named view-timeline; the pinned pane's steps consume it in
 For a mid-page Statement head (`layout.md` § 5), never the hero `h1`, whose entrance is the load reveal. One element a page.
 
 ```css
-.statement__head { /* base: fully drawn */ }
+.statement__head {
+    /* base: fully drawn */
+}
 @supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) and (min-width: 40rem) {
-    .statement__head {
-      animation: head-wipe linear both;
-      animation-timeline: view();
-      animation-range: entry 20% cover 45%;
+    @media (prefers-reduced-motion: no-preference) and (min-width: 40rem) {
+        .statement__head {
+            animation: head-wipe linear both;
+            animation-timeline: view();
+            animation-range: entry 20% cover 45%;
+        }
+        @keyframes head-wipe {
+            from {
+                clip-path: inset(0 100% 0 0);
+                transform: translateX(-0.25em);
+            }
+            to {
+                clip-path: inset(0 0 0 0);
+                transform: none;
+            }
+        }
     }
-    @keyframes head-wipe {
-      from { clip-path: inset(0 100% 0 0); transform: translateX(-0.25em); }
-      to   { clip-path: inset(0 0 0 0); transform: none; }
-    }
-  }
 }
 ```
 
@@ -65,15 +98,38 @@ For a mid-page Statement head (`layout.md` § 5), never the hero `h1`, whose ent
 Reading progress as a hairline, not a chrome bar. A functional indicator, so `linear` is canon. Hidden below 40rem (it eats the mobile gutter).
 
 ```css
-.spine { position: fixed; inset-block: 0; left: max(1rem, 2vw); width: 2px; background: var(--color-rule); }
-.spine::after { content: ""; position: absolute; inset: 0; background: var(--color-accent);
-  transform-origin: top; transform: scaleY(0); }
-@media (max-width: 40rem) { .spine { display: none; } }
+.spine {
+    position: fixed;
+    inset-block: 0;
+    left: max(1rem, 2vw);
+    width: 2px;
+    background: var(--color-rule);
+}
+.spine::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--color-accent);
+    transform-origin: top;
+    transform: scaleY(0);
+}
+@media (max-width: 40rem) {
+    .spine {
+        display: none;
+    }
+}
 @supports (animation-timeline: scroll()) {
-  @media (prefers-reduced-motion: no-preference) and (min-width: 40rem) {
-    .spine::after { animation: spine-grow linear both; animation-timeline: scroll(root); }
-    @keyframes spine-grow { to { transform: scaleY(1); } }
-  }
+    @media (prefers-reduced-motion: no-preference) and (min-width: 40rem) {
+        .spine::after {
+            animation: spine-grow linear both;
+            animation-timeline: scroll(root);
+        }
+        @keyframes spine-grow {
+            to {
+                transform: scaleY(1);
+            }
+        }
+    }
 }
 ```
 
@@ -84,11 +140,23 @@ The structure is a Split (`layout.md` § 5) with one side pinned: `.sticky-stack
 ```css
 /* base: .sticky-stack grid + .pane-sticky pin, above; the pinned side holds down the page */
 @supports (animation-timeline: view()) {
-  @media (prefers-reduced-motion: no-preference) and (min-width: 40rem) {
-    .pane-scroll figure { animation: fig-in linear both; animation-timeline: view();
-      animation-range: entry 0% entry 60%; }
-    @keyframes fig-in { from { opacity: 0.3; transform: translateY(12px); } to { opacity: 1; transform: none; } }
-  }
+    @media (prefers-reduced-motion: no-preference) and (min-width: 40rem) {
+        .pane-scroll figure {
+            animation: fig-in linear both;
+            animation-timeline: view();
+            animation-range: entry 0% entry 60%;
+        }
+        @keyframes fig-in {
+            from {
+                opacity: 0.3;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    }
 }
 ```
 

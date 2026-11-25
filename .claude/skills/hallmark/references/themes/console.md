@@ -1,4 +1,5 @@
 ---
+
 name: Console
 slug: console
 genre: modern-minimal
@@ -20,17 +21,33 @@ An instrument kept by careful people: a graphite ground stepped in three lightne
 
 ```css
 :root {
-  --color-paper: oklch(17% 0.008 250); --color-paper-2: oklch(21% 0.009 250); --color-paper-3: oklch(13.5% 0.007 250);
-  --color-ink: oklch(95% 0.005 250); --color-ink-2: oklch(83% 0.008 250); --color-muted: oklch(71% 0.01 250);
-  --color-rule: oklch(31% 0.01 250); --color-rule-2: oklch(42% 0.012 250);
-  --color-accent: oklch(82% 0.15 80); --color-accent-ink: oklch(18% 0.04 75); --color-accent-soft: oklch(29% 0.05 80); --color-focus: oklch(82% 0.15 80);
-  --color-cool: oklch(77% 0.12 245); --color-cool-soft: oklch(29% 0.05 245);
-  --color-ok: oklch(76% 0.15 150); --color-ok-soft: oklch(24.5% 0.03 150); --color-bad: oklch(70% 0.17 25); --color-bad-soft: oklch(24.5% 0.035 25);
-  --font-display: "Host Grotesk", ui-sans-serif, system-ui, sans-serif; --font-body: var(--font-display);
-  --font-outlier: "Atkinson Hyperlegible Mono", ui-monospace, monospace;
-  --radius-card: 10px; --radius-pill: 6px; --rule-hair: 1px;
-  --shadow-card: none;
-  --tracking-display: -0.03em; --display-weight: 500;
+    --color-paper: oklch(17% 0.008 250);
+    --color-paper-2: oklch(21% 0.009 250);
+    --color-paper-3: oklch(13.5% 0.007 250);
+    --color-ink: oklch(95% 0.005 250);
+    --color-ink-2: oklch(83% 0.008 250);
+    --color-muted: oklch(71% 0.01 250);
+    --color-rule: oklch(31% 0.01 250);
+    --color-rule-2: oklch(42% 0.012 250);
+    --color-accent: oklch(82% 0.15 80);
+    --color-accent-ink: oklch(18% 0.04 75);
+    --color-accent-soft: oklch(29% 0.05 80);
+    --color-focus: oklch(82% 0.15 80);
+    --color-cool: oklch(77% 0.12 245);
+    --color-cool-soft: oklch(29% 0.05 245);
+    --color-ok: oklch(76% 0.15 150);
+    --color-ok-soft: oklch(24.5% 0.03 150);
+    --color-bad: oklch(70% 0.17 25);
+    --color-bad-soft: oklch(24.5% 0.035 25);
+    --font-display: "Host Grotesk", ui-sans-serif, system-ui, sans-serif;
+    --font-body: var(--font-display);
+    --font-outlier: "Atkinson Hyperlegible Mono", ui-monospace, monospace;
+    --radius-card: 10px;
+    --radius-pill: 6px;
+    --rule-hair: 1px;
+    --shadow-card: none;
+    --tracking-display: -0.03em;
+    --display-weight: 500;
 }
 ```
 
@@ -87,13 +104,59 @@ A lab notebook kept by a careful person: the value, its unit, the time, who sign
 ```
 
 ```css
-h1, h2, h3 { font-family: var(--font-display); font-weight: 500; letter-spacing: var(--tracking-display); line-height: 1.04; }
-.panels { display: grid; gap: var(--rule-hair); background: var(--color-rule); border: var(--rule-hair) solid var(--color-rule); border-radius: var(--radius-card); overflow: hidden; }
-.panels > * { background: var(--color-paper-2); }
-.measured { font-family: var(--font-outlier); font-size: var(--text-sm); font-variant-numeric: tabular-nums slashed-zero; }
-.reading { font-family: var(--font-outlier); font-size: var(--text-display); font-weight: 400; letter-spacing: -0.04em; line-height: 1; color: var(--color-ink); }
-.row--minus { background: var(--color-bad-soft); } .row--plus { background: var(--color-ok-soft); }
-.btn { border: var(--rule-hair) solid var(--color-rule-2); border-radius: var(--radius-pill); padding: var(--space-sm) var(--space-md); background: var(--color-paper-2); color: var(--color-ink); font-weight: 500; transition: background-color var(--dur-short) var(--ease-out); }
-.btn--primary { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-accent-ink); }
-::selection { background: color-mix(in oklab, var(--color-accent) 25%, transparent); }
+h1,
+h2,
+h3 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: var(--tracking-display);
+    line-height: 1.04;
+}
+.panels {
+    display: grid;
+    gap: var(--rule-hair);
+    background: var(--color-rule);
+    border: var(--rule-hair) solid var(--color-rule);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+}
+.panels > * {
+    background: var(--color-paper-2);
+}
+.measured {
+    font-family: var(--font-outlier);
+    font-size: var(--text-sm);
+    font-variant-numeric: tabular-nums slashed-zero;
+}
+.reading {
+    font-family: var(--font-outlier);
+    font-size: var(--text-display);
+    font-weight: 400;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    color: var(--color-ink);
+}
+.row--minus {
+    background: var(--color-bad-soft);
+}
+.row--plus {
+    background: var(--color-ok-soft);
+}
+.btn {
+    border: var(--rule-hair) solid var(--color-rule-2);
+    border-radius: var(--radius-pill);
+    padding: var(--space-sm) var(--space-md);
+    background: var(--color-paper-2);
+    color: var(--color-ink);
+    font-weight: 500;
+    transition: background-color var(--dur-short) var(--ease-out);
+}
+.btn--primary {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-accent-ink);
+}
+::selection {
+    background: color-mix(in oklab, var(--color-accent) 25%, transparent);
+}
 ```

@@ -18,8 +18,16 @@ Two, shared by the whole page, in `rem` so they follow the user's font size. The
 `clamp()` for sizes that change continuously (the scale's display tokens already do); media queries for layouts that change discretely. Detect capability with `@media (hover: hover)` and `(pointer: coarse)`, never with width:
 
 ```css
-@media (hover: hover) { .link:hover { text-decoration-thickness: 2px; } }
-@media (pointer: coarse) { .btn { min-height: 48px; } }
+@media (hover: hover) {
+    .link:hover {
+        text-decoration-thickness: 2px;
+    }
+}
+@media (pointer: coarse) {
+    .btn {
+        min-height: 48px;
+    }
+}
 ```
 
 Body-adjacent UI (meta, nav links, controls) runs larger on a phone and tightens at 60rem (`craft.md` § 9).
@@ -28,7 +36,7 @@ Body-adjacent UI (meta, nav links, controls) runs larger on a phone and tightens
 
 Buttons, primary nav links and CTAs are single-line at every width from 320 to 1920 (49a); footer links, tabs and breadcrumbs too unless a real phrase cannot shorten (49b). When one wraps, in this order:
 
-1. **Shorten the label.** *Get started free* to *Start free*; *Read the documentation* to *Read the docs*.
+1. **Shorten the label.** _Get started free_ to _Start free_; _Read the documentation_ to _Read the docs_.
 2. **`white-space: nowrap`** on the control, and let the row around it reflow.
 3. **Collapse the row**, not the labels: under 60rem the links that no longer fit go behind a menu, while two or three short ones that fit stay in the bar.
 

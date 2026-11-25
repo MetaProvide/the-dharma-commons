@@ -1,4 +1,5 @@
 ---
+
 name: Cobalt
 slug: cobalt
 genre: modern-minimal
@@ -20,24 +21,54 @@ An exact, technical register: cool near-white paper ruled with hairlines, Familj
 
 ```css
 :root {
-  --color-paper: oklch(98.6% 0.005 250); --color-paper-2: oklch(96.2% 0.008 252); --color-paper-3: oklch(93% 0.011 252);
-  --color-ink: oklch(21% 0.028 262); --color-ink-2: oklch(36% 0.022 260); --color-muted: oklch(50% 0.018 258);
-  --color-rule: oklch(90% 0.009 252); --color-rule-2: oklch(83% 0.012 252);
-  --color-graphite: oklch(21% 0.024 262); --color-graphite-2: oklch(26.5% 0.026 262); --color-graphite-ink: oklch(93% 0.010 250); --color-graphite-muted: oklch(69% 0.022 256);
-  --color-accent: oklch(52% 0.19 258); --color-accent-2: oklch(76% 0.13 254); --color-accent-wash: oklch(95% 0.028 256); --color-accent-ink: oklch(98.6% 0.005 250); --color-focus: oklch(52% 0.19 258);
-  --color-accent-deep: oklch(43% 0.2 262); --color-accent-edge: oklch(39% 0.16 260);
-  --color-glyph-1: oklch(89% 0.025 254); --color-glyph-2: oklch(81% 0.045 255); --color-glyph-3: oklch(70% 0.085 256); --color-glyph-4: oklch(60% 0.13 257);
-  --color-graphite-glyph-1: oklch(33% 0.03 262); --color-graphite-glyph-2: oklch(41% 0.05 260); --color-graphite-glyph-3: oklch(53% 0.1 258);
-  --color-key-face: oklch(99.4% 0.003 250); --color-key-edge: oklch(80% 0.016 254);
-  --font-display: "Familjen Grotesk", system-ui, sans-serif; --font-body: "IBM Plex Sans", system-ui, sans-serif;
-  --font-outlier: "JetBrains Mono", ui-monospace, monospace;
-  --radius-card: 8px; --radius-input: 6px; --radius-pill: 999px;
-  --cell-w: 8px; --cell-h: 16px; --cut: 8px; --cut-l: 16px;
-  --rule-hair: 1px; --shadow-card: 0 1px 2px oklch(21% 0.028 262 / 0.06);
-  --shadow-key: 0 3px 0 0 var(--color-key-edge), 0 6px 8px -4px oklch(21% 0.028 262 / 0.28), inset 0 1px 0 oklch(100% 0 0 / 0.9);
-  --shadow-key-accent: 0 3px 0 0 var(--color-accent-edge), 0 6px 8px -4px oklch(30% 0.12 260 / 0.45), inset 0 1px 0 oklch(100% 0 0 / 0.22);
-  --shadow-key-press: inset 0 1px 2px oklch(21% 0.028 262 / 0.14);
-  --tracking-display: -0.028em; --display-weight: 600;
+    --color-paper: oklch(98.6% 0.005 250);
+    --color-paper-2: oklch(96.2% 0.008 252);
+    --color-paper-3: oklch(93% 0.011 252);
+    --color-ink: oklch(21% 0.028 262);
+    --color-ink-2: oklch(36% 0.022 260);
+    --color-muted: oklch(50% 0.018 258);
+    --color-rule: oklch(90% 0.009 252);
+    --color-rule-2: oklch(83% 0.012 252);
+    --color-graphite: oklch(21% 0.024 262);
+    --color-graphite-2: oklch(26.5% 0.026 262);
+    --color-graphite-ink: oklch(93% 0.01 250);
+    --color-graphite-muted: oklch(69% 0.022 256);
+    --color-accent: oklch(52% 0.19 258);
+    --color-accent-2: oklch(76% 0.13 254);
+    --color-accent-wash: oklch(95% 0.028 256);
+    --color-accent-ink: oklch(98.6% 0.005 250);
+    --color-focus: oklch(52% 0.19 258);
+    --color-accent-deep: oklch(43% 0.2 262);
+    --color-accent-edge: oklch(39% 0.16 260);
+    --color-glyph-1: oklch(89% 0.025 254);
+    --color-glyph-2: oklch(81% 0.045 255);
+    --color-glyph-3: oklch(70% 0.085 256);
+    --color-glyph-4: oklch(60% 0.13 257);
+    --color-graphite-glyph-1: oklch(33% 0.03 262);
+    --color-graphite-glyph-2: oklch(41% 0.05 260);
+    --color-graphite-glyph-3: oklch(53% 0.1 258);
+    --color-key-face: oklch(99.4% 0.003 250);
+    --color-key-edge: oklch(80% 0.016 254);
+    --font-display: "Familjen Grotesk", system-ui, sans-serif;
+    --font-body: "IBM Plex Sans", system-ui, sans-serif;
+    --font-outlier: "JetBrains Mono", ui-monospace, monospace;
+    --radius-card: 8px;
+    --radius-input: 6px;
+    --radius-pill: 999px;
+    --cell-w: 8px;
+    --cell-h: 16px;
+    --cut: 8px;
+    --cut-l: 16px;
+    --rule-hair: 1px;
+    --shadow-card: 0 1px 2px oklch(21% 0.028 262 / 0.06);
+    --shadow-key:
+        0 3px 0 0 var(--color-key-edge), 0 6px 8px -4px oklch(21% 0.028 262 / 0.28), inset 0 1px 0 oklch(100% 0 0 / 0.9);
+    --shadow-key-accent:
+        0 3px 0 0 var(--color-accent-edge), 0 6px 8px -4px oklch(30% 0.12 260 / 0.45),
+        inset 0 1px 0 oklch(100% 0 0 / 0.22);
+    --shadow-key-press: inset 0 1px 2px oklch(21% 0.028 262 / 0.14);
+    --tracking-display: -0.028em;
+    --display-weight: 600;
 }
 ```
 
@@ -90,12 +121,66 @@ Declarative and specific, like a good changelog: the event, the endpoint, the st
 ```
 
 ```css
-h1, h2, h3 { font-family: var(--font-display); font-weight: 600; letter-spacing: var(--tracking-display); color: var(--color-ink); } h3 { font-weight: 500; }
-.key { border: var(--rule-hair) solid var(--color-rule-2); border-radius: var(--radius-input); padding: 0 var(--space-lg); min-height: 48px; background: var(--color-key-face); color: var(--color-ink); font: 500 var(--text-md)/1 var(--font-display); box-shadow: var(--shadow-key); transition: transform var(--dur-micro) var(--ease-out), box-shadow var(--dur-micro) var(--ease-out); }
-.key:hover { transform: translateY(-1px); } .key:active { transform: translateY(3px); box-shadow: var(--shadow-key-press); }
-.key--primary { background: var(--color-accent); border-color: var(--color-accent-edge); color: var(--color-accent-ink); box-shadow: var(--shadow-key-accent); }
-.cut { border: var(--rule-hair) solid var(--color-rule); border-radius: var(--radius-card); background: var(--color-paper); }
-@supports (corner-shape: bevel) { .cut { border-radius: var(--cut-l) 4px var(--cut-l) 4px; corner-shape: bevel round bevel round; } }
-.graphite { background: var(--color-graphite); color: var(--color-graphite-ink); } .graphite .token { color: var(--color-accent-2); }
-a { text-decoration-color: var(--color-rule-2); text-underline-offset: 0.2em; } a:hover { text-decoration-color: var(--color-accent); }
+h1,
+h2,
+h3 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: var(--tracking-display);
+    color: var(--color-ink);
+}
+h3 {
+    font-weight: 500;
+}
+.key {
+    border: var(--rule-hair) solid var(--color-rule-2);
+    border-radius: var(--radius-input);
+    padding: 0 var(--space-lg);
+    min-height: 48px;
+    background: var(--color-key-face);
+    color: var(--color-ink);
+    font: 500 var(--text-md) / 1 var(--font-display);
+    box-shadow: var(--shadow-key);
+    transition:
+        transform var(--dur-micro) var(--ease-out),
+        box-shadow var(--dur-micro) var(--ease-out);
+}
+.key:hover {
+    transform: translateY(-1px);
+}
+.key:active {
+    transform: translateY(3px);
+    box-shadow: var(--shadow-key-press);
+}
+.key--primary {
+    background: var(--color-accent);
+    border-color: var(--color-accent-edge);
+    color: var(--color-accent-ink);
+    box-shadow: var(--shadow-key-accent);
+}
+.cut {
+    border: var(--rule-hair) solid var(--color-rule);
+    border-radius: var(--radius-card);
+    background: var(--color-paper);
+}
+@supports (corner-shape: bevel) {
+    .cut {
+        border-radius: var(--cut-l) 4px var(--cut-l) 4px;
+        corner-shape: bevel round bevel round;
+    }
+}
+.graphite {
+    background: var(--color-graphite);
+    color: var(--color-graphite-ink);
+}
+.graphite .token {
+    color: var(--color-accent-2);
+}
+a {
+    text-decoration-color: var(--color-rule-2);
+    text-underline-offset: 0.2em;
+}
+a:hover {
+    text-decoration-color: var(--color-accent);
+}
 ```

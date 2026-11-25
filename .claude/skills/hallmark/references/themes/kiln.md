@@ -1,4 +1,5 @@
 ---
+
 name: Kiln
 slug: kiln
 genre: atmospheric
@@ -20,27 +21,43 @@ A dark workshop with the kiln door open a crack: a near-black ground, cream ink,
 
 ```css
 :root {
-  --color-paper: oklch(13% 0.012 40); --color-paper-2: oklch(17.5% 0.016 40); --color-paper-3: oklch(22% 0.018 40);
-  --color-ink: oklch(94% 0.02 80); --color-ink-2: oklch(84% 0.025 70); --color-muted: oklch(72% 0.03 60);
-  --color-rule: oklch(96% 0.01 80 / 0.12);
-  --color-accent: oklch(70% 0.2 45); --color-accent-ink: oklch(14% 0.02 40); --color-focus: oklch(76% 0.19 56);
-  --heat-0: oklch(12% 0.012 40); --heat-1: oklch(22% 0.07 22); --heat-2: oklch(40% 0.16 27); --heat-3: oklch(60% 0.21 36);
-  --heat-4: oklch(76% 0.19 56); --heat-5: oklch(89% 0.14 78); --heat-6: oklch(98% 0.04 95);
-  --font-display: "Boska", "Iowan Old Style", Georgia, serif; --font-body: "Geist", ui-sans-serif, system-ui, sans-serif;
-  --font-outlier: "Geist Mono", ui-monospace, monospace;
-  --radius-card: 28px; --radius-well: 16px; --radius-pill: 999px; --rule-hair: 1px;
-  --shadow-card: 0 50px 90px -30px oklch(8% 0.01 40 / 0.5);
-  --tracking-display: -0.02em; --display-weight: 500;
+    --color-paper: oklch(13% 0.012 40);
+    --color-paper-2: oklch(17.5% 0.016 40);
+    --color-paper-3: oklch(22% 0.018 40);
+    --color-ink: oklch(94% 0.02 80);
+    --color-ink-2: oklch(84% 0.025 70);
+    --color-muted: oklch(72% 0.03 60);
+    --color-rule: oklch(96% 0.01 80 / 0.12);
+    --color-accent: oklch(70% 0.2 45);
+    --color-accent-ink: oklch(14% 0.02 40);
+    --color-focus: oklch(76% 0.19 56);
+    --heat-0: oklch(12% 0.012 40);
+    --heat-1: oklch(22% 0.07 22);
+    --heat-2: oklch(40% 0.16 27);
+    --heat-3: oklch(60% 0.21 36);
+    --heat-4: oklch(76% 0.19 56);
+    --heat-5: oklch(89% 0.14 78);
+    --heat-6: oklch(98% 0.04 95);
+    --font-display: "Boska", "Iowan Old Style", Georgia, serif;
+    --font-body: "Geist", ui-sans-serif, system-ui, sans-serif;
+    --font-outlier: "Geist Mono", ui-monospace, monospace;
+    --radius-card: 28px;
+    --radius-well: 16px;
+    --radius-pill: 999px;
+    --rule-hair: 1px;
+    --shadow-card: 0 50px 90px -30px oklch(8% 0.01 40 / 0.5);
+    --tracking-display: -0.02em;
+    --display-weight: 500;
 }
 ```
 
 Three colourways, stated in the stamp (`kiln: ember`).
 
-| Colourway | Ground, ink, accent |
-| --- | --- |
-| `ember` (default) | the block above |
-| `bisque` | ground `oklch(96.5% 0.014 80)`, ink `oklch(20% 0.02 40)`, accent `oklch(54% 0.17 62)` with the ground as its text; the ramp starts at `oklch(90% 0.035 75)`; wells turn bone |
-| `reduction` | ground `oklch(21% 0.06 22)`, ink `oklch(95% 0.02 85)`, accent `oklch(84% 0.12 62)`; the ramp begins at the ground |
+| Colourway         | Ground, ink, accent                                                                                                                                                          |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ember` (default) | the block above                                                                                                                                                              |
+| `bisque`          | ground `oklch(96.5% 0.014 80)`, ink `oklch(20% 0.02 40)`, accent `oklch(54% 0.17 62)` with the ground as its text; the ramp starts at `oklch(90% 0.035 75)`; wells turn bone |
+| `reduction`       | ground `oklch(21% 0.06 22)`, ink `oklch(95% 0.02 85)`, accent `oklch(84% 0.12 62)`; the ramp begins at the ground                                                            |
 
 ## Type
 
@@ -95,14 +112,53 @@ Calm and physical, in a potter's words: the cone, the degrees, the hour, the loa
 ```
 
 ```css
-h1, h2, h3 { font-weight: var(--display-weight); line-height: 1.04; }
-.btn { display: inline-flex; align-items: center; min-height: 50px; padding: 0 var(--space-lg); border-radius: var(--radius-pill); font-weight: 500; transition: background-color var(--dur-short) var(--ease-out); }
-.btn--primary { background: var(--color-accent); color: var(--color-accent-ink); }
-.btn--ghost { background: transparent; color: var(--color-ink); box-shadow: inset 0 0 0 var(--rule-hair) var(--color-rule); }
-.well { background: var(--color-paper-2); border: var(--rule-hair) solid var(--color-rule); border-radius: var(--radius-well); }
-.figure { font-family: var(--font-display); font-weight: var(--display-weight); letter-spacing: -0.03em; font-variant-numeric: lining-nums tabular-nums; }
-.photo { border-radius: min(2vw, var(--radius-card)); outline: var(--rule-hair) solid color-mix(in oklab, var(--color-ink) 8%, transparent); outline-offset: -1px; }
-.scrim { background: linear-gradient(to top, color-mix(in oklab, var(--color-paper) 65%, transparent), transparent 55%); }
-.range-track { background: linear-gradient(to right, var(--heat-2), var(--heat-4), var(--heat-6)); }
-::selection { background: color-mix(in oklab, var(--color-accent) 35%, transparent); }
+h1,
+h2,
+h3 {
+    font-weight: var(--display-weight);
+    line-height: 1.04;
+}
+.btn {
+    display: inline-flex;
+    align-items: center;
+    min-height: 50px;
+    padding: 0 var(--space-lg);
+    border-radius: var(--radius-pill);
+    font-weight: 500;
+    transition: background-color var(--dur-short) var(--ease-out);
+}
+.btn--primary {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+}
+.btn--ghost {
+    background: transparent;
+    color: var(--color-ink);
+    box-shadow: inset 0 0 0 var(--rule-hair) var(--color-rule);
+}
+.well {
+    background: var(--color-paper-2);
+    border: var(--rule-hair) solid var(--color-rule);
+    border-radius: var(--radius-well);
+}
+.figure {
+    font-family: var(--font-display);
+    font-weight: var(--display-weight);
+    letter-spacing: -0.03em;
+    font-variant-numeric: lining-nums tabular-nums;
+}
+.photo {
+    border-radius: min(2vw, var(--radius-card));
+    outline: var(--rule-hair) solid color-mix(in oklab, var(--color-ink) 8%, transparent);
+    outline-offset: -1px;
+}
+.scrim {
+    background: linear-gradient(to top, color-mix(in oklab, var(--color-paper) 65%, transparent), transparent 55%);
+}
+.range-track {
+    background: linear-gradient(to right, var(--heat-2), var(--heat-4), var(--heat-6));
+}
+::selection {
+    background: color-mix(in oklab, var(--color-accent) 35%, transparent);
+}
 ```

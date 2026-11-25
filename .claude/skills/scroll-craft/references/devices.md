@@ -145,13 +145,13 @@ than fading to nothing before the next section arrives.
 
 `data-sc-cue="from [to [rampIn [rampOut]]]"`, all in act progress (0 to 1).
 
-| Form | Behaviour |
-|---|---|
-| `"0.2"` | fades in at 0.2 and **holds to the end of the act** |
-| `"0.1 0.6"` | in, plateau, out. Ramps default to 30% of the window each |
-| `"0 0.78 0"` | **greet**: already at full opacity when the act begins, then fades |
-| `"0.1 0.9 0.15 0.4"` | fast in, long slow out |
-| `"0 1 0 0"` | **greet and hold**: full at p = 0, no ramp at either end |
+| Form                 | Behaviour                                                          |
+| -------------------- | ------------------------------------------------------------------ |
+| `"0.2"`              | fades in at 0.2 and **holds to the end of the act**                |
+| `"0.1 0.6"`          | in, plateau, out. Ramps default to 30% of the window each          |
+| `"0 0.78 0"`         | **greet**: already at full opacity when the act begins, then fades |
+| `"0.1 0.9 0.15 0.4"` | fast in, long slow out                                             |
+| `"0 1 0 0"`          | **greet and hold**: full at p = 0, no ramp at either end           |
 
 The plateau is the point. Without one a cue is a triangle that touches full
 opacity for a single instant, so the reader has to stop on exactly the right
@@ -166,19 +166,19 @@ Rules the verification pass will catch you on:
   two-value cue fades out before the page ends, and the final screen is empty.
 - **Only the last act may hold.** This is the inverse of the rule above and it
   is the one that bites. The engine parks a cue only once its act is a viewport
-  and a quarter out of range, so a one-value cue on a *middle* pinned act stays
+  and a quarter out of range, so a one-value cue on a _middle_ pinned act stays
   lit through the entire un-pin slide: the line travels a full viewport upward,
   crosses any fixed header, and overlaps the section that follows. It is
   invisible until you measure it, and it shows up as a contrast failure on a
   headline nobody meant to still be on screen. Every act except the last closes
   its final cue with a two-value window ending at 1.
 - **Ground or greet.** A pinned stage becomes fully visible roughly a viewport
-  *before* its own progress leaves 0, so any pinned act whose first content is a
+  _before_ its own progress leaves 0, so any pinned act whose first content is a
   plain two-value cue shows an empty stage for that whole travel. Give the act
   either a ground that is already there (an image, a held frame, a colour that
   is doing work) or a first cue in the greet form. The closing act needs a
   ground, because its hold cue cannot also greet unless you use `"0 1 0 0"`.
-  The rule covers *any* progress-gated content on a pinned act, not just engine
+  The rule covers _any_ progress-gated content on a pinned act, not just engine
   cues: a bespoke panel that populates from scroll state has the same empty-stage
   window and needs the same ground.
 
@@ -186,7 +186,7 @@ Rules the verification pass will catch you on:
 
 ## 3. `pan`: vertical scroll, lateral travel
 
-Sideways movement reads as *breadth* where vertical reads as *argument*. Use it
+Sideways movement reads as _breadth_ where vertical reads as _argument_. Use it
 for a range, a lineup, a timeline. Do not use it for a hierarchy: the first item
 in a rail is not read as the most important one.
 
@@ -221,8 +221,8 @@ on every pass, so this is a manual measurement, not something a green run
 covers:
 
 ```js
-const rail = document.querySelector(".rail");
-rail.scrollWidth - innerWidth        // must be a healthy positive number
+const rail = document.querySelector('.rail');
+rail.scrollWidth - innerWidth; // must be a healthy positive number
 ```
 
 Aim for at least half a viewport of overflow. If three items do not reach it,
@@ -333,7 +333,6 @@ layers is plenty; five is a diorama.
 
 Never put body copy on a parallax layer. Text the reader is trying to read
 should not move relative to the thing they are reading it against.
-
 
 ### Layered scenes: where the premium feel actually comes from
 
@@ -478,7 +477,7 @@ the first reveal near `p = 0`.
 ## 9. Pointer devices: interactivity that is not scroll
 
 Scroll is a one-dimensional input. A page that only responds to scroll is a
-film. These make it respond to the reader being *present*.
+film. These make it respond to the reader being _present_.
 
 ```html
 <div class="pf-card" data-sc-tilt="7">…</div>

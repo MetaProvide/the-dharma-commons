@@ -16,6 +16,7 @@ Avoid when the message is one hero idea. Bento spreads attention; a one-idea pag
 Compositions: Bento and Grid (`layout.md` § 5).
 
 **Sample opening lines** (imitate the specificity, not the wording):
-> *"Distributed tracing that explains itself."* Names the category and the promise in five words (Tracejam).
-> *"An API for sending mail from code."* Names the product class and the reader.
-> *"Everything a small kitchen needs to sell online."* Names the scale and the job.
+
+> _"Distributed tracing that explains itself."_ Names the category and the promise in five words (Tracejam).
+> _"An API for sending mail from code."_ Names the product class and the reader.
+> _"Everything a small kitchen needs to sell online."_ Names the scale and the job.

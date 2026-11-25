@@ -1,4 +1,5 @@
 ---
+
 name: Dusk
 slug: dusk
 genre: modern-minimal
@@ -20,30 +21,54 @@ Money software at the calm end of the day: a real photograph of land at dusk beh
 
 ```css
 :root {
-  --color-paper: oklch(17.5% 0.014 268); --color-paper-2: oklch(21% 0.016 268); --color-paper-3: oklch(25% 0.017 268);
-  --color-ink: oklch(96% 0.006 75); --color-ink-2: oklch(85% 0.010 262); --color-muted: oklch(70% 0.016 262);
-  --color-rule: oklch(30% 0.016 266); --color-light: oklch(100% 0 0); --color-shade: oklch(10% 0.022 268);
-  --color-accent: oklch(77% 0.10 274); --color-accent-ink: oklch(19% 0.035 274); --color-accent-hi: oklch(84% 0.085 274);
-  --color-accent-deep: oklch(44% 0.13 274); --color-accent-soft: oklch(91% 0.038 274); --color-focus: oklch(80% 0.10 274);
-  --color-accent-2: oklch(83% 0.095 62); --color-dusk: oklch(70% 0.12 330);
-  --color-day-ink: oklch(22% 0.022 268); --color-day-muted: oklch(38% 0.022 266); --color-fog: oklch(94% 0.012 70);
-  --color-well: oklch(95.5% 0.008 75); --color-well-2: oklch(92% 0.010 75); --color-well-ink: oklch(21% 0.016 268); --color-well-muted: oklch(47% 0.016 265); --color-well-rule: oklch(87.5% 0.009 75); --color-card: oklch(99.5% 0.003 75);
-  --glass: oklch(22% 0.018 268 / 0.58); --glass-blur: 22px;
-  --glass-hi: inset 0 1px 0 oklch(100% 0 0 / 0.10), inset 0 0 0 1px oklch(100% 0 0 / 0.06);
-  --shadow-card: 0 1px 0 oklch(100% 0 0 / 0.06) inset, 0 40px 80px -32px oklch(8% 0.02 268 / 0.7);
-  --font-display: "Wix Madefor Display", ui-sans-serif, system-ui, sans-serif; --font-body: "Wix Madefor Text", ui-sans-serif, system-ui, sans-serif;
-  --radius-card: 18px; --radius-inner: 10px; --radius-pill: 999px; --rule-hair: 1px;
-  --tracking-display: -0.022em; --display-weight: 500;
+    --color-paper: oklch(17.5% 0.014 268);
+    --color-paper-2: oklch(21% 0.016 268);
+    --color-paper-3: oklch(25% 0.017 268);
+    --color-ink: oklch(96% 0.006 75);
+    --color-ink-2: oklch(85% 0.01 262);
+    --color-muted: oklch(70% 0.016 262);
+    --color-rule: oklch(30% 0.016 266);
+    --color-light: oklch(100% 0 0);
+    --color-shade: oklch(10% 0.022 268);
+    --color-accent: oklch(77% 0.1 274);
+    --color-accent-ink: oklch(19% 0.035 274);
+    --color-accent-hi: oklch(84% 0.085 274);
+    --color-accent-deep: oklch(44% 0.13 274);
+    --color-accent-soft: oklch(91% 0.038 274);
+    --color-focus: oklch(80% 0.1 274);
+    --color-accent-2: oklch(83% 0.095 62);
+    --color-dusk: oklch(70% 0.12 330);
+    --color-day-ink: oklch(22% 0.022 268);
+    --color-day-muted: oklch(38% 0.022 266);
+    --color-fog: oklch(94% 0.012 70);
+    --color-well: oklch(95.5% 0.008 75);
+    --color-well-2: oklch(92% 0.01 75);
+    --color-well-ink: oklch(21% 0.016 268);
+    --color-well-muted: oklch(47% 0.016 265);
+    --color-well-rule: oklch(87.5% 0.009 75);
+    --color-card: oklch(99.5% 0.003 75);
+    --glass: oklch(22% 0.018 268 / 0.58);
+    --glass-blur: 22px;
+    --glass-hi: inset 0 1px 0 oklch(100% 0 0 / 0.1), inset 0 0 0 1px oklch(100% 0 0 / 0.06);
+    --shadow-card: 0 1px 0 oklch(100% 0 0 / 0.06) inset, 0 40px 80px -32px oklch(8% 0.02 268 / 0.7);
+    --font-display: "Wix Madefor Display", ui-sans-serif, system-ui, sans-serif;
+    --font-body: "Wix Madefor Text", ui-sans-serif, system-ui, sans-serif;
+    --radius-card: 18px;
+    --radius-inner: 10px;
+    --radius-pill: 999px;
+    --rule-hair: 1px;
+    --tracking-display: -0.022em;
+    --display-weight: 500;
 }
 ```
 
 Three dials, each stated in the stamp (`dusk: fog/periwinkle-apricot/glass`); two Dusk pages in one run differ on two.
 
-| Dial | Options |
-| --- | --- |
-| **Hour** (the hero photograph) | `fog` (default): a valley of fog under an apricot sky. `shore`: water at dusk, boats or a quay. `ridge`: mountain ridges in haze at first light |
-| **Signals** (matched, then open) | `periwinkle-apricot` (default). `sage-apricot`: `oklch(80% 0.07 160)` as the first signal |
-| **Product surface** | `glass` (default): smoked glass on slate. `well`: bone wells carry the hero product too, glass only over photographs |
+| Dial                             | Options                                                                                                                                         |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Hour** (the hero photograph)   | `fog` (default): a valley of fog under an apricot sky. `shore`: water at dusk, boats or a quay. `ridge`: mountain ridges in haze at first light |
+| **Signals** (matched, then open) | `periwinkle-apricot` (default). `sage-apricot`: `oklch(80% 0.07 160)` as the first signal                                                       |
+| **Product surface**              | `glass` (default): smoked glass on slate. `well`: bone wells carry the hero product too, glass only over photographs                            |
 
 ## Type
 
@@ -95,11 +120,55 @@ Calm and exact: what ran, when, what is left.
 ```
 
 ```css
-h1, h2, h3 { font-family: var(--font-display); font-weight: var(--display-weight); letter-spacing: var(--tracking-display); }
-.num { font-variant-numeric: tabular-nums; } .num .c { color: var(--color-muted); }
-.glass { background: var(--glass); border-radius: var(--radius-card); -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.35); backdrop-filter: blur(var(--glass-blur)) saturate(1.35); box-shadow: var(--glass-hi), var(--shadow-card); }
-.btn { min-height: 48px; padding: 0 var(--space-lg); border: 0; border-radius: var(--radius-pill); background: var(--color-accent); color: var(--color-accent-ink); font: 600 0.9375rem/1 var(--font-body); box-shadow: inset 0 1px 0 color-mix(in oklab, var(--color-light) 35%, transparent); }
-.btn:hover { background: var(--color-accent-hi); }
-.hero__photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.hero__scrim { position: absolute; inset: 0; background: radial-gradient(ellipse 50% 58% at 20% 56%, color-mix(in oklab, var(--color-fog) 78%, transparent), transparent 78%), linear-gradient(to bottom, transparent 72%, var(--color-paper)); }
+h1,
+h2,
+h3 {
+    font-family: var(--font-display);
+    font-weight: var(--display-weight);
+    letter-spacing: var(--tracking-display);
+}
+.num {
+    font-variant-numeric: tabular-nums;
+}
+.num .c {
+    color: var(--color-muted);
+}
+.glass {
+    background: var(--glass);
+    border-radius: var(--radius-card);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.35);
+    backdrop-filter: blur(var(--glass-blur)) saturate(1.35);
+    box-shadow: var(--glass-hi), var(--shadow-card);
+}
+.btn {
+    min-height: 48px;
+    padding: 0 var(--space-lg);
+    border: 0;
+    border-radius: var(--radius-pill);
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+    font: 600 0.9375rem / 1 var(--font-body);
+    box-shadow: inset 0 1px 0 color-mix(in oklab, var(--color-light) 35%, transparent);
+}
+.btn:hover {
+    background: var(--color-accent-hi);
+}
+.hero__photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.hero__scrim {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(
+            ellipse 50% 58% at 20% 56%,
+            color-mix(in oklab, var(--color-fog) 78%, transparent),
+            transparent 78%
+        ),
+        linear-gradient(to bottom, transparent 72%, var(--color-paper));
+}
 ```

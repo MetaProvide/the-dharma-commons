@@ -1,4 +1,5 @@
 ---
+
 name: Ribbon
 slug: ribbon
 genre: atmospheric
@@ -20,31 +21,46 @@ The hour before sleep, set quietly: Instrument Sans at 400, upright and tightly 
 
 ```css
 :root {
-  --color-paper: oklch(98.2% 0.008 82); --color-paper-2: oklch(95.8% 0.011 82); --color-paper-3: oklch(92.3% 0.014 82);
-  --color-ink: oklch(18% 0.006 80); --color-ink-2: oklch(30% 0.008 80); --color-muted: oklch(47% 0.012 80);
-  --color-rule: oklch(89.5% 0.011 82); --color-rule-2: oklch(93.5% 0.009 82);
-  --color-accent: oklch(44% 0.075 190); --color-accent-soft: oklch(92% 0.028 190); --color-accent-ink: oklch(98% 0.006 85); --color-focus: oklch(52% 0.09 190);
-  --color-band: oklch(26% 0.045 195); --color-band-ink: oklch(94% 0.012 85);
-  --color-slot: oklch(69% 0.07 80);
-  --metal-hi: oklch(97% 0.006 85); --metal-lo: oklch(85% 0.01 85);
-  --edge-light: inset 0 1px 0 oklch(100% 0 0 / 0.5);
-  --shadow-part: 0 1px 0 oklch(20% 0.01 80 / 0.25), 0 10px 18px -6px oklch(20% 0.01 80 / 0.3);
-  --shadow-panel: 0 1px 0 oklch(20% 0.01 80 / 0.2), 0 24px 48px -16px oklch(20% 0.02 80 / 0.35);
-  --font-display: "Instrument Sans", ui-sans-serif, system-ui, sans-serif; --font-body: "Figtree", ui-sans-serif, system-ui, sans-serif;
-  --font-outlier: "JetBrains Mono", ui-monospace, monospace;
-  --radius-card: 20px; --radius-part: 6px; --radius-pill: 999px; --rule-hair: 1px;
-  --shadow-card: none;
-  --tracking-display: -0.035em; --display-weight: 400;
+    --color-paper: oklch(98.2% 0.008 82);
+    --color-paper-2: oklch(95.8% 0.011 82);
+    --color-paper-3: oklch(92.3% 0.014 82);
+    --color-ink: oklch(18% 0.006 80);
+    --color-ink-2: oklch(30% 0.008 80);
+    --color-muted: oklch(47% 0.012 80);
+    --color-rule: oklch(89.5% 0.011 82);
+    --color-rule-2: oklch(93.5% 0.009 82);
+    --color-accent: oklch(44% 0.075 190);
+    --color-accent-soft: oklch(92% 0.028 190);
+    --color-accent-ink: oklch(98% 0.006 85);
+    --color-focus: oklch(52% 0.09 190);
+    --color-band: oklch(26% 0.045 195);
+    --color-band-ink: oklch(94% 0.012 85);
+    --color-slot: oklch(69% 0.07 80);
+    --metal-hi: oklch(97% 0.006 85);
+    --metal-lo: oklch(85% 0.01 85);
+    --edge-light: inset 0 1px 0 oklch(100% 0 0 / 0.5);
+    --shadow-part: 0 1px 0 oklch(20% 0.01 80 / 0.25), 0 10px 18px -6px oklch(20% 0.01 80 / 0.3);
+    --shadow-panel: 0 1px 0 oklch(20% 0.01 80 / 0.2), 0 24px 48px -16px oklch(20% 0.02 80 / 0.35);
+    --font-display: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+    --font-body: "Figtree", ui-sans-serif, system-ui, sans-serif;
+    --font-outlier: "JetBrains Mono", ui-monospace, monospace;
+    --radius-card: 20px;
+    --radius-part: 6px;
+    --radius-pill: 999px;
+    --rule-hair: 1px;
+    --shadow-card: none;
+    --tracking-display: -0.035em;
+    --display-weight: 400;
 }
 ```
 
 One dial, the colourway, stated in the stamp (`ribbon: two-in-the-morning`). The accent is the one lit thing; `--color-slot` is the photo wash; `--color-accent-soft` is a fader's track or a pressed pill, never type.
 
-| Colourway | Paper | Ink | Accent, metal |
-| --- | --- | --- | --- |
-| `dawn` (default) | `oklch(98.2% 0.008 82)` | `oklch(18% 0.006 80)` | teal `oklch(44% 0.075 190)`; aluminium as above, the night drawn on `--color-band` |
+| Colourway            | Paper                                                        | Ink                                                  | Accent, metal                                                                                                                                        |
+| -------------------- | ------------------------------------------------------------ | ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `dawn` (default)     | `oklch(98.2% 0.008 82)`                                      | `oklch(18% 0.006 80)`                                | teal `oklch(44% 0.075 190)`; aluminium as above, the night drawn on `--color-band`                                                                   |
 | `two-in-the-morning` | blue-black `oklch(13.2% 0.022 258)`, paper-2 16.4%, rule 27% | `oklch(93.5% 0.012 85)`, muted `oklch(72% 0.02 255)` | a lit window, amber `oklch(82% 0.095 68)` with `oklch(20% 0.03 62)` text; metal `oklch(44% 0.012 255)` to `oklch(25% 0.014 255)`, shadows from black |
-| `moss` | sage `oklch(89% 0.034 140)` | `oklch(22% 0.03 150)` | ochre `oklch(48% 0.115 70)`; wash deep teal `oklch(46% 0.07 195)` |
+| `moss`               | sage `oklch(89% 0.034 140)`                                  | `oklch(22% 0.03 150)`                                | ochre `oklch(48% 0.115 70)`; wash deep teal `oklch(46% 0.07 195)`                                                                                    |
 
 ## Type
 
@@ -95,12 +111,48 @@ Calm and specific: the hour, the sound, how loud. Never a promise of perfect sle
 ```
 
 ```css
-h1, h2, h3 { font-weight: 400; font-synthesis: none; line-height: 1.04; }
-.btn { min-height: 52px; padding: 0 var(--space-lg); border: var(--rule-hair) solid var(--color-rule); border-radius: var(--radius-pill); background: linear-gradient(var(--color-paper-2), var(--color-paper-3)); box-shadow: var(--edge-light), var(--shadow-part); color: var(--color-ink); font: 500 var(--text-md)/1 var(--font-body); }
-.btn--primary { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-accent-ink); }
-.btn:active { transform: translateY(1px); }
-.panel { border-radius: var(--radius-card); background: linear-gradient(var(--color-paper-2), var(--color-paper-3)); box-shadow: var(--edge-light), var(--shadow-panel); }
-.cap { border-radius: var(--radius-part); background: linear-gradient(var(--metal-hi), var(--metal-lo)); box-shadow: var(--edge-light), var(--shadow-part); }
-.grain { background-image: var(--grain); background-size: 160px; mix-blend-mode: soft-light; opacity: 0.4; }
-a:hover { text-decoration-color: var(--color-accent); }
+h1,
+h2,
+h3 {
+    font-weight: 400;
+    font-synthesis: none;
+    line-height: 1.04;
+}
+.btn {
+    min-height: 52px;
+    padding: 0 var(--space-lg);
+    border: var(--rule-hair) solid var(--color-rule);
+    border-radius: var(--radius-pill);
+    background: linear-gradient(var(--color-paper-2), var(--color-paper-3));
+    box-shadow: var(--edge-light), var(--shadow-part);
+    color: var(--color-ink);
+    font: 500 var(--text-md) / 1 var(--font-body);
+}
+.btn--primary {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-accent-ink);
+}
+.btn:active {
+    transform: translateY(1px);
+}
+.panel {
+    border-radius: var(--radius-card);
+    background: linear-gradient(var(--color-paper-2), var(--color-paper-3));
+    box-shadow: var(--edge-light), var(--shadow-panel);
+}
+.cap {
+    border-radius: var(--radius-part);
+    background: linear-gradient(var(--metal-hi), var(--metal-lo));
+    box-shadow: var(--edge-light), var(--shadow-part);
+}
+.grain {
+    background-image: var(--grain);
+    background-size: 160px;
+    mix-blend-mode: soft-light;
+    opacity: 0.4;
+}
+a:hover {
+    text-decoration-color: var(--color-accent);
+}
 ```

@@ -1,4 +1,5 @@
 ---
+
 name: Atelier
 slug: atelier
 genre: editorial
@@ -20,18 +21,42 @@ The register of a maker's catalogue held in still air: limewash paper with a slo
 
 ```css
 :root {
-  --color-paper: oklch(94.5% 0.010 76); --color-paper-2: oklch(91.8% 0.013 74); --color-paper-3: oklch(88% 0.015 72);
-  --color-ink: oklch(19% 0.024 52); --color-ink-2: oklch(31% 0.018 54); --color-muted: oklch(47% 0.014 60);
-  --color-rule: oklch(81% 0.011 70);
-  --color-accent: oklch(41% 0.075 248); --color-accent-ink: oklch(96% 0.008 76); --color-focus: oklch(50% 0.095 248);
-  --color-card: oklch(97.6% 0.007 82); --color-card-edge: oklch(86% 0.012 72); --color-pencil: oklch(52% 0.010 62);
-  --card-lit: oklch(98.4% 0.006 84); --card-shade: oklch(96.4% 0.008 78); --lit: oklch(99.6% 0.004 85 / 0.9);
-  --stain-1: oklch(70% 0.075 14); --stain-2: oklch(66% 0.055 132); --stain-3: oklch(60% 0.080 58); --stain-4: oklch(68% 0.045 206);
-  --font-display: "Sentient", Georgia, serif; --font-body: "Hanken Grotesk", system-ui, sans-serif;
-  --font-outlier: var(--font-body);
-  --radius-card: 0; --radius-pill: 3px; --rule-hair: 1px; --rule-head: 1px;
-  --shadow-card: 0 0 0 1px oklch(30% 0.03 55 / 0.05), 0.5px 1px 1px oklch(30% 0.03 55 / 0.08), 3px 8px 14px -6px oklch(30% 0.03 55 / 0.14), 14px 36px 64px -28px oklch(30% 0.03 55 / 0.3);
-  --tracking-display: -0.018em; --tracking-statement: -0.022em; --display-weight: 300; --statement-weight: 300; --serif-small: 400;
+    --color-paper: oklch(94.5% 0.01 76);
+    --color-paper-2: oklch(91.8% 0.013 74);
+    --color-paper-3: oklch(88% 0.015 72);
+    --color-ink: oklch(19% 0.024 52);
+    --color-ink-2: oklch(31% 0.018 54);
+    --color-muted: oklch(47% 0.014 60);
+    --color-rule: oklch(81% 0.011 70);
+    --color-accent: oklch(41% 0.075 248);
+    --color-accent-ink: oklch(96% 0.008 76);
+    --color-focus: oklch(50% 0.095 248);
+    --color-card: oklch(97.6% 0.007 82);
+    --color-card-edge: oklch(86% 0.012 72);
+    --color-pencil: oklch(52% 0.01 62);
+    --card-lit: oklch(98.4% 0.006 84);
+    --card-shade: oklch(96.4% 0.008 78);
+    --lit: oklch(99.6% 0.004 85 / 0.9);
+    --stain-1: oklch(70% 0.075 14);
+    --stain-2: oklch(66% 0.055 132);
+    --stain-3: oklch(60% 0.08 58);
+    --stain-4: oklch(68% 0.045 206);
+    --font-display: "Sentient", Georgia, serif;
+    --font-body: "Hanken Grotesk", system-ui, sans-serif;
+    --font-outlier: var(--font-body);
+    --radius-card: 0;
+    --radius-pill: 3px;
+    --rule-hair: 1px;
+    --rule-head: 1px;
+    --shadow-card:
+        0 0 0 1px oklch(30% 0.03 55 / 0.05), 0.5px 1px 1px oklch(30% 0.03 55 / 0.08), 3px 8px 14px -6px oklch(
+            30% 0.03 55 / 0.14
+        ), 14px 36px 64px -28px oklch(30% 0.03 55 / 0.3);
+    --tracking-display: -0.018em;
+    --tracking-statement: -0.022em;
+    --display-weight: 300;
+    --statement-weight: 300;
+    --serif-small: 400;
 }
 ```
 
@@ -86,13 +111,68 @@ Hand-set, object-precise: the object, the material, the number made, the days th
 ```
 
 ```css
-body { color: var(--color-ink-2); line-height: 1.6; }
-h1, h2 { font-weight: var(--display-weight); color: var(--color-ink); } h3 { font-weight: var(--serif-small); }
-.ruled { border-top: var(--rule-head) solid var(--color-ink); } .ruled > * + * { border-top: var(--rule-hair) solid var(--color-rule); }
-.dropcap::first-letter { float: left; font: var(--serif-small) 3.3em/0.8 var(--font-display); padding: 0.1em 0.1em 0 0; color: var(--color-accent); }
-.btn { min-height: 52px; border: var(--rule-hair) solid var(--color-ink); border-radius: var(--radius-pill); padding: 0 var(--space-lg); color: var(--color-ink); background: transparent; transition: background-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out); }
-.btn:hover { background: var(--color-ink); color: var(--color-paper); }
-.stock { border-radius: 2px; background: var(--fibre) 0 0 / 220px, linear-gradient(160deg, var(--card-lit), var(--color-card) 55%, var(--card-shade)); box-shadow: var(--shadow-card), inset 1px 1px 0 var(--lit); text-shadow: 0 1px 0 var(--lit); }
-.stock::before { content: ""; position: absolute; inset: 0.875rem; border: var(--rule-hair) solid var(--color-card-edge); }
-.air::after { content: ""; position: absolute; inset: 0; background-image: var(--grain); background-size: 180px; opacity: 0.16; mix-blend-mode: multiply; }
+body {
+    color: var(--color-ink-2);
+    line-height: 1.6;
+}
+h1,
+h2 {
+    font-weight: var(--display-weight);
+    color: var(--color-ink);
+}
+h3 {
+    font-weight: var(--serif-small);
+}
+.ruled {
+    border-top: var(--rule-head) solid var(--color-ink);
+}
+.ruled > * + * {
+    border-top: var(--rule-hair) solid var(--color-rule);
+}
+.dropcap::first-letter {
+    float: left;
+    font: var(--serif-small) 3.3em / 0.8 var(--font-display);
+    padding: 0.1em 0.1em 0 0;
+    color: var(--color-accent);
+}
+.btn {
+    min-height: 52px;
+    border: var(--rule-hair) solid var(--color-ink);
+    border-radius: var(--radius-pill);
+    padding: 0 var(--space-lg);
+    color: var(--color-ink);
+    background: transparent;
+    transition:
+        background-color var(--dur-short) var(--ease-out),
+        color var(--dur-short) var(--ease-out);
+}
+.btn:hover {
+    background: var(--color-ink);
+    color: var(--color-paper);
+}
+.stock {
+    border-radius: 2px;
+    background:
+        var(--fibre) 0 0 / 220px,
+        linear-gradient(160deg, var(--card-lit), var(--color-card) 55%, var(--card-shade));
+    box-shadow:
+        var(--shadow-card),
+        inset 1px 1px 0 var(--lit);
+    text-shadow: 0 1px 0 var(--lit);
+}
+.stock::before {
+    content: "";
+    position: absolute;
+    inset: 0.875rem;
+    border: var(--rule-hair) solid var(--color-card-edge);
+}
+.air::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: var(--grain);
+    background-size: 180px;
+    opacity: 0.16;
+    mix-blend-mode: multiply;
+}
 ```

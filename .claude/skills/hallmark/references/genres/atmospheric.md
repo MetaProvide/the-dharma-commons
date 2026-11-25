@@ -7,7 +7,7 @@ The AI-creative and after-dark product page: generative music, video, image, voi
 - **Accent:** one hue, used in the canvas treatment, on focus rings and on small tags; never on display text unless the theme's type names an accented word (Lumen).
 - **Layout:** a centred hero is the normal answer when the type is the visual (a Poster or Banner posture); with a visual, it stands beside the text (44c). The canvas is the design and the type sits on it.
 - **Motion:** fade only; the atmosphere does the work.
-- **Copy:** direct, slightly poetic, specific: *Make a house song about quitting your job.*
+- **Copy:** direct, slightly poetic, specific: _Make a house song about quitting your job._
 
 ## Allowed here
 

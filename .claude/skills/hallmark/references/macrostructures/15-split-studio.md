@@ -16,6 +16,7 @@ Avoid for narrative or photographic brands. Split halves the attention; some pag
 Compositions: Split (`layout.md` § 5), the proof keeping its side.
 
 **Sample opening lines** (a positioning statement paired with a proof column):
-> *"A studio for what comes next."* Italic display beside a selected-work column.
-> *"Print discipline, on screen."* Two phrases, set like a masthead.
-> *"We design and build products for small ambitious teams."* Names the verbs and the audience.
+
+> _"A studio for what comes next."_ Italic display beside a selected-work column.
+> _"Print discipline, on screen."_ Two phrases, set like a masthead.
+> _"We design and build products for small ambitious teams."_ Names the verbs and the audience.

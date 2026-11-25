@@ -16,6 +16,7 @@ Avoid when the subject has nothing to photograph.
 Compositions: the Poster hero (`layout.md` § 6) and full-bleed Showcases (§ 5).
 
 **Sample opening lines** (captions are dates, places and plate numbers, not marketing):
-> *"Plate 47, scored before the proof."* A number and a moment in the process (Maple Street Bread).
-> *"Spring, 2026."* Two words, full stop.
-> *"From the working archive."* Gives the photograph provenance without explaining it.
+
+> _"Plate 47, scored before the proof."_ A number and a moment in the process (Maple Street Bread).
+> _"Spring, 2026."_ Two words, full stop.
+> _"From the working archive."_ Gives the photograph provenance without explaining it.

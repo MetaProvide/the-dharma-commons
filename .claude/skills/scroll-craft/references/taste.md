@@ -49,7 +49,7 @@ uneven visual weight looks wrong. Correct against the render, not the number.
   orphan word that makes a headline look accidental.
 - Display max ~6rem outside a genuine hero moment. Bigger is not more confident.
 - **Step the hero down one rung below ~700px.** `--sc-t-4xl` floors at 3.4rem,
-  which is a *desktop* floor: at 390px it wraps a normal hero headline to six
+  which is a _desktop_ floor: at 390px it wraps a normal hero headline to six
   lines. `--sc-t-2xl` on the hero inside a phone media query fixes it. The
   portrait crop of the image is covered in assets.md; this is the portrait crop
   of the type, and it is missed more often.
@@ -61,7 +61,7 @@ correct when the brand asks for neutral, or when accessibility is the brief.
 
 **Serif is not a synonym for premium.** "It feels editorial" is not a reason.
 Use one only when the brand names it, or when the work is genuinely editorial,
-luxury, or heritage and you can say why *this* serif fits *this* brand.
+luxury, or heritage and you can say why _this_ serif fits _this_ brand.
 
 **Emphasis inside a headline** uses italic or bold of the same family. Dropping
 a serif word into a sans headline for visual interest is amateur.
@@ -87,7 +87,7 @@ a serif word into a sans headline for visual interest is amateur.
 - Drift keeps the whole page in one theme family. See devices.md §10.
 
 **Redefining `--sc-ink` on a subtree does not re-ink the text under it.**
-`color` is inherited as a *computed value*, so text whose `color` already
+`color` is inherited as a _computed value_, so text whose `color` already
 resolved on `<body>` keeps the body's ink no matter what the section redefines
 the token to. Every page that inverts a ground mid-page hits this, and it fails
 silently: an inverted section renders bone type on concrete at 1.15:1 while the
@@ -95,7 +95,11 @@ harness correctly classifies the line as light-on-dark and grades it in the
 wrong direction. The fix is one declaration on the same subtree:
 
 ```css
-.section--light { --sc-ink: #14110C; --sc-ink-soft: #4A443A; color: var(--sc-ink); }
+.section--light {
+    --sc-ink: #14110c;
+    --sc-ink-soft: #4a443a;
+    color: var(--sc-ink);
+}
 ```
 
 Restate `color` wherever you restate the token. The same applies to any other
@@ -126,7 +130,7 @@ There are three shapes, and which one is right depends only on where the copy is
    one corner; a corner gradient puts the density where the text is and leaves
    the photograph alone.
 2. **A band**, `.sc-scrim--band`, transparent above roughly 58%. Right whenever
-   the copy spans the full width of the frame, which is what *both* corner
+   the copy spans the full width of the frame, which is what _both_ corner
    anchors become below 860px. The engine already switches `.sc-scrim--trail` to
    a band there for exactly that reason.
 3. **A column** of density under a text column, on an act where the copy holds
@@ -258,6 +262,7 @@ Category defaults, not bans on principle. The brief's own words can earn any of
 them; reaching for one when the axis is free means you were not deciding.
 
 **Structure**
+
 - Identical cards as page structure. Nested cards. Three equal feature columns.
 - The hero-metric template: big number, small label, supporting stats, accent.
 - More than two consecutive image-left / text-right zigzag sections.
@@ -265,6 +270,7 @@ them; reaching for one when the axis is free means you were not deciding.
 - A split header: giant headline left, small explainer paragraph floating right.
 
 **Labels**
+
 - An eyebrow above every section heading. At most one per three sections.
 - Section numbers (`01 / 06`, `002 · Capabilities`) unless the sequence itself
   is information the reader needs.
@@ -275,6 +281,7 @@ them; reaching for one when the axis is free means you were not deciding.
 - Pills and tags overlaid on photos. Version stamps on a marketing page.
 
 **Surface**
+
 - Gradient text. Neon and outer glows. Hard offset zero-blur shadows outside a
   world that is actually neobrutalist.
 - Glass and blur as decoration rather than as a specific effect.
@@ -284,6 +291,7 @@ them; reaching for one when the axis is free means you were not deciding.
 - Custom cursors.
 
 **Content**
+
 - Em dash anywhere visible. Period, comma, colon, or parentheses.
 - Div-built fake screenshots, fake dashboards, fake terminals.
 - Text baked into a generated image. Real markup, always.

@@ -1,4 +1,5 @@
 ---
+
 name: Terminal
 slug: terminal
 genre: atmospheric
@@ -20,16 +21,37 @@ The page is the terminal surface, and its pictures are printed in type. A near-b
 
 ```css
 :root {
-  --color-paper: oklch(12.5% 0.012 150); --color-paper-2: oklch(16% 0.016 150); --color-paper-3: oklch(20.5% 0.022 150);
-  --color-ink: oklch(94% 0.03 140); --color-ink-2: oklch(82% 0.05 142); --color-muted: oklch(64% 0.06 145);
-  --color-rule: oklch(27% 0.028 148); --color-rule-2: oklch(38% 0.045 146);
-  --color-accent: oklch(87% 0.2 142); --color-accent-ink: oklch(14% 0.02 150); --color-focus: oklch(87% 0.2 142);
-  --color-accent-wash: oklch(23% 0.06 145);
-  --glyph-0: oklch(30% 0.06 146); --glyph-1: oklch(38% 0.08 145); --glyph-2: oklch(47% 0.11 144); --glyph-3: oklch(57% 0.14 143);
-  --glyph-4: oklch(67% 0.17 142); --glyph-5: oklch(77% 0.19 142); --glyph-6: oklch(86% 0.2 141); --glyph-7: oklch(94% 0.12 138);
-  --font-display: "Martian Mono", ui-monospace, monospace; --font-body: var(--font-display); --font-outlier: var(--font-display);
-  --radius-card: 0; --radius-pill: 0; --rule-hair: 1px; --shadow-card: none;
-  --tracking-display: -0.02em; --display-weight: 500; --stretch-display: 112.5%; --stretch-body: 87.5%;
+    --color-paper: oklch(12.5% 0.012 150);
+    --color-paper-2: oklch(16% 0.016 150);
+    --color-paper-3: oklch(20.5% 0.022 150);
+    --color-ink: oklch(94% 0.03 140);
+    --color-ink-2: oklch(82% 0.05 142);
+    --color-muted: oklch(64% 0.06 145);
+    --color-rule: oklch(27% 0.028 148);
+    --color-rule-2: oklch(38% 0.045 146);
+    --color-accent: oklch(87% 0.2 142);
+    --color-accent-ink: oklch(14% 0.02 150);
+    --color-focus: oklch(87% 0.2 142);
+    --color-accent-wash: oklch(23% 0.06 145);
+    --glyph-0: oklch(30% 0.06 146);
+    --glyph-1: oklch(38% 0.08 145);
+    --glyph-2: oklch(47% 0.11 144);
+    --glyph-3: oklch(57% 0.14 143);
+    --glyph-4: oklch(67% 0.17 142);
+    --glyph-5: oklch(77% 0.19 142);
+    --glyph-6: oklch(86% 0.2 141);
+    --glyph-7: oklch(94% 0.12 138);
+    --font-display: "Martian Mono", ui-monospace, monospace;
+    --font-body: var(--font-display);
+    --font-outlier: var(--font-display);
+    --radius-card: 0;
+    --radius-pill: 0;
+    --rule-hair: 1px;
+    --shadow-card: none;
+    --tracking-display: -0.02em;
+    --display-weight: 500;
+    --stretch-display: 112.5%;
+    --stretch-body: 87.5%;
 }
 ```
 
@@ -83,14 +105,55 @@ Commands, flags, paths and exit codes. Declarative and short: name the command, 
 ```
 
 ```css
-body { font-stretch: var(--stretch-body); font-variant-numeric: tabular-nums; }
-h1, h2, h3 { font-weight: var(--display-weight); font-stretch: var(--stretch-display); letter-spacing: var(--tracking-display); line-height: 1.12; }
-.figure { font-weight: 400; font-stretch: var(--stretch-display); font-size: var(--text-display); line-height: 1; }
-.art { position: relative; } .art canvas { position: absolute; inset: 0; }
-.btn--primary { background: var(--color-accent); color: var(--color-accent-ink); border-radius: 0; transition: background-color var(--dur-micro) steps(1); }
-.well { background: var(--color-paper-2); border: var(--rule-hair) solid var(--color-rule); }
-.diff .add { background: var(--color-accent-wash); color: var(--color-ink); } .diff .add::before { content: "+"; color: var(--color-accent); }
-.diff .del { color: var(--color-muted); } .diff .del::before { content: "-"; }
+body {
+    font-stretch: var(--stretch-body);
+    font-variant-numeric: tabular-nums;
+}
+h1,
+h2,
+h3 {
+    font-weight: var(--display-weight);
+    font-stretch: var(--stretch-display);
+    letter-spacing: var(--tracking-display);
+    line-height: 1.12;
+}
+.figure {
+    font-weight: 400;
+    font-stretch: var(--stretch-display);
+    font-size: var(--text-display);
+    line-height: 1;
+}
+.art {
+    position: relative;
+}
+.art canvas {
+    position: absolute;
+    inset: 0;
+}
+.btn--primary {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+    border-radius: 0;
+    transition: background-color var(--dur-micro) steps(1);
+}
+.well {
+    background: var(--color-paper-2);
+    border: var(--rule-hair) solid var(--color-rule);
+}
+.diff .add {
+    background: var(--color-accent-wash);
+    color: var(--color-ink);
+}
+.diff .add::before {
+    content: "+";
+    color: var(--color-accent);
+}
+.diff .del {
+    color: var(--color-muted);
+}
+.diff .del::before {
+    content: "-";
+}
 ```
 
 To make a glyph picture: crop the subject, autocontrast, resize to `cols` by `round(cols * h / w / 1.85)`, quantise brightness to levels 0 to 8 (0 is blank), and ship the rows as strings; the canvas sets each lit cell's glyph from the product text in order and its colour from `--glyph-(level - 1)`.

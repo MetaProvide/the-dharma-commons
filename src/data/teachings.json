@@ -1,493 +1,447 @@
 {
-  "$comment": "Snapshot of the approved, ready records in the Joyma archive (joyma.co/archive), exported 2026-11-25. Every file SHA-256 and size was checked against the collection metadata.json on Swarm. Replace with the live Joyma API when it exists.",
-  "exportedAt": "2026-11-25T22:10:22.359Z",
-  "source": "https://joyma.co/archive",
-  "teachings": [
-    {
-      "summary": {
-        "id": "01a16396-b804-7017-84cc-cf5b34c1127c",
-        "title": "The need for Wisdom and Compassion",
-        "teacherNames": [
-          "Kyabje Lama Thubten Zopa Rinpoche"
-        ],
-        "formats": [
-          "audio",
-          "text"
-        ],
-        "language": "en",
-        "taughtOn": "2006-06-03",
-        "durationLabel": "4:31:10"
-      },
-      "reference": "697080c3b6d473f23a62dd40231943ba203acae22297e00004ce8389244594ef",
-      "collectionUrl": "https://bzz.link/bzz/697080c3b6d473f23a62dd40231943ba203acae22297e00004ce8389244594ef/",
-      "postageStamp": "1eca54ec4039d5a6956f6745184d89434f189af977688a1f34c99dadd8d7c870",
-      "session": null,
-      "description": "Lama Zopa Rinpoche gave these teachings at Tara Institute in Melbourne on 2 and 3 June 2006, as part of a longer tour through Australia that included a month-long retreat in Adelaide. This is the teaching of 3 June.",
-      "place": "Tara Institute, Melbourne, Australia",
-      "archiveId": "1585",
-      "rights": "Transcript copyright Lama Yeshe Wisdom Archive. Audio copyright FPMT Inc. Published on Swarm with permission from FPMT. All rights reserved by the respective copyright holders; this publication grants no further licence.",
-      "packagedAt": "2026-09-18T21:50:08Z",
-      "packagedBy": "MetaProvide / Lotus - Swarm archive proof of concept",
-      "files": [
+    "$comment": "Snapshot of the approved, ready records in the Joyma archive (joyma.co/archive), exported 2026-11-25. Every file SHA-256 and size was checked against the collection metadata.json on Swarm. Replace with the live Joyma API when it exists.",
+    "exportedAt": "2026-11-25T22:10:22.359Z",
+    "source": "https://joyma.co/archive",
+    "teachings": [
         {
-          "path": "audio.opus",
-          "content_type": "audio/ogg",
-          "kind": "audio",
-          "bytes": 62821484,
-          "gateway_url": "https://bzz.link/bzz/697080c3b6d473f23a62dd40231943ba203acae22297e00004ce8389244594ef/audio.opus",
-          "sha256": "c6b7b704a164a2605e4127d0cb786ffebd65aef88d43bc82ad824ba81a643b01"
+            "summary": {
+                "id": "01a16396-b804-7017-84cc-cf5b34c1127c",
+                "title": "The need for Wisdom and Compassion",
+                "teacherNames": ["Kyabje Lama Thubten Zopa Rinpoche"],
+                "formats": ["audio", "text"],
+                "language": "en",
+                "taughtOn": "2006-06-03",
+                "durationLabel": "4:31:10"
+            },
+            "reference": "697080c3b6d473f23a62dd40231943ba203acae22297e00004ce8389244594ef",
+            "collectionUrl": "https://bzz.link/bzz/697080c3b6d473f23a62dd40231943ba203acae22297e00004ce8389244594ef/",
+            "postageStamp": "1eca54ec4039d5a6956f6745184d89434f189af977688a1f34c99dadd8d7c870",
+            "session": null,
+            "description": "Lama Zopa Rinpoche gave these teachings at Tara Institute in Melbourne on 2 and 3 June 2006, as part of a longer tour through Australia that included a month-long retreat in Adelaide. This is the teaching of 3 June.",
+            "place": "Tara Institute, Melbourne, Australia",
+            "archiveId": "1585",
+            "rights": "Transcript copyright Lama Yeshe Wisdom Archive. Audio copyright FPMT Inc. Published on Swarm with permission from FPMT. All rights reserved by the respective copyright holders; this publication grants no further licence.",
+            "packagedAt": "2026-09-18T21:50:08Z",
+            "packagedBy": "MetaProvide / Lotus - Swarm archive proof of concept",
+            "files": [
+                {
+                    "path": "audio.opus",
+                    "content_type": "audio/ogg",
+                    "kind": "audio",
+                    "bytes": 62821484,
+                    "gateway_url": "https://bzz.link/bzz/697080c3b6d473f23a62dd40231943ba203acae22297e00004ce8389244594ef/audio.opus",
+                    "sha256": "c6b7b704a164a2605e4127d0cb786ffebd65aef88d43bc82ad824ba81a643b01"
+                },
+                {
+                    "path": "transcript.txt",
+                    "content_type": "text/plain; charset=utf-8",
+                    "kind": "text",
+                    "bytes": 141561,
+                    "gateway_url": "https://bzz.link/bzz/697080c3b6d473f23a62dd40231943ba203acae22297e00004ce8389244594ef/transcript.txt",
+                    "sha256": "02c207a5adfa2cc853dcc0a081e95de6d12b541d0b4c778a8879f9d00a6b3095"
+                }
+            ],
+            "sources": [
+                {
+                    "role": "publisher",
+                    "value": "FPMT",
+                    "url": null
+                },
+                {
+                    "role": "original_page",
+                    "value": "https://fpmt.org/media/streaming/teachings-of-lama-zopa-rinpoche/lama-zopa-rinpoche-teachings-in-tara-institute-2006/",
+                    "url": "https://fpmt.org/media/streaming/teachings-of-lama-zopa-rinpoche/lama-zopa-rinpoche-teachings-in-tara-institute-2006/"
+                },
+                {
+                    "role": "download_audio",
+                    "value": "https://fpmt.box.com/v/TaraInstitute2006",
+                    "url": "https://fpmt.box.com/v/TaraInstitute2006"
+                },
+                {
+                    "role": "transcript_collection",
+                    "value": "https://fpmt.box.com/s/hedf78ci7a8223tkqrrg8z9brhcoh9at",
+                    "url": "https://fpmt.box.com/s/hedf78ci7a8223tkqrrg8z9brhcoh9at"
+                },
+                {
+                    "role": "transcript_archive",
+                    "value": "Lama Yeshe Wisdom Archive",
+                    "url": null
+                },
+                {
+                    "role": "video_playlist",
+                    "value": "https://www.youtube.com/playlist?list=PLd3YWIA0vLx-2OwelpTuYAX_XOmJfBO9t",
+                    "url": "https://www.youtube.com/playlist?list=PLd3YWIA0vLx-2OwelpTuYAX_XOmJfBO9t"
+                },
+                {
+                    "role": "note",
+                    "value": "FPMT publishes video of these teachings; the transcripts were typed from the original tapes, not from the videos, so video boundaries do not line up with transcript boundaries. The audio here is the FPMT MP3 release, joined in playing order.",
+                    "url": null
+                }
+            ]
         },
         {
-          "path": "transcript.txt",
-          "content_type": "text/plain; charset=utf-8",
-          "kind": "text",
-          "bytes": 141561,
-          "gateway_url": "https://bzz.link/bzz/697080c3b6d473f23a62dd40231943ba203acae22297e00004ce8389244594ef/transcript.txt",
-          "sha256": "02c207a5adfa2cc853dcc0a081e95de6d12b541d0b4c778a8879f9d00a6b3095"
+            "summary": {
+                "id": "01a16397-060c-7074-a7b9-f8ad35869547",
+                "title": "Why we need a spiritual path",
+                "teacherNames": ["Kyabje Lama Thubten Zopa Rinpoche"],
+                "formats": ["audio", "text"],
+                "language": "en",
+                "taughtOn": "2006-06-02",
+                "durationLabel": "3:27:08"
+            },
+            "reference": "30b2a2de37790bbad8f8d8d5acd947d43a7848bdacd27e7bc61f68f332166697",
+            "collectionUrl": "https://bzz.link/bzz/30b2a2de37790bbad8f8d8d5acd947d43a7848bdacd27e7bc61f68f332166697/",
+            "postageStamp": "1eca54ec4039d5a6956f6745184d89434f189af977688a1f34c99dadd8d7c870",
+            "session": null,
+            "description": "Lama Zopa Rinpoche gave these teachings at Tara Institute in Melbourne on 2 and 3 June 2006, as part of a longer tour through Australia that included a month-long retreat in Adelaide. This is the teaching of 2 June.",
+            "place": "Tara Institute, Melbourne, Australia",
+            "archiveId": "1584",
+            "rights": "Transcript copyright Lama Yeshe Wisdom Archive. Audio copyright FPMT Inc. Published on Swarm with permission from FPMT. All rights reserved by the respective copyright holders; this publication grants no further licence.",
+            "packagedAt": "2026-09-18T21:50:07Z",
+            "packagedBy": "MetaProvide / Lotus - Swarm archive proof of concept",
+            "files": [
+                {
+                    "path": "audio.opus",
+                    "content_type": "audio/ogg",
+                    "kind": "audio",
+                    "bytes": 48352626,
+                    "gateway_url": "https://bzz.link/bzz/30b2a2de37790bbad8f8d8d5acd947d43a7848bdacd27e7bc61f68f332166697/audio.opus",
+                    "sha256": "7ea4aba1288fd86e52bebb95695df722bf3fb9688004f8c6da2f898a4cf13dd0"
+                },
+                {
+                    "path": "transcript.txt",
+                    "content_type": "text/plain; charset=utf-8",
+                    "kind": "text",
+                    "bytes": 91222,
+                    "gateway_url": "https://bzz.link/bzz/30b2a2de37790bbad8f8d8d5acd947d43a7848bdacd27e7bc61f68f332166697/transcript.txt",
+                    "sha256": "c47635198fe762eee437b378ff6e520817624717d8cc59c6fba13a605eb62540"
+                }
+            ],
+            "sources": [
+                {
+                    "role": "publisher",
+                    "value": "FPMT",
+                    "url": null
+                },
+                {
+                    "role": "original_page",
+                    "value": "https://fpmt.org/media/streaming/teachings-of-lama-zopa-rinpoche/lama-zopa-rinpoche-teachings-in-tara-institute-2006/",
+                    "url": "https://fpmt.org/media/streaming/teachings-of-lama-zopa-rinpoche/lama-zopa-rinpoche-teachings-in-tara-institute-2006/"
+                },
+                {
+                    "role": "download_audio",
+                    "value": "https://fpmt.box.com/v/TaraInstitute2006",
+                    "url": "https://fpmt.box.com/v/TaraInstitute2006"
+                },
+                {
+                    "role": "transcript_collection",
+                    "value": "https://fpmt.box.com/s/hedf78ci7a8223tkqrrg8z9brhcoh9at",
+                    "url": "https://fpmt.box.com/s/hedf78ci7a8223tkqrrg8z9brhcoh9at"
+                },
+                {
+                    "role": "transcript_archive",
+                    "value": "Lama Yeshe Wisdom Archive",
+                    "url": null
+                },
+                {
+                    "role": "video_playlist",
+                    "value": "https://www.youtube.com/playlist?list=PLd3YWIA0vLx-2OwelpTuYAX_XOmJfBO9t",
+                    "url": "https://www.youtube.com/playlist?list=PLd3YWIA0vLx-2OwelpTuYAX_XOmJfBO9t"
+                },
+                {
+                    "role": "note",
+                    "value": "FPMT publishes video of these teachings; the transcripts were typed from the original tapes, not from the videos, so video boundaries do not line up with transcript boundaries. The audio here is the FPMT MP3 release, joined in playing order.",
+                    "url": null
+                }
+            ]
+        },
+        {
+            "summary": {
+                "id": "01a1a7d0-e8f0-707f-b9f6-2a3c479cbd3d",
+                "title": "Eliminate Destructive Emotions",
+                "teacherNames": ["Geshe Tenzin Namdak"],
+                "formats": ["video"],
+                "language": "en",
+                "taughtOn": null,
+                "durationLabel": null
+            },
+            "reference": "2582eac4c764a257a1b335f39724fe23747dc0fd6e3d129d8f6f5b77c0d53c6e",
+            "collectionUrl": "https://bzz.link/bzz/2582eac4c764a257a1b335f39724fe23747dc0fd6e3d129d8f6f5b77c0d53c6e/",
+            "postageStamp": "1eca54ec4039d5a6956f6745184d89434f189af977688a1f34c99dadd8d7c870",
+            "session": null,
+            "description": "A short teaching clip by Geshe Tenzin Namdak on eliminating destructive emotions.",
+            "place": null,
+            "archiveId": null,
+            "rights": "Published on Swarm with permission of the rights holder. All rights reserved; this publication grants no further licence.",
+            "packagedAt": "2026-11-04T17:55:03Z",
+            "packagedBy": "MetaProvide / Lotus - Swarm archive proof of concept",
+            "files": [
+                {
+                    "path": "video.mp4",
+                    "content_type": "video/mp4",
+                    "kind": "video",
+                    "bytes": 25173542,
+                    "gateway_url": "https://bzz.link/bzz/2582eac4c764a257a1b335f39724fe23747dc0fd6e3d129d8f6f5b77c0d53c6e/video.mp4",
+                    "sha256": "cddb7aeb558c70bb4bf4abdbca0a6e586c587e9e5188325fd32403093e7090fd"
+                }
+            ],
+            "sources": []
+        },
+        {
+            "summary": {
+                "id": "01a1a852-3d1b-722c-b93e-eb1a4e96a35c",
+                "title": "Eliminating Destructive Emotions",
+                "teacherNames": ["Geshe Tenzin Namdak"],
+                "formats": ["video"],
+                "language": "en",
+                "taughtOn": null,
+                "durationLabel": null
+            },
+            "reference": "997dd62f85bee713790574e7ef9e80a59143ea456aee4c11a8b66d85fb0dd216",
+            "collectionUrl": "https://bzz.link/bzz/997dd62f85bee713790574e7ef9e80a59143ea456aee4c11a8b66d85fb0dd216/",
+            "postageStamp": "1eca54ec4039d5a6956f6745184d89434f189af977688a1f34c99dadd8d7c870",
+            "session": null,
+            "description": null,
+            "place": null,
+            "archiveId": null,
+            "rights": "Published on Swarm with permission of the rights holder. All rights reserved; this publication grants no further licence.",
+            "packagedAt": "2026-11-04T19:14:52Z",
+            "packagedBy": "MetaProvide / Lotus - Swarm archive proof of concept",
+            "files": [
+                {
+                    "path": "video.mp4",
+                    "content_type": "video/mp4",
+                    "kind": "video",
+                    "bytes": 23431316,
+                    "gateway_url": "https://bzz.link/bzz/997dd62f85bee713790574e7ef9e80a59143ea456aee4c11a8b66d85fb0dd216/video.mp4",
+                    "sha256": "93a8ea64f420a051f6bf6e447867241402d659452f49057efe9a7afea89a1b78"
+                }
+            ],
+            "sources": []
+        },
+        {
+            "summary": {
+                "id": "01a1a852-6a5f-73f8-a8e1-84295ccbc225",
+                "title": "Near Death Experience and Consciousness",
+                "teacherNames": ["Geshe Tenzin Namdak"],
+                "formats": ["video"],
+                "language": "en",
+                "taughtOn": null,
+                "durationLabel": null
+            },
+            "reference": "76f9cc8a417a68d38fa4c3e9bc8e7d16ae1add4f9368db8481f3c175f5013b43",
+            "collectionUrl": "https://bzz.link/bzz/76f9cc8a417a68d38fa4c3e9bc8e7d16ae1add4f9368db8481f3c175f5013b43/",
+            "postageStamp": "1eca54ec4039d5a6956f6745184d89434f189af977688a1f34c99dadd8d7c870",
+            "session": null,
+            "description": null,
+            "place": null,
+            "archiveId": null,
+            "rights": "Published on Swarm with permission of the rights holder. All rights reserved; this publication grants no further licence.",
+            "packagedAt": "2026-11-04T19:14:53Z",
+            "packagedBy": "MetaProvide / Lotus - Swarm archive proof of concept",
+            "files": [
+                {
+                    "path": "video.mp4",
+                    "content_type": "video/mp4",
+                    "kind": "video",
+                    "bytes": 22699201,
+                    "gateway_url": "https://bzz.link/bzz/76f9cc8a417a68d38fa4c3e9bc8e7d16ae1add4f9368db8481f3c175f5013b43/video.mp4",
+                    "sha256": "1096d8eccc3a38342c8ecf4c17b1c1d9cbf3d0b8b2495293d424a4bb4db2fe55"
+                }
+            ],
+            "sources": []
+        },
+        {
+            "summary": {
+                "id": "01a1a850-b4dd-70b9-9e96-cb85906c7ca5",
+                "title": "Secular Spirituality",
+                "teacherNames": ["Geshe Tenzin Namdak"],
+                "formats": ["video"],
+                "language": "en",
+                "taughtOn": null,
+                "durationLabel": null
+            },
+            "reference": "d824e35fcab07b0de2dff67406a67f0f79af465dfaa4aa70639365cabb5a3bfb",
+            "collectionUrl": "https://bzz.link/bzz/d824e35fcab07b0de2dff67406a67f0f79af465dfaa4aa70639365cabb5a3bfb/",
+            "postageStamp": "1eca54ec4039d5a6956f6745184d89434f189af977688a1f34c99dadd8d7c870",
+            "session": null,
+            "description": null,
+            "place": null,
+            "archiveId": null,
+            "rights": "Published on Swarm with permission of the rights holder. All rights reserved; this publication grants no further licence.",
+            "packagedAt": "2026-11-04T19:14:50Z",
+            "packagedBy": "MetaProvide / Lotus - Swarm archive proof of concept",
+            "files": [
+                {
+                    "path": "video.mp4",
+                    "content_type": "video/mp4",
+                    "kind": "video",
+                    "bytes": 18309220,
+                    "gateway_url": "https://bzz.link/bzz/d824e35fcab07b0de2dff67406a67f0f79af465dfaa4aa70639365cabb5a3bfb/video.mp4",
+                    "sha256": "6353afff73da66103218a1b72319584b20421c7b3834f6e9249b36c4cc13d0f8"
+                }
+            ],
+            "sources": []
+        },
+        {
+            "summary": {
+                "id": "01a1a851-0aae-7132-8c4c-528ca3720656",
+                "title": "Secular Spirituality, clip 2",
+                "teacherNames": ["Geshe Tenzin Namdak"],
+                "formats": ["video"],
+                "language": "en",
+                "taughtOn": null,
+                "durationLabel": null
+            },
+            "reference": "59c9a8b0eacc733fc1a939ee7c7545e6bc80711d9ad37309143b009d7c3a3382",
+            "collectionUrl": "https://bzz.link/bzz/59c9a8b0eacc733fc1a939ee7c7545e6bc80711d9ad37309143b009d7c3a3382/",
+            "postageStamp": "1eca54ec4039d5a6956f6745184d89434f189af977688a1f34c99dadd8d7c870",
+            "session": null,
+            "description": null,
+            "place": null,
+            "archiveId": null,
+            "rights": "Published on Swarm with permission of the rights holder. All rights reserved; this publication grants no further licence.",
+            "packagedAt": "2026-11-04T19:14:51Z",
+            "packagedBy": "MetaProvide / Lotus - Swarm archive proof of concept",
+            "files": [
+                {
+                    "path": "video.mp4",
+                    "content_type": "video/mp4",
+                    "kind": "video",
+                    "bytes": 8933540,
+                    "gateway_url": "https://bzz.link/bzz/59c9a8b0eacc733fc1a939ee7c7545e6bc80711d9ad37309143b009d7c3a3382/video.mp4",
+                    "sha256": "1d7e287990f968d5e9549e593a4be338709f58d32f67869fc560115b74797735"
+                }
+            ],
+            "sources": []
+        },
+        {
+            "summary": {
+                "id": "01a1a851-3f69-721f-a3eb-2788095e32da",
+                "title": "Secular Spirituality, clip 3",
+                "teacherNames": ["Geshe Tenzin Namdak"],
+                "formats": ["video"],
+                "language": "en",
+                "taughtOn": null,
+                "durationLabel": null
+            },
+            "reference": "92e6c7654fd79f31d3ff3491a90f667d9ce2fb45af9545ee6d07ebba68ea7e82",
+            "collectionUrl": "https://bzz.link/bzz/92e6c7654fd79f31d3ff3491a90f667d9ce2fb45af9545ee6d07ebba68ea7e82/",
+            "postageStamp": "1eca54ec4039d5a6956f6745184d89434f189af977688a1f34c99dadd8d7c870",
+            "session": null,
+            "description": null,
+            "place": null,
+            "archiveId": null,
+            "rights": "Published on Swarm with permission of the rights holder. All rights reserved; this publication grants no further licence.",
+            "packagedAt": "2026-11-04T19:14:51Z",
+            "packagedBy": "MetaProvide / Lotus - Swarm archive proof of concept",
+            "files": [
+                {
+                    "path": "video.mp4",
+                    "content_type": "video/mp4",
+                    "kind": "video",
+                    "bytes": 27974461,
+                    "gateway_url": "https://bzz.link/bzz/92e6c7654fd79f31d3ff3491a90f667d9ce2fb45af9545ee6d07ebba68ea7e82/video.mp4",
+                    "sha256": "23e1e6e52ab46f97544cfdfd6962f515c26a54a52165988624d30df6c6787db3"
+                }
+            ],
+            "sources": []
+        },
+        {
+            "summary": {
+                "id": "01a1a851-77ec-73ab-b59e-d3e6d06203eb",
+                "title": "Secular Spirituality, clip 4",
+                "teacherNames": ["Geshe Tenzin Namdak"],
+                "formats": ["video"],
+                "language": "en",
+                "taughtOn": null,
+                "durationLabel": null
+            },
+            "reference": "cb840e3384ec2f5206853ad01517f299811882240a4947fc37331badcfa1fd23",
+            "collectionUrl": "https://bzz.link/bzz/cb840e3384ec2f5206853ad01517f299811882240a4947fc37331badcfa1fd23/",
+            "postageStamp": "1eca54ec4039d5a6956f6745184d89434f189af977688a1f34c99dadd8d7c870",
+            "session": null,
+            "description": null,
+            "place": null,
+            "archiveId": null,
+            "rights": "Published on Swarm with permission of the rights holder. All rights reserved; this publication grants no further licence.",
+            "packagedAt": "2026-11-04T19:14:51Z",
+            "packagedBy": "MetaProvide / Lotus - Swarm archive proof of concept",
+            "files": [
+                {
+                    "path": "video.mp4",
+                    "content_type": "video/mp4",
+                    "kind": "video",
+                    "bytes": 19502384,
+                    "gateway_url": "https://bzz.link/bzz/cb840e3384ec2f5206853ad01517f299811882240a4947fc37331badcfa1fd23/video.mp4",
+                    "sha256": "bf9e7848c3664be7dd2eaaa297c792129b8a47c490d69eca24394bce6eda9665"
+                }
+            ],
+            "sources": []
+        },
+        {
+            "summary": {
+                "id": "01a1a851-af71-7378-9a7a-7152a7e04243",
+                "title": "Secular Spirituality, clip 5",
+                "teacherNames": ["Geshe Tenzin Namdak"],
+                "formats": ["video"],
+                "language": "en",
+                "taughtOn": null,
+                "durationLabel": null
+            },
+            "reference": "43db41e00cc16b745bb5ef9663ad1bb3c6b21ad41363ce1c5f6aaaf98675f734",
+            "collectionUrl": "https://bzz.link/bzz/43db41e00cc16b745bb5ef9663ad1bb3c6b21ad41363ce1c5f6aaaf98675f734/",
+            "postageStamp": "1eca54ec4039d5a6956f6745184d89434f189af977688a1f34c99dadd8d7c870",
+            "session": null,
+            "description": null,
+            "place": null,
+            "archiveId": null,
+            "rights": "Published on Swarm with permission of the rights holder. All rights reserved; this publication grants no further licence.",
+            "packagedAt": "2026-11-04T19:14:51Z",
+            "packagedBy": "MetaProvide / Lotus - Swarm archive proof of concept",
+            "files": [
+                {
+                    "path": "video.mp4",
+                    "content_type": "video/mp4",
+                    "kind": "video",
+                    "bytes": 32243647,
+                    "gateway_url": "https://bzz.link/bzz/43db41e00cc16b745bb5ef9663ad1bb3c6b21ad41363ce1c5f6aaaf98675f734/video.mp4",
+                    "sha256": "05f3ec139b0ad6fc10cd15f1c87b74220fbfd35231be3513122e7dca6cfa52a8"
+                }
+            ],
+            "sources": []
+        },
+        {
+            "summary": {
+                "id": "01a1a851-f307-7294-b70a-8adfd05a2532",
+                "title": "Secular Spirituality, clip 6",
+                "teacherNames": ["Geshe Tenzin Namdak"],
+                "formats": ["video"],
+                "language": "en",
+                "taughtOn": null,
+                "durationLabel": null
+            },
+            "reference": "8914d7d45e5c6bfae1adcfa6bc792e254e12123ce383ab2a348b8f77f61506dc",
+            "collectionUrl": "https://bzz.link/bzz/8914d7d45e5c6bfae1adcfa6bc792e254e12123ce383ab2a348b8f77f61506dc/",
+            "postageStamp": "1eca54ec4039d5a6956f6745184d89434f189af977688a1f34c99dadd8d7c870",
+            "session": null,
+            "description": null,
+            "place": null,
+            "archiveId": null,
+            "rights": "Published on Swarm with permission of the rights holder. All rights reserved; this publication grants no further licence.",
+            "packagedAt": "2026-11-04T19:14:52Z",
+            "packagedBy": "MetaProvide / Lotus - Swarm archive proof of concept",
+            "files": [
+                {
+                    "path": "video.mp4",
+                    "content_type": "video/mp4",
+                    "kind": "video",
+                    "bytes": 16112986,
+                    "gateway_url": "https://bzz.link/bzz/8914d7d45e5c6bfae1adcfa6bc792e254e12123ce383ab2a348b8f77f61506dc/video.mp4",
+                    "sha256": "899dff26655865638dabc15800d15e773518227bca647b6f045977154a8b69f2"
+                }
+            ],
+            "sources": []
         }
-      ],
-      "sources": [
-        {
-          "role": "publisher",
-          "value": "FPMT",
-          "url": null
-        },
-        {
-          "role": "original_page",
-          "value": "https://fpmt.org/media/streaming/teachings-of-lama-zopa-rinpoche/lama-zopa-rinpoche-teachings-in-tara-institute-2006/",
-          "url": "https://fpmt.org/media/streaming/teachings-of-lama-zopa-rinpoche/lama-zopa-rinpoche-teachings-in-tara-institute-2006/"
-        },
-        {
-          "role": "download_audio",
-          "value": "https://fpmt.box.com/v/TaraInstitute2006",
-          "url": "https://fpmt.box.com/v/TaraInstitute2006"
-        },
-        {
-          "role": "transcript_collection",
-          "value": "https://fpmt.box.com/s/hedf78ci7a8223tkqrrg8z9brhcoh9at",
-          "url": "https://fpmt.box.com/s/hedf78ci7a8223tkqrrg8z9brhcoh9at"
-        },
-        {
-          "role": "transcript_archive",
-          "value": "Lama Yeshe Wisdom Archive",
-          "url": null
-        },
-        {
-          "role": "video_playlist",
-          "value": "https://www.youtube.com/playlist?list=PLd3YWIA0vLx-2OwelpTuYAX_XOmJfBO9t",
-          "url": "https://www.youtube.com/playlist?list=PLd3YWIA0vLx-2OwelpTuYAX_XOmJfBO9t"
-        },
-        {
-          "role": "note",
-          "value": "FPMT publishes video of these teachings; the transcripts were typed from the original tapes, not from the videos, so video boundaries do not line up with transcript boundaries. The audio here is the FPMT MP3 release, joined in playing order.",
-          "url": null
-        }
-      ]
-    },
-    {
-      "summary": {
-        "id": "01a16397-060c-7074-a7b9-f8ad35869547",
-        "title": "Why we need a spiritual path",
-        "teacherNames": [
-          "Kyabje Lama Thubten Zopa Rinpoche"
-        ],
-        "formats": [
-          "audio",
-          "text"
-        ],
-        "language": "en",
-        "taughtOn": "2006-06-02",
-        "durationLabel": "3:27:08"
-      },
-      "reference": "30b2a2de37790bbad8f8d8d5acd947d43a7848bdacd27e7bc61f68f332166697",
-      "collectionUrl": "https://bzz.link/bzz/30b2a2de37790bbad8f8d8d5acd947d43a7848bdacd27e7bc61f68f332166697/",
-      "postageStamp": "1eca54ec4039d5a6956f6745184d89434f189af977688a1f34c99dadd8d7c870",
-      "session": null,
-      "description": "Lama Zopa Rinpoche gave these teachings at Tara Institute in Melbourne on 2 and 3 June 2006, as part of a longer tour through Australia that included a month-long retreat in Adelaide. This is the teaching of 2 June.",
-      "place": "Tara Institute, Melbourne, Australia",
-      "archiveId": "1584",
-      "rights": "Transcript copyright Lama Yeshe Wisdom Archive. Audio copyright FPMT Inc. Published on Swarm with permission from FPMT. All rights reserved by the respective copyright holders; this publication grants no further licence.",
-      "packagedAt": "2026-09-18T21:50:07Z",
-      "packagedBy": "MetaProvide / Lotus - Swarm archive proof of concept",
-      "files": [
-        {
-          "path": "audio.opus",
-          "content_type": "audio/ogg",
-          "kind": "audio",
-          "bytes": 48352626,
-          "gateway_url": "https://bzz.link/bzz/30b2a2de37790bbad8f8d8d5acd947d43a7848bdacd27e7bc61f68f332166697/audio.opus",
-          "sha256": "7ea4aba1288fd86e52bebb95695df722bf3fb9688004f8c6da2f898a4cf13dd0"
-        },
-        {
-          "path": "transcript.txt",
-          "content_type": "text/plain; charset=utf-8",
-          "kind": "text",
-          "bytes": 91222,
-          "gateway_url": "https://bzz.link/bzz/30b2a2de37790bbad8f8d8d5acd947d43a7848bdacd27e7bc61f68f332166697/transcript.txt",
-          "sha256": "c47635198fe762eee437b378ff6e520817624717d8cc59c6fba13a605eb62540"
-        }
-      ],
-      "sources": [
-        {
-          "role": "publisher",
-          "value": "FPMT",
-          "url": null
-        },
-        {
-          "role": "original_page",
-          "value": "https://fpmt.org/media/streaming/teachings-of-lama-zopa-rinpoche/lama-zopa-rinpoche-teachings-in-tara-institute-2006/",
-          "url": "https://fpmt.org/media/streaming/teachings-of-lama-zopa-rinpoche/lama-zopa-rinpoche-teachings-in-tara-institute-2006/"
-        },
-        {
-          "role": "download_audio",
-          "value": "https://fpmt.box.com/v/TaraInstitute2006",
-          "url": "https://fpmt.box.com/v/TaraInstitute2006"
-        },
-        {
-          "role": "transcript_collection",
-          "value": "https://fpmt.box.com/s/hedf78ci7a8223tkqrrg8z9brhcoh9at",
-          "url": "https://fpmt.box.com/s/hedf78ci7a8223tkqrrg8z9brhcoh9at"
-        },
-        {
-          "role": "transcript_archive",
-          "value": "Lama Yeshe Wisdom Archive",
-          "url": null
-        },
-        {
-          "role": "video_playlist",
-          "value": "https://www.youtube.com/playlist?list=PLd3YWIA0vLx-2OwelpTuYAX_XOmJfBO9t",
-          "url": "https://www.youtube.com/playlist?list=PLd3YWIA0vLx-2OwelpTuYAX_XOmJfBO9t"
-        },
-        {
-          "role": "note",
-          "value": "FPMT publishes video of these teachings; the transcripts were typed from the original tapes, not from the videos, so video boundaries do not line up with transcript boundaries. The audio here is the FPMT MP3 release, joined in playing order.",
-          "url": null
-        }
-      ]
-    },
-    {
-      "summary": {
-        "id": "01a1a7d0-e8f0-707f-b9f6-2a3c479cbd3d",
-        "title": "Eliminate Destructive Emotions",
-        "teacherNames": [
-          "Geshe Tenzin Namdak"
-        ],
-        "formats": [
-          "video"
-        ],
-        "language": "en",
-        "taughtOn": null,
-        "durationLabel": null
-      },
-      "reference": "2582eac4c764a257a1b335f39724fe23747dc0fd6e3d129d8f6f5b77c0d53c6e",
-      "collectionUrl": "https://bzz.link/bzz/2582eac4c764a257a1b335f39724fe23747dc0fd6e3d129d8f6f5b77c0d53c6e/",
-      "postageStamp": "1eca54ec4039d5a6956f6745184d89434f189af977688a1f34c99dadd8d7c870",
-      "session": null,
-      "description": "A short teaching clip by Geshe Tenzin Namdak on eliminating destructive emotions.",
-      "place": null,
-      "archiveId": null,
-      "rights": "Published on Swarm with permission of the rights holder. All rights reserved; this publication grants no further licence.",
-      "packagedAt": "2026-11-04T17:55:03Z",
-      "packagedBy": "MetaProvide / Lotus - Swarm archive proof of concept",
-      "files": [
-        {
-          "path": "video.mp4",
-          "content_type": "video/mp4",
-          "kind": "video",
-          "bytes": 25173542,
-          "gateway_url": "https://bzz.link/bzz/2582eac4c764a257a1b335f39724fe23747dc0fd6e3d129d8f6f5b77c0d53c6e/video.mp4",
-          "sha256": "cddb7aeb558c70bb4bf4abdbca0a6e586c587e9e5188325fd32403093e7090fd"
-        }
-      ],
-      "sources": []
-    },
-    {
-      "summary": {
-        "id": "01a1a852-3d1b-722c-b93e-eb1a4e96a35c",
-        "title": "Eliminating Destructive Emotions",
-        "teacherNames": [
-          "Geshe Tenzin Namdak"
-        ],
-        "formats": [
-          "video"
-        ],
-        "language": "en",
-        "taughtOn": null,
-        "durationLabel": null
-      },
-      "reference": "997dd62f85bee713790574e7ef9e80a59143ea456aee4c11a8b66d85fb0dd216",
-      "collectionUrl": "https://bzz.link/bzz/997dd62f85bee713790574e7ef9e80a59143ea456aee4c11a8b66d85fb0dd216/",
-      "postageStamp": "1eca54ec4039d5a6956f6745184d89434f189af977688a1f34c99dadd8d7c870",
-      "session": null,
-      "description": null,
-      "place": null,
-      "archiveId": null,
-      "rights": "Published on Swarm with permission of the rights holder. All rights reserved; this publication grants no further licence.",
-      "packagedAt": "2026-11-04T19:14:52Z",
-      "packagedBy": "MetaProvide / Lotus - Swarm archive proof of concept",
-      "files": [
-        {
-          "path": "video.mp4",
-          "content_type": "video/mp4",
-          "kind": "video",
-          "bytes": 23431316,
-          "gateway_url": "https://bzz.link/bzz/997dd62f85bee713790574e7ef9e80a59143ea456aee4c11a8b66d85fb0dd216/video.mp4",
-          "sha256": "93a8ea64f420a051f6bf6e447867241402d659452f49057efe9a7afea89a1b78"
-        }
-      ],
-      "sources": []
-    },
-    {
-      "summary": {
-        "id": "01a1a852-6a5f-73f8-a8e1-84295ccbc225",
-        "title": "Near Death Experience and Consciousness",
-        "teacherNames": [
-          "Geshe Tenzin Namdak"
-        ],
-        "formats": [
-          "video"
-        ],
-        "language": "en",
-        "taughtOn": null,
-        "durationLabel": null
-      },
-      "reference": "76f9cc8a417a68d38fa4c3e9bc8e7d16ae1add4f9368db8481f3c175f5013b43",
-      "collectionUrl": "https://bzz.link/bzz/76f9cc8a417a68d38fa4c3e9bc8e7d16ae1add4f9368db8481f3c175f5013b43/",
-      "postageStamp": "1eca54ec4039d5a6956f6745184d89434f189af977688a1f34c99dadd8d7c870",
-      "session": null,
-      "description": null,
-      "place": null,
-      "archiveId": null,
-      "rights": "Published on Swarm with permission of the rights holder. All rights reserved; this publication grants no further licence.",
-      "packagedAt": "2026-11-04T19:14:53Z",
-      "packagedBy": "MetaProvide / Lotus - Swarm archive proof of concept",
-      "files": [
-        {
-          "path": "video.mp4",
-          "content_type": "video/mp4",
-          "kind": "video",
-          "bytes": 22699201,
-          "gateway_url": "https://bzz.link/bzz/76f9cc8a417a68d38fa4c3e9bc8e7d16ae1add4f9368db8481f3c175f5013b43/video.mp4",
-          "sha256": "1096d8eccc3a38342c8ecf4c17b1c1d9cbf3d0b8b2495293d424a4bb4db2fe55"
-        }
-      ],
-      "sources": []
-    },
-    {
-      "summary": {
-        "id": "01a1a850-b4dd-70b9-9e96-cb85906c7ca5",
-        "title": "Secular Spirituality",
-        "teacherNames": [
-          "Geshe Tenzin Namdak"
-        ],
-        "formats": [
-          "video"
-        ],
-        "language": "en",
-        "taughtOn": null,
-        "durationLabel": null
-      },
-      "reference": "d824e35fcab07b0de2dff67406a67f0f79af465dfaa4aa70639365cabb5a3bfb",
-      "collectionUrl": "https://bzz.link/bzz/d824e35fcab07b0de2dff67406a67f0f79af465dfaa4aa70639365cabb5a3bfb/",
-      "postageStamp": "1eca54ec4039d5a6956f6745184d89434f189af977688a1f34c99dadd8d7c870",
-      "session": null,
-      "description": null,
-      "place": null,
-      "archiveId": null,
-      "rights": "Published on Swarm with permission of the rights holder. All rights reserved; this publication grants no further licence.",
-      "packagedAt": "2026-11-04T19:14:50Z",
-      "packagedBy": "MetaProvide / Lotus - Swarm archive proof of concept",
-      "files": [
-        {
-          "path": "video.mp4",
-          "content_type": "video/mp4",
-          "kind": "video",
-          "bytes": 18309220,
-          "gateway_url": "https://bzz.link/bzz/d824e35fcab07b0de2dff67406a67f0f79af465dfaa4aa70639365cabb5a3bfb/video.mp4",
-          "sha256": "6353afff73da66103218a1b72319584b20421c7b3834f6e9249b36c4cc13d0f8"
-        }
-      ],
-      "sources": []
-    },
-    {
-      "summary": {
-        "id": "01a1a851-0aae-7132-8c4c-528ca3720656",
-        "title": "Secular Spirituality, clip 2",
-        "teacherNames": [
-          "Geshe Tenzin Namdak"
-        ],
-        "formats": [
-          "video"
-        ],
-        "language": "en",
-        "taughtOn": null,
-        "durationLabel": null
-      },
-      "reference": "59c9a8b0eacc733fc1a939ee7c7545e6bc80711d9ad37309143b009d7c3a3382",
-      "collectionUrl": "https://bzz.link/bzz/59c9a8b0eacc733fc1a939ee7c7545e6bc80711d9ad37309143b009d7c3a3382/",
-      "postageStamp": "1eca54ec4039d5a6956f6745184d89434f189af977688a1f34c99dadd8d7c870",
-      "session": null,
-      "description": null,
-      "place": null,
-      "archiveId": null,
-      "rights": "Published on Swarm with permission of the rights holder. All rights reserved; this publication grants no further licence.",
-      "packagedAt": "2026-11-04T19:14:51Z",
-      "packagedBy": "MetaProvide / Lotus - Swarm archive proof of concept",
-      "files": [
-        {
-          "path": "video.mp4",
-          "content_type": "video/mp4",
-          "kind": "video",
-          "bytes": 8933540,
-          "gateway_url": "https://bzz.link/bzz/59c9a8b0eacc733fc1a939ee7c7545e6bc80711d9ad37309143b009d7c3a3382/video.mp4",
-          "sha256": "1d7e287990f968d5e9549e593a4be338709f58d32f67869fc560115b74797735"
-        }
-      ],
-      "sources": []
-    },
-    {
-      "summary": {
-        "id": "01a1a851-3f69-721f-a3eb-2788095e32da",
-        "title": "Secular Spirituality, clip 3",
-        "teacherNames": [
-          "Geshe Tenzin Namdak"
-        ],
-        "formats": [
-          "video"
-        ],
-        "language": "en",
-        "taughtOn": null,
-        "durationLabel": null
-      },
-      "reference": "92e6c7654fd79f31d3ff3491a90f667d9ce2fb45af9545ee6d07ebba68ea7e82",
-      "collectionUrl": "https://bzz.link/bzz/92e6c7654fd79f31d3ff3491a90f667d9ce2fb45af9545ee6d07ebba68ea7e82/",
-      "postageStamp": "1eca54ec4039d5a6956f6745184d89434f189af977688a1f34c99dadd8d7c870",
-      "session": null,
-      "description": null,
-      "place": null,
-      "archiveId": null,
-      "rights": "Published on Swarm with permission of the rights holder. All rights reserved; this publication grants no further licence.",
-      "packagedAt": "2026-11-04T19:14:51Z",
-      "packagedBy": "MetaProvide / Lotus - Swarm archive proof of concept",
-      "files": [
-        {
-          "path": "video.mp4",
-          "content_type": "video/mp4",
-          "kind": "video",
-          "bytes": 27974461,
-          "gateway_url": "https://bzz.link/bzz/92e6c7654fd79f31d3ff3491a90f667d9ce2fb45af9545ee6d07ebba68ea7e82/video.mp4",
-          "sha256": "23e1e6e52ab46f97544cfdfd6962f515c26a54a52165988624d30df6c6787db3"
-        }
-      ],
-      "sources": []
-    },
-    {
-      "summary": {
-        "id": "01a1a851-77ec-73ab-b59e-d3e6d06203eb",
-        "title": "Secular Spirituality, clip 4",
-        "teacherNames": [
-          "Geshe Tenzin Namdak"
-        ],
-        "formats": [
-          "video"
-        ],
-        "language": "en",
-        "taughtOn": null,
-        "durationLabel": null
-      },
-      "reference": "cb840e3384ec2f5206853ad01517f299811882240a4947fc37331badcfa1fd23",
-      "collectionUrl": "https://bzz.link/bzz/cb840e3384ec2f5206853ad01517f299811882240a4947fc37331badcfa1fd23/",
-      "postageStamp": "1eca54ec4039d5a6956f6745184d89434f189af977688a1f34c99dadd8d7c870",
-      "session": null,
-      "description": null,
-      "place": null,
-      "archiveId": null,
-      "rights": "Published on Swarm with permission of the rights holder. All rights reserved; this publication grants no further licence.",
-      "packagedAt": "2026-11-04T19:14:51Z",
-      "packagedBy": "MetaProvide / Lotus - Swarm archive proof of concept",
-      "files": [
-        {
-          "path": "video.mp4",
-          "content_type": "video/mp4",
-          "kind": "video",
-          "bytes": 19502384,
-          "gateway_url": "https://bzz.link/bzz/cb840e3384ec2f5206853ad01517f299811882240a4947fc37331badcfa1fd23/video.mp4",
-          "sha256": "bf9e7848c3664be7dd2eaaa297c792129b8a47c490d69eca24394bce6eda9665"
-        }
-      ],
-      "sources": []
-    },
-    {
-      "summary": {
-        "id": "01a1a851-af71-7378-9a7a-7152a7e04243",
-        "title": "Secular Spirituality, clip 5",
-        "teacherNames": [
-          "Geshe Tenzin Namdak"
-        ],
-        "formats": [
-          "video"
-        ],
-        "language": "en",
-        "taughtOn": null,
-        "durationLabel": null
-      },
-      "reference": "43db41e00cc16b745bb5ef9663ad1bb3c6b21ad41363ce1c5f6aaaf98675f734",
-      "collectionUrl": "https://bzz.link/bzz/43db41e00cc16b745bb5ef9663ad1bb3c6b21ad41363ce1c5f6aaaf98675f734/",
-      "postageStamp": "1eca54ec4039d5a6956f6745184d89434f189af977688a1f34c99dadd8d7c870",
-      "session": null,
-      "description": null,
-      "place": null,
-      "archiveId": null,
-      "rights": "Published on Swarm with permission of the rights holder. All rights reserved; this publication grants no further licence.",
-      "packagedAt": "2026-11-04T19:14:51Z",
-      "packagedBy": "MetaProvide / Lotus - Swarm archive proof of concept",
-      "files": [
-        {
-          "path": "video.mp4",
-          "content_type": "video/mp4",
-          "kind": "video",
-          "bytes": 32243647,
-          "gateway_url": "https://bzz.link/bzz/43db41e00cc16b745bb5ef9663ad1bb3c6b21ad41363ce1c5f6aaaf98675f734/video.mp4",
-          "sha256": "05f3ec139b0ad6fc10cd15f1c87b74220fbfd35231be3513122e7dca6cfa52a8"
-        }
-      ],
-      "sources": []
-    },
-    {
-      "summary": {
-        "id": "01a1a851-f307-7294-b70a-8adfd05a2532",
-        "title": "Secular Spirituality, clip 6",
-        "teacherNames": [
-          "Geshe Tenzin Namdak"
-        ],
-        "formats": [
-          "video"
-        ],
-        "language": "en",
-        "taughtOn": null,
-        "durationLabel": null
-      },
-      "reference": "8914d7d45e5c6bfae1adcfa6bc792e254e12123ce383ab2a348b8f77f61506dc",
-      "collectionUrl": "https://bzz.link/bzz/8914d7d45e5c6bfae1adcfa6bc792e254e12123ce383ab2a348b8f77f61506dc/",
-      "postageStamp": "1eca54ec4039d5a6956f6745184d89434f189af977688a1f34c99dadd8d7c870",
-      "session": null,
-      "description": null,
-      "place": null,
-      "archiveId": null,
-      "rights": "Published on Swarm with permission of the rights holder. All rights reserved; this publication grants no further licence.",
-      "packagedAt": "2026-11-04T19:14:52Z",
-      "packagedBy": "MetaProvide / Lotus - Swarm archive proof of concept",
-      "files": [
-        {
-          "path": "video.mp4",
-          "content_type": "video/mp4",
-          "kind": "video",
-          "bytes": 16112986,
-          "gateway_url": "https://bzz.link/bzz/8914d7d45e5c6bfae1adcfa6bc792e254e12123ce383ab2a348b8f77f61506dc/video.mp4",
-          "sha256": "899dff26655865638dabc15800d15e773518227bca647b6f045977154a8b69f2"
-        }
-      ],
-      "sources": []
-    }
-  ]
+    ]
 }

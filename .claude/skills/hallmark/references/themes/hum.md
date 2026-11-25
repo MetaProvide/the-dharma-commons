@@ -1,4 +1,5 @@
 ---
+
 name: Hum
 slug: hum
 genre: playful
@@ -20,22 +21,45 @@ Cut paper made by hand, cheerful without turning childish: cream paper with a vi
 
 ```css
 :root {
-  --color-paper: oklch(97% 0.012 95); --color-paper-2: oklch(94.5% 0.018 95); --color-paper-3: oklch(91% 0.022 95);
-  --color-ink: oklch(20% 0.014 255); --color-ink-2: oklch(29% 0.014 255); --color-muted: oklch(47% 0.014 255);
-  --color-rule: oklch(87% 0.016 95);
-  --color-accent: oklch(87% 0.175 96); --color-accent-deep: oklch(72% 0.16 92); --color-accent-ink: oklch(20% 0.014 255);
-  --color-accent-2: oklch(50% 0.17 250); --color-accent-3: oklch(70% 0.2 22);
-  --color-mint: oklch(82% 0.15 152); --color-mint-deep: oklch(48% 0.12 155); --color-focus: oklch(50% 0.17 250);
-  --color-card: oklch(98.8% 0.007 95); --color-edge: oklch(83% 0.04 88); --color-fringe: oklch(99.2% 0.006 95);
-  --color-kraft: oklch(63% 0.085 62); --color-sand: oklch(77% 0.1 76); --color-sugar: oklch(89% 0.035 236);
-  --color-hill-1: oklch(94.5% 0.03 118); --color-hill-2: oklch(91.5% 0.045 135); --color-leaf: oklch(64% 0.15 150);
-  --font-display: "Chillax", ui-rounded, ui-sans-serif, sans-serif; --font-body: var(--font-display);
-  --font-outlier: "Geist Mono", ui-monospace, monospace;
-  --radius-card: 24px; --radius-stock: 16px; --radius-input: 14px; --radius-pill: 999px; --rule-hair: 1px;
-  --shadow-card: 0 1px 2px oklch(20% 0.014 255 / 0.06), 0 12px 28px -14px oklch(20% 0.014 255 / 0.22);
-  --shadow-paper: drop-shadow(0 0 0.6px oklch(20% 0.014 255 / 0.32)) drop-shadow(1.5px 2.5px 1.5px oklch(20% 0.014 255 / 0.1)) drop-shadow(6px 14px 16px oklch(20% 0.014 255 / 0.13));
-  --tracking-display: -0.03em; --display-weight: 600;
-  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1); --ease-snap: cubic-bezier(0.22, 1, 0.36, 1);
+    --color-paper: oklch(97% 0.012 95);
+    --color-paper-2: oklch(94.5% 0.018 95);
+    --color-paper-3: oklch(91% 0.022 95);
+    --color-ink: oklch(20% 0.014 255);
+    --color-ink-2: oklch(29% 0.014 255);
+    --color-muted: oklch(47% 0.014 255);
+    --color-rule: oklch(87% 0.016 95);
+    --color-accent: oklch(87% 0.175 96);
+    --color-accent-deep: oklch(72% 0.16 92);
+    --color-accent-ink: oklch(20% 0.014 255);
+    --color-accent-2: oklch(50% 0.17 250);
+    --color-accent-3: oklch(70% 0.2 22);
+    --color-mint: oklch(82% 0.15 152);
+    --color-mint-deep: oklch(48% 0.12 155);
+    --color-focus: oklch(50% 0.17 250);
+    --color-card: oklch(98.8% 0.007 95);
+    --color-edge: oklch(83% 0.04 88);
+    --color-fringe: oklch(99.2% 0.006 95);
+    --color-kraft: oklch(63% 0.085 62);
+    --color-sand: oklch(77% 0.1 76);
+    --color-sugar: oklch(89% 0.035 236);
+    --color-hill-1: oklch(94.5% 0.03 118);
+    --color-hill-2: oklch(91.5% 0.045 135);
+    --color-leaf: oklch(64% 0.15 150);
+    --font-display: "Chillax", ui-rounded, ui-sans-serif, sans-serif;
+    --font-body: var(--font-display);
+    --font-outlier: "Geist Mono", ui-monospace, monospace;
+    --radius-card: 24px;
+    --radius-stock: 16px;
+    --radius-input: 14px;
+    --radius-pill: 999px;
+    --rule-hair: 1px;
+    --shadow-card: 0 1px 2px oklch(20% 0.014 255 / 0.06), 0 12px 28px -14px oklch(20% 0.014 255 / 0.22);
+    --shadow-paper: drop-shadow(0 0 0.6px oklch(20% 0.014 255 / 0.32))
+        drop-shadow(1.5px 2.5px 1.5px oklch(20% 0.014 255 / 0.1)) drop-shadow(6px 14px 16px oklch(20% 0.014 255 / 0.13));
+    --tracking-display: -0.03em;
+    --display-weight: 600;
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --ease-snap: cubic-bezier(0.22, 1, 0.36, 1);
 }
 ```
 
@@ -89,11 +113,57 @@ Warm, smart, casual, direct, written to the grown-up beside the child. Sentence 
 ```
 
 ```css
-h1, h2, h3 { font-weight: var(--display-weight); }
-.btn { --edge: 5px; border: 0; border-radius: var(--radius-stock); min-height: 54px; padding: 0 var(--space-lg); font-weight: 600; background: var(--grain), var(--fibre), var(--color-card); box-shadow: inset 0 0 0 1px var(--color-rule), 0 var(--edge) 0 0 var(--color-edge); transition: translate var(--dur-micro) var(--ease-snap), box-shadow var(--dur-micro) var(--ease-snap); }
-.btn--primary { background: var(--grain), var(--fibre), var(--color-accent); color: var(--color-accent-ink); box-shadow: 0 var(--edge) 0 0 var(--color-accent-deep), 2px calc(var(--edge) + 4px) 10px -3px color-mix(in oklab, var(--color-ink) 32%, transparent); transition-timing-function: var(--ease-spring); }
-.btn:hover { --edge: 7px; translate: 0 -2px; } .btn:active { --edge: 1px; translate: 0 4px; }
-.sheet { position: absolute; filter: var(--shadow-paper); } .sheet > i { position: absolute; inset: 0; background: var(--grain), var(--fibre), var(--sheet-c, var(--color-paper-3)); }
-mark { background: color-mix(in oklab, var(--color-accent) 55%, transparent); color: inherit; box-decoration-break: clone; }
-a { color: var(--color-accent-2); }
+h1,
+h2,
+h3 {
+    font-weight: var(--display-weight);
+}
+.btn {
+    --edge: 5px;
+    border: 0;
+    border-radius: var(--radius-stock);
+    min-height: 54px;
+    padding: 0 var(--space-lg);
+    font-weight: 600;
+    background: var(--grain), var(--fibre), var(--color-card);
+    box-shadow:
+        inset 0 0 0 1px var(--color-rule),
+        0 var(--edge) 0 0 var(--color-edge);
+    transition:
+        translate var(--dur-micro) var(--ease-snap),
+        box-shadow var(--dur-micro) var(--ease-snap);
+}
+.btn--primary {
+    background: var(--grain), var(--fibre), var(--color-accent);
+    color: var(--color-accent-ink);
+    box-shadow:
+        0 var(--edge) 0 0 var(--color-accent-deep),
+        2px calc(var(--edge) + 4px) 10px -3px color-mix(in oklab, var(--color-ink) 32%, transparent);
+    transition-timing-function: var(--ease-spring);
+}
+.btn:hover {
+    --edge: 7px;
+    translate: 0 -2px;
+}
+.btn:active {
+    --edge: 1px;
+    translate: 0 4px;
+}
+.sheet {
+    position: absolute;
+    filter: var(--shadow-paper);
+}
+.sheet > i {
+    position: absolute;
+    inset: 0;
+    background: var(--grain), var(--fibre), var(--sheet-c, var(--color-paper-3));
+}
+mark {
+    background: color-mix(in oklab, var(--color-accent) 55%, transparent);
+    color: inherit;
+    box-decoration-break: clone;
+}
+a {
+    color: var(--color-accent-2);
+}
 ```

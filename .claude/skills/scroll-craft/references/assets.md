@@ -22,12 +22,12 @@ the range of allowed options"` and no list, which reads like a malformed request
 rather than a menu problem. Nothing is charged, so the cost is a wasted round
 trip and the time to work out that the string itself was fine.
 
-| `--ar` | Status | Returns |
-|---|---|---|
-| `16:9` | works | 2736x1520 |
-| `9:16` | works | 1520x2736 |
-| `3:4` | works | 1776x2352 |
-| `4:5` | **rejected** | n/a |
+| `--ar` | Status       | Returns   |
+| ------ | ------------ | --------- |
+| `16:9` | works        | 2736x1520 |
+| `9:16` | works        | 1520x2736 |
+| `3:4`  | works        | 1776x2352 |
+| `4:5`  | **rejected** | n/a       |
 
 The returned pixel dimensions are near the ratio rather than exactly it, so
 derive layout from the file, not from the string you asked for. Treat the table
@@ -192,7 +192,7 @@ Extract the seam frame from the **encoded** clip, not the source: re-encoding
 shifts frames slightly, and a seam built from the wrong file is a one-frame pop.
 
 **Chaining on pre-generated anchors makes the legs parallel.** Extracting each
-leg's head from the previous leg's *encoded* file forces the whole flight to
+leg's head from the previous leg's _encoded_ file forces the whole flight to
 generate serially, which is roughly 45 minutes for ten legs. Generating every
 anchor still first, then giving leg N `--tail` of anchor N+1 and head of anchor
 N, means all ten clips run at once and every joint is still frame-locked to an
@@ -255,25 +255,25 @@ Options, in order of cost:
    wire them as `data-sc-src-mobile`, and swap the poster with `<picture>` so the
    frame-holder matches the clip it is holding for:
 
-   ```html
-   <picture>
-     <source media="(max-width: 860px)" srcset="assets/01-hero-p.webp">
-     <img class="sc-stage__poster" src="assets/01-hero.webp" alt="">
-   </picture>
-   <video data-sc-scrub data-sc-src="assets/01.mp4"
-          data-sc-src-mobile="assets/01-p.mp4" playsinline muted></video>
-   ```
+    ```html
+    <picture>
+      <source media="(max-width: 860px)" srcset="assets/01-hero-p.webp">
+      <img class="sc-stage__poster" src="assets/01-hero.webp" alt="">
+    </picture>
+    <video data-sc-scrub data-sc-src="assets/01.mp4"
+           data-sc-src-mobile="assets/01-p.mp4" playsinline muted></video>
+    ```
 
-   A portrait poster with a landscape clip (or the reverse) jumps visibly the
-   moment the video paints, which is the whole failure the poster exists to
-   prevent. `encode.sh` has no portrait mode; do it by hand:
+    A portrait poster with a landscape clip (or the reverse) jumps visibly the
+    moment the video paints, which is the whole failure the poster exists to
+    prevent. `encode.sh` has no portrait mode; do it by hand:
 
-   ```bash
-   ffmpeg -y -i src.mp4 -vf "scale=720:-2" -c:v libx264 -crf 20 -g 4 \
-     -pix_fmt yuv420p -an -movflags +faststart assets/01-p.mp4
-   # cropping a 16:9 source to 9:16 instead of rendering native:
-   #   -vf "crop=ih*9/16:ih,scale=720:-2"
-   ```
+    ```bash
+    ffmpeg -y -i src.mp4 -vf "scale=720:-2" -c:v libx264 -crf 20 -g 4 \
+      -pix_fmt yuv420p -an -movflags +faststart assets/01-p.mp4
+    # cropping a 16:9 source to 9:16 instead of rendering native:
+    #   -vf "crop=ih*9/16:ih,scale=720:-2"
+    ```
 3. **Drop the clip on phones.** Serve the poster and let the copy carry the act.
    Under reduced motion the engine already does exactly this, so the layout is
    known to work.

@@ -28,6 +28,7 @@ Each is a starting preamble. Tune the light, lens and grade to the brand; keep
 the structure.
 
 ### 1. Low-key cinematic: the default
+
 Dark, controlled, one light source. Works for almost anything premium: spirits,
 coffee, tools, apparel, software, professional services.
 
@@ -39,6 +40,7 @@ coffee, tools, apparel, software, professional services.
 > sheen.
 
 ### 2. High-key editorial
+
 Bright, airy, shadowless. Wellness, skincare, home goods, healthcare, fintech
 that wants to feel calm.
 
@@ -48,6 +50,7 @@ that wants to feel calm.
 > neutrals. Medium-format sharpness, fine grain. Photographic realism, no CGI.
 
 ### 3. Natural documentary
+
 Real people, real places, available light. Service businesses, trades,
 restaurants, anything where trust comes from "these are actual humans."
 
@@ -57,6 +60,7 @@ restaurants, anything where trust comes from "these are actual humans."
 > camera. Absolutely not stock-photo styling, no fake smiles, no CGI.
 
 ### 4. Hard-light graphic
+
 Direct sun, saturated ground, sharp shadows as composition. Streetwear, energy
 drinks, sports, youth brands.
 
@@ -66,6 +70,7 @@ drinks, sports, youth brands.
 > digital medium format, sharp throughout. Photographic, not rendered.
 
 ### 5. Macro texture
+
 Closer than the eye gets. Food, drink, materials, ingredients, craft.
 
 > Extreme macro photography, 100mm macro lens at high magnification. Razor-thin
@@ -74,6 +79,7 @@ Closer than the eye gets. Food, drink, materials, ingredients, craft.
 > negative space. Photographic realism, no CGI, no illustration.
 
 ### 6. Architectural
+
 Space, scale, geometry, almost no people. Real estate, agencies, manufacturing,
 B2B infrastructure.
 
@@ -83,6 +89,7 @@ B2B infrastructure.
 > no render, no CGI.
 
 ### 7. Nocturne
+
 Night, practical lights, wet surfaces, reflection. Nightlife, automotive,
 gaming, security, anything with edge.
 
@@ -92,6 +99,7 @@ gaming, security, anything with edge.
 > Photographic, cinematic, not rendered.
 
 ### 8. Technical drawing
+
 The one non-photographic world that reads as premium rather than cheap, because
 it is honest about being a diagram. Engineering, hardware, complex services.
 
@@ -127,7 +135,7 @@ Every worked example above is dark, and a high-key build inverts four things at
 once. Getting them wrong costs a full iteration:
 
 1. **The scrim washes toward the canvas, it does not darken.** Over footage on a
-   paper ground the density has to go *up*, not down, or the type has nothing to
+   paper ground the density has to go _up_, not down, or the type has nothing to
    sit on.
 2. **The type over media stays ink.** Light text on a light page over a bright
    frame is unrecoverable.
@@ -137,7 +145,7 @@ once. Getting them wrong costs a full iteration:
 4. **The `--sc-e1/2/3` shadow alphas are tuned for a near-black ground** too.
    Halve them and re-tint `--sc-shadow-color` toward the canvas hue.
 
-The contrast direction flips with all of this: dark type fails on the *darkest*
+The contrast direction flips with all of this: dark type fails on the _darkest_
 patch under it, not the brightest. The harness picks the direction per line, so
 it grades a high-key page correctly (see [verify.md](verify.md)).
 

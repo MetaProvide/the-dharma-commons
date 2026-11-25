@@ -1,4 +1,5 @@
 ---
+
 name: Furrow
 slug: furrow
 genre: modern-minimal
@@ -20,18 +21,38 @@ A working records voice drawn on the land itself: warm manila paper, near-black 
 
 ```css
 :root {
-  --color-paper: oklch(96% 0.011 85); --color-paper-2: oklch(99.5% 0.005 85); --color-paper-3: oklch(92% 0.016 85);
-  --color-ink: oklch(18% 0.006 60); --color-ink-2: oklch(28% 0.008 60); --color-muted: oklch(44% 0.012 60); --color-rule: oklch(88% 0.013 85);
-  --color-accent: oklch(70% 0.19 40); --color-accent-ink: oklch(18% 0.006 60); --color-accent-soft: oklch(91% 0.05 50); --color-focus: oklch(60% 0.19 40);
-  --color-green: oklch(48% 0.11 150); --color-green-soft: oklch(92% 0.04 150);
-  --color-contour: oklch(62% 0.07 58); --color-water: oklch(60% 0.05 232); --color-hedge: oklch(50% 0.1 150);
-  --color-grid: oklch(90% 0.014 85); --color-grid-strong: oklch(85% 0.018 85); --color-sheet: oklch(99.3% 0.004 85);
-  --font-display: "Red Hat Display", "Red Hat Text", ui-sans-serif, sans-serif; --font-body: "Red Hat Text", ui-sans-serif, system-ui, sans-serif;
-  --font-outlier: "Red Hat Mono", ui-monospace, monospace;
-  --radius-card: 10px; --radius-entry: 14px; --radius-pill: 6px; --rule-hair: 1px;
-  --shadow-card: 0 1px 2px oklch(18% 0.006 60 / 0.08), 0 14px 28px -16px oklch(18% 0.006 60 / 0.28);
-  --shadow-lift: 0 1px 1px oklch(18% 0.006 60 / 0.1), 0 2px 4px -1px oklch(18% 0.006 60 / 0.1), 0 24px 44px -20px oklch(18% 0.006 60 / 0.42);
-  --tracking-display: -0.035em; --display-weight: 600;
+    --color-paper: oklch(96% 0.011 85);
+    --color-paper-2: oklch(99.5% 0.005 85);
+    --color-paper-3: oklch(92% 0.016 85);
+    --color-ink: oklch(18% 0.006 60);
+    --color-ink-2: oklch(28% 0.008 60);
+    --color-muted: oklch(44% 0.012 60);
+    --color-rule: oklch(88% 0.013 85);
+    --color-accent: oklch(70% 0.19 40);
+    --color-accent-ink: oklch(18% 0.006 60);
+    --color-accent-soft: oklch(91% 0.05 50);
+    --color-focus: oklch(60% 0.19 40);
+    --color-green: oklch(48% 0.11 150);
+    --color-green-soft: oklch(92% 0.04 150);
+    --color-contour: oklch(62% 0.07 58);
+    --color-water: oklch(60% 0.05 232);
+    --color-hedge: oklch(50% 0.1 150);
+    --color-grid: oklch(90% 0.014 85);
+    --color-grid-strong: oklch(85% 0.018 85);
+    --color-sheet: oklch(99.3% 0.004 85);
+    --font-display: "Red Hat Display", "Red Hat Text", ui-sans-serif, sans-serif;
+    --font-body: "Red Hat Text", ui-sans-serif, system-ui, sans-serif;
+    --font-outlier: "Red Hat Mono", ui-monospace, monospace;
+    --radius-card: 10px;
+    --radius-entry: 14px;
+    --radius-pill: 6px;
+    --rule-hair: 1px;
+    --shadow-card: 0 1px 2px oklch(18% 0.006 60 / 0.08), 0 14px 28px -16px oklch(18% 0.006 60 / 0.28);
+    --shadow-lift:
+        0 1px 1px oklch(18% 0.006 60 / 0.1), 0 2px 4px -1px oklch(18% 0.006 60 / 0.1),
+        0 24px 44px -20px oklch(18% 0.006 60 / 0.42);
+    --tracking-display: -0.035em;
+    --display-weight: 600;
 }
 ```
 
@@ -86,13 +107,65 @@ Plain and unit-bearing: 3.6 ha, 10 ml, 28 days, a pound sign on a price. Never a
 ```
 
 ```css
-h1, h2, h3 { font-weight: var(--display-weight); line-height: 1; }
-.btn { min-height: 48px; border: var(--rule-hair) solid var(--color-rule); border-radius: var(--radius-pill); padding: 0 var(--space-lg); font-weight: 500; background: var(--color-paper-2); color: var(--color-ink); box-shadow: inset 0 1px 0 var(--color-sheet), 0 1px 1px var(--color-rule); }
-.btn--primary { background: var(--color-accent); color: var(--color-accent-ink); border-color: color-mix(in oklab, var(--color-accent) 78%, var(--color-ink)); box-shadow: inset 0 1px 0 color-mix(in oklab, var(--color-sheet) 32%, transparent), inset 0 -1px 0 color-mix(in oklab, var(--color-ink) 10%, transparent); }
-.btn:active { transform: translateY(1px); }
-.ruled { border-top: var(--rule-hair) solid var(--color-ink); } .ruled > * { border-bottom: var(--rule-hair) solid var(--color-rule); }
-.entry { border-radius: var(--radius-entry); background: var(--color-paper-2); box-shadow: 0 0 0 1px var(--color-ink), var(--shadow-lift); overflow: hidden; }
-.notebook { background: linear-gradient(var(--color-grid) 1px, transparent 1px) 0 0 / 8px 8px, linear-gradient(90deg, var(--color-grid) 1px, transparent 1px) 0 0 / 8px 8px, var(--color-paper-2); }
-.field label { position: absolute; left: var(--space-md); top: var(--space-xs); font-size: 0.75rem; font-weight: 500; color: var(--color-muted); }
-.num { font-family: var(--font-outlier); font-variant-numeric: tabular-nums; }
+h1,
+h2,
+h3 {
+    font-weight: var(--display-weight);
+    line-height: 1;
+}
+.btn {
+    min-height: 48px;
+    border: var(--rule-hair) solid var(--color-rule);
+    border-radius: var(--radius-pill);
+    padding: 0 var(--space-lg);
+    font-weight: 500;
+    background: var(--color-paper-2);
+    color: var(--color-ink);
+    box-shadow:
+        inset 0 1px 0 var(--color-sheet),
+        0 1px 1px var(--color-rule);
+}
+.btn--primary {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+    border-color: color-mix(in oklab, var(--color-accent) 78%, var(--color-ink));
+    box-shadow:
+        inset 0 1px 0 color-mix(in oklab, var(--color-sheet) 32%, transparent),
+        inset 0 -1px 0 color-mix(in oklab, var(--color-ink) 10%, transparent);
+}
+.btn:active {
+    transform: translateY(1px);
+}
+.ruled {
+    border-top: var(--rule-hair) solid var(--color-ink);
+}
+.ruled > * {
+    border-bottom: var(--rule-hair) solid var(--color-rule);
+}
+.entry {
+    border-radius: var(--radius-entry);
+    background: var(--color-paper-2);
+    box-shadow:
+        0 0 0 1px var(--color-ink),
+        var(--shadow-lift);
+    overflow: hidden;
+}
+.notebook {
+    background:
+        linear-gradient(var(--color-grid) 1px, transparent 1px) 0 0 / 8px 8px,
+        linear-gradient(90deg, var(--color-grid) 1px, transparent 1px) 0 0 / 8px 8px,
+        var(--color-paper-2);
+}
+.field label {
+    position: absolute;
+    left: var(--space-md);
+    top: var(--space-xs);
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-muted);
+}
+.num {
+    font-family: var(--font-outlier);
+    font-variant-numeric: tabular-nums;
+}
 ```

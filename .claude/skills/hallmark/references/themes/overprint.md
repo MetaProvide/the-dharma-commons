@@ -1,4 +1,5 @@
 ---
+
 name: Overprint
 slug: overprint
 genre: playful
@@ -20,18 +21,32 @@ A two-colour screenprint on cheap stock: grey newsprint, near-black ink, wide he
 
 ```css
 :root {
-  --color-paper: oklch(91.5% 0.014 92); --color-paper-2: oklch(87.5% 0.018 90); --color-paper-3: oklch(83% 0.021 88);
-  --color-ink: oklch(17% 0.008 60); --color-ink-2: oklch(29% 0.01 60); --color-muted: oklch(42% 0.012 70);
-  --color-rule: oklch(78% 0.02 85);
-  --color-accent: oklch(65% 0.12 212); --color-accent-ink: oklch(17% 0.008 60); --color-focus: oklch(44% 0.1 220);
-  --color-accent-2: oklch(71% 0.19 50); --color-accent-2-ink: oklch(17% 0.008 60);
-  --color-mix: oklch(35.5% 0.121 142);
-  --blend: multiply; --texture-opacity: 0.06;
-  --font-display: "Anybody", ui-sans-serif, sans-serif; --font-body: "Archivo", ui-sans-serif, sans-serif;
-  --font-outlier: "Archivo Narrow", ui-sans-serif, sans-serif;
-  --radius-card: 0; --radius-pill: 0; --rule-hair: 1px; --rule-bar: 4px;
-  --shadow-card: none;
-  --tracking-display: -0.01em; --display-weight: 900; --display-stretch: 140%;
+    --color-paper: oklch(91.5% 0.014 92);
+    --color-paper-2: oklch(87.5% 0.018 90);
+    --color-paper-3: oklch(83% 0.021 88);
+    --color-ink: oklch(17% 0.008 60);
+    --color-ink-2: oklch(29% 0.01 60);
+    --color-muted: oklch(42% 0.012 70);
+    --color-rule: oklch(78% 0.02 85);
+    --color-accent: oklch(65% 0.12 212);
+    --color-accent-ink: oklch(17% 0.008 60);
+    --color-focus: oklch(44% 0.1 220);
+    --color-accent-2: oklch(71% 0.19 50);
+    --color-accent-2-ink: oklch(17% 0.008 60);
+    --color-mix: oklch(35.5% 0.121 142);
+    --blend: multiply;
+    --texture-opacity: 0.06;
+    --font-display: "Anybody", ui-sans-serif, sans-serif;
+    --font-body: "Archivo", ui-sans-serif, sans-serif;
+    --font-outlier: "Archivo Narrow", ui-sans-serif, sans-serif;
+    --radius-card: 0;
+    --radius-pill: 0;
+    --rule-hair: 1px;
+    --rule-bar: 4px;
+    --shadow-card: none;
+    --tracking-display: -0.01em;
+    --display-weight: 900;
+    --display-stretch: 140%;
 }
 ```
 
@@ -87,15 +102,67 @@ The bill on the wall: who plays, which night, doors, the price, and whether it h
 ```
 
 ```css
-h1, h2, h3 { font-weight: 900; font-stretch: var(--display-stretch); text-transform: uppercase; line-height: 1.02; }
-.btn { border: 0; border-radius: 0; padding: var(--space-md) var(--space-lg); font: 600 var(--text-sm) var(--font-outlier); text-transform: uppercase; }
-.btn--primary { background: var(--color-accent); color: var(--color-accent-ink); } .btn--primary:hover { background: var(--color-accent-2); }
-.btn--secondary { box-shadow: inset 0 0 0 2px var(--color-ink); color: var(--color-ink); }
-.pass-1 { background: var(--color-accent); color: var(--color-accent-ink); mix-blend-mode: var(--blend); }
-.pass-2 { background: var(--color-accent-2); color: var(--color-accent-2-ink); mix-blend-mode: var(--blend); }
-.pass-1 > img, .pass-2 > img { filter: grayscale(1) contrast(1.3); mix-blend-mode: var(--blend); }
-.figure { font: 900 var(--text-display)/1 var(--font-display); font-stretch: 150%; font-variant-numeric: tabular-nums; }
-.grain { position: relative; isolation: isolate; }
-.grain::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: var(--texture-opacity); background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 9 -4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E") 0 0 / 200px; }
-::selection { background: color-mix(in oklab, var(--color-accent-2) 40%, transparent); }
+h1,
+h2,
+h3 {
+    font-weight: 900;
+    font-stretch: var(--display-stretch);
+    text-transform: uppercase;
+    line-height: 1.02;
+}
+.btn {
+    border: 0;
+    border-radius: 0;
+    padding: var(--space-md) var(--space-lg);
+    font: 600 var(--text-sm) var(--font-outlier);
+    text-transform: uppercase;
+}
+.btn--primary {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+}
+.btn--primary:hover {
+    background: var(--color-accent-2);
+}
+.btn--secondary {
+    box-shadow: inset 0 0 0 2px var(--color-ink);
+    color: var(--color-ink);
+}
+.pass-1 {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+    mix-blend-mode: var(--blend);
+}
+.pass-2 {
+    background: var(--color-accent-2);
+    color: var(--color-accent-2-ink);
+    mix-blend-mode: var(--blend);
+}
+.pass-1 > img,
+.pass-2 > img {
+    filter: grayscale(1) contrast(1.3);
+    mix-blend-mode: var(--blend);
+}
+.figure {
+    font: 900 var(--text-display) / 1 var(--font-display);
+    font-stretch: 150%;
+    font-variant-numeric: tabular-nums;
+}
+.grain {
+    position: relative;
+    isolation: isolate;
+}
+.grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: var(--texture-opacity);
+    background:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 9 -4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E")
+        0 0 / 200px;
+}
+::selection {
+    background: color-mix(in oklab, var(--color-accent-2) 40%, transparent);
+}
 ```

@@ -1,4 +1,5 @@
 ---
+
 name: Coral
 slug: coral
 genre: modern-minimal
@@ -20,22 +21,48 @@ A warm, plain product voice made physical: fine stationery on a felt desk, seen 
 
 ```css
 :root {
-  --color-paper: oklch(97% 0.006 55); --color-paper-2: oklch(94.5% 0.007 55); --color-paper-3: oklch(91.5% 0.009 55);
-  --color-ink: oklch(21% 0.012 38); --color-ink-2: oklch(29% 0.013 40); --color-muted: oklch(47% 0.013 45);
-  --color-rule: oklch(87% 0.009 55); --color-rule-2: oklch(81% 0.011 55);
-  --color-accent: oklch(74% 0.125 30); --color-accent-ink: oklch(21% 0.012 38); --color-accent-2: oklch(54% 0.165 29); --color-focus: oklch(54% 0.17 30);
-  --color-cotton: oklch(98.8% 0.0045 80); --color-desk: oklch(94.3% 0.008 64); --color-print: oklch(23% 0.012 38);
-  --color-board: oklch(22% 0.011 40); --color-board-type: oklch(96.5% 0.006 70); --color-paid: oklch(55.5% 0.15 33);
-  --tex-cotton: url("cotton.svg"); --tex-desk: url("felt.svg");
-  --shade: 32% 0.03 50; --lit: 100% 0.005 80; --deep: 7% 0.01 40;
-  --font-display: "General Sans", ui-sans-serif, system-ui, sans-serif; --font-body: var(--font-display);
-  --font-outlier: "Geist Mono", ui-monospace, monospace;
-  --radius-card: 8px; --radius-input: 6px; --radius-pill: 999px; --radius-stock: 8px; --rule-hair: 1px;
-  --shadow-card: 0 1px 2px oklch(20% 0.01 35 / 0.05);
-  --edge-stock: inset 0 1px 0 oklch(var(--lit) / 0.9), inset 0 -1px 0 oklch(var(--shade) / 0.07), 0 0 0 0.5px oklch(var(--shade) / 0.22), 0 1px 0 oklch(var(--shade) / 0.12);
-  --cast-stock: 6px 5px 10px -6px oklch(var(--shade) / 0.3); --cast-stock-lift: 12px 10px 18px -8px oklch(var(--shade) / 0.3);
-  --press-groove: inset 1px 1.5px 2px oklch(var(--shade) / 0.16), inset -1px -1px 0 oklch(var(--lit) / 0.9), 0 0 0 0.5px oklch(var(--shade) / 0.2);
-  --tracking-display: -0.03em; --display-weight: 600;
+    --color-paper: oklch(97% 0.006 55);
+    --color-paper-2: oklch(94.5% 0.007 55);
+    --color-paper-3: oklch(91.5% 0.009 55);
+    --color-ink: oklch(21% 0.012 38);
+    --color-ink-2: oklch(29% 0.013 40);
+    --color-muted: oklch(47% 0.013 45);
+    --color-rule: oklch(87% 0.009 55);
+    --color-rule-2: oklch(81% 0.011 55);
+    --color-accent: oklch(74% 0.125 30);
+    --color-accent-ink: oklch(21% 0.012 38);
+    --color-accent-2: oklch(54% 0.165 29);
+    --color-focus: oklch(54% 0.17 30);
+    --color-cotton: oklch(98.8% 0.0045 80);
+    --color-desk: oklch(94.3% 0.008 64);
+    --color-print: oklch(23% 0.012 38);
+    --color-board: oklch(22% 0.011 40);
+    --color-board-type: oklch(96.5% 0.006 70);
+    --color-paid: oklch(55.5% 0.15 33);
+    --tex-cotton: url("cotton.svg");
+    --tex-desk: url("felt.svg");
+    --shade: 32% 0.03 50;
+    --lit: 100% 0.005 80;
+    --deep: 7% 0.01 40;
+    --font-display: "General Sans", ui-sans-serif, system-ui, sans-serif;
+    --font-body: var(--font-display);
+    --font-outlier: "Geist Mono", ui-monospace, monospace;
+    --radius-card: 8px;
+    --radius-input: 6px;
+    --radius-pill: 999px;
+    --radius-stock: 8px;
+    --rule-hair: 1px;
+    --shadow-card: 0 1px 2px oklch(20% 0.01 35 / 0.05);
+    --edge-stock:
+        inset 0 1px 0 oklch(var(--lit) / 0.9), inset 0 -1px 0 oklch(var(--shade) / 0.07),
+        0 0 0 0.5px oklch(var(--shade) / 0.22), 0 1px 0 oklch(var(--shade) / 0.12);
+    --cast-stock: 6px 5px 10px -6px oklch(var(--shade) / 0.3);
+    --cast-stock-lift: 12px 10px 18px -8px oklch(var(--shade) / 0.3);
+    --press-groove:
+        inset 1px 1.5px 2px oklch(var(--shade) / 0.16), inset -1px -1px 0 oklch(var(--lit) / 0.9),
+        0 0 0 0.5px oklch(var(--shade) / 0.2);
+    --tracking-display: -0.03em;
+    --display-weight: 600;
 }
 ```
 
@@ -90,13 +117,54 @@ Plain, warm second-person sentences about the work and the money: who, how much,
 ```
 
 ```css
-h1, h2, h3 { font-weight: var(--display-weight); }
-.desk { background-color: var(--color-desk); background-image: radial-gradient(90% 120% at 0% 30%, var(--color-cotton), transparent 62%), var(--tex-desk); }
-.stock { background-color: var(--color-cotton); background-image: linear-gradient(100deg, var(--color-cotton), transparent 45%), var(--tex-cotton); color: var(--color-print); box-shadow: var(--edge-stock), var(--cast-stock); }
-.btn { min-height: 48px; padding: 0 var(--space-lg); border: 0; border-radius: var(--radius-stock); font-weight: 500; transition: transform var(--dur-short) var(--ease-out); }
-.btn--card { background-color: var(--color-cotton); background-image: var(--tex-cotton); color: var(--color-print); text-shadow: 0.5px 0.75px 0 var(--color-cotton); box-shadow: var(--edge-stock), var(--cast-stock); }
-.btn--ink { background: var(--color-board); color: var(--color-board-type); text-shadow: 0 -0.75px 0 var(--color-ink); box-shadow: var(--cast-stock); }
-.btn:hover { transform: translateY(-1px); box-shadow: var(--edge-stock), var(--cast-stock-lift); } .btn:active { transform: translateY(1px); }
-.fig { font-family: var(--font-outlier); font-variant-numeric: tabular-nums; }
-a:hover { text-decoration-color: var(--color-accent-2); }
+h1,
+h2,
+h3 {
+    font-weight: var(--display-weight);
+}
+.desk {
+    background-color: var(--color-desk);
+    background-image: radial-gradient(90% 120% at 0% 30%, var(--color-cotton), transparent 62%), var(--tex-desk);
+}
+.stock {
+    background-color: var(--color-cotton);
+    background-image: linear-gradient(100deg, var(--color-cotton), transparent 45%), var(--tex-cotton);
+    color: var(--color-print);
+    box-shadow: var(--edge-stock), var(--cast-stock);
+}
+.btn {
+    min-height: 48px;
+    padding: 0 var(--space-lg);
+    border: 0;
+    border-radius: var(--radius-stock);
+    font-weight: 500;
+    transition: transform var(--dur-short) var(--ease-out);
+}
+.btn--card {
+    background-color: var(--color-cotton);
+    background-image: var(--tex-cotton);
+    color: var(--color-print);
+    text-shadow: 0.5px 0.75px 0 var(--color-cotton);
+    box-shadow: var(--edge-stock), var(--cast-stock);
+}
+.btn--ink {
+    background: var(--color-board);
+    color: var(--color-board-type);
+    text-shadow: 0 -0.75px 0 var(--color-ink);
+    box-shadow: var(--cast-stock);
+}
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--edge-stock), var(--cast-stock-lift);
+}
+.btn:active {
+    transform: translateY(1px);
+}
+.fig {
+    font-family: var(--font-outlier);
+    font-variant-numeric: tabular-nums;
+}
+a:hover {
+    text-decoration-color: var(--color-accent-2);
+}
 ```

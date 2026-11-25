@@ -1,4 +1,5 @@
 ---
+
 name: Darkroom
 slug: darkroom
 genre: atmospheric
@@ -20,24 +21,37 @@ A print room with the lights off: a warm black ground a step lighter than a prin
 
 ```css
 :root {
-  --color-paper: oklch(12.5% 0.008 55); --color-paper-2: oklch(16% 0.009 55); --color-paper-3: oklch(20.5% 0.01 55);
-  --color-ink: oklch(92% 0.012 78); --color-ink-2: oklch(80% 0.012 75); --color-muted: oklch(64% 0.012 65);
-  --color-rule: oklch(29% 0.01 55);
-  --color-accent: oklch(73% 0.15 58); --color-accent-deep: oklch(50% 0.11 52); --color-accent-ink: oklch(12.5% 0.008 55); --color-focus: oklch(73% 0.15 58);
-  --font-display: "Sofia Sans Extra Condensed", ui-sans-serif, sans-serif; --font-body: "Barlow", ui-sans-serif, sans-serif;
-  --font-outlier: var(--font-body);
-  --radius-card: 0; --radius-pill: 0; --rule-hair: 1px; --shadow-card: none;
-  --tracking-display: -0.005em; --display-weight: 200; --grain: 0.07;
+    --color-paper: oklch(12.5% 0.008 55);
+    --color-paper-2: oklch(16% 0.009 55);
+    --color-paper-3: oklch(20.5% 0.01 55);
+    --color-ink: oklch(92% 0.012 78);
+    --color-ink-2: oklch(80% 0.012 75);
+    --color-muted: oklch(64% 0.012 65);
+    --color-rule: oklch(29% 0.01 55);
+    --color-accent: oklch(73% 0.15 58);
+    --color-accent-deep: oklch(50% 0.11 52);
+    --color-accent-ink: oklch(12.5% 0.008 55);
+    --color-focus: oklch(73% 0.15 58);
+    --font-display: "Sofia Sans Extra Condensed", ui-sans-serif, sans-serif;
+    --font-body: "Barlow", ui-sans-serif, sans-serif;
+    --font-outlier: var(--font-body);
+    --radius-card: 0;
+    --radius-pill: 0;
+    --rule-hair: 1px;
+    --shadow-card: none;
+    --tracking-display: -0.005em;
+    --display-weight: 200;
+    --grain: 0.07;
 }
 ```
 
 Three colourways, stated in the stamp (`darkroom: amber`).
 
-| Colourway | Ground, ink, signal |
-| --- | --- |
-| **amber** (default) | the tokens above |
-| **red** | signal `oklch(62% 0.19 32)`, deep `oklch(44% 0.16 32)` |
-| **fibre paper** | ground `oklch(95% 0.01 80)`, ink `oklch(14% 0.006 40)`, muted `oklch(46% 0.01 50)`, signal `oklch(50% 0.2 30)`, rule `oklch(80% 0.014 70)`; dark specks at 0.12 |
+| Colourway           | Ground, ink, signal                                                                                                                                             |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **amber** (default) | the tokens above                                                                                                                                                |
+| **red**             | signal `oklch(62% 0.19 32)`, deep `oklch(44% 0.16 32)`                                                                                                          |
+| **fibre paper**     | ground `oklch(95% 0.01 80)`, ink `oklch(14% 0.006 40)`, muted `oklch(46% 0.01 50)`, signal `oklch(50% 0.2 30)`, rule `oklch(80% 0.014 70)`; dark specks at 0.12 |
 
 ## Type
 
@@ -88,12 +102,55 @@ Lab notes and a collector's sheet: series, plate, place, month, edition, paper. 
 ```
 
 ```css
-h1, h2, .figure { font-family: var(--font-display); font-weight: 200; text-transform: uppercase; line-height: 1; letter-spacing: var(--tracking-display); }
-h3 { font-family: var(--font-display); font-weight: 400; text-transform: uppercase; line-height: 1; }
-.btn { min-height: 48px; padding: 0 var(--space-lg); border: var(--rule-hair) solid var(--color-ink); border-radius: 0; background: transparent; color: var(--color-ink); font: 400 var(--text-lg)/1 var(--font-display); text-transform: uppercase; }
-.btn--primary { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-accent-ink); }
-.well { background: var(--color-paper-2); }
-.grained { position: relative; isolation: isolate; }
-.grained::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: var(--grain); background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 9 -4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E") 0 0 / 200px 200px; }
-::selection { background: color-mix(in oklab, var(--color-accent) 35%, transparent); }
+h1,
+h2,
+.figure {
+    font-family: var(--font-display);
+    font-weight: 200;
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: var(--tracking-display);
+}
+h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 1;
+}
+.btn {
+    min-height: 48px;
+    padding: 0 var(--space-lg);
+    border: var(--rule-hair) solid var(--color-ink);
+    border-radius: 0;
+    background: transparent;
+    color: var(--color-ink);
+    font: 400 var(--text-lg) / 1 var(--font-display);
+    text-transform: uppercase;
+}
+.btn--primary {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-accent-ink);
+}
+.well {
+    background: var(--color-paper-2);
+}
+.grained {
+    position: relative;
+    isolation: isolate;
+}
+.grained::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: var(--grain);
+    background:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 9 -4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E")
+        0 0 / 200px 200px;
+}
+::selection {
+    background: color-mix(in oklab, var(--color-accent) 35%, transparent);
+}
 ```

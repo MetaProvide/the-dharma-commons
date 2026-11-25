@@ -1,4 +1,5 @@
 ---
+
 name: Piste
 slug: piste
 genre: playful
@@ -20,15 +21,28 @@ A mountain morning in print: snow-white paper, cold near-black ink, Barlow Conde
 
 ```css
 :root {
-  --color-paper: oklch(98.5% 0.005 260); --color-paper-2: oklch(95.5% 0.008 260); --color-paper-3: oklch(91% 0.01 260);
-  --color-ink: oklch(16% 0.012 260); --color-ink-2: oklch(30% 0.014 260); --color-muted: oklch(48% 0.016 260);
-  --color-rule: oklch(88% 0.01 260);
-  --color-accent: oklch(52% 0.25 265); --color-accent-deep: oklch(40% 0.2 266); --color-accent-ink: oklch(98.5% 0.004 260); --color-focus: oklch(58% 0.22 28);
-  --color-field: var(--color-accent);
-  --font-display: "Barlow Condensed", ui-sans-serif, sans-serif; --font-body: "Barlow", ui-sans-serif, sans-serif; --font-outlier: var(--font-display);
-  --radius-card: 0; --radius-pill: 0; --rule-hair: 1px; --rule-bar: 2px;
-  --shadow-card: none;
-  --tracking-display: -0.005em; --display-weight: 800;
+    --color-paper: oklch(98.5% 0.005 260);
+    --color-paper-2: oklch(95.5% 0.008 260);
+    --color-paper-3: oklch(91% 0.01 260);
+    --color-ink: oklch(16% 0.012 260);
+    --color-ink-2: oklch(30% 0.014 260);
+    --color-muted: oklch(48% 0.016 260);
+    --color-rule: oklch(88% 0.01 260);
+    --color-accent: oklch(52% 0.25 265);
+    --color-accent-deep: oklch(40% 0.2 266);
+    --color-accent-ink: oklch(98.5% 0.004 260);
+    --color-focus: oklch(58% 0.22 28);
+    --color-field: var(--color-accent);
+    --font-display: "Barlow Condensed", ui-sans-serif, sans-serif;
+    --font-body: "Barlow", ui-sans-serif, sans-serif;
+    --font-outlier: var(--font-display);
+    --radius-card: 0;
+    --radius-pill: 0;
+    --rule-hair: 1px;
+    --rule-bar: 2px;
+    --shadow-card: none;
+    --tracking-display: -0.005em;
+    --display-weight: 800;
 }
 ```
 
@@ -84,16 +98,59 @@ The morning report: the hour, the group, the week booked, called across the snow
 ```
 
 ```css
-h1, h2, h3 { font-weight: 800; text-transform: uppercase; line-height: 1; }
-h2 { font-size: var(--text-display-s); }
-.fig { font: 800 var(--text-display)/0.9 var(--font-display); color: var(--color-accent); font-variant-numeric: tabular-nums; }
-.btn { display: inline-flex; align-items: center; min-height: 52px; padding: 0 var(--space-lg); border: 0; font: 800 var(--text-lg)/1 var(--font-display); text-transform: uppercase; }
-.btn--primary { background: var(--color-accent); color: var(--color-accent-ink); }
-.btn--primary:hover { background: var(--color-accent-deep); }
-.btn--secondary { background: none; box-shadow: inset 0 0 0 var(--rule-bar) var(--color-ink); color: var(--color-ink); }
-.band--field { background: var(--color-field); color: var(--color-accent-ink); }
-.photo { outline: 1px solid color-mix(in oklab, var(--color-ink) 8%, transparent); outline-offset: -1px; }
-th { border-bottom: var(--rule-bar) solid var(--color-ink); font: 500 var(--text-sm) var(--font-body); text-align: left; }
-td { border-bottom: var(--rule-hair) solid var(--color-rule); }
-::selection { background: color-mix(in oklab, var(--color-accent) 30%, transparent); }
+h1,
+h2,
+h3 {
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 1;
+}
+h2 {
+    font-size: var(--text-display-s);
+}
+.fig {
+    font: 800 var(--text-display) / 0.9 var(--font-display);
+    color: var(--color-accent);
+    font-variant-numeric: tabular-nums;
+}
+.btn {
+    display: inline-flex;
+    align-items: center;
+    min-height: 52px;
+    padding: 0 var(--space-lg);
+    border: 0;
+    font: 800 var(--text-lg) / 1 var(--font-display);
+    text-transform: uppercase;
+}
+.btn--primary {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+}
+.btn--primary:hover {
+    background: var(--color-accent-deep);
+}
+.btn--secondary {
+    background: none;
+    box-shadow: inset 0 0 0 var(--rule-bar) var(--color-ink);
+    color: var(--color-ink);
+}
+.band--field {
+    background: var(--color-field);
+    color: var(--color-accent-ink);
+}
+.photo {
+    outline: 1px solid color-mix(in oklab, var(--color-ink) 8%, transparent);
+    outline-offset: -1px;
+}
+th {
+    border-bottom: var(--rule-bar) solid var(--color-ink);
+    font: 500 var(--text-sm) var(--font-body);
+    text-align: left;
+}
+td {
+    border-bottom: var(--rule-hair) solid var(--color-rule);
+}
+::selection {
+    background: color-mix(in oklab, var(--color-accent) 30%, transparent);
+}
 ```

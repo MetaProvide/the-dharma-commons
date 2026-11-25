@@ -14,6 +14,7 @@ Reach for it for community platforms, content marketplaces, asset stores, any cu
 Avoid for single-product pages. Ecosystem needs several things to surface.
 
 **Sample opening lines** (rail headings, dated, with a count):
-> *"Featured this week."* Then *"Latest."* Then *"By category."* Three rail headings, each on its own line.
-> *"What is on this week, the editor's pick, and the whole catalogue."* Names cadence, curation and breadth in one sentence.
-> *"Made by the people who use it, sorted by the people who read it."* Second-position copy that breaks the template.
+
+> _"Featured this week."_ Then _"Latest."_ Then _"By category."_ Three rail headings, each on its own line.
+> _"What is on this week, the editor's pick, and the whole catalogue."_ Names cadence, curation and breadth in one sentence.
+> _"Made by the people who use it, sorted by the people who read it."_ Second-position copy that breaks the template.

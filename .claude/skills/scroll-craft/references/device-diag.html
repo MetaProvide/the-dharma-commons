@@ -57,7 +57,7 @@
   <div id="log"></div>
 </div>
 <script>
-(function () {
+(() => {
   'use strict';
 
   // EDIT THESE for the build under test.
@@ -74,7 +74,7 @@
     logEl.textContent += m + '\n';
     logEl.scrollTop = logEl.scrollHeight;
   }
-  window.addEventListener('error', function (e) { log('JS ERROR: ' + e.message); });
+  window.addEventListener('error', (e) => { log('JS ERROR: ' + e.message); });
 
   var maxScrolled = 0;
   var cellsEl = document.getElementById('cells');
@@ -100,13 +100,13 @@
     };
     T.el.muted = true; T.el.playsInline = true;
 
-    T.el.addEventListener('seeked', function () { T.seeked++; });
-    T.el.addEventListener('error', function () {
+    T.el.addEventListener('seeked', () => { T.seeked++; });
+    T.el.addEventListener('error', () => {
       var e = T.el.error;
       T.err = 'MediaError code ' + (e ? e.code : '?');
       log(t.key + ': ' + T.err);
     });
-    T.el.addEventListener('loadedmetadata', function () {
+    T.el.addEventListener('loadedmetadata', () => {
       log(t.key + ': metadata, duration ' + T.el.duration.toFixed(2) + 's');
       try { T.el.currentTime = 0.001; } catch (e) {}
       prime(T, 'load'); // same as the engine: try with no gesture first
@@ -114,12 +114,12 @@
 
     if (t.mode === 'blob') {
       fetch(t.src)
-        .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.blob(); })
-        .then(function (b) {
+        .then((r) => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.blob(); })
+        .then((b) => {
           log(t.key + ': fetched ' + (b.size / 1048576).toFixed(2) + ' MB, blob URL set');
           T.el.src = URL.createObjectURL(b);
         })
-        .catch(function (e) { T.err = 'fetch failed: ' + e.message; log(t.key + ': ' + T.err); });
+        .catch((e) => { T.err = 'fetch failed: ' + e.message; log(t.key + ': ' + T.err); });
     } else {
       T.el.src = t.src;
       log(t.key + ': direct src set');
@@ -132,15 +132,15 @@
     T.priming = true;
     var pr;
     try { pr = T.el.play(); } catch (e) { T.priming = false; T.prime = 'threw (' + why + ')'; return; }
-    setTimeout(function () {
+    setTimeout(() => {
       if (T.priming) { T.priming = false; if (T.prime === 'not tried') T.prime = 'play() never settled (' + why + ')'; }
     }, 2000);
     if (pr && pr.then) {
-      pr.then(function () {
+      pr.then(() => {
         T.priming = false; T.primed = true; T.prime = 'OK (' + why + ')';
         try { T.el.pause(); } catch (e) {}
         log(T.key + ': primed via ' + why);
-      }, function (e) {
+      }, (e) => {
         T.priming = false; T.prime = (e && e.name ? e.name : 'rejected') + ' (' + why + ')';
         log(T.key + ': play() rejected via ' + why + ': ' + (e && e.name));
       });
@@ -149,9 +149,9 @@
 
   var tests = TESTS.map(make);
 
-  function primeAll(ev) { tests.forEach(function (T) { prime(T, ev); }); }
-  ['touchstart', 'touchend', 'pointerdown', 'click', 'scroll'].forEach(function (ev) {
-    addEventListener(ev, function () { primeAll(ev); }, { passive: true });
+  function primeAll(ev) { tests.forEach((T) => { prime(T, ev); }); }
+  ['touchstart', 'touchend', 'pointerdown', 'click', 'scroll'].forEach((ev) => {
+    addEventListener(ev, () => { primeAll(ev); }, { passive: true });
   });
 
   // scroll position drives every clip, exactly like the engine. Polled from a
@@ -169,7 +169,7 @@
       lastY = scrollY;
       maxScrolled = Math.max(maxScrolled, p);
     }
-    tests.forEach(function (T) {
+    tests.forEach((T) => {
       if (!T.el.duration || T.el.seeking) return;
       var t = p * T.el.duration * 0.98;
       if (Math.abs(T.el.currentTime - t) > 0.02) {
@@ -190,8 +190,8 @@
     } catch (e) { return null; }
   }
 
-  setInterval(function () {
-    tests.forEach(function (T) {
+  setInterval(() => {
+    tests.forEach((T) => {
       var h = frameHash(T);
       if (h !== null && !T.hashes[h]) { T.hashes[h] = 1; T.hashCount++; }
       T.stats.textContent =

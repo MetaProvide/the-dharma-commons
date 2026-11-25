@@ -1,4 +1,5 @@
 ---
+
 name: Refract
 slug: refract
 genre: atmospheric
@@ -20,28 +21,47 @@ White plaster in strong sun, with light doing the decorating: a net of water cau
 
 ```css
 :root {
-  --color-paper: oklch(98.2% 0.006 95); --color-paper-2: oklch(96.4% 0.006 95); --color-paper-3: oklch(93.6% 0.008 95);
-  --color-ink: oklch(23% 0.035 245); --color-ink-2: oklch(36% 0.035 245); --color-muted: oklch(50% 0.025 240);
-  --color-rule: oklch(89.5% 0.008 230); --color-rule-2: oklch(93.5% 0.006 230);
-  --color-accent: oklch(50% 0.12 234); --color-accent-hi: oklch(44% 0.12 236); --color-accent-ink: oklch(99% 0.003 95); --color-accent-soft: oklch(94% 0.025 220); --color-focus: oklch(56% 0.14 234);
-  --color-shade: oklch(86% 0.05 212); --color-shade-2: oklch(74% 0.07 220); --color-light: oklch(99.7% 0.004 95);
-  --spec-1: oklch(78% 0.15 32); --spec-2: oklch(90% 0.15 105); --spec-3: oklch(82% 0.13 175); --spec-4: oklch(66% 0.15 270);
-  --color-slot: oklch(86% 0.05 212);
-  --edge-light: inset 0 1px 0 oklch(100% 0 0 / 0.9), inset 0 0 0 1px oklch(100% 0 0 / 0.55);
-  --shadow-card: 18px 28px 48px -26px oklch(52% 0.09 220 / 0.38), 2px 3px 6px -2px oklch(40% 0.05 230 / 0.12);
-  --shadow-cast: 28px 40px 70px -30px oklch(60% 0.11 212 / 0.45);
-  --font-display: "Funnel Display", ui-sans-serif, system-ui, sans-serif; --font-body: "Funnel Sans", ui-sans-serif, system-ui, sans-serif;
-  --radius-card: 22px; --radius-inner: 12px; --radius-pill: 999px; --rule-hair: 1px;
-  --tracking-display: -0.032em; --display-weight: 400;
+    --color-paper: oklch(98.2% 0.006 95);
+    --color-paper-2: oklch(96.4% 0.006 95);
+    --color-paper-3: oklch(93.6% 0.008 95);
+    --color-ink: oklch(23% 0.035 245);
+    --color-ink-2: oklch(36% 0.035 245);
+    --color-muted: oklch(50% 0.025 240);
+    --color-rule: oklch(89.5% 0.008 230);
+    --color-rule-2: oklch(93.5% 0.006 230);
+    --color-accent: oklch(50% 0.12 234);
+    --color-accent-hi: oklch(44% 0.12 236);
+    --color-accent-ink: oklch(99% 0.003 95);
+    --color-accent-soft: oklch(94% 0.025 220);
+    --color-focus: oklch(56% 0.14 234);
+    --color-shade: oklch(86% 0.05 212);
+    --color-shade-2: oklch(74% 0.07 220);
+    --color-light: oklch(99.7% 0.004 95);
+    --spec-1: oklch(78% 0.15 32);
+    --spec-2: oklch(90% 0.15 105);
+    --spec-3: oklch(82% 0.13 175);
+    --spec-4: oklch(66% 0.15 270);
+    --color-slot: oklch(86% 0.05 212);
+    --edge-light: inset 0 1px 0 oklch(100% 0 0 / 0.9), inset 0 0 0 1px oklch(100% 0 0 / 0.55);
+    --shadow-card: 18px 28px 48px -26px oklch(52% 0.09 220 / 0.38), 2px 3px 6px -2px oklch(40% 0.05 230 / 0.12);
+    --shadow-cast: 28px 40px 70px -30px oklch(60% 0.11 212 / 0.45);
+    --font-display: "Funnel Display", ui-sans-serif, system-ui, sans-serif;
+    --font-body: "Funnel Sans", ui-sans-serif, system-ui, sans-serif;
+    --radius-card: 22px;
+    --radius-inner: 12px;
+    --radius-pill: 999px;
+    --rule-hair: 1px;
+    --tracking-display: -0.032em;
+    --display-weight: 400;
 }
 ```
 
 Two dials, stated in the stamp (`refract: water/pool`). Two Refract pages in one run differ on both.
 
-| Dial | Options |
-| --- | --- |
+| Dial                             | Options                                                                                                                                                                                                                                                                     |
+| -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Light** (the generated ground) | `water` (default): caustics from a surface of moving water, a bright net over an aqua shade. `glass`: sun through a glazed window, the pane edges split warm and cool and a prism's fan crossing the patch, falling over the product as well as the ground, slow as the sun |
-| **Colourway** | `pool` (default) as above. `noon`: ink `oklch(20% 0.01 260)`, accent near-black, the spectrum the only colour |
+| **Colourway**                    | `pool` (default) as above. `noon`: ink `oklch(20% 0.01 260)`, accent near-black, the spectrum the only colour                                                                                                                                                               |
 
 ## Type
 
@@ -92,10 +112,45 @@ Bright and plain, a little sensory: the temperature, the hour, what the light do
 ```
 
 ```css
-h1, h2, h3 { font-family: var(--font-display); font-weight: var(--display-weight); letter-spacing: var(--tracking-display); line-height: 1.02; }
-.clear { background: color-mix(in oklab, var(--color-light) 80%, transparent); border-radius: var(--radius-card); box-shadow: var(--edge-light), var(--shadow-card); }
-.btn { min-height: 48px; padding: 0 var(--space-lg); border: 0; border-radius: var(--radius-pill); background: var(--color-accent); color: var(--color-accent-ink); font: 500 var(--text-md)/1 var(--font-body); box-shadow: var(--shadow-card); transition: background var(--dur-short) var(--ease-out); }
-.btn:hover { background: var(--color-accent-hi); }
-.btn--clear { background: color-mix(in oklab, var(--color-light) 80%, transparent); color: var(--color-ink); box-shadow: var(--edge-light), var(--shadow-card); }
-.light { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; -webkit-mask-image: linear-gradient(to right, transparent 30%, var(--color-ink) 62%); mask-image: linear-gradient(to right, transparent 30%, var(--color-ink) 62%); }
+h1,
+h2,
+h3 {
+    font-family: var(--font-display);
+    font-weight: var(--display-weight);
+    letter-spacing: var(--tracking-display);
+    line-height: 1.02;
+}
+.clear {
+    background: color-mix(in oklab, var(--color-light) 80%, transparent);
+    border-radius: var(--radius-card);
+    box-shadow: var(--edge-light), var(--shadow-card);
+}
+.btn {
+    min-height: 48px;
+    padding: 0 var(--space-lg);
+    border: 0;
+    border-radius: var(--radius-pill);
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+    font: 500 var(--text-md) / 1 var(--font-body);
+    box-shadow: var(--shadow-card);
+    transition: background var(--dur-short) var(--ease-out);
+}
+.btn:hover {
+    background: var(--color-accent-hi);
+}
+.btn--clear {
+    background: color-mix(in oklab, var(--color-light) 80%, transparent);
+    color: var(--color-ink);
+    box-shadow: var(--edge-light), var(--shadow-card);
+}
+.light {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    -webkit-mask-image: linear-gradient(to right, transparent 30%, var(--color-ink) 62%);
+    mask-image: linear-gradient(to right, transparent 30%, var(--color-ink) 62%);
+}
 ```

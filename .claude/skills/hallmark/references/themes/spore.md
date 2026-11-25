@@ -1,4 +1,5 @@
 ---
+
 name: Spore
 slug: spore
 genre: atmospheric
@@ -20,26 +21,37 @@ A cellar at night: coffee-ground black warmed toward brown, a warm grain on its 
 
 ```css
 :root {
-  --color-paper: oklch(15% 0.012 60); --color-paper-2: oklch(19% 0.014 58); --color-paper-3: oklch(24% 0.02 50);
-  --color-ink: oklch(93% 0.022 85); --color-ink-2: oklch(84% 0.022 78); --color-muted: oklch(67% 0.02 70);
-  --color-rule: oklch(31% 0.016 60);
-  --color-accent: oklch(77% 0.09 30); --color-accent-2: oklch(86% 0.06 30); --color-accent-ink: oklch(15% 0.012 60); --color-focus: oklch(86% 0.06 30);
-  --font-display: "Young Serif", Georgia, serif; --font-body: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-outlier: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
-  --radius-card: 14px; --radius-pill: 999px; --rule-hair: 1px;
-  --shadow-card: 0 16px 40px oklch(8% 0.01 60 / 0.4);
-  --tracking-display: -0.012em;
-  --grain: 0.15; --display-weight: 400;
+    --color-paper: oklch(15% 0.012 60);
+    --color-paper-2: oklch(19% 0.014 58);
+    --color-paper-3: oklch(24% 0.02 50);
+    --color-ink: oklch(93% 0.022 85);
+    --color-ink-2: oklch(84% 0.022 78);
+    --color-muted: oklch(67% 0.02 70);
+    --color-rule: oklch(31% 0.016 60);
+    --color-accent: oklch(77% 0.09 30);
+    --color-accent-2: oklch(86% 0.06 30);
+    --color-accent-ink: oklch(15% 0.012 60);
+    --color-focus: oklch(86% 0.06 30);
+    --font-display: "Young Serif", Georgia, serif;
+    --font-body: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+    --font-outlier: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+    --radius-card: 14px;
+    --radius-pill: 999px;
+    --rule-hair: 1px;
+    --shadow-card: 0 16px 40px oklch(8% 0.01 60 / 0.4);
+    --tracking-display: -0.012em;
+    --grain: 0.15;
+    --display-weight: 400;
 }
 ```
 
 One dial, the colourway, stated in the stamp (`spore: cellar`).
 
-| Colourway | Ground | Ink | Accent |
-| --- | --- | --- | --- |
-| `cellar` (default) | `oklch(15% 0.012 60)`, grain screened at 15% | parchment `oklch(93% 0.022 85)` | pink `oklch(77% 0.09 30)` |
-| `lab` | cream `oklch(94% 0.02 85)`, grain multiplied at 6% | `oklch(17% 0.015 60)` | pink `oklch(62% 0.13 30)` |
-| `head-torch` | `oklch(12% 0.008 60)`, grain at 15% | `oklch(93% 0.03 85)` | ochre `oklch(74% 0.13 80)` |
+| Colourway          | Ground                                             | Ink                             | Accent                     |
+| ------------------ | -------------------------------------------------- | ------------------------------- | -------------------------- |
+| `cellar` (default) | `oklch(15% 0.012 60)`, grain screened at 15%       | parchment `oklch(93% 0.022 85)` | pink `oklch(77% 0.09 30)`  |
+| `lab`              | cream `oklch(94% 0.02 85)`, grain multiplied at 6% | `oklch(17% 0.015 60)`           | pink `oklch(62% 0.13 30)`  |
+| `head-torch`       | `oklch(12% 0.008 60)`, grain at 15%                | `oklch(93% 0.03 85)`            | ochre `oklch(74% 0.13 80)` |
 
 ## Type
 
@@ -91,14 +103,54 @@ A maker's log: the name, the day, the hour, the vintage, the price. No wellness,
 ```
 
 ```css
-h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing: var(--tracking-display); line-height: 1.02; }
-.btn { border-radius: var(--radius-pill); padding: var(--space-sm) var(--space-lg); font-weight: 600; transition: background-color var(--dur-micro) var(--ease-out); }
-.btn--primary { background: var(--color-accent); color: var(--color-accent-ink); }
-.btn--primary:hover { background: var(--color-accent-2); }
-.btn--secondary { background: transparent; color: var(--color-ink); box-shadow: inset 0 0 0 1.5px var(--color-ink-2); }
-.well { background: var(--color-paper-2); border-radius: var(--radius-card); }
-.figure { font-family: var(--font-display); font-variant-numeric: lining-nums; line-height: 0.86; }
-.grained { position: relative; isolation: isolate; }
-.grained::after { content: ""; position: absolute; inset: 0; z-index: var(--z-base); border-radius: inherit; pointer-events: none; opacity: var(--grain); mix-blend-mode: screen;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.6 0 0 0 0 0.55 0 0 0 0 0.45 0 0 0 0.35 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E"); }
+h1,
+h2,
+h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: var(--tracking-display);
+    line-height: 1.02;
+}
+.btn {
+    border-radius: var(--radius-pill);
+    padding: var(--space-sm) var(--space-lg);
+    font-weight: 600;
+    transition: background-color var(--dur-micro) var(--ease-out);
+}
+.btn--primary {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+}
+.btn--primary:hover {
+    background: var(--color-accent-2);
+}
+.btn--secondary {
+    background: transparent;
+    color: var(--color-ink);
+    box-shadow: inset 0 0 0 1.5px var(--color-ink-2);
+}
+.well {
+    background: var(--color-paper-2);
+    border-radius: var(--radius-card);
+}
+.figure {
+    font-family: var(--font-display);
+    font-variant-numeric: lining-nums;
+    line-height: 0.86;
+}
+.grained {
+    position: relative;
+    isolation: isolate;
+}
+.grained::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: var(--z-base);
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: var(--grain);
+    mix-blend-mode: screen;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0.6 0 0 0 0 0.55 0 0 0 0 0.45 0 0 0 0.35 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+}
 ```

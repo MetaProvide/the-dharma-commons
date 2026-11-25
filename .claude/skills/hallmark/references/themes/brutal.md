@@ -1,4 +1,5 @@
 ---
+
 name: Brutal
 slug: brutal
 genre: editorial
@@ -20,14 +21,26 @@ A raw, engineered sheet: near-white poster stock, near-black ink that arrives as
 
 ```css
 :root {
-  --color-paper: oklch(97.5% 0.006 95); --color-paper-2: oklch(94% 0.007 95); --color-paper-3: oklch(89.5% 0.008 95);
-  --color-ink: oklch(10% 0.006 95); --color-ink-2: oklch(16% 0.006 95); --color-muted: oklch(40% 0.008 95);
-  --color-rule: oklch(10% 0.006 95);
-  --color-accent: oklch(90% 0.19 105); --color-accent-ink: oklch(10% 0.006 95); --color-focus: oklch(48% 0.1 110);
-  --font-display: "Libre Franklin", ui-sans-serif, system-ui, sans-serif; --font-body: var(--font-display);
-  --font-outlier: var(--font-display);
-  --radius-card: 0; --radius-pill: 0; --rule-hair: 1px; --rule-bar: 3px; --shadow-card: none;
-  --tracking-display: -0.03em; --display-weight: 900;
+    --color-paper: oklch(97.5% 0.006 95);
+    --color-paper-2: oklch(94% 0.007 95);
+    --color-paper-3: oklch(89.5% 0.008 95);
+    --color-ink: oklch(10% 0.006 95);
+    --color-ink-2: oklch(16% 0.006 95);
+    --color-muted: oklch(40% 0.008 95);
+    --color-rule: oklch(10% 0.006 95);
+    --color-accent: oklch(90% 0.19 105);
+    --color-accent-ink: oklch(10% 0.006 95);
+    --color-focus: oklch(48% 0.1 110);
+    --font-display: "Libre Franklin", ui-sans-serif, system-ui, sans-serif;
+    --font-body: var(--font-display);
+    --font-outlier: var(--font-display);
+    --radius-card: 0;
+    --radius-pill: 0;
+    --rule-hair: 1px;
+    --rule-bar: 3px;
+    --shadow-card: none;
+    --tracking-display: -0.03em;
+    --display-weight: 900;
 }
 ```
 
@@ -82,14 +95,64 @@ Blunt, declarative: capitals in the heads, sentence case everywhere else; the tr
 ```
 
 ```css
-h1, h2, .display { font-family: var(--font-display); font-weight: var(--display-weight); text-transform: uppercase; letter-spacing: var(--tracking-display); line-height: 1; }
-h3 { font-family: var(--font-display); font-weight: 700; }
-.btn { border: var(--rule-bar) solid var(--color-rule); border-radius: 0; padding: var(--space-xs) var(--space-lg); background: var(--color-paper); color: var(--color-ink); font-weight: 700; transition: none; }
-.btn:hover, .btn--ink { background: var(--color-ink); color: var(--color-paper); } .btn--ink:hover { background: var(--color-paper); color: var(--color-ink); }
-.cells { display: grid; gap: 0; border: var(--rule-bar) solid var(--color-rule); }
-.cells > * { margin: calc(var(--rule-bar) * -1) 0 0 calc(var(--rule-bar) * -1); border: var(--rule-bar) solid var(--color-rule); }
-.well--ink, .band--ink { background: var(--color-ink); color: var(--color-paper); }
-.is-chosen, p mark, a:hover { background: var(--color-accent); color: var(--color-accent-ink); }
-.photo { display: block; border: var(--rule-bar) solid var(--color-rule); border-radius: 0; }
-::selection { background: var(--color-accent); color: var(--color-accent-ink); }
+h1,
+h2,
+.display {
+    font-family: var(--font-display);
+    font-weight: var(--display-weight);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-display);
+    line-height: 1;
+}
+h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+}
+.btn {
+    border: var(--rule-bar) solid var(--color-rule);
+    border-radius: 0;
+    padding: var(--space-xs) var(--space-lg);
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-weight: 700;
+    transition: none;
+}
+.btn:hover,
+.btn--ink {
+    background: var(--color-ink);
+    color: var(--color-paper);
+}
+.btn--ink:hover {
+    background: var(--color-paper);
+    color: var(--color-ink);
+}
+.cells {
+    display: grid;
+    gap: 0;
+    border: var(--rule-bar) solid var(--color-rule);
+}
+.cells > * {
+    margin: calc(var(--rule-bar) * -1) 0 0 calc(var(--rule-bar) * -1);
+    border: var(--rule-bar) solid var(--color-rule);
+}
+.well--ink,
+.band--ink {
+    background: var(--color-ink);
+    color: var(--color-paper);
+}
+.is-chosen,
+p mark,
+a:hover {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+}
+.photo {
+    display: block;
+    border: var(--rule-bar) solid var(--color-rule);
+    border-radius: 0;
+}
+::selection {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+}
 ```

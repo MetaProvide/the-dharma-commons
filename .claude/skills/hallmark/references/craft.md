@@ -60,19 +60,19 @@ Size, posture and composition are `layout.md` § 6; what it shows is `imagery.md
 
 Write as the owner would say it across a counter: the prompt's own nouns, a real place, a number the user gave, the verb a customer would use.
 
-- **The swap test:** a head that would work on a competitor's page is rewritten with a noun only this prompt has. *Software that works for you* fits anyone; *Invoices that chase themselves* fits one product.
-- **Three tests a line:** can the reader picture it, could it be proven false, could only this business say it. Specific beats clever: the place, the hour, the material, the result (*Sourdough at four, gone by ten*); a pun is a second-draft move, once a page at most.
-- **The subhead** says what it is, for whom and the one difference, in twelve words or fewer. **Section heads** say what the visitor will see or get (*Three loaves a morning*), never a category label (*Features*, *Our story*, *Why us*); a staged shape's one-word stage names are the exception.
-- **Rhythm:** a short line beside a longer one; verbs over adjectives; one idea a sentence; no triads of adjectives (*fast, simple, powerful*).
+- **The swap test:** a head that would work on a competitor's page is rewritten with a noun only this prompt has. _Software that works for you_ fits anyone; _Invoices that chase themselves_ fits one product.
+- **Three tests a line:** can the reader picture it, could it be proven false, could only this business say it. Specific beats clever: the place, the hour, the material, the result (_Sourdough at four, gone by ten_); a pun is a second-draft move, once a page at most.
+- **The subhead** says what it is, for whom and the one difference, in twelve words or fewer. **Section heads** say what the visitor will see or get (_Three loaves a morning_), never a category label (_Features_, _Our story_, _Why us_); a staged shape's one-word stage names are the exception.
+- **Rhythm:** a short line beside a longer one; verbs over adjectives; one idea a sentence; no triads of adjectives (_fast, simple, powerful_).
 - **Budget** (58): headlines seven words or fewer, section heads six or fewer; section intros one line; paragraphs two short sentences; lists four items of a three-word label and a ten-word line (five for steps that cannot merge; past that, a table); tables five rows; a set the user gave keeps its true count; 450 visible words a page at most. Read only the headings and the hero: if they tell the story, the rest is the right length.
-- **Refuse the generated voice:** everything gate 19 names, plus *Reimagine*, *Whether you're X or Y*, *It's not just X, it's Y*, *Say goodbye to*, *game-changer*, *journey*, a colon title (*Focus: the app for*), *Click here*, *Enter your email below*, a version string in marketing copy.
-- **Buttons:** the verb of the action (*Book a fitting*); *Continue* only as a flow's second step. **Errors:** what happened, why if known, what to do; no *Oops*, no exclamation marks. **Empty states:** what is empty, why it matters, one action. **Loading:** a spinner after 150 to 300ms, shown at least 300ms, beside the label; *Loading…* past 2s.
-- **Sample data** inside a built product uses `example.com`, the prompt's field names and values that read as samples (*Example Kitchen*, round amounts), never a figure a visitor could take as a claim (46a).
+- **Refuse the generated voice:** everything gate 19 names, plus _Reimagine_, _Whether you're X or Y_, _It's not just X, it's Y_, _Say goodbye to_, _game-changer_, _journey_, a colon title (_Focus: the app for_), _Click here_, _Enter your email below_, a version string in marketing copy.
+- **Buttons:** the verb of the action (_Book a fitting_); _Continue_ only as a flow's second step. **Errors:** what happened, why if known, what to do; no _Oops_, no exclamation marks. **Empty states:** what is empty, why it matters, one action. **Loading:** a spinner after 150 to 300ms, shown at least 300ms, beside the label; _Loading…_ past 2s.
+- **Sample data** inside a built product uses `example.com`, the prompt's field names and values that read as samples (_Example Kitchen_, round amounts), never a figure a visitor could take as a claim (46a).
 - **Punctuation:** curly quotes, `…`, a true apostrophe, no `--` and no em or en dash (a comma, a colon, a full stop or parentheses instead), a non-breaking space before units. A full stop on every standalone sentence, none on list items.
 
 ## 7. Opening a section
 
-The reflex is a small tracked-caps label above the heading, and the reflex is the tell (54). Ask *what does the reader not yet know?* If nothing, open with nothing. If something, it rides on a fact, a destination or an identifier, never on a name for what comes next. Twelve ways in:
+The reflex is a small tracked-caps label above the heading, and the reflex is the tell (54). Ask _what does the reader not yet know?_ If nothing, open with nothing. If something, it rides on a fact, a destination or an identifier, never on a name for what comes next. Twelve ways in:
 
 1. **Nothing:** air above, the heading flush.
 2. **The heading announces itself:** the subject in its first two words. Usually the best move.

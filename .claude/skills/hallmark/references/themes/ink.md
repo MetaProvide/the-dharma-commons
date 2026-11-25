@@ -1,4 +1,5 @@
 ---
+
 name: Ink
 slug: ink
 genre: editorial
@@ -20,25 +21,37 @@ A notice printed in plain black: white paper, a black with no hue, Epilogue at 7
 
 ```css
 :root {
-  --color-paper: oklch(99.5% 0.003 100); --color-paper-2: oklch(97% 0.004 100); --color-paper-3: oklch(94% 0.006 100);
-  --color-ink: oklch(16% 0 0); --color-ink-2: oklch(28% 0 0); --color-muted: oklch(44% 0 0);
-  --color-rule: oklch(89% 0.004 100); --color-rule-2: oklch(93.5% 0.003 100);
-  --color-accent: oklch(50% 0.095 188); --color-accent-ink: oklch(99.5% 0.003 100); --color-accent-soft: oklch(93% 0.05 190); --color-accent-soft-ink: oklch(27% 0.045 190);
-  --color-focus: oklch(50% 0.095 188);
-  --font-display: "Epilogue", ui-sans-serif, system-ui, sans-serif; --font-body: var(--font-display);
-  --font-outlier: "IBM Plex Mono", ui-monospace, monospace;
-  --radius-card: 12px; --radius-pill: 999px; --rule-hair: 1px;
-  --shadow-card: 0 20px 40px oklch(20% 0 0 / 0.16);
-  --tracking-display: -0.04em; --display-weight: 700;
+    --color-paper: oklch(99.5% 0.003 100);
+    --color-paper-2: oklch(97% 0.004 100);
+    --color-paper-3: oklch(94% 0.006 100);
+    --color-ink: oklch(16% 0 0);
+    --color-ink-2: oklch(28% 0 0);
+    --color-muted: oklch(44% 0 0);
+    --color-rule: oklch(89% 0.004 100);
+    --color-rule-2: oklch(93.5% 0.003 100);
+    --color-accent: oklch(50% 0.095 188);
+    --color-accent-ink: oklch(99.5% 0.003 100);
+    --color-accent-soft: oklch(93% 0.05 190);
+    --color-accent-soft-ink: oklch(27% 0.045 190);
+    --color-focus: oklch(50% 0.095 188);
+    --font-display: "Epilogue", ui-sans-serif, system-ui, sans-serif;
+    --font-body: var(--font-display);
+    --font-outlier: "IBM Plex Mono", ui-monospace, monospace;
+    --radius-card: 12px;
+    --radius-pill: 999px;
+    --rule-hair: 1px;
+    --shadow-card: 0 20px 40px oklch(20% 0 0 / 0.16);
+    --tracking-display: -0.04em;
+    --display-weight: 700;
 }
 ```
 
 Two colourways, both light, stated in the stamp (`ink: paper` or `ink: board`).
 
-| Colourway | Ground and teal |
-| --- | --- |
-| `paper` (default) | the block above: white, hueless black, teal at 50% |
-| `board` | notice-board yellow `oklch(93% 0.10 95)` with rules at `oklch(84% 0.10 92)`, ink `oklch(20% 0.02 80)`, teal deepened to `oklch(46% 0.078 190)`; wells and tags turn white |
+| Colourway         | Ground and teal                                                                                                                                                           |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `paper` (default) | the block above: white, hueless black, teal at 50%                                                                                                                        |
+| `board`           | notice-board yellow `oklch(93% 0.10 95)` with rules at `oklch(84% 0.10 92)`, ink `oklch(20% 0.02 80)`, teal deepened to `oklch(46% 0.078 190)`; wells and tags turn white |
 
 ## Type
 
@@ -91,16 +104,70 @@ The desk volunteer's: what is in, when it is back, who is on Saturday. Short, ki
 ```
 
 ```css
-h1, h2, h3 { font-weight: var(--display-weight); line-height: 1.02; }
-.btn { border: var(--rule-hair) solid var(--color-rule); border-radius: 10px; padding: var(--space-sm) var(--space-md); font-weight: 600; background: var(--color-paper-2); color: var(--color-ink); }
-.btn--primary { background: var(--color-ink); border-color: var(--color-ink); color: var(--color-paper); }
-.tag { display: inline-flex; padding: var(--space-2xs) var(--space-sm); border-radius: var(--radius-pill); font-size: var(--text-xs); font-weight: 600; background: var(--color-paper-3); }
-.tag--in { background: var(--color-accent-soft); color: var(--color-accent-soft-ink); }
-.tag--out { background: transparent; box-shadow: inset 0 0 0 var(--rule-hair) var(--color-rule); color: var(--color-muted); }
-.tag--on { background: var(--color-ink); color: var(--color-paper); }
-.ruled { border-top: var(--rule-hair) solid var(--color-ink); } .ruled > * { border-bottom: var(--rule-hair) solid var(--color-rule); }
-.well { background: var(--color-paper-2); border: var(--rule-hair) solid var(--color-rule); border-radius: var(--radius-card); }
-.photo { border-radius: var(--radius-card); outline: var(--rule-hair) solid var(--color-rule); outline-offset: -1px; }
-a { font-weight: 600; } a:hover { text-decoration-color: var(--color-accent); }
-::selection { background: var(--color-accent-soft); color: var(--color-accent-soft-ink); }
+h1,
+h2,
+h3 {
+    font-weight: var(--display-weight);
+    line-height: 1.02;
+}
+.btn {
+    border: var(--rule-hair) solid var(--color-rule);
+    border-radius: 10px;
+    padding: var(--space-sm) var(--space-md);
+    font-weight: 600;
+    background: var(--color-paper-2);
+    color: var(--color-ink);
+}
+.btn--primary {
+    background: var(--color-ink);
+    border-color: var(--color-ink);
+    color: var(--color-paper);
+}
+.tag {
+    display: inline-flex;
+    padding: var(--space-2xs) var(--space-sm);
+    border-radius: var(--radius-pill);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    background: var(--color-paper-3);
+}
+.tag--in {
+    background: var(--color-accent-soft);
+    color: var(--color-accent-soft-ink);
+}
+.tag--out {
+    background: transparent;
+    box-shadow: inset 0 0 0 var(--rule-hair) var(--color-rule);
+    color: var(--color-muted);
+}
+.tag--on {
+    background: var(--color-ink);
+    color: var(--color-paper);
+}
+.ruled {
+    border-top: var(--rule-hair) solid var(--color-ink);
+}
+.ruled > * {
+    border-bottom: var(--rule-hair) solid var(--color-rule);
+}
+.well {
+    background: var(--color-paper-2);
+    border: var(--rule-hair) solid var(--color-rule);
+    border-radius: var(--radius-card);
+}
+.photo {
+    border-radius: var(--radius-card);
+    outline: var(--rule-hair) solid var(--color-rule);
+    outline-offset: -1px;
+}
+a {
+    font-weight: 600;
+}
+a:hover {
+    text-decoration-color: var(--color-accent);
+}
+::selection {
+    background: var(--color-accent-soft);
+    color: var(--color-accent-soft-ink);
+}
 ```

@@ -1,4 +1,5 @@
 ---
+
 name: Vellum
 slug: vellum
 genre: editorial
@@ -20,25 +21,40 @@ An old printing house: a parchment ground, umber ink, Grenze Gotisch for the hea
 
 ```css
 :root {
-  --color-paper: oklch(94% 0.024 82); --color-paper-2: oklch(90% 0.032 80); --color-paper-3: oklch(86% 0.036 78);
-  --color-ink: oklch(23% 0.025 55); --color-ink-2: oklch(31% 0.024 58); --color-muted: oklch(46% 0.024 64);
-  --color-rule: oklch(75% 0.035 72);
-  --color-accent: oklch(43% 0.17 268); --color-accent-deep: oklch(35% 0.15 268); --color-accent-soft: oklch(89% 0.035 268); --color-accent-ink: oklch(95% 0.02 82);
-  --color-focus: oklch(50% 0.18 268); --color-field: var(--color-accent);
-  --font-display: "Grenze Gotisch", ui-serif, Georgia, serif; --font-body: "Hanken Grotesk", ui-sans-serif, sans-serif;
-  --font-outlier: "Grenze", ui-serif, Georgia, serif;
-  --radius-card: 2px; --radius-pill: 2px; --rule-hair: 1px; --rule-double: 4px; --shadow-card: none;
-  --tracking-display: -0.01em; --display-weight: 600; --fibre: 0.5;
+    --color-paper: oklch(94% 0.024 82);
+    --color-paper-2: oklch(90% 0.032 80);
+    --color-paper-3: oklch(86% 0.036 78);
+    --color-ink: oklch(23% 0.025 55);
+    --color-ink-2: oklch(31% 0.024 58);
+    --color-muted: oklch(46% 0.024 64);
+    --color-rule: oklch(75% 0.035 72);
+    --color-accent: oklch(43% 0.17 268);
+    --color-accent-deep: oklch(35% 0.15 268);
+    --color-accent-soft: oklch(89% 0.035 268);
+    --color-accent-ink: oklch(95% 0.02 82);
+    --color-focus: oklch(50% 0.18 268);
+    --color-field: var(--color-accent);
+    --font-display: "Grenze Gotisch", ui-serif, Georgia, serif;
+    --font-body: "Hanken Grotesk", ui-sans-serif, sans-serif;
+    --font-outlier: "Grenze", ui-serif, Georgia, serif;
+    --radius-card: 2px;
+    --radius-pill: 2px;
+    --rule-hair: 1px;
+    --rule-double: 4px;
+    --shadow-card: none;
+    --tracking-display: -0.01em;
+    --display-weight: 600;
+    --fibre: 0.5;
 }
 ```
 
 Three colourways, stated in the stamp (`vellum: parchment`).
 
-| Colourway | Ground, ink, pigment |
-| --- | --- |
-| **parchment** (default) | the tokens above |
-| **oxblood, reversed** | ground `oklch(27% 0.09 20)`, ink `oklch(94% 0.02 80)`, pigment gold `oklch(84% 0.11 85)` texted in the ground, rule `oklch(44% 0.08 20)`, fibre at 0.25 |
-| **indigo, the ledger** | ground `oklch(93% 0.012 240)`, ink `oklch(24% 0.035 265)`, the same ultramarine, rule `oklch(76% 0.02 250)`, fibre at 0.14 |
+| Colourway               | Ground, ink, pigment                                                                                                                                    |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **parchment** (default) | the tokens above                                                                                                                                        |
+| **oxblood, reversed**   | ground `oklch(27% 0.09 20)`, ink `oklch(94% 0.02 80)`, pigment gold `oklch(84% 0.11 85)` texted in the ground, rule `oklch(44% 0.08 20)`, fibre at 0.25 |
+| **indigo, the ledger**  | ground `oklch(93% 0.012 240)`, ink `oklch(24% 0.035 265)`, the same ultramarine, rule `oklch(76% 0.02 250)`, fibre at 0.14                              |
 
 ## Type
 
@@ -74,7 +90,7 @@ Still. A hover underline in pigment, a row's soft wash and the primary deepening
 
 ## Voice
 
-Ledger-plain and dated: the item, the weight, the year, the town, as a clerk would enter them. Never *artisanal*, *curated*, or a story the prompt did not give.
+Ledger-plain and dated: the item, the weight, the year, the town, as a clerk would enter them. Never _artisanal_, _curated_, or a story the prompt did not give.
 
 ## Do-nots
 
@@ -90,16 +106,58 @@ Ledger-plain and dated: the item, the weight, the year, the town, as a clerk wou
 ```
 
 ```css
-h1, h2 { font-weight: 600; line-height: 0.92; }
-h3 { font-family: var(--font-body); font-weight: 600; }
-.statement { font: 400 var(--text-display-s)/1.02 var(--font-outlier); }
-.btn { border: var(--rule-hair) solid currentColor; border-radius: var(--radius-card); padding: var(--space-sm) var(--space-lg); font-weight: 500; color: inherit; background: transparent; transition: background-color var(--dur-micro) var(--ease-out); }
-.btn--primary { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-accent-ink); }
-.btn--primary:hover { background: var(--color-accent-deep); border-color: var(--color-accent-deep); }
-.band--pigment { background: var(--color-field); color: var(--color-accent-ink); }
-.rule-double { border-top: var(--rule-double) double var(--color-ink); }
-.ledger tbody tr:hover { background: var(--color-accent-soft); }
-.fibre { position: relative; isolation: isolate; }
-.fibre::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: var(--fibre); mix-blend-mode: multiply; pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='p' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.004 0.02' numOctaves='4' seed='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.62 0 0 0 0 0.52 0 0 0 0 0.36 0 0 0 0.3 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E"); }
+h1,
+h2 {
+    font-weight: 600;
+    line-height: 0.92;
+}
+h3 {
+    font-family: var(--font-body);
+    font-weight: 600;
+}
+.statement {
+    font: 400 var(--text-display-s) / 1.02 var(--font-outlier);
+}
+.btn {
+    border: var(--rule-hair) solid currentColor;
+    border-radius: var(--radius-card);
+    padding: var(--space-sm) var(--space-lg);
+    font-weight: 500;
+    color: inherit;
+    background: transparent;
+    transition: background-color var(--dur-micro) var(--ease-out);
+}
+.btn--primary {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-accent-ink);
+}
+.btn--primary:hover {
+    background: var(--color-accent-deep);
+    border-color: var(--color-accent-deep);
+}
+.band--pigment {
+    background: var(--color-field);
+    color: var(--color-accent-ink);
+}
+.rule-double {
+    border-top: var(--rule-double) double var(--color-ink);
+}
+.ledger tbody tr:hover {
+    background: var(--color-accent-soft);
+}
+.fibre {
+    position: relative;
+    isolation: isolate;
+}
+.fibre::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: var(--fibre);
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='p' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.004 0.02' numOctaves='4' seed='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.62 0 0 0 0 0.52 0 0 0 0 0.36 0 0 0 0.3 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E");
+}
 ```

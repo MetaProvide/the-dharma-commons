@@ -1,6 +1,6 @@
 # Redesign
 
-Loaded only when the user names Hallmark with `redesign` or `audit` (`/hallmark redesign <target>`, *redesign the site with Hallmark*). A request that changes an existing design without naming Hallmark (a restyle, new colours or a new theme, a polish, a redesign, a small edit) never loads this file: it is done as asked, in the project's own system. A redesign is a build whose material is the page that exists: SKILL.md still binds, and this file says what the run keeps, what replaces the Step 1 ask and what the sweep adds. The target is the user's own code (a file, a folder, a route on a dev server); a live URL with no source behind it can only be audited, through `--url`.
+Loaded only when the user names Hallmark with `redesign` or `audit` (`/hallmark redesign <target>`, _redesign the site with Hallmark_). A request that changes an existing design without naming Hallmark (a restyle, new colours or a new theme, a polish, a redesign, a small edit) never loads this file: it is done as asked, in the project's own system. A redesign is a build whose material is the page that exists: SKILL.md still binds, and this file says what the run keeps, what replaces the Step 1 ask and what the sweep adds. The target is the user's own code (a file, a folder, a route on a dev server); a live URL with no source behind it can only be audited, through `--url`.
 
 ## What a redesign keeps
 
@@ -8,23 +8,23 @@ Loaded only when the user names Hallmark with `redesign` or `audit` (`/hallmark 
 - **The wiring.** Every link, form, field, handler, route, id and test hook; every script, data call and analytics call. Edit markup inside the component that owns it. Never move logic, rename a prop, or drop a `name`, an `id`, a `key`, a `type`, an `href` or a `data-testid` that a script or a test reads. A prop the Floor empties (an emoji passed as an icon) may go with it, named in the handoff. A state the screen has no logic for (a failed load, an undo) is listed for the owner, never built.
 - **The files.** No file deleted, no route removed and no component tree replaced without a file-level plan the user approved, and no test edited to make the redesign pass. Documents in the repo (a README, a prompt, a deck) explain the product; they are not page copy. In a git project, start from a clean tree, `.hallmark/` aside (ask the user to commit or stash; never do it for them), so the redesign is one diff they can read and revert. The stylesheet is the redesign's to edit: the append-only rule guards it from a build, not from its own redesign.
 - **The brand,** when there is one. A brand is chosen: a logo, a colour or a face the project names (a brand file, a logo asset, named tokens, a font file of its own) or the user states. It stays at every depth, its values read from the project's files, never from memory. A framework default or a look the gates name (the purple-to-blue gradient, Inter as the display, a stock swatch) is not a brand: restyle and full replace it, and the Picks block says so in case it was. A locked `design.md` is the system at every depth.
-- **The words,** unless a gate names them. Wording that fails a copy gate (19, 54, 58, 63, 69) is tightened from the facts already on the page, and the handoff lists every changed line, before and after. An eyebrow is never just deleted: where its heading is figurative, the plain label becomes the heading (*Opening hours* over *When to find us* becomes *Opening hours*). Terms, disclaimers and consent text are never reworded. When the user says to keep every word, stamp `copy: verbatim`: 19, 58 and 69 then report as notes.
+- **The words,** unless a gate names them. Wording that fails a copy gate (19, 54, 58, 63, 69) is tightened from the facts already on the page, and the handoff lists every changed line, before and after. An eyebrow is never just deleted: where its heading is figurative, the plain label becomes the heading (_Opening hours_ over _When to find us_ becomes _Opening hours_). Terms, disclaimers and consent text are never reworded. When the user says to keep every word, stamp `copy: verbatim`: 19, 58 and 69 then report as notes.
 
 ## Depth
 
 The verb is a **full** redesign: the content and the wiring stay, the system and the composition change. A lighter depth runs only when the same request asks for it in so many words, and the Picks block names the depth:
 
-| Depth | Stays | Changes | Only when the request says |
-| --- | --- | --- | --- |
-| **full** | the content and the wiring | the system and the composition: shape, hero, section objects, chrome | nothing else: it is the verb |
-| **restyle** | the layout | the system: colour, type, radius, shadow, motion, the controls | *keep the layout*, *restyle*, *reskin*, *only the colours and type* |
-| **polish** | the system and the layout | only what a gate names: the tells, contrast, states, motion, tokens | *polish*, *keep our look*, *only fix what looks generated* |
+| Depth       | Stays                      | Changes                                                              | Only when the request says                                          |
+| ----------- | -------------------------- | -------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| **full**    | the content and the wiring | the system and the composition: shape, hero, section objects, chrome | nothing else: it is the verb                                        |
+| **restyle** | the layout                 | the system: colour, type, radius, shadow, motion, the controls       | _keep the layout_, _restyle_, _reskin_, _only the colours and type_ |
+| **polish**  | the system and the layout  | only what a gate names: the tells, contrast, states, motion, tokens  | _polish_, _keep our look_, _only fix what looks generated_          |
 
 The depths do not blend: a polish that finds the concept wrong says so and recommends the full run, it never smuggles one in.
 
 **Full depth on an app screen** recomposes each screen inside the shell it has: what leads, and how the figures, tables and forms are arranged (`flow.md` § App screens). Routes, destinations and each component's logic stay; there is no hero stage and no hero review.
 
-*From scratch* is a build, not a depth: SKILL.md as written, the old page as its Step 2 inventory, in new files beside the old ones.
+_From scratch_ is a build, not a depth: SKILL.md as written, the old page as its Step 2 inventory, in new files beside the old ones.
 
 ## Before
 
@@ -45,7 +45,7 @@ It prints the findings grouped by gate and writes them to `.hallmark/before.txt`
 
 One message replaces the Step 1 ask; skip it when the request already answers it or no one can answer:
 
-> *Before I redesign, three things. 1. **What must stay**: the brand, a section, a page? Say *keep the layout* and I only restyle. 2. **What is wrong with it**, in your words, and the feeling you want instead. 3. **Anything new to show**: screenshots, photos, numbers, a quote. Or say **go ahead** and I will redesign it in full.*
+> _Before I redesign, three things. 1. **What must stay**: the brand, a section, a page? Say *keep the layout* and I only restyle. 2. **What is wrong with it**, in your words, and the feeling you want instead. 3. **Anything new to show**: screenshots, photos, numbers, a quote. Or say **go ahead** and I will redesign it in full._
 
 ## The plan
 

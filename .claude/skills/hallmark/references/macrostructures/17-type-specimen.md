@@ -14,6 +14,7 @@ Reach for it for type foundries, design systems where a custom face is the diffe
 Avoid when the brand uses an off-the-shelf face. Type Specimen needs something distinctive to celebrate.
 
 **Sample opening lines** (foundry voice: name the face, the weights, the use):
-> *"Corvid Display, set at 96pt."* Names the face and the size, nothing else.
-> *"Eight weights. Three optical sizes. One good italic."* Counts the system in three short phrases.
-> *"A type system for editorial."* Refusal of the verb, one noun phrase.
+
+> _"Corvid Display, set at 96pt."_ Names the face and the size, nothing else.
+> _"Eight weights. Three optical sizes. One good italic."_ Counts the system in three short phrases.
+> _"A type system for editorial."_ Refusal of the verb, one noun phrase.

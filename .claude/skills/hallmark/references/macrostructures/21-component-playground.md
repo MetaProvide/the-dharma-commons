@@ -16,6 +16,7 @@ Avoid for marketing pages. Playground is utility, not pitch.
 Mono is legal here only inside the code blocks (64); tab labels and captions stay in the body face.
 
 **Sample opening lines** (tangible: open on a real example, not a claim):
-> *"Try it inline. Then take it home."* Two short imperatives.
-> *"Every example is editable. Every output is real."* Pairs the claim with its proof.
-> *"From `npm install` to your first chart in eight lines."* Names the step count, makes a concrete promise.
+
+> _"Try it inline. Then take it home."_ Two short imperatives.
+> _"Every example is editable. Every output is real."_ Pairs the claim with its proof.
+> _"From `npm install` to your first chart in eight lines."_ Names the step count, makes a concrete promise.

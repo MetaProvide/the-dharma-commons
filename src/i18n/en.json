@@ -160,5 +160,6 @@
     "intro_step_spread": "Cut into chunks, held on many computers.",
     "intro_step_found": "Gathered back and checked in your browser.",
     "intro_skip": "Go to the teachings",
-    "intro_caption": "{file} from {title}, cut into chunks and held on {nodes} Swarm nodes. Scroll to watch it scatter."
+    "intro_caption": "{file} from {title}, sealed with its fingerprint, cut into chunks and held on {nodes} Swarm nodes.",
+    "intro_matches": "Matches"
 }

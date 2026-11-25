@@ -55,20 +55,20 @@ the page: a worldflight page has no acts.
 
 ### Attributes
 
-| Attribute | On | Default | What it does |
-|---|---|---|---|
-| `data-sc-mode="worldflight"` | mode root | n/a | Turns the page into one flight. |
-| `data-sc-seam` | mode root | `0.12` | Crossfade band, in viewport-heights of scroll. Clamped 0.02 to 0.4. |
-| `data-sc-world` | stage | n/a | The single fixed stage. Gets `.sc-world`. |
-| `data-sc-segment` | leg | n/a | One leg. Holds a poster and a clip. |
-| `data-sc-w` | leg | `1.3` | Scroll this leg owns, in viewport-heights. |
-| `data-sc-linger` | leg | `0` | Dwell remap for this leg only. Clamped to 0.6. |
-| `data-sc-waypoint` | leg | n/a | Label published on the waypoint event. |
-| `data-sc-world-copy` | copy layer | n/a | Fixed overlay. Gets `.sc-world__copy`. |
-| `data-sc-copy` | copy block | n/a | A windowed block of type. |
-| `data-sc-window` | copy block | n/a | `hero` \| `finale` \| `from to [in [out]]`. |
-| `data-sc-spacer` | spacer | n/a | The scroll track. Engine sets its height. |
-| `data-sc-lerp` | root or `<video>` | `0.18` | Playhead smoothing. See devices.md. |
+| Attribute                    | On                | Default | What it does                                                        |
+| ---------------------------- | ----------------- | ------- | ------------------------------------------------------------------- |
+| `data-sc-mode="worldflight"` | mode root         | n/a     | Turns the page into one flight.                                     |
+| `data-sc-seam`               | mode root         | `0.12`  | Crossfade band, in viewport-heights of scroll. Clamped 0.02 to 0.4. |
+| `data-sc-world`              | stage             | n/a     | The single fixed stage. Gets `.sc-world`.                           |
+| `data-sc-segment`            | leg               | n/a     | One leg. Holds a poster and a clip.                                 |
+| `data-sc-w`                  | leg               | `1.3`   | Scroll this leg owns, in viewport-heights.                          |
+| `data-sc-linger`             | leg               | `0`     | Dwell remap for this leg only. Clamped to 0.6.                      |
+| `data-sc-waypoint`           | leg               | n/a     | Label published on the waypoint event.                              |
+| `data-sc-world-copy`         | copy layer        | n/a     | Fixed overlay. Gets `.sc-world__copy`.                              |
+| `data-sc-copy`               | copy block        | n/a     | A windowed block of type.                                           |
+| `data-sc-window`             | copy block        | n/a     | `hero` \| `finale` \| `from to [in [out]]`.                         |
+| `data-sc-spacer`             | spacer            | n/a     | The scroll track. Engine sets its height.                           |
+| `data-sc-lerp`               | root or `<video>` | `0.18`  | Playhead smoothing. See devices.md.                                 |
 
 The engine generates no DOM here, the same as in act mode. It sets the spacer's
 height, and it writes opacity, visibility and z-index on the legs. Everything
@@ -88,7 +88,7 @@ place the reader can never come to rest. One extra viewport gives the last
 flight room to land.
 
 Position along the track, `t`, is measured in viewport-heights, which is the
-same unit the weights are written in. Leg *i* owns `[c_i, c_i + w_i)`, and its
+same unit the weights are written in. Leg _i_ owns `[c_i, c_i + w_i)`, and its
 local progress is `(t - c_i) / w_i`, remapped through `lingerEase`.
 
 ---
@@ -159,9 +159,9 @@ ships it to every page that uses this mode. Build the rail in the page:
 
 ```js
 addEventListener('sc:waypoint', (e) => {
-  document.querySelectorAll('.rail__leg').forEach((el) => {
-    el.setAttribute('aria-current', String(+el.dataset.leg === e.detail.index));
-  });
+    document.querySelectorAll('.rail__leg').forEach((el) => {
+        el.setAttribute('aria-current', String(+el.dataset.leg === e.detail.index));
+    });
 });
 ```
 
@@ -240,7 +240,9 @@ Do not fix it in the engine. One resize makes it re-measure correctly, so send
 one from the page once the window and the fonts have settled:
 
 ```js
-function relayout() { dispatchEvent(new Event('resize')); }
+function relayout() {
+    dispatchEvent(new Event('resize'));
+}
 addEventListener('load', relayout);
 if (document.fonts && document.fonts.ready) document.fonts.ready.then(relayout);
 ```
@@ -252,7 +254,7 @@ against those blocks (a scrim plate, a rail) is wrong until it re-measures.
 Check it with one line, and check it before blaming anything else:
 
 ```js
-document.documentElement.scrollHeight   // must be ~(sum of weights + 1) * innerHeight
+document.documentElement.scrollHeight; // must be ~(sum of weights + 1) * innerHeight
 ```
 
 ## 7c. Pace: one speed, and slower than you think
@@ -296,15 +298,15 @@ is tuned to a frame of film, not to a number.
 
 ## 8. Hard rules
 
-| Rule | Why |
-|---|---|
-| **Nothing in document flow but the spacer.** | The moment a real block scrolls past the fixed stage, the page has a seam and the mode is pointless. If you want a section, you want act mode. |
-| **Copy translate ≤ 4vh across a window.** | Larger reads as a second page scrolling at a different speed. |
-| **The lerp is never disabled** except under reduced motion. | A 1:1 playhead reproduces every gap in the wheel event stream as a stutter. |
-| **One pace for the whole flight**, and slower than feels necessary. | Weight divided by clip length must match across legs, or the world surges and drags. ~1.5vh per 8s is the dead-scroll guardrail, not the target. See section 7c. |
-| **Every clip stays mounted. Never swap a `src`.** | A src swap is a black frame. |
-| **Seam frames come from the encoded mp4.** | The encode changes the pixels. |
-| **One accent, one scrim shape, copy anchored off the bright centre.** | Verified by the contrast pass, which grades copy blocks exactly like cues, at the worst frame each line is ever shown on. |
+| Rule                                                                  | Why                                                                                                                                                              |
+| --------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Nothing in document flow but the spacer.**                          | The moment a real block scrolls past the fixed stage, the page has a seam and the mode is pointless. If you want a section, you want act mode.                   |
+| **Copy translate ≤ 4vh across a window.**                             | Larger reads as a second page scrolling at a different speed.                                                                                                    |
+| **The lerp is never disabled** except under reduced motion.           | A 1:1 playhead reproduces every gap in the wheel event stream as a stutter.                                                                                      |
+| **One pace for the whole flight**, and slower than feels necessary.   | Weight divided by clip length must match across legs, or the world surges and drags. ~1.5vh per 8s is the dead-scroll guardrail, not the target. See section 7c. |
+| **Every clip stays mounted. Never swap a `src`.**                     | A src swap is a black frame.                                                                                                                                     |
+| **Seam frames come from the encoded mp4.**                            | The encode changes the pixels.                                                                                                                                   |
+| **One accent, one scrim shape, copy anchored off the bright centre.** | Verified by the contrast pass, which grades copy blocks exactly like cues, at the worst frame each line is ever shown on.                                        |
 
 ---
 

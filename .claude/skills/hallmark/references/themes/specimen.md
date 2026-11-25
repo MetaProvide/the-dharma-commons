@@ -1,4 +1,5 @@
 ---
+
 name: Specimen
 slug: specimen
 genre: editorial
@@ -20,16 +21,28 @@ A foundry's material: warm oat paper, warm near-black ink, Bodoni Moda 400 pinne
 
 ```css
 :root {
-  --color-paper: oklch(96.5% 0.016 82); --color-paper-2: oklch(93.5% 0.02 80); --color-paper-3: oklch(89% 0.024 78);
-  --color-ink: oklch(17% 0.012 60); --color-ink-2: oklch(28% 0.014 60); --color-muted: oklch(49% 0.014 65);
-  --color-rule: oklch(80% 0.018 75); --color-rule-2: oklch(66% 0.02 72);
-  --color-accent: oklch(45% 0.18 262); --color-accent-ink: oklch(97% 0.012 82); --color-focus: oklch(50% 0.18 262);
-  --color-guide: oklch(55% 0.16 262 / 0.5);
-  --font-display: "Bodoni Moda", ui-serif, Georgia, serif; --font-body: "Geist", ui-sans-serif, system-ui, sans-serif;
-  --font-outlier: "Geist Mono", ui-monospace, monospace;
-  --radius-card: 0; --radius-pill: 0; --rule-hair: 1px;
-  --shadow-card: none;
-  --tracking-display: -0.02em; --display-weight: 400; --display-optical: 96;
+    --color-paper: oklch(96.5% 0.016 82);
+    --color-paper-2: oklch(93.5% 0.02 80);
+    --color-paper-3: oklch(89% 0.024 78);
+    --color-ink: oklch(17% 0.012 60);
+    --color-ink-2: oklch(28% 0.014 60);
+    --color-muted: oklch(49% 0.014 65);
+    --color-rule: oklch(80% 0.018 75);
+    --color-rule-2: oklch(66% 0.02 72);
+    --color-accent: oklch(45% 0.18 262);
+    --color-accent-ink: oklch(97% 0.012 82);
+    --color-focus: oklch(50% 0.18 262);
+    --color-guide: oklch(55% 0.16 262 / 0.5);
+    --font-display: "Bodoni Moda", ui-serif, Georgia, serif;
+    --font-body: "Geist", ui-sans-serif, system-ui, sans-serif;
+    --font-outlier: "Geist Mono", ui-monospace, monospace;
+    --radius-card: 0;
+    --radius-pill: 0;
+    --rule-hair: 1px;
+    --shadow-card: none;
+    --tracking-display: -0.02em;
+    --display-weight: 400;
+    --display-optical: 96;
 }
 ```
 
@@ -84,17 +97,65 @@ Editorial, hand-set, lightly literary. Verbs over adjectives; name the face, the
 ```
 
 ```css
-h1, h2, h3 { font-family: var(--font-display); font-weight: var(--display-weight); letter-spacing: var(--tracking-display); line-height: 1.02; }
-h1, h2 { font-variation-settings: "opsz" var(--display-optical); }
-h3 { font-optical-sizing: auto; line-height: 1.15; }
-.btn { min-height: 48px; border: var(--rule-hair) solid var(--color-ink); border-radius: var(--radius-card); padding: 0 var(--space-lg); font-weight: 500; }
-.btn--primary { background: var(--color-ink); color: var(--color-paper); }
-.btn--secondary { background: transparent; color: var(--color-ink); }
-.guide { border-top: var(--rule-hair) solid var(--color-guide); }
-.rule--double { border: 0; border-top: 3px double var(--color-rule-2); }
-input[type="range"] { appearance: none; height: 1px; background: var(--color-rule-2); }
-input[type="range"]::-webkit-slider-thumb { appearance: none; width: 16px; height: 16px; background: var(--color-ink); border-radius: 0; }
-.photo > img { outline: var(--rule-hair) solid var(--color-rule); outline-offset: -1px; }
-a { text-decoration-color: var(--color-accent); text-underline-offset: 0.18em; }
-a:hover { text-decoration-thickness: 2px; }
+h1,
+h2,
+h3 {
+    font-family: var(--font-display);
+    font-weight: var(--display-weight);
+    letter-spacing: var(--tracking-display);
+    line-height: 1.02;
+}
+h1,
+h2 {
+    font-variation-settings: "opsz" var(--display-optical);
+}
+h3 {
+    font-optical-sizing: auto;
+    line-height: 1.15;
+}
+.btn {
+    min-height: 48px;
+    border: var(--rule-hair) solid var(--color-ink);
+    border-radius: var(--radius-card);
+    padding: 0 var(--space-lg);
+    font-weight: 500;
+}
+.btn--primary {
+    background: var(--color-ink);
+    color: var(--color-paper);
+}
+.btn--secondary {
+    background: transparent;
+    color: var(--color-ink);
+}
+.guide {
+    border-top: var(--rule-hair) solid var(--color-guide);
+}
+.rule--double {
+    border: 0;
+    border-top: 3px double var(--color-rule-2);
+}
+input[type="range"] {
+    appearance: none;
+    height: 1px;
+    background: var(--color-rule-2);
+}
+input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background: var(--color-ink);
+    border-radius: 0;
+}
+.photo > img {
+    outline: var(--rule-hair) solid var(--color-rule);
+    outline-offset: -1px;
+}
+a {
+    text-decoration-color: var(--color-accent);
+    text-underline-offset: 0.18em;
+}
+a:hover {
+    text-decoration-thickness: 2px;
+}
 ```

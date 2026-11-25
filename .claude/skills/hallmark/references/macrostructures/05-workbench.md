@@ -16,6 +16,7 @@ Avoid when the product is conceptual or services-led. Workbench needs a UI to sh
 Compositions: Showcase and Split for the captures, a Band for the close (`layout.md` § 5); the optional bar is a sticky bottom bar with one action at `--z-sticky`.
 
 **Sample opening lines** (imitate the specificity; the page walks the visitor through):
-> *"$ streampipe parse access.log --filter status=5xx | jq"* Opens on a real command, not a claim.
-> *"Read anything that emits lines: files, pipes, sockets, kubectl logs."* Names the inputs, refuses abstraction.
-> *"Open the trace, find the span, fix the regression."* Three concrete verbs.
+
+> _"$ streampipe parse access.log --filter status=5xx | jq"_ Opens on a real command, not a claim.
+> _"Read anything that emits lines: files, pipes, sockets, kubectl logs."_ Names the inputs, refuses abstraction.
+> _"Open the trace, find the span, fix the regression."_ Three concrete verbs.

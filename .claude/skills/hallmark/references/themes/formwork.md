@@ -1,4 +1,5 @@
 ---
+
 name: Formwork
 slug: formwork
 genre: editorial
@@ -20,28 +21,40 @@ A site-office voice: warm grey concrete for paper, near-black ink, Oswald 700 ca
 
 ```css
 :root {
-  --color-paper: oklch(74% 0.008 80); --color-paper-2: oklch(69% 0.009 80); --color-paper-3: oklch(64% 0.01 80);
-  --color-plate: oklch(82% 0.007 80); --color-plate-ink: oklch(95% 0.006 80);
-  --color-ink: oklch(18% 0.005 270); --color-ink-2: oklch(28% 0.006 80); --color-muted: oklch(31.5% 0.008 80);
-  --color-rule: oklch(64% 0.01 80);
-  --color-accent: oklch(66% 0.21 38); --color-accent-ink: oklch(18% 0.005 270); --color-focus: oklch(42% 0.15 38);
-  --color-accent-deep: oklch(48% 0.17 38);
-  --texture-opacity: 0.05;
-  --font-display: "Oswald", ui-sans-serif, sans-serif; --font-body: "Archivo", ui-sans-serif, sans-serif;
-  --font-outlier: "Archivo Narrow", ui-sans-serif, sans-serif;
-  --radius-card: 0; --radius-pill: 0; --rule-hair: 1px; --rule-bar: 3px;
-  --shadow-card: 6px 6px 0 var(--color-ink);
-  --tracking-display: -0.005em; --display-weight: 700;
+    --color-paper: oklch(74% 0.008 80);
+    --color-paper-2: oklch(69% 0.009 80);
+    --color-paper-3: oklch(64% 0.01 80);
+    --color-plate: oklch(82% 0.007 80);
+    --color-plate-ink: oklch(95% 0.006 80);
+    --color-ink: oklch(18% 0.005 270);
+    --color-ink-2: oklch(28% 0.006 80);
+    --color-muted: oklch(31.5% 0.008 80);
+    --color-rule: oklch(64% 0.01 80);
+    --color-accent: oklch(66% 0.21 38);
+    --color-accent-ink: oklch(18% 0.005 270);
+    --color-focus: oklch(42% 0.15 38);
+    --color-accent-deep: oklch(48% 0.17 38);
+    --texture-opacity: 0.05;
+    --font-display: "Oswald", ui-sans-serif, sans-serif;
+    --font-body: "Archivo", ui-sans-serif, sans-serif;
+    --font-outlier: "Archivo Narrow", ui-sans-serif, sans-serif;
+    --radius-card: 0;
+    --radius-pill: 0;
+    --rule-hair: 1px;
+    --rule-bar: 3px;
+    --shadow-card: 6px 6px 0 var(--color-ink);
+    --tracking-display: -0.005em;
+    --display-weight: 700;
 }
 ```
 
 Three pours, stated in the stamp (`formwork: cast`). Muted sits on paper and paper-2 only; on anything darker the text is ink.
 
-| Pour | Wall and ink | Orange |
-| --- | --- | --- |
-| **Cast** (default) | concrete `oklch(74% 0.008 80)` under near-black, grain multiplied across it | `oklch(66% 0.21 38)` |
-| **Night pour** | `oklch(27% 0.006 270)` under `oklch(95% 0.006 80)`, grain screened | `oklch(70% 0.21 40)` |
-| **Drawing** | tracing paper `oklch(95% 0.012 85)` under blue-black ink `oklch(22% 0.02 260)`, no grain | a red `oklch(58% 0.21 30)` |
+| Pour               | Wall and ink                                                                             | Orange                     |
+| ------------------ | ---------------------------------------------------------------------------------------- | -------------------------- |
+| **Cast** (default) | concrete `oklch(74% 0.008 80)` under near-black, grain multiplied across it              | `oklch(66% 0.21 38)`       |
+| **Night pour**     | `oklch(27% 0.006 270)` under `oklch(95% 0.006 80)`, grain screened                       | `oklch(70% 0.21 40)`       |
+| **Drawing**        | tracing paper `oklch(95% 0.012 85)` under blue-black ink `oklch(22% 0.02 260)`, no grain | a red `oklch(58% 0.21 30)` |
 
 ## Type
 
@@ -94,14 +107,51 @@ A foreman's plain talk: what was poured, where, for whom and when it opens. Shor
 ```
 
 ```css
-h1, h2, h3 { font-weight: 700; text-transform: uppercase; }
-.btn { border-radius: 0; padding: var(--space-sm) var(--space-xl); font: 700 var(--text-sm)/1.6 var(--font-display); text-transform: uppercase; }
-.btn--primary { background: var(--color-accent); color: var(--color-accent-ink); box-shadow: 0 3px 0 var(--color-accent-deep);
-  transition: translate var(--dur-micro) var(--ease-out), box-shadow var(--dur-micro) var(--ease-out); }
-.btn--primary:active { translate: 0 3px; box-shadow: 0 0 0 var(--color-accent-deep); }
-.btn--secondary { background: var(--color-paper-2); color: var(--color-ink); border: 2px solid var(--color-ink); box-shadow: inset 0 2px 3px color-mix(in oklab, var(--color-ink) 30%, transparent); }
-.card { background: var(--color-plate); border: var(--rule-bar) solid var(--color-ink); box-shadow: var(--shadow-card); }
-.photo img { outline: 2px solid var(--color-ink); outline-offset: -2px; }
-.band--cast { position: relative; isolation: isolate; background: var(--color-paper-2); }
-::selection { background: color-mix(in oklab, var(--color-accent) 35%, transparent); }
+h1,
+h2,
+h3 {
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.btn {
+    border-radius: 0;
+    padding: var(--space-sm) var(--space-xl);
+    font: 700 var(--text-sm) / 1.6 var(--font-display);
+    text-transform: uppercase;
+}
+.btn--primary {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+    box-shadow: 0 3px 0 var(--color-accent-deep);
+    transition:
+        translate var(--dur-micro) var(--ease-out),
+        box-shadow var(--dur-micro) var(--ease-out);
+}
+.btn--primary:active {
+    translate: 0 3px;
+    box-shadow: 0 0 0 var(--color-accent-deep);
+}
+.btn--secondary {
+    background: var(--color-paper-2);
+    color: var(--color-ink);
+    border: 2px solid var(--color-ink);
+    box-shadow: inset 0 2px 3px color-mix(in oklab, var(--color-ink) 30%, transparent);
+}
+.card {
+    background: var(--color-plate);
+    border: var(--rule-bar) solid var(--color-ink);
+    box-shadow: var(--shadow-card);
+}
+.photo img {
+    outline: 2px solid var(--color-ink);
+    outline-offset: -2px;
+}
+.band--cast {
+    position: relative;
+    isolation: isolate;
+    background: var(--color-paper-2);
+}
+::selection {
+    background: color-mix(in oklab, var(--color-accent) 35%, transparent);
+}
 ```

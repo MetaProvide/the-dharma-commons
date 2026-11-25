@@ -16,6 +16,7 @@ Avoid as a substitute for narrative. Some stories should not be read spatially.
 Mobile: under 60rem the map scrolls sideways inside a wrapper, or collapses to an ordered list of its nodes.
 
 **Sample opening lines** (name the path or the territory):
-> *"Browser, then API, then database. Tracejam sits between the last two."* Names the layers and the position.
-> *"From stdin, through the pipe, into your dashboard."* Labels the flow drawn below.
-> *"Three tiers across two regions, one ledger."* Counts the system, geographic and structural.
+
+> _"Browser, then API, then database. Tracejam sits between the last two."_ Names the layers and the position.
+> _"From stdin, through the pipe, into your dashboard."_ Labels the flow drawn below.
+> _"Three tiers across two regions, one ledger."_ Counts the system, geographic and structural.

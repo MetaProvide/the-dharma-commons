@@ -1,4 +1,5 @@
 ---
+
 name: iso-glow
 description: Build interactive isometric line-art figures with glow lighting in a single HTML file — a dark hairline drawing where whatever is live glows in one accent colour (pressed keys, lit screens and windows, beams, wires with travelling light pulses), plus an accent-colour picker. One figure, or a gallery of several figures with sidebar navigation. Also builds the same look in real 3D (three.js: orbit, true isometric view, revolve), including cleaning up a user's own .glb model into iso-glow hairlines. Also has a Lumen style: solid, lit, filled objects with geometric light cones, for product showcases and web/landing-page illustration. Use for isometric objects, devices, buildings and cityscapes, "Fig N" plates, glowing interactive isometric illustrations, Lumen / solid isometric product illustrations, and 3D versions of them, including exploded and sectioned real objects.
 ---
@@ -32,30 +33,51 @@ print('wrote', out)
 PY
 ```
 
-   No Python? Copy the template (`cp`) and make the same four text replacements with your edit tool, without reading the rest of the file.
+No Python? Copy the template (`cp`) and make the same four text replacements with your edit tool, without reading the rest of the file.
 3. **Finish without browser automation.** Do **not** install or launch Playwright, Puppeteer, headless Chrome or any other browser tool: they need downloads or can hang indefinitely. Instead re-read `fig.js` once for obvious mistakes (`node --check fig.js` if Node is available), open the page in the user's normal browser and return immediately (`open NAME.html` on macOS, `xdg-open` on Linux, `start` on Windows), and tell the user what to click or press. If they report a problem, fix that. Some preview panes show local `file://` pages as static snapshots without running scripts, which makes a working page look blank.
 
 ### Starter figure (complete and working: a lamp whose window lights up)
 
 ```js
 FIGS.push({
-  id: 'lamp', name: 'Lamp', hint: 'Click the lamp · space toggles', aria: 'Isometric lamp. Click it or press space to switch it on.',
-  mount(stage, api) {
-    const K = api.iso.frame([[0,0,0],[200,0,0],[0,160,0],[200,160,0],[70,50,98]]);   // extreme corners incl. tallest point
-    const { TOP, FRONT, box } = K;
-    let svg = box(0,0,0, 200,160,8, 12);                                                 // ground plate
-    svg += `<g transform="${TOP(0,0,8)}"><rect class="detail" x="8" y="8" width="184" height="144" rx="8"/></g>`;
-    svg += `<g class="press" id="lamp-body">${box(70,50,8, 60,60,90, 6)}</g>`;          // pressable body
-    svg += `<g transform="${FRONT(70,110,98)}"><rect id="lamp-glass" class="face led" filter="url(#soft)" x="10" y="12" width="40" height="40" rx="4"/></g>`;
-    stage.setAttribute('viewBox', K.viewBox); stage.innerHTML = svg;
-    const st = { on: false };
-    const glass = stage.querySelector('#lamp-glass'), body = stage.querySelector('#lamp-body');
-    function render() { glass.classList.toggle('hot', st.on); api.power(st.on); api.readout(st.on ? 'on' : 'off'); }
-    const toggle = () => { st.on = !st.on; render(); };
-    body.addEventListener('click', toggle);
-    render();
-    return { key: e => (e.key === ' ' || e.key === 'Enter') ? (toggle(), true) : false, demo: () => api.after(200, toggle) };
-  },
+    id: 'lamp',
+    name: 'Lamp',
+    hint: 'Click the lamp · space toggles',
+    aria: 'Isometric lamp. Click it or press space to switch it on.',
+    mount(stage, api) {
+        const K = api.iso.frame([
+            [0, 0, 0],
+            [200, 0, 0],
+            [0, 160, 0],
+            [200, 160, 0],
+            [70, 50, 98],
+        ]); // extreme corners incl. tallest point
+        const { TOP, FRONT, box } = K;
+        let svg = box(0, 0, 0, 200, 160, 8, 12); // ground plate
+        svg += `<g transform="${TOP(0, 0, 8)}"><rect class="detail" x="8" y="8" width="184" height="144" rx="8"/></g>`;
+        svg += `<g class="press" id="lamp-body">${box(70, 50, 8, 60, 60, 90, 6)}</g>`; // pressable body
+        svg += `<g transform="${FRONT(70, 110, 98)}"><rect id="lamp-glass" class="face led" filter="url(#soft)" x="10" y="12" width="40" height="40" rx="4"/></g>`;
+        stage.setAttribute('viewBox', K.viewBox);
+        stage.innerHTML = svg;
+        const st = { on: false };
+        const glass = stage.querySelector('#lamp-glass'),
+            body = stage.querySelector('#lamp-body');
+        function render() {
+            glass.classList.toggle('hot', st.on);
+            api.power(st.on);
+            api.readout(st.on ? 'on' : 'off');
+        }
+        const toggle = () => {
+            st.on = !st.on;
+            render();
+        };
+        body.addEventListener('click', toggle);
+        render();
+        return {
+            key: (e) => (e.key === ' ' || e.key === 'Enter' ? (toggle(), true) : false),
+            demo: () => api.after(200, toggle),
+        };
+    },
 });
 ```
 
@@ -71,15 +93,29 @@ Grow this: more `box()` parts for the object, detail drawn on face planes (`FRON
 
 ```js
 FIGS.push({
-  id: 'lamp', name: 'Desk lamp', hint: 'Click the switch · ↑↓ dim', aria: 'Isometric desk lamp. …',
-  css: `[data-fig="lamp"] …`,            // optional, always scoped to the figure
-  mount(stage, api) {                      // stage: a fresh <svg> per mount
-    const K = api.iso.frame([/* extreme 3D corners, incl. the tallest point */]);
-    const { P, D, TOP, FRONT, SIDE, rect, box, boxc, path } = K;
-    stage.setAttribute('viewBox', K.viewBox); stage.innerHTML = svg;
-    // listeners on stage; one state object; one render()
-    return { key(e) { /* true if handled */ }, keyup(e) {}, unmount() {}, demo() {} };
-  },
+    id: 'lamp',
+    name: 'Desk lamp',
+    hint: 'Click the switch · ↑↓ dim',
+    aria: 'Isometric desk lamp. …',
+    css: `[data-fig="lamp"] …`, // optional, always scoped to the figure
+    mount(stage, api) {
+        // stage: a fresh <svg> per mount
+        const K = api.iso.frame([
+            /* extreme 3D corners, incl. the tallest point */
+        ]);
+        const { P, D, TOP, FRONT, SIDE, rect, box, boxc, path } = K;
+        stage.setAttribute('viewBox', K.viewBox);
+        stage.innerHTML = svg;
+        // listeners on stage; one state object; one render()
+        return {
+            key(e) {
+                /* true if handled */
+            },
+            keyup(e) {},
+            unmount() {},
+            demo() {},
+        };
+    },
 });
 ```
 
@@ -88,30 +124,36 @@ FIGS.push({
 ## Kernel (from iso-figure)
 
 ```js
-const C = Math.cos(Math.PI/6), S = Math.sin(Math.PI/6);
-const P = (x,y,z) => [(x-y)*C + OX, (x+y)*S - z + OY];
-const D = (x,y,z) => [(x-y)*C, (x+y)*S - z];
-const plane = (O,U,V) => { const o=P(...O), u=D(...U), v=D(...V); return `matrix(${u[0]} ${u[1]} ${v[0]} ${v[1]} ${o[0]} ${o[1]})`; };
-const TOP   = (x,y,z) => plane([x,y,z],[1,0,0],[0,1,0]);
-const FRONT = (x,y,z) => plane([x,y,z],[1,0,0],[0,0,-1]);   // y = max face, lower-left
-const SIDE  = (x,y,z) => plane([x,y,z],[0,-1,0],[0,0,-1]);  // x = max face, lower-right
+const C = Math.cos(Math.PI / 6),
+    S = Math.sin(Math.PI / 6);
+const P = (x, y, z) => [(x - y) * C + OX, (x + y) * S - z + OY];
+const D = (x, y, z) => [(x - y) * C, (x + y) * S - z];
+const plane = (O, U, V) => {
+    const o = P(...O),
+        u = D(...U),
+        v = D(...V);
+    return `matrix(${u[0]} ${u[1]} ${v[0]} ${v[1]} ${o[0]} ${o[1]})`;
+};
+const TOP = (x, y, z) => plane([x, y, z], [1, 0, 0], [0, 1, 0]);
+const FRONT = (x, y, z) => plane([x, y, z], [1, 0, 0], [0, 0, -1]); // y = max face, lower-left
+const SIDE = (x, y, z) => plane([x, y, z], [0, -1, 0], [0, 0, -1]); // x = max face, lower-right
 ```
 
 +x runs down-right, +y down-left, +z up. Draw ordinary rects, text and paths inside `<g transform="${FRONT(x, y+d, z+h)}">` (face top-left corner, local v grows downward) and they land on the plane. A box is its three visible faces. `box(x,y,z,w,d,h,r)` always draws a full, opaque top over its whole footprint, so don't use it for thin trim, ledges or bands that sit against a wall (the top would cover what is above or behind); draw those as flat strips on the wall's FRONT/SIDE plane instead. `rect(transform, w, h, r = 0, cls = 'face')` draws one rectangle on a plane, e.g. `rect(FRONT(x, y+d, z+h), w, 4, 0, 'face')` for a strip. Paint order is the only depth sort: back to front (smaller x+y first, lower z first). Faces need opaque fills. `vector-effect: non-scaling-stroke` on every stroke.
 
 ## Glow kit (classes in the template)
 
-| Class | Use |
-|---|---|
-| `.face`, `.face.top`, `.face.recess`, `.detail`, `.label` | structure, decks, insets, hairline texture, printed text |
-| `.press` + `.down` / `.lit` / `.latched` | pressable part; sinks 3px; transient orange glow (`api.flash`); persistent on-state |
-| `.glass` + `.hot` | display glass, lit: warm fill + accent stroke |
-| `.halo` + `.hot` with `filter="url(#bloom)"` | soft light spilling behind a lit glass, beam or bulb |
-| `.scr`, `.scr-accent` | lit display content |
-| `.led` + `.hot` | indicator on |
-| `.wire` + `.hot`, `.wire-under` | wire, carrying signal; background-coloured stroke under it for crossings |
-| `.pulse` + `.go` on a `path` with `pathLength="1000"` | a dash of light travelling along a wire (`api.replay`) |
-| filters `#glow`, `#soft`, `#bloom` | strong glow, subtle glow, blur only |
+| Class                                                     | Use                                                                                 |
+| --------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `.face`, `.face.top`, `.face.recess`, `.detail`, `.label` | structure, decks, insets, hairline texture, printed text                            |
+| `.press` + `.down` / `.lit` / `.latched`                  | pressable part; sinks 3px; transient orange glow (`api.flash`); persistent on-state |
+| `.glass` + `.hot`                                         | display glass, lit: warm fill + accent stroke                                       |
+| `.halo` + `.hot` with `filter="url(#bloom)"`              | soft light spilling behind a lit glass, beam or bulb                                |
+| `.scr`, `.scr-accent`                                     | lit display content                                                                 |
+| `.led` + `.hot`                                           | indicator on                                                                        |
+| `.wire` + `.hot`, `.wire-under`                           | wire, carrying signal; background-coloured stroke under it for crossings            |
+| `.pulse` + `.go` on a `path` with `pathLength="1000"`     | a dash of light travelling along a wire (`api.replay`)                              |
+| filters `#glow`, `#soft`, `#bloom`                        | strong glow, subtle glow, blur only                                                 |
 
 Colour only through tokens: `--body --deck --line --detail --recess --ink --ink-hi --glass --glass-on --accent --accent-hi --accent-dim --panel`. Never a literal hue in a figure, or the palette picker and light theme break.
 
@@ -172,40 +214,81 @@ PY
 ### Starter 3D figure (complete: a button that counts on a lit screen)
 
 ```js
-FIGS3D.push({ id: 'clicker', name: 'Clicker', mod: (() => {
-  const g0 = new THREE.Group(); g0.visible = false; scene.add(g0);
-  const first = twMeshes.length;                                    // parts built from here get crease lines
-  plateWith(g0, 240, 200, [[18, 18], [222, 18], [18, 182], [222, 182]]);
-  rbox(50, 40, 7, 140, 110, 60, 10, bodyMat, g0);                   // body: x, y, z, w (x), d (y), h (z), plan radius
-  const btn = new THREE.Group(); btn.userData = { hit: 'btn' }; g0.add(btn);   // flash(btn) sinks it and lights it
-  const mat = capMat(); twCaps.push(mat); rbox(90, 60, 67, 60, 50, 8, 8, mat, btn);
-  label('PUSH', 30, 8, 7, onTop(120, 85, 75), btn);
-  frontInset(g0, 64, 150, 58, 112, 30, 4);                          // recess on the front face (y = 150)
-  const scr = faceCanvas('front', 68, 150, 54, 104, 22, 10, g0);    // a screen drawn on a canvas
-  const led = dotFront(160, 150, 18, 2, g0), ledGlow = glowPoints([W(160, 151, 18)], 0.2); g0.add(ledGlow);
-  slitsUV(frontUV(50, 150, 67), 14, 40, 3, 50, 56, g0);             // hairline texture on the front
-  hazeAndShadow(g0, 120, 100, 2.6, 2.1);
-  creases(first);
-  const st = { n: 0 };
-  function readout() { if (active === 'clicker') document.getElementById('read').textContent = `${st.n} clicks`; }
-  function render() {
-    const { x, P } = scr, { C, A_ } = screenBg(scr, st.n > 0, 3);
-    x.fillStyle = st.n ? A_ : C.ink; x.font = `${14 * P}px ${MONO3}`; x.textAlign = 'center'; x.textBaseline = 'middle';
-    x.fillText(String(st.n).padStart(4, '0'), 52 * P, 11.5 * P); scr.tex.needsUpdate = true;
-    led.material = st.n % 2 ? ledOnMat : ledOffMat; ledGlow.material.uniforms.intensity.value = st.n % 2 ? 0.8 : 0;
-    readout();
-  }
-  const push = () => { st.n++; flash(btn, 120); SFX.button(); render(); return true; };
-  themeHooks.push(render); render();
-  return { group: g0, readout, demo: push, stop: () => {},
-    key: e => e.key === ' ' && !e.repeat ? push() : false,
-    click: hit => { let o = hit?.object; while (o && !o.userData.hit) o = o.parent; if (o) push(); },
-    tick: now => tickFlashes(now),
-    panel: [['Push', 'space', push]],
-    view: { target: W(120, 100, 40), dist: 6.4 },
-    info: '<h2>Clicker</h2><p>Press the button (or space): it sinks, flashes and counts on the front screen; the LED toggles on every odd count.</p>',
-    hint: 'click the button · space' };
-})() });
+FIGS3D.push({
+    id: 'clicker',
+    name: 'Clicker',
+    mod: (() => {
+        const g0 = new THREE.Group();
+        g0.visible = false;
+        scene.add(g0);
+        const first = twMeshes.length; // parts built from here get crease lines
+        plateWith(g0, 240, 200, [
+            [18, 18],
+            [222, 18],
+            [18, 182],
+            [222, 182],
+        ]);
+        rbox(50, 40, 7, 140, 110, 60, 10, bodyMat, g0); // body: x, y, z, w (x), d (y), h (z), plan radius
+        const btn = new THREE.Group();
+        btn.userData = { hit: 'btn' };
+        g0.add(btn); // flash(btn) sinks it and lights it
+        const mat = capMat();
+        twCaps.push(mat);
+        rbox(90, 60, 67, 60, 50, 8, 8, mat, btn);
+        label('PUSH', 30, 8, 7, onTop(120, 85, 75), btn);
+        frontInset(g0, 64, 150, 58, 112, 30, 4); // recess on the front face (y = 150)
+        const scr = faceCanvas('front', 68, 150, 54, 104, 22, 10, g0); // a screen drawn on a canvas
+        const led = dotFront(160, 150, 18, 2, g0),
+            ledGlow = glowPoints([W(160, 151, 18)], 0.2);
+        g0.add(ledGlow);
+        slitsUV(frontUV(50, 150, 67), 14, 40, 3, 50, 56, g0); // hairline texture on the front
+        hazeAndShadow(g0, 120, 100, 2.6, 2.1);
+        creases(first);
+        const st = { n: 0 };
+        function readout() {
+            if (active === 'clicker') document.getElementById('read').textContent = `${st.n} clicks`;
+        }
+        function render() {
+            const { x, P } = scr,
+                { C, A_ } = screenBg(scr, st.n > 0, 3);
+            x.fillStyle = st.n ? A_ : C.ink;
+            x.font = `${14 * P}px ${MONO3}`;
+            x.textAlign = 'center';
+            x.textBaseline = 'middle';
+            x.fillText(String(st.n).padStart(4, '0'), 52 * P, 11.5 * P);
+            scr.tex.needsUpdate = true;
+            led.material = st.n % 2 ? ledOnMat : ledOffMat;
+            ledGlow.material.uniforms.intensity.value = st.n % 2 ? 0.8 : 0;
+            readout();
+        }
+        const push = () => {
+            st.n++;
+            flash(btn, 120);
+            SFX.button();
+            render();
+            return true;
+        };
+        themeHooks.push(render);
+        render();
+        return {
+            group: g0,
+            readout,
+            demo: push,
+            stop: () => {},
+            key: (e) => (e.key === ' ' && !e.repeat ? push() : false),
+            click: (hit) => {
+                let o = hit?.object;
+                while (o && !o.userData.hit) o = o.parent;
+                if (o) push();
+            },
+            tick: (now) => tickFlashes(now),
+            panel: [['Push', 'space', push]],
+            view: { target: W(120, 100, 40), dist: 6.4 },
+            info: '<h2>Clicker</h2><p>Press the button (or space): it sinks, flashes and counts on the front screen; the LED toggles on every odd count.</p>',
+            hint: 'click the button · space',
+        };
+    })(),
+});
 ```
 
 ### Module contract and helpers
@@ -225,26 +308,58 @@ Coordinates are the SVG figures' units: +x right-down, +y left-down (the FRONT f
 Embed the file as base64 (browsers block `fetch()` from `file://`): add `<script type="application/octet-stream" id="glb">BASE64</script>` before `</body>`, and use this module. It scales the model and gives every mesh the dark body, the silhouette shell and crease hairlines:
 
 ```js
-FIGS3D.push({ id: 'model', name: 'My model', mod: (() => {
-  const g0 = new THREE.Group(); g0.visible = false; scene.add(g0);
-  const SIZE = 3;                                                    // longest side in scene units
-  const bin = Uint8Array.from(atob(document.getElementById('glb').textContent.trim()), c => c.charCodeAt(0));
-  new GLTFLoader().parse(bin.buffer, '', gltf => {
-    const root = gltf.scene; root.updateMatrixWorld(true);
-    const box = new THREE.Box3().setFromObject(root), size = box.getSize(new THREE.Vector3()), k = SIZE / Math.max(size.x, size.y, size.z);
-    const c = box.getCenter(new THREE.Vector3()), first = twMeshes.length;
-    root.traverse(o => { if (!o.isMesh) return;
-      const geo = o.geometry.clone().applyMatrix4(o.matrixWorld).translate(-c.x, -box.min.y, -c.z).scale(k, k, k);
-      geo.deleteAttribute('uv'); geo.computeVertexNormals();
-      const m = new THREE.Mesh(geo, bodyMat); addOutline(m); twMeshes.push(m); g0.add(m); });
-    creases(first);
-  });
-  hazeAndShadow(g0, 0, 0, SIZE * 1.1, SIZE * 0.9);
-  const readout = () => { if (active === 'model') document.getElementById('read').textContent = 'drag to orbit · scroll to zoom'; };
-  return { group: g0, readout, demo: () => {}, stop: () => {}, key: () => false, click: () => {}, tick: now => tickFlashes(now),
-    panel: [], view: { target: new THREE.Vector3(0, SIZE * 0.25, 0), dist: SIZE * 2.4 },
-    info: '<h2>My model</h2><p>Drag to orbit, scroll to zoom.</p>', hint: 'drag to orbit' };
-})() });
+FIGS3D.push({
+    id: 'model',
+    name: 'My model',
+    mod: (() => {
+        const g0 = new THREE.Group();
+        g0.visible = false;
+        scene.add(g0);
+        const SIZE = 3; // longest side in scene units
+        const bin = Uint8Array.from(atob(document.getElementById('glb').textContent.trim()), (c) => c.charCodeAt(0));
+        new GLTFLoader().parse(bin.buffer, '', (gltf) => {
+            const root = gltf.scene;
+            root.updateMatrixWorld(true);
+            const box = new THREE.Box3().setFromObject(root),
+                size = box.getSize(new THREE.Vector3()),
+                k = SIZE / Math.max(size.x, size.y, size.z);
+            const c = box.getCenter(new THREE.Vector3()),
+                first = twMeshes.length;
+            root.traverse((o) => {
+                if (!o.isMesh) return;
+                const geo = o.geometry
+                    .clone()
+                    .applyMatrix4(o.matrixWorld)
+                    .translate(-c.x, -box.min.y, -c.z)
+                    .scale(k, k, k);
+                geo.deleteAttribute('uv');
+                geo.computeVertexNormals();
+                const m = new THREE.Mesh(geo, bodyMat);
+                addOutline(m);
+                twMeshes.push(m);
+                g0.add(m);
+            });
+            creases(first);
+        });
+        hazeAndShadow(g0, 0, 0, SIZE * 1.1, SIZE * 0.9);
+        const readout = () => {
+            if (active === 'model') document.getElementById('read').textContent = 'drag to orbit · scroll to zoom';
+        };
+        return {
+            group: g0,
+            readout,
+            demo: () => {},
+            stop: () => {},
+            key: () => false,
+            click: () => {},
+            tick: (now) => tickFlashes(now),
+            panel: [],
+            view: { target: new THREE.Vector3(0, SIZE * 0.25, 0), dist: SIZE * 2.4 },
+            info: '<h2>My model</h2><p>Drag to orbit, scroll to zoom.</p>',
+            hint: 'drag to orbit',
+        };
+    })(),
+});
 ```
 
 Then make it live: name the parts that should move or light (rotors, doors, lamps), give them pivots and a state, as in the built-in figures. Clean the model first when it needs it (Blender headless works well): split it into named parts, check handedness against the real object and mirror if needed, remove duplicate coincident faces (they flicker), delete glass and transparent panels (they glitch; leave open frames), and set rotation pivots from the geometry. Credit CC-BY models on the page (author, licence, "restyled").

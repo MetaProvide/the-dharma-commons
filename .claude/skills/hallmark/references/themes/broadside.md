@@ -1,4 +1,5 @@
 ---
+
 name: Broadside
 slug: broadside
 genre: editorial
@@ -20,27 +21,39 @@ A printer's bill: grained buff stock, near-black ink, Six Caps fitted to the mea
 
 ```css
 :root {
-  --color-paper: oklch(92% 0.028 88); --color-paper-2: oklch(88.5% 0.032 88); --color-paper-3: oklch(85% 0.036 86);
-  --color-ink: oklch(18% 0.01 50); --color-ink-2: oklch(30% 0.012 50); --color-muted: oklch(43% 0.02 62);
-  --color-rule: oklch(75% 0.028 82);
-  --color-accent: oklch(53% 0.19 33); --color-accent-ink: oklch(95.5% 0.018 88); --color-focus: oklch(53% 0.19 33);
-  --font-display: "Six Caps", "Impact", sans-serif; --font-display-2: "Bevan", Georgia, serif;
-  --font-body: "Archivo Narrow", "Arial Narrow", ui-sans-serif, sans-serif;
-  --font-outlier: var(--font-body);
-  --radius-card: 0; --radius-pill: 0; --rule-hair: 1px; --rule-bar: 5px; --rule-frame: 3px;
-  --shadow-card: none;
-  --tracking-display: 0.02em; --display-weight: 400;
-  --grain: 0.08;
+    --color-paper: oklch(92% 0.028 88);
+    --color-paper-2: oklch(88.5% 0.032 88);
+    --color-paper-3: oklch(85% 0.036 86);
+    --color-ink: oklch(18% 0.01 50);
+    --color-ink-2: oklch(30% 0.012 50);
+    --color-muted: oklch(43% 0.02 62);
+    --color-rule: oklch(75% 0.028 82);
+    --color-accent: oklch(53% 0.19 33);
+    --color-accent-ink: oklch(95.5% 0.018 88);
+    --color-focus: oklch(53% 0.19 33);
+    --font-display: "Six Caps", "Impact", sans-serif;
+    --font-display-2: "Bevan", Georgia, serif;
+    --font-body: "Archivo Narrow", "Arial Narrow", ui-sans-serif, sans-serif;
+    --font-outlier: var(--font-body);
+    --radius-card: 0;
+    --radius-pill: 0;
+    --rule-hair: 1px;
+    --rule-bar: 5px;
+    --rule-frame: 3px;
+    --shadow-card: none;
+    --tracking-display: 0.02em;
+    --display-weight: 400;
+    --grain: 0.08;
 }
 ```
 
 One dial, the colourway, stated in the stamp (`broadside: bill`).
 
-| Colourway | Stock | Ink | Accent |
-| --- | --- | --- | --- |
-| `bill` (default) | the block above | ink | vermilion |
-| `inked` | oklch(17% 0.01 60), grain screened | buff oklch(92% 0.028 88) | vermilion at oklch(63% 0.19 33); paper band dark |
-| `red-bill` | the vermilion | buff oklch(95.5% 0.018 88), 5.5:1 | buff; posture drenched |
+| Colourway        | Stock                              | Ink                               | Accent                                           |
+| ---------------- | ---------------------------------- | --------------------------------- | ------------------------------------------------ |
+| `bill` (default) | the block above                    | ink                               | vermilion                                        |
+| `inked`          | oklch(17% 0.01 60), grain screened | buff oklch(92% 0.028 88)          | vermilion at oklch(63% 0.19 33); paper band dark |
+| `red-bill`       | the vermilion                      | buff oklch(95.5% 0.018 88), 5.5:1 | buff; posture drenched                           |
 
 ## Type
 
@@ -94,15 +107,71 @@ A sale bill read aloud: the date, the place, the lot and the hour, each said onc
 ```
 
 ```css
-h1, .display { font-family: var(--font-display); font-weight: 400; text-transform: uppercase; line-height: 0.88; letter-spacing: var(--tracking-display); }
-.fit { display: block; white-space: nowrap; }
-h2, h3, .wordmark { font-family: var(--font-display-2); font-weight: 400; text-transform: uppercase; line-height: 1; letter-spacing: 0; }
-.rule-bar { border-top: var(--rule-bar) solid var(--color-ink); }
-.frame, .btn--frame { border: var(--rule-frame) solid var(--color-ink); box-shadow: inset 0 0 0 3px var(--color-paper), inset 0 0 0 4px var(--color-ink); }
-.frame { padding: var(--space-lg); } .frame--photo { padding: var(--space-2xs); }
-.btn { display: inline-flex; align-items: center; min-height: 48px; padding: 0 var(--space-xl); border: 3px solid var(--color-ink); background: var(--color-ink); color: var(--color-paper); font: 600 var(--text-sm)/1 var(--font-body); text-transform: uppercase; }
-.btn--frame { background: transparent; color: var(--color-ink); }
-.grained { position: relative; isolation: isolate; }
-.grained::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: var(--grain); mix-blend-mode: multiply; } /* the speck SVG, texture.md § 1 */
-::selection { background: color-mix(in oklab, var(--color-accent) 30%, transparent); }
+h1,
+.display {
+    font-family: var(--font-display);
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 0.88;
+    letter-spacing: var(--tracking-display);
+}
+.fit {
+    display: block;
+    white-space: nowrap;
+}
+h2,
+h3,
+.wordmark {
+    font-family: var(--font-display-2);
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: 0;
+}
+.rule-bar {
+    border-top: var(--rule-bar) solid var(--color-ink);
+}
+.frame,
+.btn--frame {
+    border: var(--rule-frame) solid var(--color-ink);
+    box-shadow:
+        inset 0 0 0 3px var(--color-paper),
+        inset 0 0 0 4px var(--color-ink);
+}
+.frame {
+    padding: var(--space-lg);
+}
+.frame--photo {
+    padding: var(--space-2xs);
+}
+.btn {
+    display: inline-flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 0 var(--space-xl);
+    border: 3px solid var(--color-ink);
+    background: var(--color-ink);
+    color: var(--color-paper);
+    font: 600 var(--text-sm) / 1 var(--font-body);
+    text-transform: uppercase;
+}
+.btn--frame {
+    background: transparent;
+    color: var(--color-ink);
+}
+.grained {
+    position: relative;
+    isolation: isolate;
+}
+.grained::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: var(--grain);
+    mix-blend-mode: multiply;
+} /* the speck SVG, texture.md § 1 */
+::selection {
+    background: color-mix(in oklab, var(--color-accent) 30%, transparent);
+}
 ```

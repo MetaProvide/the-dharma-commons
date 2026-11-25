@@ -16,6 +16,7 @@ Avoid for tools that work in one moment. Narrative Workflow needs a real sequenc
 Compositions: Steps, each stage with its capture (`layout.md` § 5).
 
 **Sample opening lines** (stage headings: numbered, declarative, in process language, one stage per line):
-> *"1. Sourdough overnight. 2. Score at dawn. 3. Pull at seven."* Three numbered stages, no marketing (Maple Street Bread).
-> *"1.0 Parse. 2.0 Filter. 3.0 Route."* Versioned numbers, three concrete verbs (Streampipe).
-> *"I. We design products that last twelve years. II. A material is sustainable when someone can repair it."* Roman numerals and declaratives (Meridian).
+
+> _"1. Sourdough overnight. 2. Score at dawn. 3. Pull at seven."_ Three numbered stages, no marketing (Maple Street Bread).
+> _"1.0 Parse. 2.0 Filter. 3.0 Route."_ Versioned numbers, three concrete verbs (Streampipe).
+> _"I. We design products that last twelve years. II. A material is sustainable when someone can repair it."_ Roman numerals and declaratives (Meridian).

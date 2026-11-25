@@ -16,6 +16,7 @@ Avoid for product pages that need a demo; Specimen has nowhere to put one.
 Compositions: Rows and a Statement (`layout.md` § 5); the action is a typographic link.
 
 **Sample opening lines** (foundry voice, treating type as material culture):
-> *"A quiet instrument."* Refusal of the verb.
-> *"Type, set with care."* Three words.
-> *"Set by hand, since 2003."* Date-anchored, names the method.
+
+> _"A quiet instrument."_ Refusal of the verb.
+> _"Type, set with care."_ Three words.
+> _"Set by hand, since 2003."_ Date-anchored, names the method.

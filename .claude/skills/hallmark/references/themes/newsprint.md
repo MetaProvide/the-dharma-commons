@@ -1,4 +1,5 @@
 ---
+
 name: Newsprint
 slug: newsprint
 genre: editorial
@@ -20,15 +21,26 @@ A broadsheet in a browser: pale newsprint stock, warm black ink, a blunt Zilla S
 
 ```css
 :root {
-  --color-paper: oklch(94% 0.011 92); --color-paper-2: oklch(90.5% 0.015 88); --color-paper-3: oklch(87% 0.017 86);
-  --color-ink: oklch(17% 0.012 60); --color-ink-2: oklch(27% 0.012 58); --color-muted: oklch(46% 0.014 60);
-  --color-rule: oklch(68% 0.016 75); --color-rule-2: oklch(34% 0.012 60);
-  --color-accent: oklch(44% 0.13 32); --color-accent-ink: oklch(95% 0.012 90); --color-focus: oklch(48% 0.17 32);
-  --font-display: "Zilla Slab", ui-serif, Georgia, serif; --font-body: "Spectral", ui-serif, Georgia, serif;
-  --font-outlier: "Libre Franklin", ui-sans-serif, sans-serif;
-  --radius-card: 0; --radius-pill: 0; --rule-hair: 1px;
-  --shadow-card: none;
-  --tracking-display: -0.02em; --display-weight: 700;
+    --color-paper: oklch(94% 0.011 92);
+    --color-paper-2: oklch(90.5% 0.015 88);
+    --color-paper-3: oklch(87% 0.017 86);
+    --color-ink: oklch(17% 0.012 60);
+    --color-ink-2: oklch(27% 0.012 58);
+    --color-muted: oklch(46% 0.014 60);
+    --color-rule: oklch(68% 0.016 75);
+    --color-rule-2: oklch(34% 0.012 60);
+    --color-accent: oklch(44% 0.13 32);
+    --color-accent-ink: oklch(95% 0.012 90);
+    --color-focus: oklch(48% 0.17 32);
+    --font-display: "Zilla Slab", ui-serif, Georgia, serif;
+    --font-body: "Spectral", ui-serif, Georgia, serif;
+    --font-outlier: "Libre Franklin", ui-sans-serif, sans-serif;
+    --radius-card: 0;
+    --radius-pill: 0;
+    --rule-hair: 1px;
+    --shadow-card: none;
+    --tracking-display: -0.02em;
+    --display-weight: 700;
 }
 ```
 
@@ -85,18 +97,69 @@ Specific and declarative, with a dry editorial wit: name the place, the day and 
 ```
 
 ```css
-h1, h2, h3 { font-weight: var(--display-weight); }
-.rule--double { box-sizing: content-box; height: 2px; border: 0; border-block: var(--rule-hair) solid var(--color-rule-2); }
-.cols { columns: 3 18rem; column-gap: var(--space-xl); column-rule: var(--rule-hair) solid var(--color-rule); text-align: justify; hyphens: auto; }
-.agate { font: 500 1em/1 var(--font-outlier); font-variant-numeric: tabular-nums; }
-.dropcap::first-letter { float: left; font: 700 3.4em/0.8 var(--font-display); padding-right: 0.06em; }
-.btn { border: 0; background: none; border-radius: 0; padding: var(--space-md) var(--space-lg); font: 700 0.9375rem/1 var(--font-display); }
-.btn--primary { background: var(--color-ink); color: var(--color-paper); }
-.btn--secondary { border-block: var(--rule-hair) solid var(--color-ink); color: var(--color-ink); }
-.well { background: var(--color-paper-2); border-block: var(--rule-hair) solid var(--color-rule); }
-figure img { border: var(--rule-hair) solid var(--color-rule); }
-figcaption { font: 500 var(--text-sm)/1.4 var(--font-body); color: var(--color-muted); padding-top: var(--space-xs); }
-a { color: var(--color-accent); text-decoration-color: var(--color-accent); text-underline-offset: 0.16em; }
-a:hover { text-decoration-thickness: 2px; }
-::selection { background: color-mix(in oklab, var(--color-accent) 20%, transparent); }
+h1,
+h2,
+h3 {
+    font-weight: var(--display-weight);
+}
+.rule--double {
+    box-sizing: content-box;
+    height: 2px;
+    border: 0;
+    border-block: var(--rule-hair) solid var(--color-rule-2);
+}
+.cols {
+    columns: 3 18rem;
+    column-gap: var(--space-xl);
+    column-rule: var(--rule-hair) solid var(--color-rule);
+    text-align: justify;
+    hyphens: auto;
+}
+.agate {
+    font: 500 1em / 1 var(--font-outlier);
+    font-variant-numeric: tabular-nums;
+}
+.dropcap::first-letter {
+    float: left;
+    font: 700 3.4em / 0.8 var(--font-display);
+    padding-right: 0.06em;
+}
+.btn {
+    border: 0;
+    background: none;
+    border-radius: 0;
+    padding: var(--space-md) var(--space-lg);
+    font: 700 0.9375rem / 1 var(--font-display);
+}
+.btn--primary {
+    background: var(--color-ink);
+    color: var(--color-paper);
+}
+.btn--secondary {
+    border-block: var(--rule-hair) solid var(--color-ink);
+    color: var(--color-ink);
+}
+.well {
+    background: var(--color-paper-2);
+    border-block: var(--rule-hair) solid var(--color-rule);
+}
+figure img {
+    border: var(--rule-hair) solid var(--color-rule);
+}
+figcaption {
+    font: 500 var(--text-sm) / 1.4 var(--font-body);
+    color: var(--color-muted);
+    padding-top: var(--space-xs);
+}
+a {
+    color: var(--color-accent);
+    text-decoration-color: var(--color-accent);
+    text-underline-offset: 0.16em;
+}
+a:hover {
+    text-decoration-thickness: 2px;
+}
+::selection {
+    background: color-mix(in oklab, var(--color-accent) 20%, transparent);
+}
 ```

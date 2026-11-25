@@ -4,13 +4,13 @@ Loaded when the prompt involves charts, data or dashboards, or the shape is Stat
 
 ## Form first (before any drawing)
 
-| The data is | The form is |
-| --- | --- |
-| one value | a stat tile (a large figure and a worded qualifier), never a one-bar chart |
-| two to five values compared | a stat row, or horizontal bars |
-| a series over time | a line, or a sparkline when it rides inside another component |
-| more than about seven categories | a table; more colours is not an answer |
-| parts of a whole | a stacked horizontal bar; never a pie, a donut or a gauge |
+| The data is                      | The form is                                                                |
+| -------------------------------- | -------------------------------------------------------------------------- |
+| one value                        | a stat tile (a large figure and a worded qualifier), never a one-bar chart |
+| two to five values compared      | a stat row, or horizontal bars                                             |
+| a series over time               | a line, or a sparkline when it rides inside another component              |
+| more than about seven categories | a table; more colours is not an answer                                     |
+| parts of a whole                 | a stacked horizontal bar; never a pie, a donut or a gauge                  |
 
 The most underused form is emphasis: one accent series, everything else neutral. If every series is loud, none is.
 

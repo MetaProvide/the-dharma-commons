@@ -1,4 +1,5 @@
 ---
+
 name: Terrazzo
 slug: terrazzo
 genre: modern-minimal
@@ -20,26 +21,39 @@ A materials library's specification voice: off-white paper, near-black ink, wide
 
 ```css
 :root {
-  --color-paper: oklch(96% 0.009 82); --color-paper-2: oklch(92% 0.012 82); --color-paper-3: oklch(87.5% 0.014 80);
-  --color-plate: oklch(99.5% 0.003 82);
-  --color-ink: oklch(16% 0.006 60); --color-ink-2: oklch(27% 0.006 60); --color-muted: oklch(46% 0.01 60);
-  --color-rule: oklch(81% 0.012 80);
-  --color-accent: oklch(53% 0.15 38); --color-accent-soft: oklch(91% 0.035 45); --color-accent-ink: oklch(99.5% 0.003 82); --color-focus: oklch(50% 0.16 38);
-  --font-display: "Syne", ui-sans-serif, sans-serif; --font-body: "Onest", ui-sans-serif, sans-serif;
-  --font-outlier: "JetBrains Mono", ui-monospace, monospace;
-  --radius-card: 0; --radius-pill: 0; --rule-hair: 1px; --rule-bar: 2px;
-  --shadow-card: 14px 14px 0 var(--color-paper-3); --shadow-card-hover: 14px 14px 0 var(--color-ink);
-  --tracking-display: -0.025em; --display-weight: 700;
+    --color-paper: oklch(96% 0.009 82);
+    --color-paper-2: oklch(92% 0.012 82);
+    --color-paper-3: oklch(87.5% 0.014 80);
+    --color-plate: oklch(99.5% 0.003 82);
+    --color-ink: oklch(16% 0.006 60);
+    --color-ink-2: oklch(27% 0.006 60);
+    --color-muted: oklch(46% 0.01 60);
+    --color-rule: oklch(81% 0.012 80);
+    --color-accent: oklch(53% 0.15 38);
+    --color-accent-soft: oklch(91% 0.035 45);
+    --color-accent-ink: oklch(99.5% 0.003 82);
+    --color-focus: oklch(50% 0.16 38);
+    --font-display: "Syne", ui-sans-serif, sans-serif;
+    --font-body: "Onest", ui-sans-serif, sans-serif;
+    --font-outlier: "JetBrains Mono", ui-monospace, monospace;
+    --radius-card: 0;
+    --radius-pill: 0;
+    --rule-hair: 1px;
+    --rule-bar: 2px;
+    --shadow-card: 14px 14px 0 var(--color-paper-3);
+    --shadow-card-hover: 14px 14px 0 var(--color-ink);
+    --tracking-display: -0.025em;
+    --display-weight: 700;
 }
 ```
 
 Three colourways, stated in the stamp (`terrazzo: off-white`).
 
-| Colourway | Paper and ink | Signal and controls |
-| --- | --- | --- |
-| **Off-white** (default) | the tokens above | rust; ink controls |
-| **Black** | `oklch(14% 0.005 60)` under bone ink `oklch(96% 0.01 80)`; cards stay white | rust lifted to `oklch(68% 0.14 40)`; bone controls with ink text |
-| **Stone** | warm grey `oklch(85% 0.012 80)` under the same ink | rust; ink controls |
+| Colourway               | Paper and ink                                                               | Signal and controls                                              |
+| ----------------------- | --------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| **Off-white** (default) | the tokens above                                                            | rust; ink controls                                               |
+| **Black**               | `oklch(14% 0.005 60)` under bone ink `oklch(96% 0.01 80)`; cards stay white | rust lifted to `oklch(68% 0.14 40)`; bone controls with ink text |
+| **Stone**               | warm grey `oklch(85% 0.012 80)` under the same ink                          | rust; ink controls                                               |
 
 ## Type
 
@@ -91,16 +105,56 @@ A catalogue's plainness: the family, the finish, the code, the size at one to on
 ```
 
 ```css
-h1, h2, h3 { font-weight: 700; line-height: 1; }
-.btn { border-radius: 0; padding: var(--space-md) var(--space-lg); font-weight: 500; color: inherit; }
-.btn--primary { background: var(--color-ink); color: var(--color-paper); }
-.btn--secondary { box-shadow: inset 0 0 0 var(--rule-bar) currentColor; }
-.card { background: var(--color-plate); border: var(--rule-bar) solid var(--color-ink); box-shadow: var(--shadow-card); }
-a.card { transition: box-shadow var(--dur-micro) var(--ease-out); }
-a.card:hover { box-shadow: var(--shadow-card-hover); }
-.band--ink { background: var(--color-ink); color: var(--color-paper); }
-.band--ink .btn--primary { background: var(--color-plate); color: var(--color-ink); }
-.spec { border-top: var(--rule-bar) solid var(--color-ink); } .spec tr:hover { background: var(--color-accent-soft); }
-.code { font-family: var(--font-outlier); font-weight: 500; font-variant-numeric: tabular-nums; }
-::selection { background: color-mix(in oklab, var(--color-accent) 25%, transparent); }
+h1,
+h2,
+h3 {
+    font-weight: 700;
+    line-height: 1;
+}
+.btn {
+    border-radius: 0;
+    padding: var(--space-md) var(--space-lg);
+    font-weight: 500;
+    color: inherit;
+}
+.btn--primary {
+    background: var(--color-ink);
+    color: var(--color-paper);
+}
+.btn--secondary {
+    box-shadow: inset 0 0 0 var(--rule-bar) currentColor;
+}
+.card {
+    background: var(--color-plate);
+    border: var(--rule-bar) solid var(--color-ink);
+    box-shadow: var(--shadow-card);
+}
+a.card {
+    transition: box-shadow var(--dur-micro) var(--ease-out);
+}
+a.card:hover {
+    box-shadow: var(--shadow-card-hover);
+}
+.band--ink {
+    background: var(--color-ink);
+    color: var(--color-paper);
+}
+.band--ink .btn--primary {
+    background: var(--color-plate);
+    color: var(--color-ink);
+}
+.spec {
+    border-top: var(--rule-bar) solid var(--color-ink);
+}
+.spec tr:hover {
+    background: var(--color-accent-soft);
+}
+.code {
+    font-family: var(--font-outlier);
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+}
+::selection {
+    background: color-mix(in oklab, var(--color-accent) 25%, transparent);
+}
 ```

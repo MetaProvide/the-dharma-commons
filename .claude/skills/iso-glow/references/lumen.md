@@ -50,19 +50,19 @@ Lumen is **gradient-only**: there are no single-colour presets. The picker shows
 
 `const G = RW.kit(K)` (K from `api.iso.frame`):
 
-| helper | draws |
-|---|---|
-| `box(x,y,z,w,d,h,r,cls,topCls)` | shaded rounded box: side, front, corner light, top, rim |
-| `cyl(cx,cy,z,r,h,sideCls,topCls)` | upright cylinder |
-| `cylAx(p0,p1,r,sideCls,capCls)` | cylinder along any axis (gavel heads, lamp arms, pens) |
-| `cone(cx,cy,z,r0,r1,h)` / `coneAx(p0,p1,r0,r1)` | light cone path `d` (vertical / any axis) |
-| `recess(shape,tfOpen,tfFloor,wallCls,floorCls,extra)` | sunken pocket; `shape(cls, transform)` returns ONE element |
-| `ext(tf, n, inner, face, edgeCls)` | thickness: n layers of `inner`, then `face` |
-| `ground(cx,cy,rx,ry)` | shadow, pool, floor rings |
-| `motes(group, {cx,cy,r,z0,h,n})` → `tick(t, level, speed)` | rising square particles |
-| `dot(x,y,z,size,id)` | floating accent square |
-| `above(id, y, z)` | clipPath for things sinking into a slot in plane y |
-| `ring3`, `poly`, `hull`, `arc`, `wall`, `d3` | geometry helpers |
+| helper                                                     | draws                                                      |
+| ---------------------------------------------------------- | ---------------------------------------------------------- |
+| `box(x,y,z,w,d,h,r,cls,topCls)`                            | shaded rounded box: side, front, corner light, top, rim    |
+| `cyl(cx,cy,z,r,h,sideCls,topCls)`                          | upright cylinder                                           |
+| `cylAx(p0,p1,r,sideCls,capCls)`                            | cylinder along any axis (gavel heads, lamp arms, pens)     |
+| `cone(cx,cy,z,r0,r1,h)` / `coneAx(p0,p1,r0,r1)`            | light cone path `d` (vertical / any axis)                  |
+| `recess(shape,tfOpen,tfFloor,wallCls,floorCls,extra)`      | sunken pocket; `shape(cls, transform)` returns ONE element |
+| `ext(tf, n, inner, face, edgeCls)`                         | thickness: n layers of `inner`, then `face`                |
+| `ground(cx,cy,rx,ry)`                                      | shadow, pool, floor rings                                  |
+| `motes(group, {cx,cy,r,z0,h,n})` → `tick(t, level, speed)` | rising square particles                                    |
+| `dot(x,y,z,size,id)`                                       | floating accent square                                     |
+| `above(id, y, z)`                                          | clipPath for things sinking into a slot in plane y         |
+| `ring3`, `poly`, `hull`, `arc`, `wall`, `d3`               | geometry helpers                                           |
 
 Classes: faces `rw-top rw-front rw-side rw-cyl rw-edge rw-pit rw-wall rw-paper rw-cardf`; lit `rw-lit rw-litcyl rw-orb rw-litwall rw-flat rw-hi rw-line`; light `rw-cone rw-lface rw-beam rw-column rw-halo rw-pool`; detail `rw-etch rw-rim rw-lip rw-txt rw-ink`; particles `rw-dot`.
 

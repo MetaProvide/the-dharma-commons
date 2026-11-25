@@ -16,6 +16,7 @@ Avoid for transactional commerce. Letter is intimate; commerce is functional.
 Compositions: the Corridor hero (`layout.md` § 6); the footer is a letter close (§ 7).
 
 **Sample opening lines** (first-person greetings, dated, with a place if it matters):
-> *"Hello, I'm Anya."* One line: a name, a full stop.
-> *"Saturday, 6:14 a.m. The dough went in at midnight."* Opens on a moment, then explains it (Maple Street Bread).
-> *"Hey there. This page is soft because the surface should be soft."* A colloquial open and a principle.
+
+> _"Hello, I'm Anya."_ One line: a name, a full stop.
+> _"Saturday, 6:14 a.m. The dough went in at midnight."_ Opens on a moment, then explains it (Maple Street Bread).
+> _"Hey there. This page is soft because the surface should be soft."_ A colloquial open and a principle.

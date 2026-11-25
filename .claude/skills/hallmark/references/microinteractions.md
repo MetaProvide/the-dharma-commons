@@ -18,9 +18,17 @@ Durations are `--dur-micro` 120ms, `--dur-short` 220ms and `--dur-long` 420ms; e
 **Button press.** Hover is one signal, a colour change; press is a 1px drop, released on pointer up. The focus ring never animates.
 
 ```css
-.btn { transition: background-color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out); }
-.btn:hover { background: var(--color-paper-3); }
-.btn:active { transform: translateY(1px); }
+.btn {
+    transition:
+        background-color var(--dur-short) var(--ease-out),
+        transform var(--dur-micro) var(--ease-out);
+}
+.btn:hover {
+    background: var(--color-paper-3);
+}
+.btn:active {
+    transform: translateY(1px);
+}
 ```
 
 **Input focus.** The outline appears at once, inset on inputs; the border may deepen one step but its width never changes (39a). The label sits above the field at rest and never moves: a floating label starts life as a placeholder, which is the tell.
@@ -39,25 +47,31 @@ Durations are `--dur-micro` 120ms, `--dur-short` 220ms and `--dur-long` 420ms; e
 
 **Number tick.** Real figures only (46a). On data load, count from the previous value (zero on first load) over 400 to 800ms with `--ease-out` applied to the value, formatted by `Intl.NumberFormat`. Announce only the final value (`aria-live="polite"`). Reduced motion: the final value at once.
 
-**Copy to clipboard.** The label swaps to *Copied* for 2.5s; no toast, the label is the feedback.
+**Copy to clipboard.** The label swaps to _Copied_ for 2.5s; no toast, the label is the feedback.
 
 ```js
-btn.addEventListener("click", async () => {
-  await navigator.clipboard.writeText(value);
-  btn.dataset.state = "copied";
-  setTimeout(() => delete btn.dataset.state, 2500);
+btn.addEventListener('click', async () => {
+    await navigator.clipboard.writeText(value);
+    btn.dataset.state = 'copied';
+    setTimeout(() => delete btn.dataset.state, 2500);
 });
 ```
 
 **Drag to reorder.** The handle appears on hover and on focus; the cursor is `grab`, then `grabbing`; a ghost at 50% opacity follows the pointer and a 1px accent line marks the drop target. Release snaps over `--dur-short` `--ease-out`, no spring. Arrow keys reorder a focused row; `aria-live` announces the move.
 
-**Optimistic update.** The row changes at once and the request runs behind it. Success says nothing. Failure rolls the row back over `--dur-short` and raises a toast with *Try again*, which stays until acted on.
+**Optimistic update.** The row changes at once and the request runs behind it. Success says nothing. Failure rolls the row back over `--dur-short` and raises a toast with _Try again_, which stays until acted on.
 
 ```js
 const prev = item.done;
-item.done = !prev; render();
-try { await api.update(item); }
-catch { item.done = prev; render(); toast({ tone: "error", message: "Could not save.", action: { label: "Try again", run: retry } }); }
+item.done = !prev;
+render();
+try {
+    await api.update(item);
+} catch {
+    item.done = prev;
+    render();
+    toast({ tone: 'error', message: 'Could not save.', action: { label: 'Try again', run: retry } });
+}
 ```
 
 **Search as you type.** Debounce 250ms; while waiting, a quiet signal on the field (the border one step deeper). Matches in `<mark>`. Announce the result count once the debounce settles, never per keystroke.
@@ -70,11 +84,11 @@ catch { item.done = prev; render(); toast({ tone: "error", message: "Could not s
 
 Every system declares one: a catalog theme in its Motion section, a custom page in its own stylesheet. The same press is louder in a severe system than in a calm one.
 
-| Character | Duration scale | Feels like |
-| --- | --- | --- |
-| **still** | none | Print. Nothing moves; a caret may blink inside a typed command, four or five beats and then solid, never on its own. |
-| **severe** | 0.7 to 0.75 times | Fast and decisive; snaps into place; no spring anywhere. |
-| **brisk** | 0.85 to 0.9 times | Technical and functional: an instrument panel. |
-| **calm** | 1.0 to 1.3 times | Restrained to generous, `--ease-out` at its gentlest. |
+| Character  | Duration scale    | Feels like                                                                                                           |
+| ---------- | ----------------- | -------------------------------------------------------------------------------------------------------------------- |
+| **still**  | none              | Print. Nothing moves; a caret may blink inside a typed command, four or five beats and then solid, never on its own. |
+| **severe** | 0.7 to 0.75 times | Fast and decisive; snaps into place; no spring anywhere.                                                             |
+| **brisk**  | 0.85 to 0.9 times | Technical and functional: an instrument panel.                                                                       |
+| **calm**   | 1.0 to 1.3 times  | Restrained to generous, `--ease-out` at its gentlest.                                                                |
 
 Most pages have too much motion, not too little. The static answer is usually the right one.

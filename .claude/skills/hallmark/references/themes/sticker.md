@@ -1,4 +1,5 @@
 ---
+
 name: Sticker
 slug: sticker
 genre: playful
@@ -20,25 +21,40 @@ A print shop's material: a warm off-white sheet, warm black ink, Bowlby One SC c
 
 ```css
 :root {
-  --color-paper: oklch(95.7% 0.013 82); --color-paper-2: oklch(92.8% 0.021 79); --color-paper-3: oklch(99.4% 0.007 89);
-  --color-ink: oklch(21% 0.011 81); --color-ink-2: oklch(30% 0.013 78); --color-muted: oklch(50% 0.017 64);
-  --color-rule: oklch(89.7% 0.02 80); --color-white: oklch(99.5% 0.003 82);
-  --color-accent: oklch(56% 0.225 2); --color-accent-deep: oklch(49% 0.205 2); --color-accent-2: oklch(87.6% 0.179 119); --color-slot: oklch(95% 0.021 355);
-  --color-accent-ink: oklch(99.5% 0.003 82); --color-focus: oklch(56% 0.225 2);
-  --font-display: "Bowlby One SC", "Arial Black", sans-serif; --font-body: "Sofia Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-outlier: "Sofia Sans", ui-sans-serif, system-ui, sans-serif;
-  --radius-card: 18px; --radius-pill: 999px; --rule-hair: 1px; --rule-bar: 2px;
-  --shadow-card: 5px 6px 0 var(--color-ink); --shadow-press: 1px 1px 0 var(--color-ink);
-  --tracking-display: 0.005em; --display-weight: 400;
+    --color-paper: oklch(95.7% 0.013 82);
+    --color-paper-2: oklch(92.8% 0.021 79);
+    --color-paper-3: oklch(99.4% 0.007 89);
+    --color-ink: oklch(21% 0.011 81);
+    --color-ink-2: oklch(30% 0.013 78);
+    --color-muted: oklch(50% 0.017 64);
+    --color-rule: oklch(89.7% 0.02 80);
+    --color-white: oklch(99.5% 0.003 82);
+    --color-accent: oklch(56% 0.225 2);
+    --color-accent-deep: oklch(49% 0.205 2);
+    --color-accent-2: oklch(87.6% 0.179 119);
+    --color-slot: oklch(95% 0.021 355);
+    --color-accent-ink: oklch(99.5% 0.003 82);
+    --color-focus: oklch(56% 0.225 2);
+    --font-display: "Bowlby One SC", "Arial Black", sans-serif;
+    --font-body: "Sofia Sans", ui-sans-serif, system-ui, sans-serif;
+    --font-outlier: "Sofia Sans", ui-sans-serif, system-ui, sans-serif;
+    --radius-card: 18px;
+    --radius-pill: 999px;
+    --rule-hair: 1px;
+    --rule-bar: 2px;
+    --shadow-card: 5px 6px 0 var(--color-ink);
+    --shadow-press: 1px 1px 0 var(--color-ink);
+    --tracking-display: 0.005em;
+    --display-weight: 400;
 }
 ```
 
 Two colourways, stated in the stamp (`sticker: sheet`).
 
-| Colourway | Paper, ink, fills |
-| --- | --- |
-| `sheet` (default) | the block above |
-| `vinyl` | ground `oklch(21% 0.011 81)`, cards `oklch(25.5% 0.013 72)`, ink `oklch(95.7% 0.013 82)`, rule `oklch(33% 0.016 75)`; pink and lime unchanged, the borders still white |
+| Colourway         | Paper, ink, fills                                                                                                                                                      |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `sheet` (default) | the block above                                                                                                                                                        |
+| `vinyl`           | ground `oklch(21% 0.011 81)`, cards `oklch(25.5% 0.013 72)`, ink `oklch(95.7% 0.013 82)`, rule `oklch(33% 0.016 75)`; pink and lime unchanged, the borders still white |
 
 ## Type
 
@@ -92,15 +108,72 @@ Cheerful and exact: the price, the quantity, the size, the ship day. It sounds l
 ```
 
 ```css
-h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing: var(--tracking-display); line-height: 1.02; }
-h1 { font-size: min(var(--text-display), 4.5rem); } h2 { font-size: min(var(--text-section), 3.25rem); }
-.diecut { border: 6px solid var(--color-white); border-radius: var(--radius-card); box-shadow: var(--shadow-card); }
-.diecut--photo { border-radius: 22px; overflow: hidden; background: var(--color-slot); }
-.btn { display: inline-flex; align-items: center; height: 52px; padding: 0 var(--space-lg); border-radius: var(--radius-pill); font-weight: 700; font-size: var(--text-md); color: var(--color-ink); box-shadow: inset 0 0 0 2px var(--color-ink); }
-.btn--primary { background: var(--color-accent); color: var(--color-accent-ink); box-shadow: 0 0 0 5px var(--color-white), 5px 6px 0 var(--color-ink); transition: translate var(--dur-micro) var(--ease-out), box-shadow var(--dur-micro) var(--ease-out); }
-.btn--primary:hover { background: var(--color-accent-deep); }
-.btn--primary:active { translate: 4px 5px; box-shadow: 0 0 0 5px var(--color-white), var(--shadow-press); }
-.fill { border: 6px solid var(--color-white); border-radius: var(--radius-card); box-shadow: var(--shadow-card); background: var(--color-accent); color: var(--color-accent-ink); }
-.rule { border-top: var(--rule-bar) dashed var(--color-rule); }
-::selection { background: var(--color-accent-2); color: var(--color-ink); }
+h1,
+h2,
+h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: var(--tracking-display);
+    line-height: 1.02;
+}
+h1 {
+    font-size: min(var(--text-display), 4.5rem);
+}
+h2 {
+    font-size: min(var(--text-section), 3.25rem);
+}
+.diecut {
+    border: 6px solid var(--color-white);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+}
+.diecut--photo {
+    border-radius: 22px;
+    overflow: hidden;
+    background: var(--color-slot);
+}
+.btn {
+    display: inline-flex;
+    align-items: center;
+    height: 52px;
+    padding: 0 var(--space-lg);
+    border-radius: var(--radius-pill);
+    font-weight: 700;
+    font-size: var(--text-md);
+    color: var(--color-ink);
+    box-shadow: inset 0 0 0 2px var(--color-ink);
+}
+.btn--primary {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+    box-shadow:
+        0 0 0 5px var(--color-white),
+        5px 6px 0 var(--color-ink);
+    transition:
+        translate var(--dur-micro) var(--ease-out),
+        box-shadow var(--dur-micro) var(--ease-out);
+}
+.btn--primary:hover {
+    background: var(--color-accent-deep);
+}
+.btn--primary:active {
+    translate: 4px 5px;
+    box-shadow:
+        0 0 0 5px var(--color-white),
+        var(--shadow-press);
+}
+.fill {
+    border: 6px solid var(--color-white);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+}
+.rule {
+    border-top: var(--rule-bar) dashed var(--color-rule);
+}
+::selection {
+    background: var(--color-accent-2);
+    color: var(--color-ink);
+}
 ```

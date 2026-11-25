@@ -1,4 +1,5 @@
 ---
+
 name: Manifesto
 slug: manifesto
 genre: editorial
@@ -20,15 +21,30 @@ A declaration printed on a dark sheet: a warm near-black ground, warm off-white 
 
 ```css
 :root {
-  --color-paper: oklch(13% 0.01 60); --color-paper-2: oklch(17% 0.011 60); --color-paper-3: oklch(22% 0.012 60);
-  --color-ink: oklch(95% 0.014 85); --color-ink-2: oklch(84% 0.012 80); --color-muted: oklch(64% 0.016 65);
-  --color-rule: oklch(31% 0.014 60);
-  --color-accent: oklch(56% 0.228 28); --color-accent-deep: oklch(49% 0.2 28); --color-accent-text: oklch(64% 0.22 28); --color-accent-ink: oklch(98.5% 0.004 90);
-  --color-focus: oklch(64% 0.22 28);
-  --font-display: "Anton", "Impact", sans-serif; --font-body: "Public Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-outlier: var(--font-body);
-  --radius-card: 0; --radius-pill: 0; --rule-hair: 1px; --rule-bar: 4px; --shadow-card: none;
-  --tracking-display: 0.004em; --display-weight: 400; --lh-tight: 0.9; --text-display: clamp(4.5rem, 12vw, 13rem);
+    --color-paper: oklch(13% 0.01 60);
+    --color-paper-2: oklch(17% 0.011 60);
+    --color-paper-3: oklch(22% 0.012 60);
+    --color-ink: oklch(95% 0.014 85);
+    --color-ink-2: oklch(84% 0.012 80);
+    --color-muted: oklch(64% 0.016 65);
+    --color-rule: oklch(31% 0.014 60);
+    --color-accent: oklch(56% 0.228 28);
+    --color-accent-deep: oklch(49% 0.2 28);
+    --color-accent-text: oklch(64% 0.22 28);
+    --color-accent-ink: oklch(98.5% 0.004 90);
+    --color-focus: oklch(64% 0.22 28);
+    --font-display: "Anton", "Impact", sans-serif;
+    --font-body: "Public Sans", ui-sans-serif, system-ui, sans-serif;
+    --font-outlier: var(--font-body);
+    --radius-card: 0;
+    --radius-pill: 0;
+    --rule-hair: 1px;
+    --rule-bar: 4px;
+    --shadow-card: none;
+    --tracking-display: 0.004em;
+    --display-weight: 400;
+    --lh-tight: 0.9;
+    --text-display: clamp(4.5rem, 12vw, 13rem);
 }
 ```
 
@@ -83,19 +99,71 @@ Imperative, short, declarative: fighting words, verbs over adjectives, the deman
 ```
 
 ```css
-body { color: var(--color-ink-2); }
-h1, h2, h3 { font-weight: 400; text-transform: uppercase; line-height: 1.02; color: var(--color-ink); }
-.display { line-height: var(--lh-tight); container-type: inline-size; }
-.display > span { display: block; white-space: nowrap; }
-.display .hot { color: var(--color-accent-text); }
-.bar { border-bottom: var(--rule-bar) solid var(--color-ink); }
-.btn { border: var(--rule-hair) solid transparent; background: none; border-radius: 0; padding: var(--space-sm) var(--space-lg); font-weight: 600; }
-.btn--primary { background: var(--color-accent); color: var(--color-accent-ink); }
-.btn--primary:hover { background: var(--color-accent-deep); }
-.btn--secondary { border-color: var(--color-ink-2); color: var(--color-ink); }
-.btn--secondary:hover { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-accent-ink); }
-.band--red { background: var(--color-accent); color: var(--color-accent-ink); }
-.reveal { animation: wipe var(--dur-long) var(--ease-out) both; }
-@keyframes wipe { from { clip-path: inset(100% 0 0 0); } to { clip-path: inset(0); } }
-::selection { background: var(--color-accent); color: var(--color-accent-ink); }
+body {
+    color: var(--color-ink-2);
+}
+h1,
+h2,
+h3 {
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 1.02;
+    color: var(--color-ink);
+}
+.display {
+    line-height: var(--lh-tight);
+    container-type: inline-size;
+}
+.display > span {
+    display: block;
+    white-space: nowrap;
+}
+.display .hot {
+    color: var(--color-accent-text);
+}
+.bar {
+    border-bottom: var(--rule-bar) solid var(--color-ink);
+}
+.btn {
+    border: var(--rule-hair) solid transparent;
+    background: none;
+    border-radius: 0;
+    padding: var(--space-sm) var(--space-lg);
+    font-weight: 600;
+}
+.btn--primary {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+}
+.btn--primary:hover {
+    background: var(--color-accent-deep);
+}
+.btn--secondary {
+    border-color: var(--color-ink-2);
+    color: var(--color-ink);
+}
+.btn--secondary:hover {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-accent-ink);
+}
+.band--red {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+}
+.reveal {
+    animation: wipe var(--dur-long) var(--ease-out) both;
+}
+@keyframes wipe {
+    from {
+        clip-path: inset(100% 0 0 0);
+    }
+    to {
+        clip-path: inset(0);
+    }
+}
+::selection {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+}
 ```

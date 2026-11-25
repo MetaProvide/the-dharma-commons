@@ -1,4 +1,5 @@
 ---
+
 name: Arcade
 slug: arcade
 genre: playful
@@ -20,16 +21,32 @@ A late-night cabinet: an aubergine ground under a CRT screen, Bungee capitals sp
 
 ```css
 :root {
-  --color-paper: oklch(14% 0.04 312); --color-paper-2: oklch(18.5% 0.042 312); --color-paper-3: oklch(23% 0.045 312);
-  --color-ink: oklch(95% 0.014 315); --color-ink-2: oklch(87% 0.018 315); --color-muted: oklch(71% 0.024 315);
-  --color-rule: oklch(34% 0.05 312);
-  --color-accent: oklch(66% 0.215 40); --color-accent-2: oklch(88% 0.195 115); --color-accent-ink: oklch(14% 0.04 312);
-  --color-focus: oklch(88% 0.195 115);
-  --color-crt-r: oklch(63% 0.24 25); --color-crt-g: oklch(80% 0.25 140); --color-crt-b: oklch(60% 0.24 265); --color-crt-c: oklch(78% 0.14 200); --color-shade: oklch(8% 0.02 315);
-  --font-display: "Bungee", "Impact", sans-serif; --font-body: "Chivo", ui-sans-serif, sans-serif; --font-outlier: "Silkscreen", monospace;
-  --radius-card: 4px; --radius-pill: 0; --rule-hair: 1px; --rule-bar: 2px;
-  --shadow-card: 6px 6px 0 var(--color-accent-2);
-  --tracking-display: 0; --display-weight: 400;
+    --color-paper: oklch(14% 0.04 312);
+    --color-paper-2: oklch(18.5% 0.042 312);
+    --color-paper-3: oklch(23% 0.045 312);
+    --color-ink: oklch(95% 0.014 315);
+    --color-ink-2: oklch(87% 0.018 315);
+    --color-muted: oklch(71% 0.024 315);
+    --color-rule: oklch(34% 0.05 312);
+    --color-accent: oklch(66% 0.215 40);
+    --color-accent-2: oklch(88% 0.195 115);
+    --color-accent-ink: oklch(14% 0.04 312);
+    --color-focus: oklch(88% 0.195 115);
+    --color-crt-r: oklch(63% 0.24 25);
+    --color-crt-g: oklch(80% 0.25 140);
+    --color-crt-b: oklch(60% 0.24 265);
+    --color-crt-c: oklch(78% 0.14 200);
+    --color-shade: oklch(8% 0.02 315);
+    --font-display: "Bungee", "Impact", sans-serif;
+    --font-body: "Chivo", ui-sans-serif, sans-serif;
+    --font-outlier: "Silkscreen", monospace;
+    --radius-card: 4px;
+    --radius-pill: 0;
+    --rule-hair: 1px;
+    --rule-bar: 2px;
+    --shadow-card: 6px 6px 0 var(--color-accent-2);
+    --tracking-display: 0;
+    --display-weight: 400;
 }
 ```
 
@@ -85,18 +102,80 @@ Coin-op plain, said over the noise: the night, the hour, the door price, the mac
 ```
 
 ```css
-h1, .display { font-family: var(--font-display); font-weight: 400; line-height: 1.02; text-transform: uppercase; text-shadow: -1.5px 0 0 var(--color-crt-r), 1.5px 0 0 var(--color-crt-c); }
-h2, h3 { font-family: var(--font-body); font-weight: 900; letter-spacing: -0.02em; line-height: 1; }
-.figure { font-family: var(--font-outlier); font-weight: 700; color: var(--color-accent-2); font-variant-numeric: tabular-nums; }
-.btn { background: var(--color-accent); color: var(--color-accent-ink); border: var(--rule-bar) solid var(--color-ink); border-radius: var(--radius-card); padding: var(--space-sm) var(--space-lg); font-weight: 700;
-  box-shadow: var(--shadow-card); transition: translate var(--dur-micro) var(--ease-out), box-shadow var(--dur-micro) var(--ease-out); }
-.btn:active { translate: 3px 3px; box-shadow: 2px 2px 0 var(--color-accent-2); }
-.btn--secondary { background: transparent; color: var(--color-ink); }
-.row:hover, .row[aria-current] { background: var(--color-accent); color: var(--color-accent-ink); transition: background-color var(--dur-micro) steps(1); }
-.well { background: var(--color-paper-2); border: var(--rule-bar) solid var(--color-rule); border-radius: var(--radius-card); }
-.crt { position: relative; isolation: isolate; }
-.crt::after { content: ""; position: absolute; inset: 0; pointer-events: none;
-  background-image:
-    repeating-linear-gradient(to right, color-mix(in oklab, var(--color-crt-r) 5%, transparent) 0 1px, color-mix(in oklab, var(--color-crt-g) 5%, transparent) 1px 2px, color-mix(in oklab, var(--color-crt-b) 5%, transparent) 2px 3px),
-    repeating-linear-gradient(to bottom, transparent 0 2px, color-mix(in oklab, var(--color-shade) 16%, transparent) 2px 3px); }
+h1,
+.display {
+    font-family: var(--font-display);
+    font-weight: 400;
+    line-height: 1.02;
+    text-transform: uppercase;
+    text-shadow:
+        -1.5px 0 0 var(--color-crt-r),
+        1.5px 0 0 var(--color-crt-c);
+}
+h2,
+h3 {
+    font-family: var(--font-body);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 1;
+}
+.figure {
+    font-family: var(--font-outlier);
+    font-weight: 700;
+    color: var(--color-accent-2);
+    font-variant-numeric: tabular-nums;
+}
+.btn {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+    border: var(--rule-bar) solid var(--color-ink);
+    border-radius: var(--radius-card);
+    padding: var(--space-sm) var(--space-lg);
+    font-weight: 700;
+    box-shadow: var(--shadow-card);
+    transition:
+        translate var(--dur-micro) var(--ease-out),
+        box-shadow var(--dur-micro) var(--ease-out);
+}
+.btn:active {
+    translate: 3px 3px;
+    box-shadow: 2px 2px 0 var(--color-accent-2);
+}
+.btn--secondary {
+    background: transparent;
+    color: var(--color-ink);
+}
+.row:hover,
+.row[aria-current] {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+    transition: background-color var(--dur-micro) steps(1);
+}
+.well {
+    background: var(--color-paper-2);
+    border: var(--rule-bar) solid var(--color-rule);
+    border-radius: var(--radius-card);
+}
+.crt {
+    position: relative;
+    isolation: isolate;
+}
+.crt::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        repeating-linear-gradient(
+            to right,
+            color-mix(in oklab, var(--color-crt-r) 5%, transparent) 0 1px,
+            color-mix(in oklab, var(--color-crt-g) 5%, transparent) 1px 2px,
+            color-mix(in oklab, var(--color-crt-b) 5%, transparent) 2px 3px
+        ),
+        repeating-linear-gradient(
+            to bottom,
+            transparent 0 2px,
+            color-mix(in oklab, var(--color-shade) 16%, transparent) 2px 3px
+        );
+}
 ```

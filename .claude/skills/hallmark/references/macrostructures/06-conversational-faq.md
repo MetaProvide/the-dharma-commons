@@ -23,6 +23,7 @@ As the primary page it opens with a hero that asks the first question; otherwise
 ```
 
 **Sample opening lines** (questions are real questions; answers are short and concrete):
-> *"What is this for? A single-binary CLI for parsing log streams from stdin."* Names the form factor and the input (Streampipe).
-> *"How is it different? It runs where the logs are, so nothing leaves the box."* Answers with a fact, not a comparison.
-> *"Who built this? Three of us, in Lisbon, since 2014."* Date, place and count; no marketing.
+
+> _"What is this for? A single-binary CLI for parsing log streams from stdin."_ Names the form factor and the input (Streampipe).
+> _"How is it different? It runs where the logs are, so nothing leaves the box."_ Answers with a fact, not a comparison.
+> _"Who built this? Three of us, in Lisbon, since 2014."_ Date, place and count; no marketing.

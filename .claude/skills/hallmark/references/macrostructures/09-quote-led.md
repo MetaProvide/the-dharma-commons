@@ -16,6 +16,7 @@ Avoid when the user has not supplied the quote. The quote is the user's, verbati
 Compositions: the quote as a Statement (`layout.md` § 5), its attribution beneath; further quotes the user gave as Rows.
 
 **Sample opening lines** (fixture quotes; on a build only the user's words go here):
-> *"I started listening on a long bus ride. By the third episode I had missed my stop, and I did not mind."* Story-shaped, attributed to a listener (Tide).
-> *"Restraint, repeated, becomes a signature."* Short and philosophical, signed by the studio.
+
+> _"I started listening on a long bus ride. By the third episode I had missed my stop, and I did not mind."_ Story-shaped, attributed to a listener (Tide).
+> _"Restraint, repeated, becomes a signature."_ Short and philosophical, signed by the studio.
 > A supplied outcome quote works the same way: the customer's own sentence, the number theirs, the attribution as given.

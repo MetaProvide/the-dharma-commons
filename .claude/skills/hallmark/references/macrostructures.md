@@ -1,6 +1,6 @@
 # Macrostructures
 
-Twenty-one named landing-page shapes. Each is a complete fingerprint (heading placement, body composition, divider language, button voice, image treatment, reveal pattern) bundled under one name. **This is a vocabulary, not a menu.** Design the page the prompt asks for, then name the shape you designed so Rotation and gate 32 have something to read; reaching in here first and building whatever comes back is how twenty-one shapes collapse into the same three. When nothing here fits what you designed, say so, describe the shape as a fingerprint (§ The fingerprint, below), and give it a short name for the stamp and the log (*a season page*).
+Twenty-one named landing-page shapes. Each is a complete fingerprint (heading placement, body composition, divider language, button voice, image treatment, reveal pattern) bundled under one name. **This is a vocabulary, not a menu.** Design the page the prompt asks for, then name the shape you designed so Rotation and gate 32 have something to read; reaching in here first and building whatever comes back is how twenty-one shapes collapse into the same three. When nothing here fits what you designed, say so, describe the shape as a fingerprint (§ The fingerprint, below), and give it a short name for the stamp and the log (_a season page_).
 
 ## The 21 macrostructures, index
 
@@ -36,25 +36,25 @@ When the shape is **Bento Grid, Stat-Led, Workbench or Marquee Hero** and the pr
 
 **Base cards** (always available):
 
-| Card | Role | Composition |
-| --- | --- | --- |
-| Spec sheet | what it is, in figures the product ships with: limits, formats, versions, regions | Table or Rows (`layout.md` § 5) |
-| Worked example | the product doing one real job on the user's material: a command and its output, a capture and its caption | Showcase or Split |
-| Changelog | the last three or four entries with their real dates; the page proves it is alive | Rows |
-| Comparison anatomy | the product beside the way it is done today, row by row, no scores | Table |
-| Pricing table | the actual price, two or three tiers; "Contact sales" on every tier says the brand does not trust the buyer | `craft.md` § 9 Pricing |
-| FAQ | real objections answered like a person; "Yes, both providers work out of the box" beats "integrates with leading providers" | [`macrostructures/06-conversational-faq.md`](macrostructures/06-conversational-faq.md) |
-| CTA strip | the ask, once, one button | Band |
-| Footer | the close, in the theme's voice | `layout.md` § 7 |
+| Card               | Role                                                                                                                        | Composition                                                                            |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| Spec sheet         | what it is, in figures the product ships with: limits, formats, versions, regions                                           | Table or Rows (`layout.md` § 5)                                                        |
+| Worked example     | the product doing one real job on the user's material: a command and its output, a capture and its caption                  | Showcase or Split                                                                      |
+| Changelog          | the last three or four entries with their real dates; the page proves it is alive                                           | Rows                                                                                   |
+| Comparison anatomy | the product beside the way it is done today, row by row, no scores                                                          | Table                                                                                  |
+| Pricing table      | the actual price, two or three tiers; "Contact sales" on every tier says the brand does not trust the buyer                 | `craft.md` § 9 Pricing                                                                 |
+| FAQ                | real objections answered like a person; "Yes, both providers work out of the box" beats "integrates with leading providers" | [`macrostructures/06-conversational-faq.md`](macrostructures/06-conversational-faq.md) |
+| CTA strip          | the ask, once, one button                                                                                                   | Band                                                                                   |
+| Footer             | the close, in the theme's voice                                                                                             | `layout.md` § 7                                                                        |
 
 **Material cards** (exist only when the user supplied the material, and the Picks block names what was supplied):
 
-| Card | Needs | Without it |
-| --- | --- | --- |
-| Hero visual | a real capture | the product built in a `data-slot` (`imagery.md` § 4), or a typographic hero; never a styled-div UI outside a slot (47c) |
-| Logo row | the user's own customer marks, with permission to show them | the card does not exist; no invented marks, no "Trusted by" line (46a, 54) |
-| Three features | three named capabilities, each with a capture or figure to show | fold them into the worked example or the spec sheet |
-| Testimonials | quotes the user supplied verbatim, with the person's name, role and company as given | the card does not exist; no plausible names, no paraphrase (46a, 19) |
+| Card           | Needs                                                                                | Without it                                                                                                               |
+| -------------- | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
+| Hero visual    | a real capture                                                                       | the product built in a `data-slot` (`imagery.md` § 4), or a typographic hero; never a styled-div UI outside a slot (47c) |
+| Logo row       | the user's own customer marks, with permission to show them                          | the card does not exist; no invented marks, no "Trusted by" line (46a, 54)                                               |
+| Three features | three named capabilities, each with a capture or figure to show                      | fold them into the worked example or the spec sheet                                                                      |
+| Testimonials   | quotes the user supplied verbatim, with the person's name, role and company as given | the card does not exist; no plausible names, no paraphrase (46a, 19)                                                     |
 
 **Every deal deviates twice.** (a) Drop at least one base card and name it (the CTA strip is the usual cut; footer never drops). (b) Either promote a second base card into the hero's place (a spec sheet as the hero object says "the numbers are the pitch"; a worked example as the hero says "watch it work") or reorder one adjacent pair meaningfully (pricing before the example says "the price is the pitch"). State both moves in the Picks block: `deck: -cta +changelog` or `deck: -faq · pricing<example`. A deal that keeps at least five cards still reads complete; below five it is a landing strip, not a landing page: re-add cards or switch shape.
 
@@ -99,21 +99,21 @@ Fingerprint: one choice per axis, written `Hanging|Asymmetric spans|Hairline|Out
 
 Three shapes from different families (grid-led, document-led, poster-led, product-led) that fit the domain, never three near-twins; the one most distant from the last logged shape is the pick:
 
-| Domain words | Trio |
-| --- | --- |
-| podcast, audio, music, listening | Photographic · Quote-Led · Letter |
-| shop, store, product, merch, commerce | Catalogue · Photographic · Bento Grid |
-| docs, CLI, SDK, API, library, open source | Workbench · Long Document · Component Playground |
-| platform, infra, observability, B2B tool | Bento Grid · Workbench · Stat-Led |
-| agency, studio, case studies, portfolio | Portfolio Grid · Split Studio · Index-First |
-| personal one-pager, about-me, resume | Long Document · Letter · Index-First |
-| restaurant, café, bar, food, menu | Photographic · Long Document · Catalogue |
-| fashion, apparel, beauty, lookbook | Photographic (with real photographs) · Catalogue · Marquee Hero |
-| fintech, banking, payments, trading | Stat-Led · Workbench · Long Document |
-| manifesto, campaign, cause, advocacy | Manifesto · Quote-Led · Stat-Led |
-| editorial, foundry, magazine, type | Specimen · Long Document · Type Specimen |
-| product launch, SaaS marketing | Bento Grid · Workbench · Stat-Led |
-| conference, event, speaker | Marquee Hero · Manifesto · Photographic |
-| no signal at all | Bento Grid · Long Document · Manifesto |
+| Domain words                              | Trio                                                            |
+| ----------------------------------------- | --------------------------------------------------------------- |
+| podcast, audio, music, listening          | Photographic · Quote-Led · Letter                               |
+| shop, store, product, merch, commerce     | Catalogue · Photographic · Bento Grid                           |
+| docs, CLI, SDK, API, library, open source | Workbench · Long Document · Component Playground                |
+| platform, infra, observability, B2B tool  | Bento Grid · Workbench · Stat-Led                               |
+| agency, studio, case studies, portfolio   | Portfolio Grid · Split Studio · Index-First                     |
+| personal one-pager, about-me, resume      | Long Document · Letter · Index-First                            |
+| restaurant, café, bar, food, menu         | Photographic · Long Document · Catalogue                        |
+| fashion, apparel, beauty, lookbook        | Photographic (with real photographs) · Catalogue · Marquee Hero |
+| fintech, banking, payments, trading       | Stat-Led · Workbench · Long Document                            |
+| manifesto, campaign, cause, advocacy      | Manifesto · Quote-Led · Stat-Led                                |
+| editorial, foundry, magazine, type        | Specimen · Long Document · Type Specimen                        |
+| product launch, SaaS marketing            | Bento Grid · Workbench · Stat-Led                               |
+| conference, event, speaker                | Marquee Hero · Manifesto · Photographic                         |
+| no signal at all                          | Bento Grid · Long Document · Manifesto                          |
 
 Developer docs and developer marketing are different prompts (a walkthrough wants Workbench; the landing wants Bento plus Stat-Led), as are a one-pager and a case-study portfolio; the Step 1 use decides. A vague tone word ("modern", "clean") is read through the genre and stated as an inference, never a second question.
