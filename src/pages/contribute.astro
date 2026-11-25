@@ -2,8 +2,8 @@
 import { t } from '../i18n';
 import Base from '../layouts/Base.astro';
 
-/** Contact address for contributions. Not given yet: the page shows a slot until it is. */
-const contactEmail: string | null = null;
+/** Contact address for contributions, shown as text (no form backend in phase 1). */
+const contactEmail: string | null = 'hello@metaprovide.org';
 
 const rows = [
     { title: t('contribute_what_title'), body: t('contribute_what_body') },

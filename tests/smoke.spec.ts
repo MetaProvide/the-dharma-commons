@@ -167,6 +167,9 @@ test.describe('pages', () => {
             const errors = watchErrors(page);
             await page.goto(path);
             await expect(page.getByRole('heading', { level: 1 })).toHaveText(heading);
+            if (path === '/contribute') {
+                await expect(page.getByRole('link', { name: 'hello@metaprovide.org' })).toHaveAttribute('href', 'mailto:hello@metaprovide.org');
+            }
             await expect(page.getByRole('link', { name: 'Powered by MetaProvide' })).toBeVisible();
             expect(errors.filter((error) => !error.includes('404'))).toEqual([]);
         });
