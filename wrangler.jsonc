@@ -9,7 +9,7 @@
         "directory": "./dist",
         "binding": "ASSETS",
         "not_found_handling": "404-page",
-        "html_handling": "auto-trailing-slash",
+        "html_handling": "drop-trailing-slash",
         // The script runs first so www. and dharmacommons.com redirect on every path, not only on misses.
         "run_worker_first": true
     },
