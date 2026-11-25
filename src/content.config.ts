@@ -83,9 +83,42 @@ const transcriptCache = join(process.cwd(), '.cache', 'transcripts');
 
 const sha256 = (bytes: Uint8Array): string => createHash('sha256').update(bytes).digest('hex');
 
+/** Public Swarm gateways, tried in order. Any of them serves the same content-addressed bytes. */
+const gateways = ['https://bzz.link/bzz', 'https://api.gateway.ethswarm.org/bzz'];
+
+/**
+ * Fetches a file from Swarm through each gateway in turn, with a few attempts each,
+ * and returns the first copy whose SHA-256 matches.
+ */
+async function fetchVerified(reference: string, path: string, expected: string): Promise<Uint8Array> {
+    const failures: string[] = [];
+    for (let attempt = 0; attempt < 3; attempt++) {
+        for (const gateway of gateways) {
+            const url = `${gateway}/${reference}/${path}`;
+            try {
+                const response = await fetch(url, { signal: AbortSignal.timeout(60_000) });
+                if (!response.ok) {
+                    failures.push(`${url}: HTTP ${response.status}`);
+                    continue;
+                }
+                const bytes = new Uint8Array(await response.arrayBuffer());
+                const actual = sha256(bytes);
+                if (actual === expected) {
+                    return bytes;
+                }
+                failures.push(`${url}: SHA-256 ${actual}`);
+            } catch (error) {
+                failures.push(`${url}: ${error instanceof Error ? error.message : String(error)}`);
+            }
+        }
+        await new Promise((resolve) => setTimeout(resolve, 2000 * (attempt + 1)));
+    }
+    throw new Error(`No Swarm gateway returned ${path} with SHA-256 ${expected}.\n${failures.join('\n')}`);
+}
+
 async function readTranscript(
-    id: string,
-    files: { kind: string; sha256: string; gateway_url: string }[],
+    reference: string,
+    files: { kind: string; sha256: string; path: string }[],
 ): Promise<string | null> {
     const textFile = files.find((file) => file.kind === 'text');
     if (!textFile) {
@@ -102,15 +135,7 @@ async function readTranscript(
         // Not cached yet: fetch it from Swarm below.
     }
 
-    const response = await fetch(textFile.gateway_url);
-    if (!response.ok) {
-        throw new Error(`Could not fetch the transcript for ${id} from Swarm (HTTP ${response.status}).`);
-    }
-    const bytes = new Uint8Array(await response.arrayBuffer());
-    const actual = sha256(bytes);
-    if (actual !== textFile.sha256) {
-        throw new Error(`Transcript for ${id} does not match its Swarm SHA-256 (${actual} != ${textFile.sha256}).`);
-    }
+    const bytes = await fetchVerified(reference, textFile.path, textFile.sha256);
     await mkdir(transcriptCache, { recursive: true });
     await writeFile(cachePath, bytes);
     return Buffer.from(bytes).toString('utf8');
@@ -122,7 +147,7 @@ const teachings = defineCollection({
             snapshot.teachings.map(async (teaching) => ({
                 id: teaching.summary.id,
                 ...teaching,
-                transcript: await readTranscript(teaching.summary.id, teaching.files),
+                transcript: await readTranscript(teaching.reference, teaching.files),
             })),
         ),
     schema: teachingSchema,
