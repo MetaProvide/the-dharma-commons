@@ -1,0 +1,16 @@
+---
+import { t } from '../i18n';
+import Base from '../layouts/Base.astro';
+---
+
+<Base title={t('notfound_title')} description={t('notfound_body')}>
+    <section class="page-head page-head--quiet">
+        <div class="container page-head__grid">
+            <h1>{t('notfound_title')}</h1>
+            <div class="stack">
+                <p class="lead">{t('notfound_body')}</p>
+                <a class="btn btn--primary" href="/#teachings">{t('intro_skip')}</a>
+            </div>
+        </div>
+    </section>
+</Base>

@@ -14,7 +14,8 @@
         "lint": "biome check .",
         "lint:fix": "biome check --write .",
         "test": "playwright test",
-        "screenshots": "node scripts/screenshots.mjs"
+        "screenshots": "node scripts/screenshots.mjs",
+        "og": "node scripts/og.mjs"
     },
     "dependencies": {
         "@astrojs/react": "^7.1.9",
@@ -35,6 +36,6 @@
         "@types/react": "^19.3.3",
         "@types/react-dom": "^19.3.0",
         "pagefind": "^1.6.0",
-        "typescript": "^7.0.2"
+        "typescript": "^6.0.3"
     }
 }

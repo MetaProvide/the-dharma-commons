@@ -7,6 +7,16 @@ export type TeachingEntry = CollectionEntry<'teachings'>;
 export const swarmGateway = 'https://bzz.link/bzz';
 
 /**
+ * Gateway for playback. bzz.link ignores mid-file byte ranges, so seeking breaks there
+ * (found in the Swarm archive POC); this public gateway honours them.
+ */
+export const streamGateway = 'https://api.gateway.ethswarm.org/bzz';
+
+export function streamUrl(reference: string, path: string): string {
+    return `${streamGateway}/${reference}/${path}`;
+}
+
+/**
  * All public teachings, newest first, then by title (the same order as Joyma's archive).
  */
 export async function getTeachings(): Promise<TeachingEntry[]> {

@@ -1,0 +1,45 @@
+---
+import { t } from '../i18n';
+import Base from '../layouts/Base.astro';
+
+const rows = [
+    { title: t('about_evident_title'), body: t('about_evident_body') },
+    { title: t('about_rent_title'), body: t('about_rent_body') },
+    { title: t('about_privacy_title'), body: t('about_privacy_body') },
+    { title: t('about_review_title'), body: t('about_review_body') },
+];
+---
+
+<Base title={t('nav_about')} description={t('about_lead')} current="about">
+    <section class="page-head">
+        <div class="container page-head__grid">
+            <h1>{t('about_title')}</h1>
+            <p class="lead">{t('about_lead')}</p>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <dl class="rows__list rows__list--wide">
+                {
+                    rows.map((row) => (
+                        <div>
+                            <dt>{row.title}</dt>
+                            <dd>{row.body}</dd>
+                        </div>
+                    ))
+                }
+            </dl>
+        </div>
+    </section>
+    <section class="section--gap">
+        <div class="container rows">
+            <div class="rows__head">
+                <h2>{t('how_why_title')}</h2>
+            </div>
+            <div class="rows__statement-block">
+                <p class="rows__statement">{t('how_why_body')}</p>
+                <a href="/how-it-works">{t('teaser_more')}</a>
+            </div>
+        </div>
+    </section>
+</Base>

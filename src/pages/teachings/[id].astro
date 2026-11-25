@@ -1,0 +1,181 @@
+---
+import CheckCopy, { type CheckFile } from '../../components/islands/CheckCopy';
+import SourcePanel from '../../components/SourcePanel.astro';
+import { pick, t } from '../../i18n';
+import Base from '../../layouts/Base.astro';
+import {
+    formatBytes,
+    formatDate,
+    formatDuration,
+    getTeachings,
+    languageName,
+    streamUrl,
+    type TeachingEntry,
+    transcriptParagraphs,
+    wordCount,
+} from '../../lib/teachings';
+
+export async function getStaticPaths() {
+    const teachings = await getTeachings();
+    return teachings.map((entry) => ({ params: { id: entry.id }, props: { entry } }));
+}
+
+interface Props {
+    entry: TeachingEntry;
+}
+
+const { entry } = Astro.props;
+const { data } = entry;
+const { summary } = data;
+
+const media = data.files.find((file) => file.kind === 'audio' || file.kind === 'video');
+// The packaged transcript opens with its own title; the page already shows it.
+const paragraphs = transcriptParagraphs(data.transcript).filter((block) => block.trim() !== summary.title);
+const leadParagraphs = paragraphs.slice(0, 3);
+const restParagraphs = paragraphs.slice(3);
+const words = wordCount(data.transcript);
+const taught = formatDate(summary.taughtOn);
+const duration = formatDuration(summary.durationLabel);
+
+const facts = [
+    { label: t('detail_taught_on'), value: taught },
+    { label: t('detail_teachers'), value: summary.teacherNames.join(', ') },
+    { label: t('detail_place'), value: data.place },
+    { label: t('detail_session'), value: data.session },
+    { label: t('detail_language'), value: languageName(summary.language) },
+    { label: t('detail_duration'), value: duration },
+    { label: t('detail_formats'), value: summary.formats.map((format) => t(`format_${format}`)).join(', ') },
+].filter((fact): fact is { label: string; value: string } => Boolean(fact.value));
+
+const checkFiles: CheckFile[] = data.files.map((file) => ({
+    path: file.path,
+    url: file.gateway_url,
+    bytes: file.bytes,
+    sizeLabel: formatBytes(file.bytes),
+    sha256: file.sha256,
+}));
+const checkMessages = pick([
+    'check_title',
+    'check_intro',
+    'check_file',
+    'check_button',
+    'check_again',
+    'check_running',
+    'check_progress',
+    'check_verified',
+    'check_mismatch',
+    'check_fetch_failed',
+    'check_expected',
+    'check_actual',
+    'check_large',
+    'check_large_anyway',
+    'check_copy_hash',
+    'check_copied',
+    'check_self',
+    'check_tag_verified',
+    'check_tag_mismatch',
+] as const);
+
+const description =
+    data.description ?? `${summary.title}, ${summary.teacherNames.join(', ')}${taught ? `, ${taught}` : ''}.`;
+---
+
+<Base title={summary.title} description={description} current="teachings" ogType="article">
+    <article class="teaching" data-pagefind-body>
+        <div class="container">
+            <p class="teaching__back" data-pagefind-ignore>
+                <a href="/#teachings">{t('detail_back')}</a>
+            </p>
+            <header class="teaching__head">
+                <h1 data-pagefind-meta="title">{summary.title}</h1>
+                <p class="lead">
+                    {summary.teacherNames.join(', ')}
+                    {taught ? <span class="teaching__when">{taught}</span> : null}
+                </p>
+            </header>
+
+            <div class="teaching__grid">
+                <div class="teaching__main">
+                    <section class="player" aria-label={t('detail_listen')} data-pagefind-ignore>
+                        {
+                            media ? (
+                                media.kind === 'video' ? (
+                                    <video
+                                        class="player__video"
+                                        controls
+                                        preload="metadata"
+                                        playsinline
+                                        src={streamUrl(data.reference, media.path)}
+                                        aria-label={t('detail_audio_label', { title: summary.title })}
+                                        data-testid="player"
+                                    />
+                                ) : (
+                                    <audio
+                                        class="player__audio"
+                                        controls
+                                        preload="none"
+                                        src={streamUrl(data.reference, media.path)}
+                                        aria-label={t('detail_audio_label', { title: summary.title })}
+                                        data-testid="player"
+                                    />
+                                )
+                            ) : (
+                                <p class="muted">{t('detail_no_media')}</p>
+                            )
+                        }
+                        {media ? <p class="player__note">{t('detail_media_note')}</p> : null}
+                    </section>
+
+                    {
+                        paragraphs.length > 0 ? (
+                            <section class="transcript" aria-labelledby="transcript-title">
+                                <div class="transcript__head">
+                                    <h2 id="transcript-title">{t('detail_read')}</h2>
+                                    <p class="muted" data-pagefind-ignore>
+                                        {t('detail_transcript_meta', { count: words.toLocaleString('en-GB') })}
+                                    </p>
+                                </div>
+                                <div class="transcript__body">
+                                    {leadParagraphs.map((paragraph) => (
+                                        <p>{paragraph}</p>
+                                    ))}
+                                    {restParagraphs.length > 0 ? (
+                                        <details class="transcript__more">
+                                            <summary data-pagefind-ignore>{t('detail_transcript_expand')}</summary>
+                                            {restParagraphs.map((paragraph) => (
+                                                <p>{paragraph}</p>
+                                            ))}
+                                        </details>
+                                    ) : null}
+                                </div>
+                            </section>
+                        ) : data.description ? (
+                            <section class="transcript" aria-labelledby="about-title">
+                                <h2 id="about-title">{t('detail_about')}</h2>
+                                <div class="transcript__body">
+                                    <p>{data.description}</p>
+                                </div>
+                            </section>
+                        ) : null
+                    }
+                </div>
+
+                <aside class="teaching__aside" data-pagefind-ignore>
+                    <dl class="facts">
+                        {
+                            facts.map((fact) => (
+                                <div>
+                                    <dt>{fact.label}</dt>
+                                    <dd>{fact.value}</dd>
+                                </div>
+                            ))
+                        }
+                    </dl>
+                    {paragraphs.length > 0 && data.description ? <p class="teaching__desc">{data.description}</p> : null}
+                    <CheckCopy client:visible files={checkFiles} messages={checkMessages} />
+                    <SourcePanel teaching={data} />
+                </aside>
+            </div>
+        </div>
+    </article>
+</Base>

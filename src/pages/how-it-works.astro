@@ -1,0 +1,100 @@
+---
+import FingerprintDemo from '../components/islands/FingerprintDemo';
+import StepFigure from '../components/StepFigure.astro';
+import { pick, t } from '../i18n';
+import Base from '../layouts/Base.astro';
+import { sha256Hex } from '../lib/sha256';
+
+const steps = [
+    { key: 'recorded', title: t('how_step_recorded'), body: t('how_step_recorded_body'), label: t('how_fig_recorded') },
+    { key: 'sealed', title: t('how_step_sealed'), body: t('how_step_sealed_body'), label: t('how_fig_sealed') },
+    { key: 'spread', title: t('how_step_spread'), body: t('how_step_spread_body'), label: t('how_fig_spread') },
+    { key: 'found', title: t('how_step_found'), body: t('how_step_found_body'), label: t('how_fig_found') },
+] as const;
+
+const fingerprintLine = 'Subdue your own mind thoroughly.';
+const lineHash = await sha256Hex(new TextEncoder().encode(fingerprintLine));
+const fingerprintMessages = pick([
+    'teaser_original',
+    'teaser_yours',
+    'teaser_match',
+    'teaser_differs',
+    'teaser_edit_label',
+] as const);
+const limits = [
+    { title: t('about_evident_title'), body: t('about_evident_body') },
+    { title: t('about_rent_title'), body: t('about_rent_body') },
+    { title: t('about_privacy_title'), body: t('about_privacy_body') },
+];
+---
+
+<Base title={t('how_title')} description={t('how_lead')} current="how">
+    <section class="page-head">
+        <div class="container page-head__grid">
+            <h1>{t('how_title')}</h1>
+            <p class="lead">{t('how_lead')}</p>
+        </div>
+    </section>
+
+    <ol class="howsteps">
+        {
+            steps.map((step) => (
+                <li class="howstep">
+                    <div class="container howstep__grid">
+                        <div class="howstep__text">
+                            <h2>{step.title}</h2>
+                            <p class="lead">{step.body}</p>
+                        </div>
+                        <figure class="howstep__figure">
+                            <StepFigure step={step.key} label={step.label} />
+                            <figcaption>{step.label}</figcaption>
+                        </figure>
+                    </div>
+                </li>
+            ))
+        }
+    </ol>
+
+    <section class="print" aria-labelledby="print-title">
+        <div class="container">
+            <div class="print__head">
+                <h2 id="print-title">{t('teaser_title')}</h2>
+                <p class="lead">{t('teaser_lead')}</p>
+            </div>
+            <FingerprintDemo client:visible line={fingerprintLine} lineHash={lineHash} messages={fingerprintMessages} />
+        </div>
+    </section>
+
+    <section class="section--gap">
+        <div class="container rows">
+            <div class="rows__head">
+                <h2>{t('how_why_title')}</h2>
+            </div>
+            <p class="rows__statement">{t('how_why_body')}</p>
+        </div>
+    </section>
+
+    <section class="section--gap">
+        <div class="container rows">
+            <div class="rows__head">
+                <h2>{t('how_limits_title')}</h2>
+            </div>
+            <dl class="rows__list">
+                {
+                    limits.map((limit) => (
+                        <div>
+                            <dt>{limit.title}</dt>
+                            <dd>{limit.body}</dd>
+                        </div>
+                    ))
+                }
+            </dl>
+        </div>
+    </section>
+
+    <section class="section--gap">
+        <div class="container">
+            <a class="btn btn--primary" href="/#teachings">{t('how_cta')}</a>
+        </div>
+    </section>
+</Base>

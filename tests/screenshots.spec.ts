@@ -3,7 +3,15 @@ import { expect, test } from '@playwright/test';
 /**
  * Captures the pages for review. Run with SCREENSHOTS=1 pnpm test tests/screenshots.spec.ts
  */
-const pages = [{ name: 'home', path: '/' }];
+const pages = [
+    { name: 'home', path: '/' },
+    { name: 'teaching-audio', path: '/teachings/01a16397-060c-7074-a7b9-f8ad35869547' },
+    { name: 'teaching-video', path: '/teachings/01a1a7d0-e8f0-707f-b9f6-2a3c479cbd3d' },
+    { name: 'how-it-works', path: '/how-it-works' },
+    { name: 'about', path: '/about' },
+    { name: 'contribute', path: '/contribute' },
+    { name: 'not-found', path: '/no-such-page' },
+];
 
 test.describe('screenshots', () => {
     test.skip(!process.env.SCREENSHOTS, 'Set SCREENSHOTS=1 to capture review screenshots.');

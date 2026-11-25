@@ -9,7 +9,10 @@
             "!src/data/transcripts",
             "!test-results",
             "!playwright-report",
-            "!.hallmark"
+            "!.hallmark",
+            "!.claude",
+            "!screenshots",
+            "!scrollcraft"
         ]
     },
     "formatter": { "indentStyle": "space", "indentWidth": 4, "lineWidth": 120 },

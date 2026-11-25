@@ -1,0 +1,178 @@
+---
+/**
+ * One isometric hairline figure per preservation step (iso-glow kernel, light theme:
+ * no glow, the accent only on what is live).
+ */
+interface Props {
+    step: 'recorded' | 'sealed' | 'spread' | 'found';
+    label: string;
+}
+
+const { step, label } = Astro.props;
+
+const cos30 = Math.cos(Math.PI / 6);
+const sin30 = Math.sin(Math.PI / 6);
+const OX = 300;
+const OY = 150;
+const P = (x: number, y: number, z: number): string =>
+    `${((x - y) * cos30 + OX).toFixed(1)},${((x + y) * sin30 - z + OY).toFixed(1)}`;
+
+/** A box as its three visible faces: top, left (y-max) and right (x-max). */
+function box(x: number, y: number, z: number, w: number, d: number, h: number) {
+    return {
+        top: [P(x, y, z + h), P(x + w, y, z + h), P(x + w, y + d, z + h), P(x, y + d, z + h)].join(' '),
+        left: [P(x, y + d, z + h), P(x + w, y + d, z + h), P(x + w, y + d, z), P(x, y + d, z)].join(' '),
+        right: [P(x + w, y, z + h), P(x + w, y + d, z + h), P(x + w, y + d, z), P(x + w, y, z)].join(' '),
+    };
+}
+
+const ground = box(-40, -40, 0, 320, 320, 6);
+
+// Recorded: three files on a tray (audio, transcript, record).
+const files = [
+    { b: box(30, 40, 6, 70, 90, 6), live: false },
+    { b: box(115, 40, 6, 70, 90, 6), live: true },
+    { b: box(200, 40, 6, 70, 90, 6), live: false },
+];
+
+// Sealed: one collection block and its seal disc above it.
+const block = box(70, 60, 6, 140, 140, 40);
+
+// Spread / Found: a grid of node boxes with chunks on top.
+const nodeSpots = [
+    [0, 0],
+    [120, 0],
+    [240, 0],
+    [0, 120],
+    [120, 120],
+    [240, 120],
+    [0, 240],
+    [120, 240],
+    [240, 240],
+] as const;
+const nodes = nodeSpots.map(([x, y], index) => ({
+    b: box(x - 20, y - 20, 6, 40, 40, 26),
+    chunk: box(x - 9, y - 9, 32, 18, 18, 4),
+    live: step === 'found' ? index % 2 === 0 : true,
+}));
+const sealCentre = P(140, 130, 46).split(',').map(Number) as [number, number];
+const centre = P(120, 120, 60).split(',').map(Number) as [number, number];
+---
+
+<svg class={`step-fig step-fig--${step}`} viewBox="0 0 600 420" role="img" aria-label={label}>
+    <polygon class="f-top" points={ground.top}></polygon>
+    <polygon class="f-left" points={ground.left}></polygon>
+    <polygon class="f-right" points={ground.right}></polygon>
+
+    {
+        step === 'recorded'
+            ? files.map(({ b, live }) => (
+                  <g>
+                      <polygon class="f-left" points={b.left} />
+                      <polygon class="f-right" points={b.right} />
+                      <polygon class={live ? 'f-top f-live' : 'f-top'} points={b.top} />
+                  </g>
+              ))
+            : null
+    }
+
+    {
+        step === 'sealed' ? (
+            <g>
+                <polygon class="f-left" points={block.left} />
+                <polygon class="f-right" points={block.right} />
+                <polygon class="f-top" points={block.top} />
+                <circle class="seal-ring" cx={sealCentre[0]} cy={sealCentre[1] - 20} r="34" />
+                <circle class="seal-core" cx={sealCentre[0]} cy={sealCentre[1] - 20} r="26" />
+                <path
+                    class="seal-mark"
+                    d={`M${sealCentre[0] - 11} ${sealCentre[1] - 25}h22M${sealCentre[0] - 11} ${sealCentre[1] - 15}h22M${sealCentre[0] - 5} ${sealCentre[1] - 31}v22M${sealCentre[0] + 5} ${sealCentre[1] - 31}v22`}
+                />
+            </g>
+        ) : null
+    }
+
+    {
+        step === 'spread' || step === 'found'
+            ? nodes.map(({ b, chunk, live }) => (
+                  <g>
+                      <polygon class="f-left" points={b.left} />
+                      <polygon class="f-right" points={b.right} />
+                      <polygon class="f-top" points={b.top} />
+                      <polygon class="f-left" points={chunk.left} />
+                      <polygon class="f-right" points={chunk.right} />
+                      <polygon class={live ? 'f-top f-live' : 'f-top'} points={chunk.top} />
+                  </g>
+              ))
+            : null
+    }
+
+    {
+        step === 'found' ? (
+            <g>
+                {nodes
+                    .filter((node) => node.live)
+                    .map((node) => {
+                        const [x, y] = node.chunk.top.split(' ')[0]?.split(',').map(Number) ?? [0, 0];
+                        return <line class="f-wire" x1={x} y1={y} x2={centre[0]} y2={centre[1] - 70} />;
+                    })}
+                <circle class="seal-ring" cx={centre[0]} cy={centre[1] - 90} r="22" />
+                <path class="seal-tick" d={`M${centre[0] - 9} ${centre[1] - 90}l6 6l12 -13`} />
+            </g>
+        ) : null
+    }
+</svg>
+
+<style>
+    .step-fig {
+        width: 100%;
+        height: auto;
+        overflow: visible;
+    }
+    .step-fig * {
+        vector-effect: non-scaling-stroke;
+        stroke-linejoin: round;
+    }
+    .f-top,
+    .f-left,
+    .f-right {
+        stroke: var(--color-ink);
+        stroke-width: 1;
+    }
+    .f-top {
+        fill: var(--color-paper);
+    }
+    .f-left {
+        fill: var(--color-paper-2);
+    }
+    .f-right {
+        fill: var(--color-paper-3);
+    }
+    .f-live {
+        fill: var(--color-accent-soft);
+        stroke: var(--color-accent);
+    }
+    .f-wire {
+        stroke: var(--color-accent);
+        stroke-width: 1;
+        stroke-dasharray: 3 4;
+    }
+    .seal-ring {
+        fill: var(--color-paper);
+        stroke: var(--color-ink);
+        stroke-width: 1.5;
+    }
+    .seal-core {
+        fill: var(--color-accent-soft);
+        stroke: var(--color-accent);
+    }
+    .seal-mark,
+    .seal-tick {
+        fill: none;
+        stroke: var(--color-accent-soft-ink);
+        stroke-width: 2;
+    }
+    .seal-tick {
+        stroke: var(--color-accent);
+    }
+</style>

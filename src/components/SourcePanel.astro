@@ -1,0 +1,148 @@
+---
+/**
+ * Secondary detail for one teaching: where it lives on Swarm, its files and fingerprints,
+ * where it came from, its rights and its packaging. Closed by default; readable without script.
+ */
+import type { Teaching } from '../content.config';
+import { type MessageKey, t } from '../i18n';
+import { formatBytes } from '../lib/teachings';
+
+interface Props {
+    teaching: Teaching;
+}
+
+const { teaching } = Astro.props;
+
+const packagedAt = teaching.packagedAt
+    ? new Intl.DateTimeFormat('en-GB', { dateStyle: 'long', timeStyle: 'short', timeZone: 'UTC' }).format(
+          new Date(teaching.packagedAt),
+      )
+    : null;
+
+const sourceLabel = (role: string): string => {
+    const key = (role === 'source_detail' ? 'source_detail' : `source_${role}`) as MessageKey;
+    return t(key);
+};
+
+const record = [
+    { label: t('panel_archive_id'), value: teaching.archiveId },
+    { label: t('panel_packaged_at'), value: packagedAt ? `${packagedAt} UTC` : null },
+    { label: t('panel_packaged_by'), value: teaching.packagedBy },
+].filter((row): row is { label: string; value: string } => Boolean(row.value));
+---
+
+<details class="panel" data-testid="source-panel">
+    <summary class="panel__summary">{t('panel_title')}</summary>
+    <div class="panel__body">
+        <section class="panel__group">
+            <h3>{t('panel_reference')}</h3>
+            <p><code class="panel__ref" data-testid="swarm-reference">{teaching.reference}</code></p>
+            <div class="panel__actions">
+                <button type="button" class="btn" data-copy={teaching.reference} data-copied-label={t('check_copied')}>
+                    {t('panel_copy_reference')}
+                </button>
+                <a class="btn btn--quiet" href={teaching.collectionUrl} rel="noopener">{t('panel_open_swarm')}</a>
+            </div>
+            <p class="panel__help">{t('panel_resolves_help')}</p>
+        </section>
+
+        <section class="panel__group">
+            <h3>{t('panel_files')}</h3>
+            <ul class="panel__files">
+                {
+                    teaching.files.map((file) => (
+                        <li>
+                            <p class="panel__file">
+                                <a href={file.gateway_url} rel="noopener">
+                                    {file.path}
+                                </a>
+                                <span class="muted">{formatBytes(file.bytes)}</span>
+                            </p>
+                            <p>
+                                <code class="panel__hash">{file.sha256}</code>
+                            </p>
+                        </li>
+                    ))
+                }
+            </ul>
+        </section>
+
+        {
+            teaching.sources.length > 0 ? (
+                <section class="panel__group">
+                    <h3>{t('panel_sources')}</h3>
+                    <dl class="panel__dl">
+                        {teaching.sources.map((source) => (
+                            <div>
+                                <dt>{sourceLabel(source.role)}</dt>
+                                <dd>
+                                    {source.url ? (
+                                        <a href={source.url} rel="noopener">
+                                            {new URL(source.url).hostname.replace(/^www\./, '')}
+                                        </a>
+                                    ) : (
+                                        source.value
+                                    )}
+                                </dd>
+                            </div>
+                        ))}
+                    </dl>
+                </section>
+            ) : null
+        }
+
+        {
+            teaching.rights ? (
+                <section class="panel__group">
+                    <h3>{t('panel_rights')}</h3>
+                    <p>{teaching.rights}</p>
+                </section>
+            ) : null
+        }
+
+        <section class="panel__group">
+            <dl class="panel__dl">
+                {
+                    record.map((row) => (
+                        <div>
+                            <dt>{row.label}</dt>
+                            <dd>{row.value}</dd>
+                        </div>
+                    ))
+                }
+                {
+                    teaching.postageStamp ? (
+                        <div>
+                            <dt>{t('panel_postage')}</dt>
+                            <dd>
+                                <code class="panel__hash">{teaching.postageStamp}</code>
+                            </dd>
+                        </div>
+                    ) : null
+                }
+                <div>
+                    <dt>{t('panel_paid_for')}</dt>
+                    <dd>{t('panel_paid_for_value')}</dd>
+                </div>
+            </dl>
+            <p class="panel__help">{t('panel_paid_for_help')}</p>
+        </section>
+    </div>
+</details>
+
+<script>
+    for (const button of document.querySelectorAll<HTMLButtonElement>('[data-copy]')) {
+        const original = button.textContent;
+        button.addEventListener('click', async () => {
+            try {
+                await navigator.clipboard.writeText(button.dataset.copy ?? '');
+                button.textContent = button.dataset.copiedLabel ?? original;
+                window.setTimeout(() => {
+                    button.textContent = original;
+                }, 2000);
+            } catch {
+                // Clipboard can be blocked; the reference stays selectable on the page.
+            }
+        });
+    }
+</script>

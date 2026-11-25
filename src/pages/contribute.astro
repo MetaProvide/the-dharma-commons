@@ -1,0 +1,54 @@
+---
+import { t } from '../i18n';
+import Base from '../layouts/Base.astro';
+
+/** Contact address for contributions. Not given yet: the page shows a slot until it is. */
+const contactEmail: string | null = null;
+
+const rows = [
+    { title: t('contribute_what_title'), body: t('contribute_what_body') },
+    { title: t('contribute_how_title'), body: t('contribute_how_body') },
+    { title: t('contribute_cost_title'), body: t('contribute_cost_body') },
+];
+---
+
+<Base title={t('nav_contribute')} description={t('contribute_lead')} current="contribute">
+    <section class="page-head">
+        <div class="container page-head__grid">
+            <h1>{t('contribute_title')}</h1>
+            <p class="lead">{t('contribute_lead')}</p>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <dl class="rows__list rows__list--wide">
+                {
+                    rows.map((row) => (
+                        <div>
+                            <dt>{row.title}</dt>
+                            <dd>{row.body}</dd>
+                        </div>
+                    ))
+                }
+            </dl>
+        </div>
+    </section>
+    <section class="band">
+        <div class="container band__inner">
+            <h2>{t('contribute_contact')}</h2>
+            {
+                contactEmail ? (
+                    <p class="band__mail">
+                        <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
+                    </p>
+                ) : (
+                    <p class="band__mail">
+                        <span class="fill" data-fill="contact-email">
+                            {t('contribute_contact_missing')}
+                        </span>
+                    </p>
+                )
+            }
+        </div>
+    </section>
+</Base>

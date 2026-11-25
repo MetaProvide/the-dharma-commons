@@ -15,6 +15,8 @@ pnpm dev                                # http://localhost:4321
 pnpm build                              # static site in dist/, then the Pagefind index
 pnpm preview                            # serve dist/
 pnpm lint                               # Biome
+pnpm check                              # astro check (TypeScript 6; astro check does not support 7 yet)
+pnpm og                                 # re-render public/og.png from the built home page
 pnpm test                               # Playwright smoke tests (builds must exist: run pnpm build first)
 SCREENSHOTS=1 pnpm test tests/screenshots.spec.ts   # review screenshots into screenshots/
 ```
